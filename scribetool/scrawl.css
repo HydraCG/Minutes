@@ -1,0 +1,92 @@
+body {
+   margin: auto;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;
+}
+
+label {
+   float: left;
+   text-align: right;
+   margin-right: 15px;
+   width: 100px;
+}
+
+a {
+   color: #4183c4;
+}
+
+ol {
+   padding-left: 1.2em;
+   margin: 0em;
+}
+
+#toolbar {
+   background: #ddd;
+   border-top: solid 1px #666;
+   bottom: 0;
+   position: fixed;
+   width: 100%;
+   z-index: 1000;
+}
+
+.content {
+   margin-left:20%;
+   margin-right:20%;
+}
+
+.left-column {
+   width: 80%;
+   float: left;
+}
+
+.right-column {
+   float: right;
+}
+
+.button {
+   background: #beb;
+   border: 0.2em solid #c4c8cc;
+   margin: 0.2em;
+   border-radius: 1em 1em 1em 1em;
+   padding: 0.2em;
+}
+
+.toolbar-padding {
+   padding: 10px;
+}
+
+.toolbar-height {
+   width:95%;
+   height:200px !important;
+   min-height:200px !important;
+}
+
+.name {
+   font-weight: bold;
+}
+
+.information {
+   font-style: italic;
+}
+
+.comment-continuation {
+   margin-left: 1.5em;
+}
+
+.proposal, .resolution, .action {
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.proposal {
+    background: #ddd;
+ }
+
+.resolution {
+    background: #4eb14e;
+    color: #fff;
+}
+
+.action {
+    background: #fbbc0e;
+}
