@@ -1,0 +1,220 @@
+[20:00] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:02] -!- Ruben [~ruben@public.cloak] has joined #hydra
+[20:03] <markus> Scribe: Ruben
+[20:04] <markus> Topic: Intros
+[20:04] <Ruben> Markus: Let's start with a round of introductions.
+[20:04] <Ruben> Markus: I started Hydra a couple of years ago.
+[20:04] <markus> Ruben: I'm a researcher at Gent University
+[20:05] <markus> ... working on Linked Data Fragments based on Hydra
+[20:05] <Ruben> … querying different APIs, that's why Hydra is important to us.
+[20:05] <Ruben> Tomasz: RDF background, want to move Hydra forward.
+[20:06] <Ruben> Pavlik: Working with LD for quite a bit. Look forward to how Hydra develops. Playing with Solid lately. Hypermedia APIs and clients. Based in Mexico City.
+[20:07] <Ruben> Thomas: CTO Zazuko. Linked Data and Hydra. Implemented rdf-ext. Internet of things at home is already Hydra-enabled. Hoping to get Hydra more into IoT. Cool stuff with JavaScript and constrained devices.
+[20:07] <Ruben> Karol: (audio very weak, couldn't understand)
+[20:08] <Ruben> Dietrich: Met Markus and Pavlik in Paris 2 years ago. Background in REST APIs, and frustration about lack of self-describing features. Integration. Wrote pull request for hypothetic client interface.
+[20:08] <markus> Topic: Dietrich's PR #111
+[20:09] <markus> https://github.com/HydraCG/Specifications/pull/111
+[20:09] <Ruben> Dietrich: main interest = working code, not so much how interface should look like
+[20:09] <Ruben> … pull request had been started, but minimal…
+[20:12] <Ruben> …get some code to validate the API.
+[20:12] <markus> zakim, present+ dietrich
+[20:12] <markus> zakim, present+ Ruben
+[20:12] <markus> zakim, present+ bergi
+[20:12] <Ruben> Ruben: what is the end goal of #111?
+[20:12] <markus> zakim, present+ elf-pavlik
+[20:13] <markus> zakim, present+ tpluskiewicz
+[20:13] <Ruben> Dietrich: show how application uses an API, build code afterwards
+[20:13] <markus> zakim, present+ karol_szzczepanski
+[20:13] <Ruben> …pseudo-language, try to implement
+[20:13] <Ruben> Markus: There were some differing opinions on what the interface should look like.
+[20:14] <Ruben> …app or low-level library
+[20:14] <Ruben> …both are fine, expectations of most have been low-level library
+[20:14] <Ruben> …disclaimers have been added to PR
+[20:14] <Ruben> …we should merge and give a shot
+[20:15] <Ruben> q+ to suggest different repository for clinet
+[20:15]  * Zakim sees Ruben on the speaker queue
+[20:15] <Ruben> s/clinet/client
+[20:16] <Ruben> Dietrich: no problem if is rewritten, comments would make it quite a rewrite
+[20:16] <Ruben> …Should the client be aware of the uniform interface?
+[20:16] <Ruben> …Abstracting it away opens a lot of new questions.
+[20:17] <Ruben> …Bottom line: do what you want with the PR.
+[20:17] <bergi> +q align the interface more to the fetch standard API (after merging the PR)
+[20:17]  * Zakim bergi, you typed too many words without commas; I suspect you forgot to start with 'to ...'
+[20:17] <markus> ack Ruben
+[20:17] <Zakim> Ruben, you wanted to suggest different repository for clinet
+[20:17]  * Zakim sees no one on the speaker queue
+[20:17] <markus> Ruben: couple of things. Great step to move forward
+[20:17] <markus> ... think that a client won't be a single issue but multiple issues
+[20:18] <markus> ... may need a separate client
+[20:18] <Ruben> Karol: some questions related to the client would make things difficult.
+[20:19] <Ruben> Markus: related to spec itself, against moving it.
+[20:19] <markus> ack bergi
+[20:19]  * Zakim sees no one on the speaker queue
+[20:19] <Ruben> Thomas: fine however we handle it, we should align it more to other standards
+[20:19] <Ruben> Markus: what standards?
+[20:19] <Ruben> Thomas: fetch; I already implemented a client
+[20:20] <Ruben> (link?)
+[20:20] <Ruben> Thomas: align with RDF/JS spec; a lot of stuff is only JSON-LD
+[20:20] <bergi> https://github.com/rdf-ext/rdf-fetch-lite
+[20:21] <Ruben> …already made an extension
+[20:21] <Ruben> …to RDF/JS
+[20:21] <bergi> extension to fetch for RDFJS
+[20:21] <tpluskiewicz> q?
+[20:21]  * Zakim sees no one on the speaker queue
+[20:21] <bergi> fetch spec: https://fetch.spec.whatwg.org/
+[20:22] <Ruben> Thomas: we should maybe have something like a browser, built on top of more low-level client. We should split into low/high level.
+[20:23] <Ruben> Thomasz: Looking at the PR, I'm missing JSON-LD examples/snippets, what client gets and what it can do with it. How does the client use the controls? Hard to tell what API we are looking at.
+[20:24] <Ruben> Ruben: maybe we need recurring use case?
+[20:24] <Ruben> Thomasz: RESTbucks
+[20:25] <Ruben> Markus: makes sense, tried that from the beginning with issue tracker and events API, but too hidden in an implementation.
+[20:26] <Ruben> Markus: good idea to document requests and responses
+[20:26] <Ruben> Markus: volunteers?
+[20:26] <Ruben> Karol: what should be in there?
+[20:26] <Ruben> Markus: let's take event API. Have markdown document that lists use cases with requests and responses, dump of HTTP interaction.
+[20:27] <Ruben> Tomasz: Let's make it multiple documents. For each use case a document.
+[20:27] <Ruben> …different variants, states, etc.
+[20:28] <Ruben> Karol: I will give it a try.
+[20:28] <Ruben> …let's decide on deadline.
+[20:29] <Ruben> …I'll try to craft something ASAP, we can decide whether it goes in the right direction.
+[20:29] <Ruben> …Do we need context for this task? What kind of application are we considering?
+[20:29] <Ruben> …Calendar app?
+[20:30] <Ruben> Markus: Low-hanging fruit is event app or issue tracker.
+[20:30] <Ruben> …because that's already there.
+[20:30] <Ruben> Karol: I'll try to craft something.
+[20:30] <Ruben> …I assume this should be created in similar way as #111? Markdown?
+[20:30] <Ruben> Markus: Yes, easiest.
+[20:31] <markus> ACTION: Karol to create a first version of a markdown document describing client/server interactions before next telecon
+[20:31]  * RRSAgent records action 1
+[20:31] <markus> PROPOSAL: Go ahead and merge Dietrich's pull request
+[20:31] <markus> +1
+[20:31] <elf-pavlik> +1
+[20:31] <tpluskiewicz> +1
+[20:31] <bergi> +1
+[20:32] <Ruben> -0.5 I don't think it fully crystalized yet, but no strong opinion
+[20:32] <markus> RESOLVED: Go ahead and merge Dietrich's pull request
+[20:32] <markus> TOPIC: Ruben's architectural diagram
+[20:33] <markus> https://github.com/RubenVerborgh/Hydra-Architecture-Diagram
+[20:33] <markus> Ruben: We need hypermedia controls in detail. We got stuck in the discussions in the last 2 years
+[20:33] <markus> ... This is an effort to get things moving again - like Dietrich's PR
+[20:34] <markus> ... it's a technical diagram but also acts as organizational diagram
+[20:34] <markus> ... who wants to work on what etc.
+[20:34] <markus> ... main separation is API modeling vs. in-band controls
+[20:35] <markus> ... for each we have bits and pieces but some stuff is not complete (e.g. pagination)
+[20:35] <markus> ... I expect two kinds of feedback: 1) specifically on the diagram itself 2) what do people think of this diagram to move forward?
+[20:36] <markus> ... we'll need concrete proposals for each block
+[20:36] <markus> ... and maybe split into subgroups
+[20:36] <Ruben> Tomasz: I don't like splitting, there's only a handful of us anyway.
+[20:36] <Ruben> …But in general, I like the diagram.
+[20:36] <Ruben> q+ to clarify splitting
+[20:36]  * Zakim sees Ruben on the speaker queue
+[20:37] <Ruben> …Clarifies some things.
+[20:37] <Ruben> …Issues will likely tackle one or two blocks.
+[20:38] <Ruben> …One more thought: currently, Hydra Core deals with abstractions and concretes, like paging or filtering.
+[20:38] <Ruben> …I don't know if you looked at the issues in the repo.
+[20:38] <Ruben> …When we have field constraints, for instance, I'd like to shrink Hydra Core, so it only describes the abstract thing.
+[20:38] <Ruben> …We should be more open to different ways for defining constraints or ways to filter.
+[20:39] <Ruben> …So Hydra Core and missing pieces filled in by other vocabulary.
+[20:39] <Ruben> Markus: Would you like to see the vocab be split right now, given that we don't know what the complete vocabulary will end up like?
+[20:40] <Ruben> Tomasz: I would want to split sooner rather than later. There's already a number of competing ways (data shapes, shaql, …)
+[20:40] <Ruben> …We can keep fighting on how to make a field e.g., a number, or we can just define some basics.
+[20:40] <Ruben> …We should give them the smallest possible building blocks.
+[20:40] <markus> ack Ruben
+[20:40] <Zakim> Ruben, you wanted to clarify splitting
+[20:40]  * Zakim sees no one on the speaker queue
+[20:41] <markus> Ruben: I agree, we are indeed only a handful of people
+[20:41] <markus> ... it's more about ownership
+[20:41] <markus> ... lots of discussions got lost in discussions without having the full picture
+[20:41] <markus> ... with a group I would like people to focus on a specific thing like fields e.g. for a month and then present progress
+[20:42] <markus> ... I for instance would be able to get a group of people at Gent University to write a spec for some subparts
+[20:42] <Ruben> Markus: two things: splitting ownership, and organizing how we move forward
+[20:43] <Ruben> …Tomasz was more about technical separation, namespaces etc.
+[20:43] <Ruben> Tomasz: Problem with ownership is that Markus is viewed as oracle, everyone looking for blessing.
+[20:43] <Ruben> …Benevolent dictator situation?
+[20:43] <Ruben> Markus: I've been thinking about that.
+[20:44] <Ruben> …This brings us to the last agenda item.
+[20:44] <Ruben> …Let's first close up.
+[20:44] <Ruben> …Where do we want to take the diagram?
+[20:44] <Ruben> …Do we want to iterate? Do people think it is useful? Is the representation useful?
+[20:44] <Ruben> …Does it help us to make progress?
+[20:44] <markus> Who thinks this is useful for moving forward
+[20:45] <elf-pavlik> +1 should we include it somewhere in https://github.com/HydraCG/Specifications ?
+[20:46] <Ruben> Dietrich: Ruben's comments in the beginning helped me with the distinction modeling and controls. We can keep it as a basis.
+[20:46] <markus> +0.5 a bit too abstract for my taste, would like to see it move somewhere under https://github.com/HydraCG/Specifications
+[20:46] <bergi> +1
+[20:47] <markus> Ruben: I can take the task to move it to the main repo
+[20:47] <markus> PROPOSAL: Move it into the main repo and keep iterating on it
+[20:47] <markus> +1
+[20:48] <elf-pavlik> +1
+[20:48] <Ruben> +1
+[20:48] <tpluskiewicz> +1 IMO abstractness is good for general discussions. aligns with my idea of smaller Core Vocab
+[20:48] <karol_szczepanski> +1
+[20:48] <markus> dietrich: +1
+[20:48] <markus> RESOLVED: Move the architectural diagram into the main repo and keep iterating on it
+[20:49] <markus> Topic: The future of Hydra—how do we move from here?
+[20:49] <markus> Ruben: Let me be brutally honest
+[20:49] <markus> ... we need hypermedia and I'd love this to be Hydra
+[20:50] <markus> ... we need this to move again or we need to find something else
+[20:50] <markus> ... shouldn't be a threat
+[20:50] <markus> ... but we need things to move
+[20:50] <Ruben> Markus: I have been a bottleneck because my time is extremely limited at the moment, and has been the last year.
+[20:51] <Ruben> …I'd love to see more people step forward and start working on things, like Dietrich.
+[20:51] <Ruben> …Triggered a lot of comments, good to see that people are still interested.
+[20:52] <Ruben> …I probably was looking too much for consensus. Will probably proceed more strongly in the future, unless people strongly disagree.
+[20:52] <Ruben> …We can always revisit later if there are new insights.
+[20:52] <Ruben> …We spent a lot of time getting people on the same page. But we're there now.
+[20:52] <Ruben> …I just hope that people take more initiative by themselvs.
+[20:52] <Ruben> s/themselvs/themselves/
+[20:53] <markus> Ruben: we need consensus on architectural document
+[20:53] <markus> ... want to split stuff. let's take paging
+[20:53] <markus> ... input phase: what are the use cases etc.
+[20:53] <markus> ... the group goes off and creates something
+[20:53] <markus> ... it gets presented and discussed
+[20:54] <Ruben> Dietrich: I'm very much interested in progress. We need to identify the area where we want to make progress.
+[20:55] <Ruben> Markus: I'd still like to see some consensus and discussions.
+[20:55] <Ruben> …but happy with concrete proposals.
+[20:56] <markus> Dietrich: Ruben, what does your team needs the most, for me it's fields
+[20:56] <markus> Ruben: filtering and fields
+[20:56] <markus> ... proposal: let's take 1 month to discuss architectural diagram
+[20:56] <markus> ... and then start working on blocks
+[20:56] <markus> ... I don't want this to become a closed thing
+[20:56] <markus> ... we just have the time
+[20:57] <Ruben> Markus: Do people want to iterate on specifications, or would it be more productive to work together on a reference implementation?
+[20:58] <Ruben> Karol: From my perspective (spent some time on client and server implementation of Hydra): examples and living code talk to people, and this is what Hydra currently lacks.
+[20:59] <Ruben> …So maybe start from examples. The spec is okay, but the most productive way is to have something working.
+[20:59] <Ruben> …For instance, I don't know how to create an operation that uses an IRITemplate.
+[20:59] <Ruben> …I don't know how far my implementation is from being correct.
+[21:00] <Ruben> Markus: I wonder if the document with the example interactions would help you in that regard?
+[21:00] <bergi> q+
+[21:00]  * Zakim sees bergi on the speaker queue
+[21:00] <tpluskiewicz> q+
+[21:00]  * Zakim sees bergi, tpluskiewicz on the speaker queue
+[21:01] <Ruben> ack bergi
+[21:01]  * Zakim sees tpluskiewicz on the speaker queue
+[21:01] <Ruben> Thomas: what language? Probably JavaScript.
+[21:02] <Ruben> Tomasz: As a comment for Karol: if you have a problem with holes in the spec, this could be your focus for the examples.
+[21:03] <Ruben> Thomas: I saw most activity with JavaScript.
+[21:04] <Ruben> Ruben: everybody can contribute what they're best at (spec, example, code)?
+[21:05] <markus> PROPOSAL: Concentrate on examples (and perhaps code) instead of spec writing to get things moving again
+[21:05] <tpluskiewicz> +1
+[21:05] <karol_szczepanski> +1
+[21:05] <Ruben> -1 we need both, but specs can start from code
+[21:05] <Ruben> (spec just needs to move faster; it needn't be slow)
+[21:05] <bergi> -1, +1 rubens comment
+[21:06] <elf-pavlik> +1 examples -1 *instead of* spec writing
+[21:06] <Ruben> agree with elf-pavlik
+[21:06] <markus> Dietrich: +1, make sense to me
+[21:06] <markus> +1
+[21:08] <karol_szczepanski> q+
+[21:08]  * Zakim sees tpluskiewicz, karol_szczepanski on the speaker queue
+[21:08] <markus> Ruben: examples are good but they don't replace the rest
+[21:08] <markus> ack karol_szczepanski
+[21:08]  * Zakim sees tpluskiewicz on the speaker queue
+[21:08] <Ruben> Karol: no one says "instead of"
+[21:08] <tpluskiewicz> q-
+[21:08]  * Zakim sees no one on the speaker queue
+[21:09] <Ruben> …let's focus on having both, and spend extra time on examples. Then go back to spec.
+[21:10] <Ruben> Dietrich: we should find use cases to work on, and find things that are not possible with the spec, then add to the spec
+[21:11] <Ruben> (we should probably close in the interest of time)
+[21:12] <Ruben> Thomas: The spec needs a lot of work. Only the examples won't get us there either.
+[21:13] <Ruben> Markus: once we have agreement on the examples, we will move them to the spec.
+[21:14] <markus> RESOLVED: Concentrate primarily on examples to get things moving again, iterate, implement and finally update the spec
