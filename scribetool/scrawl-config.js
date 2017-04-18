@@ -48,7 +48,7 @@
 <body>
   <div class="header">
       <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-          <span class="pure-menu-heading"><img src="/img/logo.svg" alt="Hydra"></span>
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
           <ul>
               <li><a href="/#specifications">Specifications</a></li>
               <li><a href="/#community">Community</a></li>
