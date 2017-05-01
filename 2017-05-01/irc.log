@@ -1,0 +1,102 @@
+[20:03] <markus> Scribe: elf-pavlik
+[20:03] <markus> Topic: Discuss Karol's PRs #113 #114 #115 #116 #117
+[20:03] <elf-pavlik> present+ karol-szczepanski
+[20:03] <elf-pavlik> present+ tpluskiewicz
+[20:04] <elf-pavlik> markus: thank you karol-szczepanski for your PRs
+[20:04] <elf-pavlik> karol-szczepanski: i consider them ready and they stay open for discussion
+[20:04] <elf-pavlik> ... i plan to craft couple more PRs
+[20:05] <elf-pavlik> ... i already took into account all the comments which i received in first few days
+[20:05] <elf-pavlik> ... so far no one reviewed #117
+[20:05] <elf-pavlik> markus: I would be fine with merging those already reviewed
+[20:05] <tpluskiewicz> q+
+[20:05] * Zakim sees tpluskiewicz on the speaker queue
+[20:06] <elf-pavlik> ... good job karol-szczepanski
+[20:06] <markus> zakim, ack
+[20:06] <Zakim> I don't understand 'ack', markus
+[20:06] <markus> ack
+[20:06] <elf-pavlik> tpluskiewicz: agrees, merge them (those which received review)
+[20:06] <elf-pavlik> ... later we can follow up with more PRs proposing changes
+[20:06] <markus> zakim, ack tpluskiewicz
+[20:06] <Zakim> I see no one on the speaker queue
+[20:06] <elf-pavlik> +1
+[20:07] <elf-pavlik> tpluskiewicz: i will prepare PRs when I see need to change something, this may make it easier to manage
+[20:07] <elf-pavlik> markus: should we vote on merging first 3 PRs?
+[20:08] <markus> PROPOSAL: Merge PR #113, #114, and #115
+[20:08] <elf-pavlik> +1
+[20:08] <markus> +1
+[20:08] <tpluskiewicz> +1
+[20:08] <karol-szczepanski> +!
+[20:08] <markus> RESOLVED: Merge PR #113, #114, and #115
+[20:08] <elf-pavlik> markus: I'll go ahead and merge them after the telecon
+[20:09] <elf-pavlik> ... other one's just need review on github or we should discuss something now?
+[20:09] <elf-pavlik> karol-szczepanski: i would prefer to get some proper review on github
+[20:09] <elf-pavlik> markus: how this will drive further actions?
+[20:10] <elf-pavlik> ... we have some use cases and should discuss which of them current spec already covers
+[20:10] <elf-pavlik> ... regarding client development, i don't have time myself but if someone want to spearhead it I welcome it very much
+[20:11] <elf-pavlik> karol-szczepanski: one of your comments on PR, related to you preference of generic Use Cases
+[20:11] <elf-pavlik> ... all UC which I created were more specific
+[20:11] <elf-pavlik> ... I see benefits in working with more specific use cases
+[20:12] <elf-pavlik> ... they can lead to solutions to real specific problems
+[20:12] <elf-pavlik> markus: to clarify, i didn't mean to do all generic, other ones seamed to have generic use cases on just one i commented on had specific one
+[20:13] <elf-pavlik> q+
+[20:13] * Zakim sees elf-pavlik on the speaker queue
+[20:13] <elf-pavlik> karol-szczepanski: I think about more use cases
+[20:13] <elf-pavlik> ... getting deeper some Use Cases would stay specific for particular domains
+[20:13] <elf-pavlik> ... eg. calendars
+[20:14] <elf-pavlik> ... generic UCs could miss some cases
+[20:14] <elf-pavlik> markus: what do you think about what i proposed, to have generic use case and for it specific ones
+[20:14] <elf-pavlik> q-
+[20:14] * Zakim sees no one on the speaker queue
+[20:14] <elf-pavlik> ... we can make new PRs for that
+[20:14] <tpluskiewicz> +1 on future PRs to add generic UC descriptions
+[20:15] <elf-pavlik> +1
+[20:15] <elf-pavlik> markus: people reading it may get impression that it only covers those specific UCs
+[20:16] <elf-pavlik> ... having generic UCs mentioned can prevent that
+[20:16] <elf-pavlik> markus: would you like to discuss some of the UCs ?
+[20:16] <tpluskiewicz> q+
+[20:16] * Zakim sees tpluskiewicz on the speaker queue
+[20:16] <elf-pavlik> ... it doesn't seem that Ruben will join so we shouldn't discuss arch diagram
+[20:16] <markus> zakim, ack tpluskiewicz
+[20:16] <Zakim> I see no one on the speaker queue
+[20:17] <elf-pavlik> tpluskiewicz: new requests still need review, we could send email to mailing list to remind others about them
+[20:17] <elf-pavlik> ... I have one UC related to #100 (IRI templates & operations)
+[20:18] <elf-pavlik> markus: are you sure you talk about #100 ?
+[20:18] <elf-pavlik> tpluskiewicz: #118
+[20:18] <markus> https://github.com/HydraCG/Specifications/issues/118
+[20:18] <elf-pavlik> ... they all stay linked
+[20:18] <karol-szczepanski> q+
+[20:18] * Zakim sees karol-szczepanski on the speaker queue
+[20:19] <elf-pavlik> ... I'll prepare PR related to it
+[20:19] <markus> zakim, ack karol-szczepanski
+[20:19] <Zakim> I see no one on the speaker queue
+[20:19] <elf-pavlik> karol-szczepanski: i was also thinking about it, and i also don't find it in current spec very clear how to handle such UCs
+[20:19] <elf-pavlik> ... i'll let tpluskiewicz submit PR for that
+[20:20] <elf-pavlik> markus: anyone plans to work on something? let's mention it so we avoid possible duplication of efforts
+[20:21] <elf-pavlik> tpluskiewicz: I'll just focus on this one (related to #118)
+[20:21] <elf-pavlik> markus: from my side I don't see anything to discuss, any proposals to add to today's agenda, or should we finish early
+[20:22] <elf-pavlik> karol-szczepanski: I will take time in next 2 weeks to write more UCs, but I also want to think how we should use UCs
+[20:22] <elf-pavlik> ... we could try to make some kind of roadmap for next couple of weeks
+[20:22] <elf-pavlik> markus: I'd like to have some concrete proposals for changes in the spec, discuss them during telecons and vote on them
+[20:23] <elf-pavlik> ... what would do you think karol-szczepanski ?
+[20:23] <elf-pavlik> karol-szczepanski: adding more examples on the specification page
+[20:23] <elf-pavlik> tpluskiewicz: we could make it the other way around, to link to UCs from the spec
+[20:24] <elf-pavlik> q+
+[20:24] * Zakim sees elf-pavlik on the speaker queue
+[20:24] <elf-pavlik> ... keeping spec shorter
+[20:24] <elf-pavlik> markus: you need to decide if it stands as normative or informative reference
+[20:25] <elf-pavlik> everything normative needs to stay in the spec itself
+[20:25] <elf-pavlik> tpluskiewicz: UCs act as informative (non-normative) references
+[20:25] <elf-pavlik> markus: we should at lest publish them on HydraCG website
+[20:25] <elf-pavlik> ... i can take Action item
+[20:25] <markus> zakim, ack elf-pavlik
+[20:25] <Zakim> I see no one on the speaker queue
+[20:26] <markus> elf-pavlik: I noted some specs like LDP have separate use case documents
+[20:26] <markus> elf-pavlik: That way use cases can be referenced without being included in the spec
+[20:27] <markus> ... but just referenced from the spec
+[20:27] <elf-pavlik> markus: fine if it acts just as additional (educational) material
+[20:27] <elf-pavlik> markus: anything else we should discuss today ?
+[20:27] * elf-pavlik IMO we can continue on github PRs
+[20:28] <elf-pavlik> ... let's adjourn for today and finish early, i will use that time to review PR #116 and #117
+[20:28] <elf-pavlik> markus: thank your everyone, let's meet again in 2 weeks
+[20:30] <markus> zakim, list attendees
+[20:30] <Zakim> As of this point the attendees have been elf-pavlik, karol-szczepanski, tpluskiewicz, markus
