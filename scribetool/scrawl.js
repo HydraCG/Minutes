@@ -402,8 +402,7 @@
               </div>\n`;
     } else {
       rval += group + " Telecon ";
-      rval += "Minutes for " + time.getFullYear() + "-" +
-         month + "-" + day + "\n\n";
+      rval += "Minutes for " + date + "\n\n";
       rval += "Agenda:\n  " + agenda + "\n";
 
       if (topics.length > 0) {
@@ -440,8 +439,7 @@
       rval += "Scribe:\n  " + scribe + "\n";
       rval += "Present:\n  " +
         scrawl.wordwrap(present.join(", "), 65, "\n  ") + "\n";
-      rval += "Audio:\n  http://www.hydra-cg.org/minutes/" +
-              time.getFullYear() + "-" + month + "-" + day + "/audio.mp3\n\n";
+      rval += "Audio:\n  http://www.hydra-cg.org/minutes/" + date + "/audio.mp3\n\n";
       rval += "\n";
     }
 
