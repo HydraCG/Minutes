@@ -49,6 +49,7 @@ ol {
    margin: 0.2em;
    border-radius: 1em 1em 1em 1em;
    padding: 0.2em;
+   cursor: pointer;
 }
 
 .toolbar-padding {
