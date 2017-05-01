@@ -391,14 +391,12 @@
                       <dd>${present.join(", ")}</dd>
                       <dt>Audio Log</dt>
                       <dd>
-                          <div><a href="${audio}">${audio}</a></div>
-                          <div>
-                              <audio controls="controls" preload="none">
-                                  <source src="${audio}" type="audio/mpeg" />
-                                  Warning: Your browser does not support the HTML5 audio element,
-                                  please upgrade.
-                              </audio>
-                          </div>
+                        <audio controls="controls" preload="none">
+                            <source src="${audio}" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="${audio}">${audio}</a>
+                        </audio>
                       </dd>
                   </dl>
               </div>\n`;
