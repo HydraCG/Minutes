@@ -49,7 +49,7 @@ foreach ($allMinutes as $minutes)
    if(preg_match("/201[0-9]-[0-9]{2,2}-[0-9]{2,2}/", $minutes))
    {
       echo "              <li><a href=\"$minutes\">Minutes for $minutes</a>\n";
-      echo "                  <ol>\n";
+      echo "                  <ul>\n";
 
       // get resolutions from IRC logs
       $irclogfilename = $minutes . "/irc.log";
@@ -64,7 +64,7 @@ foreach ($allMinutes as $minutes)
             $resolution += 1;
          }
       }
-      echo "                  </ol>\n";
+      echo "                  </ul>\n";
       echo "              </li>\n";
    }
 }
