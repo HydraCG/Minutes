@@ -1,0 +1,122 @@
+[20:00] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:01] -!- elf-pavlik [~elf-pavlik@public.cloak] has joined #hydra
+[20:04] <markus> Scribe: tpluskiewicz
+[20:04] <elf-pavlik> present+ elf-pavlik
+[20:04] <markus> Topic: Volunteer for putting together and sending out agenda
+[20:05] <tpluskiewicz> Markus: last time it was only Karol and Markus. do we have a volunteer for putting up agenda?
+[20:05] <tpluskiewicz> Pavlik: I can try. I will try by friday before the call
+[20:06] <tpluskiewicz> Markus: sounds great. Pavlik, every week?
+[20:06] <tpluskiewicz> Pavlik: I don't mind. whatever works for you
+[20:06] <markus> RESOLVED: Going, Pavlik will send out the agenda 3 days before the call
+[20:06] <markus> Topic: Discuss Karol's PRs #116 #117 #122 #123 #124
+[20:07] <tpluskiewicz> Markus: Karol, are there any blocker wrt PRs?
+[20:07] <tpluskiewicz> Karol: nothing specific in mind
+[20:07] <tpluskiewicz> Karol: most comments were in the 'considerations' sections.
+[20:08] <tpluskiewicz> Karol: are the PRs good to be merged? I've tried to address all concerns
+[20:08] <tpluskiewicz> Markus: any more input?
+[20:08] <tpluskiewicz> Pavlik: let's merge now and iterate on that
+[20:08] <karol_szczepanski> +1
+[20:08] <tpluskiewicz> +1
+[20:09] <markus> PROPOSAL: Merge Karol's PRs #116 #117 #122 #123 #124
+[20:09] <elf-pavlik> +1
+[20:09] <markus> +1
+[20:09] <karol_szczepanski> +1
+[20:09] <tpluskiewicz> +1
+[20:09] <markus> RESOLVED: Merge Karol's PRs #116 #117 #122 #123 #124
+[20:09] <markus> Topic: Discuss Pavlik's PR #121
+[20:10] <tpluskiewicz> Markus: PR #121 had a few comments. Pavlik, any comments?
+[20:10] <markus> https://github.com/HydraCG/Specifications/pull/121/files
+[20:10] <tpluskiewicz> Pavlik: the pull request became bigger than expected but I think it's ready to merge
+[20:10] <markus> PROPOSAL: Merge PR #121
+[20:11] <karol_szczepanski> +1
+[20:11] <markus> +1
+[20:11] <elf-pavlik> +1
+[20:11] <tpluskiewicz> +1
+[20:11] <markus> RESOLVED: Merge PR #121
+[20:11] <tpluskiewicz> Markus: Ruben isn't here
+[20:11] <markus> Topic: Inviting CG members to the Github organization
+[20:11] <tpluskiewicz> Markus: let's move Arch diagram to next call
+[20:12] <tpluskiewicz> Pavlik: this was my idea to try activate people
+[20:12] <tpluskiewicz> ... not very attached to the idea
+[20:12] <tpluskiewicz> Markus: I could invite more people. I'd prefer that people asked over email
+[20:13] <karol_szczepanski> q+
+[20:13]  * Zakim sees karol_szczepanski on the speaker queue
+[20:13] <tpluskiewicz> Tomasz: what are current members?
+[20:13] <tpluskiewicz> Markus: check on my GH profile
+[20:14] <markus> https://github.com/lanthaler
+[20:15] <tpluskiewicz> Tomasz: how would people contribute?
+[20:15] <tpluskiewicz> Markus: I think Pavlik had the badge in mind. wouldn't give write access
+[20:16] <tpluskiewicz> Pavlik: I usually join but cannot contribute
+[20:17] <elf-pavlik> I usually join github organizations I contribute to regularly
+[20:17] <tpluskiewicz> Pavlik: I think it's a good solution that peopla ask to be added as members
+[20:17] <markus> PROPOSAL: Send Markus a mail to be invited to the Github organization; Markus will grant read-only access to any member of the CG that asks for it
+[20:17] <tpluskiewicz> Markus: would you set a bar to entry?
+[20:18] <markus> +1
+[20:18] <elf-pavlik> +1
+[20:18] <karol_szczepanski> +1
+[20:18] <tpluskiewicz> +1
+[20:18] <markus> RESOLVED: Send Markus a mail to be invited to the Github organization; Markus will grant read-only access to any member of the CG that asks for it
+[20:18] <karol_szczepanski> +q
+[20:18]  * Zakim sees karol_szczepanski on the speaker queue
+[20:18] <tpluskiewicz> Tomasz: from visibility standpoint it might be a good idea
+[20:19] <markus> zakim, ack karol_szczepanski
+[20:19] <Zakim> I see no one on the speaker queue
+[20:19] <tpluskiewicz> Karol: did you have a chance to see the repo I created yesterday?
+[20:19] <tpluskiewicz> Karol: it's a TypeScript client based on my PRs
+[20:19] <markus> https://github.com/alien-mcl/ReferenceClient
+[20:19] <elf-pavlik> +q
+[20:19]  * Zakim sees elf-pavlik on the speaker queue
+[20:19] <markus> zakim, ack elf-pavlik
+[20:19] <Zakim> I see no one on the speaker queue
+[20:21] <tpluskiewicz> Pavlik: how do you test the client. we'd need a common data set, server. Karol?
+[20:21] <tpluskiewicz> Karol: we could create a set of test cases for languages
+[20:22] <tpluskiewicz> Karol: there are some basic JSON-LD test cases but far from reference suite
+[20:22] <tpluskiewicz> Pavlik: I think it would be great not to duplicate the test code. we could have the test cases in separate JSON files and use CI. I'll think about it
+[20:23] <tpluskiewicz> Karol: great idea. wonder if it's a good moment
+[20:23] <tpluskiewicz> Karol: CI takes effort. we need to think about it
+[20:24] <markus> ACTION: Pavlik to come up with a proposal for a test suite to be used for the development of reference client
+[20:24]  * RRSAgent records action 1
+[20:25] <tpluskiewicz> Markus: could you generate HTML doc of your client?
+[20:25] <tpluskiewicz> Karol: I can try, using typedoc or similar
+[20:25] <tpluskiewicz> Markus: do you ask for any specific input?
+[20:26] <tpluskiewicz> Karol: nothing in particular. use cases don't cover abstraction layer between serializations and model
+[20:26] <tpluskiewicz> Karol: we wouldn't want to limit the client to JSON-LD
+[20:27] <tpluskiewicz> MArkus: I'll review it in detail
+[20:27] <tpluskiewicz> Markus: where would the code live?
+[20:27] <tpluskiewicz> Karol: you mentioned the GH hydra organization
+[20:27] <elf-pavlik> q+
+[20:27]  * Zakim sees elf-pavlik on the speaker queue
+[20:28] <markus> zakim, ack elf-pavlik
+[20:28] <Zakim> I see no one on the speaker queue
+[20:28] <tpluskiewicz> Pavlik: it's good idea to collect client for various languages under hydra organization
+[20:29] <tpluskiewicz> Karol: I placed js in my repository. could have more
+[20:29] <tpluskiewicz> Pavlik: I'd consider repo per implementation
+[20:29] <tpluskiewicz> Markus and Karol both agree
+[20:29] <tpluskiewicz> Markus: how would we call it?
+[20:30] <tpluskiewicz> Pavlik: let's post to the mailing list and ask more about the repo
+[20:30] <tpluskiewicz> Karol: could you clarify?
+[20:31] <tpluskiewicz> Pavlik: you called your TS code JavaScrip which could be confusing
+[20:31] <tpluskiewicz> Karol: we should first try a single platform and the move to other languages
+[20:32] <tpluskiewicz> Karol: it's a matter of getting more developers on board. TS can be transpiled to JS so it covers more than one platform
+[20:32] <tpluskiewicz> Karol: I can work on C# simultaneously but I'd focus on one platform
+[20:33] <tpluskiewicz> Markus: Pavlik only meant the naming.
+[20:33] <tpluskiewicz> Karol: I could rename that a TS client
+[20:34] <tpluskiewicz> Markus: I'll send another email to the mailing list
+[20:34] <markus> ACTION: Markus to propose name of repository for Karol's TypeScript reference client under HydraCG organization on GitHub
+[20:34]  * RRSAgent records action 2
+[20:34] <tpluskiewicz> Markus: anything else wrt reference client?
+[20:35] <tpluskiewicz> Pavlik: after PRs are merged, what are the next steps?
+[20:35] <karol_szczepanski> q+
+[20:35]  * Zakim sees karol_szczepanski on the speaker queue
+[20:36] <markus> zakim, ack karol_szczepanski
+[20:36] <Zakim> I see no one on the speaker queue
+[20:36] <tpluskiewicz> Karol: the reference client could be good work item for the next two weeks
+[20:36] <tpluskiewicz> Markus: agreed. we need working code as soon as possible
+[20:37] <tpluskiewicz> Pavlik: I agree. we could have more people to join the effort
+[20:37] <markus> tpluskiewicz: Which style of client is this?
+[20:37] <tpluskiewicz> Karol: it could be either.
+[20:37] <markus> karol_szczepanski: A bit early to say.. it's rooted in the very first use cases
+[20:38] <tpluskiewicz> Karol: closer to low-level client
+[20:39] <tpluskiewicz> Markus: Tomasz, do you have a preference?
+[20:39] <tpluskiewicz> Tomasz: slightly biased towards low-level actually
+[20:39] -!- karol_szczepanski [~karol_szczepanski@public.cloak] has quit ["Page closed"]

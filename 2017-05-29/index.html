@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2017-05-29 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2017-05-29</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls">https://www.w3.org/community/hydra/wiki/Conference_Calls</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Volunteer for putting together and sending out agenda</a>
+                         <li><a href="#topic-2">Discuss Karol's PRs #116 #117 #122 #123 #124</a>
+                         <li><a href="#topic-3">Discuss Pavlik's PR #121</a>
+                         <li><a href="#topic-4">Inviting CG members to the Github organization</a>
+                      </ol></dd>
+                      <dt>Resolutions</dt>
+                      <dd><ol>
+                         <li><a href="#resolution-1">Going, Pavlik will send out the agenda 3 days before the call</a>
+                         <li><a href="#resolution-2">Merge Karol's PRs #116 #117 #122 #123 #124</a>
+                         <li><a href="#resolution-3">Merge PR #121</a>
+                         <li><a href="#resolution-4">Send Markus a mail to be invited to the Github organization; Markus will grant read-only access to any member of the CG that asks for it</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Pavlik to come up with a proposal for a test suite to be used for the development of reference client</a>
+                         <li><a href="#action-2">Markus to propose name of repository for Karol's TypeScript reference client under HydraCG organization on GitHub</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Scribe</dt>
+                      <dd>Tomasz Pluskiewicz</dd>
+                      <dt>Present</dt>
+                      <dd>Tomasz Pluskiewicz, elf Pavlik, Markus Lanthaler, Karol Szczepański</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="information">Tomasz Pluskiewicz is scribing.</div>
+
+              <h1 id="topic-1" class="topic">Topic: Volunteer for putting together and sending out agenda</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  last time it was only Karol and Markus. do we have a volunteer for putting up agenda?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I can try. I will try by friday before the call</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  sounds great. Pavlik, every week?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I don't mind. whatever works for you</div>
+              <div id="resolution-1" class="resolution"><strong>RESOLUTION:</strong> Going, Pavlik will send out the agenda 3 days before the call</div>
+
+              <h1 id="topic-2" class="topic">Topic: Discuss Karol's PRs #116 #117 #122 #123 #124</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Karol, are there any blocker wrt PRs?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  nothing specific in mind</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  most comments were in the 'considerations' sections.</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  are the PRs good to be merged? I've tried to address all concerns</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  any more input?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  let's merge now and iterate on that</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1</div>
+              <div class="proposal"><strong>PROPOSAL:</strong> Merge Karol's PRs #116 #117 #122 #123 #124</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +1</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: +1</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1</div>
+              <div id="resolution-2" class="resolution"><strong>RESOLUTION:</strong> Merge Karol's PRs #116 #117 #122 #123 #124</div>
+
+              <h1 id="topic-3" class="topic">Topic: Discuss Pavlik's PR #121</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  PR #121 had a few comments. Pavlik, any comments?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/HydraCG/Specifications/pull/121/files">https://github.com/HydraCG/Specifications/pull/121/files</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  the pull request became bigger than expected but I think it's ready to merge</div>
+              <div class="proposal"><strong>PROPOSAL:</strong> Merge PR #121</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: +1</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +1</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1</div>
+              <div id="resolution-3" class="resolution"><strong>RESOLUTION:</strong> Merge PR #121</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Ruben isn't here</div>
+
+              <h1 id="topic-4" class="topic">Topic: Inviting CG members to the Github organization</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  let's move Arch diagram to next call</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  this was my idea to try activate people</div>
+              <div class="comment-continuation">... not very attached to the idea</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I could invite more people. I'd prefer that people asked over email</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  what are current members?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  check on my GH profile</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/lanthaler">https://github.com/lanthaler</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  how would people contribute?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I think Pavlik had the badge in mind. wouldn't give write access</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I usually join but cannot contribute</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: I usually join github organizations I contribute to regularly</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I think it's a good solution that peopla ask to be added as members</div>
+              <div class="proposal"><strong>PROPOSAL:</strong> Send Markus a mail to be invited to the Github organization; Markus will grant read-only access to any member of the CG that asks for it</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  would you set a bar to entry?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: +1</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +1</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1</div>
+              <div id="resolution-4" class="resolution"><strong>RESOLUTION:</strong> Send Markus a mail to be invited to the Github organization; Markus will grant read-only access to any member of the CG that asks for it</div>
+              <div class="information">+q</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  from visibility standpoint it might be a good idea</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: zakim, ack karol_szczepanski</div>
+              <div class="information">I see no one on the speaker queue</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  did you have a chance to see the repo I created yesterday?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  it's a TypeScript client based on my PRs</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/alien-mcl/ReferenceClient">https://github.com/alien-mcl/ReferenceClient</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +q</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: zakim, ack elf-pavlik</div>
+              <div class="information">I see no one on the speaker queue</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  how do you test the client. we'd need a common data set, server. Karol?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we could create a set of test cases for languages</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  there are some basic JSON-LD test cases but far from reference suite</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I think it would be great not to duplicate the test code. we could have the test cases in separate JSON files and use CI. I'll think about it</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  great idea. wonder if it's a good moment</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  CI takes effort. we need to think about it</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Pavlik to come up with a proposal for a test suite to be used for the development of reference client</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  could you generate HTML doc of your client?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I can try, using typedoc or similar</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  do you ask for any specific input?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  nothing in particular. use cases don't cover abstraction layer between serializations and model</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we wouldn't want to limit the client to JSON-LD</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I'll review it in detail</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  where would the code live?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  you mentioned the GH hydra organization</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: zakim, ack elf-pavlik</div>
+              <div class="information">I see no one on the speaker queue</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  it's good idea to collect client for various languages under hydra organization</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I placed js in my repository. could have more</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I'd consider repo per implementation</div>
+              <div class="information">Markus and Karol both agree</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  how would we call it?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  let's post to the mailing list and ask more about the repo</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  could you clarify?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  you called your TS code JavaScrip which could be confusing</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we should first try a single platform and the move to other languages</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  it's a matter of getting more developers on board. TS can be transpiled to JS so it covers more than one platform</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I can work on C# simultaneously but I'd focus on one platform</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Pavlik only meant the naming.</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I could rename that a TS client</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I'll send another email to the mailing list</div>
+              <div id="action-2" class="action"><strong>ACTION</strong>: Markus to propose name of repository for Karol's TypeScript reference client under HydraCG organization on GitHub</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  anything else wrt reference client?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  after PRs are merged, what are the next steps?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: zakim, ack karol_szczepanski</div>
+              <div class="information">I see no one on the speaker queue</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  the reference client could be good work item for the next two weeks</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  agreed. we need working code as soon as possible</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I agree. we could have more people to join the effort</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Which style of client is this? [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  it could be either.</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: karol_szczepanski: A bit early to say.. it's rooted in the very first use cases</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  closer to low-level client</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Tomasz, do you have a preference?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  slightly biased towards low-level actually</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
