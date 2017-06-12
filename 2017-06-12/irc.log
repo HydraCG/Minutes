@@ -1,0 +1,143 @@
+[20:08] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:09] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:10]  * elf-pavlik tpluskiewicz we alraedy get ready to start on https://www.uberconference.com/hydra-cg
+[20:11] <elf-pavlik> present+ tpluskiewicz
+[20:11] <markus> Scribe: markus
+[20:11] <markus> Topic: Status update on architectural diagram
+[20:12] <markus> markus: let's adjourn this till Ruben joins the call
+[20:12] <markus> Topic: Hydra reference client implementation
+[20:13] <markus> markus: this is about how to get the work on the reference client started
+[20:13] <markus> PROPOSAL: Set up a new, empty Heracles.ts repository under the HydraCG organization on GitHub
+[20:13] <elf-pavlik> +1
+[20:14] <karol_szczepanski> +1
+[20:14] <tpluskiewicz> +0.5
+[20:14] <markus> +1
+[20:14] <markus> markus: Setting it up as an empty repo, not only gives us a clean slate to start with but it also gives everyone a chance to review the PRs to start to fill it. Karol, and Tomasz can obviously use their existing code to create such PRs and we can then discuss them bit by bit.
+[20:14] <markus> RESOLVED: Set up a new, empty Heracles.ts repository under the HydraCG organization on GitHub
+[20:15] <markus> tpluskiewicz: invested quite some time
+[20:15] <markus> ... just a personal issue probably
+[20:15] <markus> ... I'm not entirely happy with what I've done but I think it's the right thing to do
+[20:15] <markus> ... I'll start to contribute things
+[20:16] <markus> Topic: Strategy for maintaining snippets from Use Cases as datasets and use them in test suite
+[20:16] <markus> markus: this was put on the agenda by pavlik
+[20:16] <markus> ... can you give us some more insights into what you had in mind
+[20:16] <tpluskiewicz> q+
+[20:16]  * Zakim sees tpluskiewicz on the speaker queue
+[20:17] <markus> elf-pavlik: I wanted to extract all scripts from the markdown files and then embed them with a script into markdown again
+[20:17] <markus> ... I worked on it but it didn't seem like a very flexible approach
+[20:17] <markus> ... in Markdown you sometimes just want to highlight stuff and not include a complete block of code
+[20:18] <markus> ... I was also thinking about using JSON-LD Framing but wanted to discuss it with the group
+[20:18] <markus> ... also, I noticed we often use different URIs for the same thing in different files
+[20:18] <markus> ... so we would need to keep them in sync
+[20:19] <markus> ... the question is do we want to keep the JSON-LD files separate from the Markdown files?
+[20:19] <markus> tpluskiewicz: I personally would go for separating them
+[20:19] <markus> ... we could then use a Travis hook to integrate them into the Markdown docs
+[20:19] <markus> ... so not extracting but inserting from Markdown
+[20:20] <markus> ... Once we have the snippets as JSON-LD files we could eat our own dogfood and include them in Hydra collections that you could then query with a Hydra client
+[20:21] <markus> elf-pavlik: Just to clarify... by extracting I meant the first manual step of splitting these files
+[20:21] <markus> ... I'd then embed them as you said
+[20:21] <markus> tpluskiewicz: Right... I think we should make them test cases though with inputs and outputs
+[20:21] <markus> ... not sure how we can make those snippets test cases
+[20:21] <markus> elf-pavlik: Exactly.. for read operations etc. it's relatively simple
+[20:22] <markus> ... we could have one dataset and work from that
+[20:22] <markus> ... but with update/delete etc. we would need to change the state of the dataset
+[20:22] <markus> ... we could do something like Redux does. There's a store that is being updated through actions and reducers
+[20:22] <markus> ... this allows things like time-travel for debugging etc.
+[20:23] <markus> ... read operations wouldn't affect the state. Write operations would
+[20:23] <markus> ... with something like Redux you could have something like a timeslider to debug things
+[20:23] <markus> tpluskiewicz: I think this is something that Asbjourn had in mind
+[20:24] <markus> ... to bad he isn't here.. maybe we can put it on the list or discuss it next time
+[20:24] <markus> elf-pavlik: More than happy to collaborate. Together we can probably come up with more interesting ideas
+[20:24] <markus> karol_szczepanski: Why do we need to use such heavy machinery for this?
+[20:25] <markus> ... What's the use case?
+[20:25] <markus> ... I was thinking of these as excercise files for things like unit or integration tests
+[20:26] <markus> elf-pavlik: The idea of injecting JSON-LD into Markdown was to keep them clean and consistent
+[20:26] <markus> ... we don't want to duplicate things
+[20:26] <markus> ... by externalizing them we can more easily keep them in sync
+[20:27] <markus> ... but I'm actually not convinced we need to start with a full-blown solution from the get go
+[20:27] <markus> karol_szczepanski: I'm concerned about the timeline, the complexity of the Redux pattern etc.
+[20:27] <markus> ... not sure what the purpose of this approach is
+[20:28] <elf-pavlik> markus: i think we should have declarative way of defining use cases possibly also to early to understand our requirements
+[20:29] <markus> markus: would like to first better understand how the client looks like and how we are gonna test it
+[20:29] <markus> elf-pavlik: I agree, we probably need to work on a few things and see how we want to test it
+[20:30] <markus> markus: how do we move forward with this?
+[20:30] <markus> elf-pavlik: thinking about tests... a while ago we removed the Create-/ReplaceOperation etc.
+[20:30] <markus> ... if we would have a test suite we would see how this would affect clients etc.
+[20:31] <markus> ... one thing we could look into is to check the state of the dataset before and after an operation
+[20:32] <markus> markus: I think we need to separate between tests between for the server side and the client side
+[20:33] <markus> ... I think we should split them into two
+[20:33] <markus> ... server side might be easier.. input is HTTP request.. effect is a change of the dataset
+[20:33] <markus> ... client side you have a HTTP request & response, an intent and then another HTTP request or an output or something
+[20:34] <markus> elf-pavlik: client that is searching a specific operation makes certain assumptions of the expected result
+[20:35] <markus> ... in one of my experiments I'm working on optimistic updates
+[20:35] <markus> ... I requery the server after a while and resync the client state
+[20:35] <markus> ... so maybe it's not always easy to split client and server side
+[20:36] <karol_szczepanski> +q
+[20:36]  * Zakim sees tpluskiewicz, karol_szczepanski on the speaker queue
+[20:36] <tpluskiewicz> q-
+[20:36]  * Zakim sees karol_szczepanski on the speaker queue
+[20:36] <markus> markus: I still have the same question... how do we move forward with this?
+[20:37] <markus> ... do we want to try to figure it out now or should we focus on the reference client for now, do tests for just that client and then as we understand it better extract and generalize them
+[20:37] <elf-pavlik> q+
+[20:37]  * Zakim sees karol_szczepanski, elf-pavlik on the speaker queue
+[20:37] <markus> ... so that other implementations can reuse them?
+[20:37] <markus> ... I prefer the latter
+[20:37] <markus> karol_szczepanski: Was about to say something similar
+[20:37] <markus> ... would go with the latter option
+[20:38] <markus> elf-pavlik: I agree too
+[20:38] <markus> ... I'd like to propose we base the test cases on the use cases though
+[20:38] <markus> markus: Completely agree
+[20:38] <markus> ... we should use those use cases as much as possible
+[20:39] <markus> ... ok.. I don't think we need a formal resolution on this
+[20:39] <markus> ... let's just start working on the reference client implementation, write test cases informed by the use cases
+[20:40] <markus> ... and once we have something we are happy with and that is complete enough we start thinking about how to extract them and make them useful for other implementations as well
+[20:40] <elf-pavlik> q+
+[20:40]  * Zakim sees karol_szczepanski, elf-pavlik on the speaker queue
+[20:40] <markus> ... This was the last agenda item for today
+[20:40] <elf-pavlik> https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/6.updating-event.md
+[20:40] <markus> ... Anything else we should discuss?
+[20:41] <karol_szczepanski> +1
+[20:41] <tpluskiewicz> +q
+[20:41]  * Zakim sees karol_szczepanski, elf-pavlik, tpluskiewicz on the speaker queue
+[20:41] <karol_szczepanski> }q
+[20:41] <karol_szczepanski> +q
+[20:41]  * Zakim sees karol_szczepanski, elf-pavlik, tpluskiewicz on the speaker queue
+[20:41] <markus> elf-pavlik: I noticed this use cases has the schema action and other use cases still look for POST, PUT etc.
+[20:41] <markus> ... Should we make a PR to change that or do we want to discuss this further?
+[20:42] <markus> karol_szczepanski: This is due to a lack of clear guidance in the spec
+[20:42] <markus> ... it will be a good exercise to make this nicer
+[20:42] <markus> ... and there are various ways to do that
+[20:42] <markus> ... we should also give clear guidance about that in the spec
+[20:43] <markus> markus: I think it boils down to a PR so that we can have a concrete discussion
+[20:43] <markus> ... do you want to give it a shot Pavlik?
+[20:43] <elf-pavlik> q
+[20:43] <markus> elf-pavlik: Sure
+[20:43] <elf-pavlik> q-
+[20:43]  * Zakim sees karol_szczepanski, tpluskiewicz on the speaker queue
+[20:44] <tpluskiewicz> q-
+[20:44]  * Zakim sees karol_szczepanski on the speaker queue
+[20:44] <markus> tpluskiewicz: I think the method is an implementation detail (looking at use case 5) and use link relations as first option
+[20:44] <karol_szczepanski> q-
+[20:44]  * Zakim sees no one on the speaker queue
+[20:44] <markus> markus: I agree, keying HTTP operations is an anti-pattern in my opinion
+[20:45] <markus> ... the spec isn't clear about this (especially after we removed the predefined operations)
+[20:45] <markus> elf-pavlik: Agree. We could use schema.org actions or bring back the predefined operations back but that would be weird
+[20:46] <markus> markus: We discussed this before and decided to get rid predefined operations and use Schema.org actions instead (for the latter there probably wasn't a formal decision though)
+[20:46] <elf-pavlik> q?
+[20:46]  * Zakim sees no one on the speaker queue
+[20:47] <markus> tpluskiewicz: What's our take on custom actions/operations? I think we should recommend using primarily Schema.org actions but if there isn't one that matches, we should describe how to create a custom one
+[20:47] <markus> elf-pavlik: I'll make a PR with Schema.org actions to get this started
+[20:48] <markus> tpluskiewicz: I have an additional for the test cases
+[20:49] <markus> ... What I said regarding input & output on the client is that on the client the result is a request to the server
+[20:49] <markus> ... the other case is when the client gets something from the server, the client's state should somehow be changed
+[20:51] <elf-pavlik> q+
+[20:51]  * Zakim sees elf-pavlik on the speaker queue
+[20:51] <markus> markus: For checking the client state may be tricky to not tie that too much to a specific implementation
+[20:51] <markus> tpluskiewicz: One option may be a test harness but that results in more implementation effort
+[20:52] <markus> elf-pavlik: Testing client and server and isolation will be hard
+[20:52] <markus> ... because client makes assumptions about what will happen on the server
+[20:53] <markus> markus: yes, I thought of this as mocking the server (HTTP responses for certain requests)
+[20:53] <markus> ... inspecting the client state may be trickier
+[20:54] <markus> elf-pavlik: Having some running code will make this easier
+[20:54] <markus> markus: anything else?
+[20:55] <markus> ... if not, I'll set up the new empty repo right after the call and hope we will see some PRs soon

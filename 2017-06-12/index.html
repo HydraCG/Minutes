@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2017-06-12 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2017-06-12</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls">https://www.w3.org/community/hydra/wiki/Conference_Calls</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Status update on architectural diagram</a>
+                         <li><a href="#topic-2">Hydra reference client implementation</a>
+                         <li><a href="#topic-3">Strategy for maintaining snippets from Use Cases as datasets and use them in test suite</a>
+                      </ol></dd>
+                      <dt>Resolutions</dt>
+                      <dd><ol>
+                         <li><a href="#resolution-1">Set up a new, empty Heracles.ts repository under the HydraCG organization on GitHub</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Scribe</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Present</dt>
+                      <dd>Tomasz Pluskiewicz, Markus Lanthaler, elf Pavlik, Karol Szczepański</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="information">Markus Lanthaler is scribing.</div>
+
+              <h1 id="topic-1" class="topic">Topic: Status update on architectural diagram</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  let's adjourn this till Ruben joins the call</div>
+
+              <h1 id="topic-2" class="topic">Topic: Hydra reference client implementation</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  this is about how to get the work on the reference client started</div>
+              <div class="proposal"><strong>PROPOSAL:</strong> Set up a new, empty Heracles.ts repository under the HydraCG organization on GitHub</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +1</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +1</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +0.5</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: +1</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Setting it up as an empty repo, not only gives us a clean slate to start with but it also gives everyone a chance to review the PRs to start to fill it. Karol, and Tomasz can obviously use their existing code to create such PRs and we can then discuss them bit by bit.</div>
+              <div id="resolution-1" class="resolution"><strong>RESOLUTION:</strong> Set up a new, empty Heracles.ts repository under the HydraCG organization on GitHub</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  invested quite some time</div>
+              <div class="comment-continuation">... just a personal issue probably</div>
+              <div class="comment-continuation">... I'm not entirely happy with what I've done but I think it's the right thing to do</div>
+              <div class="comment-continuation">... I'll start to contribute things</div>
+
+              <h1 id="topic-3" class="topic">Topic: Strategy for maintaining snippets from Use Cases as datasets and use them in test suite</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  this was put on the agenda by pavlik</div>
+              <div class="comment-continuation">... can you give us some more insights into what you had in mind</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I wanted to extract all scripts from the markdown files and then embed them with a script into markdown again</div>
+              <div class="comment-continuation">... I worked on it but it didn't seem like a very flexible approach</div>
+              <div class="comment-continuation">... in Markdown you sometimes just want to highlight stuff and not include a complete block of code</div>
+              <div class="comment-continuation">... I was also thinking about using JSON-LD Framing but wanted to discuss it with the group</div>
+              <div class="comment-continuation">... also, I noticed we often use different URIs for the same thing in different files</div>
+              <div class="comment-continuation">... so we would need to keep them in sync</div>
+              <div class="comment-continuation">... the question is do we want to keep the JSON-LD files separate from the Markdown files?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I personally would go for separating them</div>
+              <div class="comment-continuation">... we could then use a Travis hook to integrate them into the Markdown docs</div>
+              <div class="comment-continuation">... so not extracting but inserting from Markdown</div>
+              <div class="comment-continuation">... Once we have the snippets as JSON-LD files we could eat our own dogfood and include them in Hydra collections that you could then query with a Hydra client</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  Just to clarify... by extracting I meant the first manual step of splitting these files</div>
+              <div class="comment-continuation">... I'd then embed them as you said</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Right... I think we should make them test cases though with inputs and outputs</div>
+              <div class="comment-continuation">... not sure how we can make those snippets test cases</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  Exactly.. for read operations etc. it's relatively simple</div>
+              <div class="comment-continuation">... we could have one dataset and work from that</div>
+              <div class="comment-continuation">... but with update/delete etc. we would need to change the state of the dataset</div>
+              <div class="comment-continuation">... we could do something like Redux does. There's a store that is being updated through actions and reducers</div>
+              <div class="comment-continuation">... this allows things like time-travel for debugging etc.</div>
+              <div class="comment-continuation">... read operations wouldn't affect the state. Write operations would</div>
+              <div class="comment-continuation">... with something like Redux you could have something like a timeslider to debug things</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think this is something that Asbjourn had in mind</div>
+              <div class="comment-continuation">... to bad he isn't here.. maybe we can put it on the list or discuss it next time</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  More than happy to collaborate. Together we can probably come up with more interesting ideas</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Why do we need to use such heavy machinery for this?</div>
+              <div class="comment-continuation">... What's the use case?</div>
+              <div class="comment-continuation">... I was thinking of these as excercise files for things like unit or integration tests</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  The idea of injecting JSON-LD into Markdown was to keep them clean and consistent</div>
+              <div class="comment-continuation">... we don't want to duplicate things</div>
+              <div class="comment-continuation">... by externalizing them we can more easily keep them in sync</div>
+              <div class="comment-continuation">... but I'm actually not convinced we need to start with a full-blown solution from the get go</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'm concerned about the timeline, the complexity of the Redux pattern etc.</div>
+              <div class="comment-continuation">... not sure what the purpose of this approach is</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  i think we should have declarative way of defining use cases possibly also to early to understand our requirements [scribe assist by elf Pavlik]</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  would like to first better understand how the client looks like and how we are gonna test it</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I agree, we probably need to work on a few things and see how we want to test it</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  how do we move forward with this?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  thinking about tests... a while ago we removed the Create-/ReplaceOperation etc.</div>
+              <div class="comment-continuation">... if we would have a test suite we would see how this would affect clients etc.</div>
+              <div class="comment-continuation">... one thing we could look into is to check the state of the dataset before and after an operation</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I think we need to separate between tests between for the server side and the client side</div>
+              <div class="comment-continuation">... I think we should split them into two</div>
+              <div class="comment-continuation">... server side might be easier.. input is HTTP request.. effect is a change of the dataset</div>
+              <div class="comment-continuation">... client side you have a HTTP request &amp; response, an intent and then another HTTP request or an output or something</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  client that is searching a specific operation makes certain assumptions of the expected result</div>
+              <div class="comment-continuation">... in one of my experiments I'm working on optimistic updates</div>
+              <div class="comment-continuation">... I requery the server after a while and resync the client state</div>
+              <div class="comment-continuation">... so maybe it's not always easy to split client and server side</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +q</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I still have the same question... how do we move forward with this?</div>
+              <div class="comment-continuation">... do we want to try to figure it out now or should we focus on the reference client for now, do tests for just that client and then as we understand it better extract and generalize them</div>
+              <div class="comment-continuation">... so that other implementations can reuse them?</div>
+              <div class="comment-continuation">... I prefer the latter</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Was about to say something similar</div>
+              <div class="comment-continuation">... would go with the latter option</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I agree too</div>
+              <div class="comment-continuation">... I'd like to propose we base the test cases on the use cases though</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Completely agree</div>
+              <div class="comment-continuation">... we should use those use cases as much as possible</div>
+              <div class="comment-continuation">... ok.. I don't think we need a formal resolution on this</div>
+              <div class="comment-continuation">... let's just start working on the reference client implementation, write test cases informed by the use cases</div>
+              <div class="comment-continuation">... and once we have something we are happy with and that is complete enough we start thinking about how to extract them and make them useful for other implementations as well</div>
+              <div class="comment-continuation">... This was the last agenda item for today</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: <a href="https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/6.updating-event.md">https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/6.updating-event.md</a></div>
+              <div class="comment-continuation">... Anything else we should discuss?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +1</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +q</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: }q</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +q</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I noticed this use cases has the schema action and other use cases still look for POST, PUT etc.</div>
+              <div class="comment-continuation">... Should we make a PR to change that or do we want to discuss this further?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  This is due to a lack of clear guidance in the spec</div>
+              <div class="comment-continuation">... it will be a good exercise to make this nicer</div>
+              <div class="comment-continuation">... and there are various ways to do that</div>
+              <div class="comment-continuation">... we should also give clear guidance about that in the spec</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I think it boils down to a PR so that we can have a concrete discussion</div>
+              <div class="comment-continuation">... do you want to give it a shot Pavlik?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: q</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  Sure</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think the method is an implementation detail (looking at use case 5) and use link relations as first option</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I agree, keying HTTP operations is an anti-pattern in my opinion</div>
+              <div class="comment-continuation">... the spec isn't clear about this (especially after we removed the predefined operations)</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  Agree. We could use schema.org actions or bring back the predefined operations back but that would be weird</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  We discussed this before and decided to get rid predefined operations and use Schema.org actions instead (for the latter there probably wasn't a formal decision though)</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: q?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  What's our take on custom actions/operations? I think we should recommend using primarily Schema.org actions but if there isn't one that matches, we should describe how to create a custom one</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I'll make a PR with Schema.org actions to get this started</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I have an additional for the test cases</div>
+              <div class="comment-continuation">... What I said regarding input &amp; output on the client is that on the client the result is a request to the server</div>
+              <div class="comment-continuation">... the other case is when the client gets something from the server, the client's state should somehow be changed</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  For checking the client state may be tricky to not tie that too much to a specific implementation</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  One option may be a test harness but that results in more implementation effort</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  Testing client and server and isolation will be hard</div>
+              <div class="comment-continuation">... because client makes assumptions about what will happen on the server</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  yes, I thought of this as mocking the server (HTTP responses for certain requests)</div>
+              <div class="comment-continuation">... inspecting the client state may be trickier</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  Having some running code will make this easier</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  anything else?</div>
+              <div class="comment-continuation">... if not, I'll set up the new empty repo right after the call and hope we will see some PRs soon</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
