@@ -21,7 +21,7 @@
     "Thomas Bergwinkl": { "alias": ["bergi"] },
     "elf Pavlik": { "alias": ["elf-pavlik"] },
     "Tomasz Pluskiewicz": { "alias": ["tpluskiewicz"] },
-    "Karol Szczepański": { "alias": ["karol_szzczepanski", "karol-szczepanski"] },
+    "Karol Szczepański": { "alias": ["karol_szczepanski", "karol-szczepanski"] },
   };
   scrawl.htmlHeader = `<!doctype html>
 <html lang="en">
