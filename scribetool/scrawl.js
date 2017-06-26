@@ -21,9 +21,9 @@
   var resolutionRx = /^(resolution|resolved):\s+?(.*)$/i;
   var topicRx = /^topic:\s*(.*)$/i;
   var actionRx = /^action:\s*(.*)$/i;
-  var voipRx = /^voip.*$/i;
-  var toVoipRx = /^voip.{0,4}:.*$/i;
-  var queueRx = /^q[+-]\s+.*|^q[+-].*|^ack\s+.*|^ack$/i;
+  var voipRx = /^zakim$/i;
+  var toVoipRx = /^zakim,.*$/i;
+  var queueRx = /^q[+-]\s+.*|^q[+-].*|^[+-]q|^ack\s+.*|^ack$/i;
   var presentRx = /^present\+\s+(.*)$/i;
   var voteRx = /^[+-][01]\s.*|[+-][01]$/i;
   var agendaRx = /^agenda:\s*(https?:.*)$/i;
