@@ -1,0 +1,110 @@
+[19:57] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:01] -!- elf-pavlik [~elf-pavlik@public.cloak] has joined #hydra
+[20:01] -!- karol_szczepanski [~karol_szczepanski@public.cloak] has joined #hydra
+[20:03] <markus> present+ elf-pavlik
+[20:03] <markus> present+ karol_szczepanski
+[20:04] <markus> Scribe: elf-pavlik
+[20:05] <markus> Topic: Status update on architectural diagram
+[20:05] <markus> https://github.com/HydraCG/Specifications/pull/128
+[20:05] <elf-pavlik> markus: ruben made PR and send an email that he can not join the call today
+[20:06] <elf-pavlik> ... PR includes script that generates SVG from LaTeX on travis and adds it to gh-pages branch
+[20:06] <elf-pavlik> ... we should just probably move this discussion to PR or mailing list
+[20:06] <markus> Topic: schema.org actions PR #125
+[20:06] <markus> https://github.com/HydraCG/Specifications/pull/125
+[20:07] <markus> elf-pavlik: I think I addressed all feedback
+[20:07] <markus> ... I touched a few more things than just schema.org actions
+[20:07] <markus> ... one thing is, e.g. the #events link
+[20:08] <markus> PROPOSAL: Merge schema.org actions PR #125
+[20:08] <markus> +1
+[20:08] <elf-pavlik> +1
+[20:08] <karol_szczepanski> +1
+[20:08] <markus> RESOLVED: Merge schema.org actions PR #125
+[20:08] <elf-pavlik> markus: I will merge it after the meeting
+[20:08] <markus> Topic: Reference client PR #1
+[20:08] <markus> https://github.com/HydraCG/Heracles.ts/pull/1
+[20:09] <elf-pavlik> markus: karol would you like to give us quick update ?
+[20:09] <elf-pavlik> karol_szczepanski: I made new commit yesterday which addressed most of the feedback
+[20:09] <elf-pavlik> ... I still don't have this 'lazy parsing', possibly I would leave it for the future
+[20:09] <elf-pavlik> ... up to you (Markus) if you need it now or we can wait
+[20:10] <elf-pavlik> markus: I don't see it as blocking issue
+[20:10] <elf-pavlik> karol_szczepanski: everything now stays behind interfaces facade so we can replace everything behind it later
+[20:10] <elf-pavlik> markus: did you already add a TODO ?
+[20:10] <elf-pavlik> karol_szczepanski: in general i try to stick to the Use Cases
+[20:11] <elf-pavlik> ... currently we have a little bit of implementation
+[20:11] <elf-pavlik> ... ApiDocumentation fetching and EntryPoint fetching
+[20:11] <elf-pavlik> ... we should have some integration tests based on Ucs
+[20:11] <elf-pavlik> ... i would like to root it in the use cases
+[20:12] <elf-pavlik> markus: I meant just a comment with TODO just as a reminder for what we discussed and decided to address in the future
+[20:12] <elf-pavlik> karol_szczepanski: we can also create issues in the gh repo
+[20:12] <elf-pavlik> markus: creating an issue sounds like a good way to go
+[20:13] <elf-pavlik> ... in general if someone creates PR and we want to defer addressing some of the issues, creating gh issues makes sense
+[20:13] <elf-pavlik> karol_szczepanski: I'll create issues for what we want to deffer from this PR
+[20:14] <elf-pavlik> markus: I find it difficult to track of all those comments we make in PR reviews
+[20:14] <elf-pavlik> ... do you know any other tool that might handle it better
+[20:14] <elf-pavlik> ... if author of the PR could mark a thread as addressed or not
+[20:15] <elf-pavlik> ... i could suggest something after small research
+[20:15] <karol_szczepanski> +q
+[20:15]  * Zakim sees karol_szczepanski on the speaker queue
+[20:15] <markus> ACTION: Markus will try to find a tool which will help us with PR reviews; it's currently difficult to keep track what has been addressed and what hasn't
+[20:15]  * RRSAgent records action 1
+[20:16] <elf-pavlik> karol_szczepanski: one question regarding my PR
+[20:16] <markus> zakim, ack
+[20:16] <Zakim> I don't understand 'ack', markus
+[20:16] <markus> zakim, ack karol_szczepanski
+[20:16] <Zakim> I see no one on the speaker queue
+[20:16] <elf-pavlik> ... this 10 days long discussion stops me from further development
+[20:17] <elf-pavlik> ... how we can speed up our PR process so it doesn't block my development
+[20:17] <elf-pavlik> ... from my perspective current pace feels slow
+[20:17] <elf-pavlik> ... waiting 10 days seems to long
+[20:18] <elf-pavlik> markus: maybe making smaller PRs will make things faster
+[20:18] <elf-pavlik> ... this one as initial one included a lot of things
+[20:18] <elf-pavlik> ... if you nail down interfaces first, which requires most discussion
+[20:18] <elf-pavlik> and focus on implementation later this would speed things up
+[20:19] <elf-pavlik> karol_szczepanski: IMO our needs have to be a driver, it may benefit a final outcome if requirements drive it
+[20:19] <elf-pavlik> markus: interfaces could be driven by use cases, what user of this library would need to work with given use case
+[20:19] <elf-pavlik> karol_szczepanski: i'll try to think it over and will propose something to the community
+[20:20] <elf-pavlik> markus: what next things you would like to work on?
+[20:20] <elf-pavlik> karol_szczepanski: i would like to start with integration tests, and add datasets based on our use cases
+[20:20] <elf-pavlik> ... so that we can start extracting some data that other implementations could eventually also use
+[20:21] <elf-pavlik> markus: given we didn't come up with a specific solution on how to speed it up, maybe also you could ask on mailing list for reviews
+[20:21] <elf-pavlik> and when you see it ready to merge we can make a 'last call' on mailing list to ask if anyone objects
+[20:21] <elf-pavlik> q+
+[20:21]  * Zakim sees elf-pavlik on the speaker queue
+[20:22] <markus> elf-pavlik: I think if we get disciplined and keep focused in PRs we could get much faster
+[20:23] <markus> ... we shouldn't get sidetracked by unrelated stuff but move that aggresively to separate issues
+[20:24] <elf-pavlik> karol_szczepanski: we should try everything what could speed up the process
+[20:24] <markus> Topic: void:classPartition Issue #126
+[20:24] <markus> https://github.com/HydraCG/Specifications/pull/126
+[20:24] <markus> elf-pavlik: I'm not sure this is worth discussing yet but given we have time...
+[20:25] <markus> ... I think we should find a better pattern for links in the EntryPoint that point to collections of resources of a specific type
+[20:25] <karol_szczepanski> +q
+[20:25]  * Zakim sees elf-pavlik, karol_szczepanski on the speaker queue
+[20:25] <markus> ... the example was the "events" link in the EntryPoint that points to a collection containing all Events
+[20:26] <markus> ... we need to be able to describe that to a client in a better way
+[20:26] <markus> karol_szczepanski: We discussed this before in the context of Data Shapes
+[20:27] <markus> ... OWL would be another solution
+[20:27] <markus> ... but it opens a can of worms and may be difficult for the client to use
+[20:27] <karol_szczepanski> SHACL was the name
+[20:27] <elf-pavlik> markus: OWL works and has capacity to express it, but it opens a can of worms that it has a lot of power and clients should have to fully implement it
+[20:28] <elf-pavlik> ... class partition seems nice, but hydra should handle it natively give as common use case in APIs
+[20:28] <karol_szczepanski> +q
+[20:28]  * Zakim sees elf-pavlik, karol_szczepanski on the speaker queue
+[20:28] <elf-pavlik> ... we should investigate options of nice short pattern
+[20:28] <elf-pavlik> +q
+[20:28]  * Zakim sees elf-pavlik, karol_szczepanski on the speaker queue
+[20:28] <elf-pavlik> markus: we could use issue #126 to discuss it in more detail
+[20:29] <markus> elf-pavlik: I'll post a link how SOLID solves this
+[20:29] <karol_szczepanski> -q
+[20:29]  * Zakim sees elf-pavlik on the speaker queue
+[20:29] <markus> ... OWL has something but it doesn't seem practical in real world scenarios
+[20:29] <markus> ... we should come up with a better solution
+[20:31] <markus> ACTION: Markus to rename issue #126 to not suggest a solution
+[20:31]  * RRSAgent records action 2
+[20:31] <markus> ACTION: Pavlik to drive discussion regarding #126 after the issue has been renamed
+[20:31]  * RRSAgent records action 3
+[20:32] <markus> elf-pavlik: Currently the use case is only events
+[20:32] <markus> ... if there would be two or more types the problem would become more apparent
+[20:33] <markus> ... Karol, what do you think about extending the use cases to show this?
+[20:33] <markus> karol_szczepanski: Sure, I'm open to extending the use cases
+[20:33]  * elf-pavlik i can scribe again now...
+[20:33] <elf-pavlik> markus: anything else you would like to discuss today? we still have 30min
