@@ -274,6 +274,7 @@
          }
        // the line is by the scribe
        } else if (nick == context.scribenick) {
+          context.scribeAssist = null;
          if (msg.indexOf("…") == 0 || msg.indexOf("...") == 0) {
            // the line is a scribe continuation
            rval = scrawl.scribeContinuation(msg, textMode);
@@ -286,8 +287,7 @@
              var cleanedMessage = msg.split(":").splice(1).join(":");
 
              scrawl.present(context, aliases[alias]);
-             rval = scrawl.scribe(
-               cleanedMessage, textMode, aliases[alias]);
+             rval = scrawl.scribe(cleanedMessage, textMode, aliases[alias]);
            } else {
              // The scribe is noting something and there just happens
              // to be a colon in it
@@ -305,10 +305,10 @@
            if (alias in aliases) {
              // the line is a scribe assist
              var cleanedMessage = msg.split(":").splice(1).join(":");
+             context.scribeAssist = nick;
 
              scrawl.present(context, aliases[alias]);
-             rval = scrawl.scribe(cleanedMessage, textMode,
-               aliases[alias], aliases[nick]);
+             rval = scrawl.scribe(cleanedMessage, textMode, aliases[alias], aliases[nick]);
            } else if (alias.indexOf("http") == 0) {
              rval = scrawl.scribe(msg, textMode, aliases[nick]);
            } else if (aliases.hasOwnProperty(nick)) {
@@ -317,8 +317,13 @@
              rval = scrawl.error(
                "(IRC nickname not recognized)" + line, textMode);
            }
+         } else if (nick == context.scribeAssist &&
+             (msg.indexOf("…") == 0 || msg.indexOf("...") == 0)) {
+             // the line is a scribe continuation
+             rval = scrawl.scribeContinuation(msg, textMode);
          } else {
            // the line is a scribe line by somebody else
+           context.scribeAssist = null;
            scrawl.present(context, aliases[nick]);
            rval = scrawl.scribe(msg, textMode, aliases[nick]);
          }
