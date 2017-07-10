@@ -1,0 +1,197 @@
+[20:00] <markus> Chair: Markus Lanthaler
+[20:00] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:00] -!- elf-pavlik [~elf-pavlik@public.cloak] has joined #hydra
+[20:01]  * elf-pavlik will need to start IRC only and try to join voice call ASAP
+[20:02] <markus> Scribe: karol_szczepanski
+[20:02] <RubenVerborgh> present+
+[20:02] <markus> elf-pavlik, should we wait for you?
+[20:04] <elf-pavlik> no, please start i will follow on IRC and should have possibility to join audio in about 15min
+[20:04] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:05] <markus> Topic: Follow-up on action items
+[20:05] <markus> The first action item was "Markus will try to find a tool which will help us with PR reviews; it's currently difficult to keep track what has been addressed and what hasn't"
+[20:05] <karol_szczepanski> markus: reviewed code review tools
+[20:05] <markus> https://reviewable.io/
+[20:05] <markus> https://reviewable.io/reviews/hydracg/heracles.ts/3
+[20:05] <karol_szczepanski> markus: Reviwable was found and used in the last R
+[20:05] <karol_szczepanski> ... in the last PR
+[20:06] <karol_szczepanski> ...  Markus is pleased with how it works
+[20:06] <karol_szczepanski> ...  Suggestion is to use it unless better tools are found
+[20:06] <markus> karol_szczepanski: From my perspective there are 2 concerns
+[20:07] <markus> ... one was security: Reviewable required quite some permissions on GitHub
+[20:07] <markus> ... the other thing is that it creates quite some long, ugly comments in GitHub
+[20:07] <markus> ... they are difficult to review in GitHub
+[20:08] <markus> ... other than that it was quite useful.. may need some time to get used to it
+[20:08] <markus> markus: did you use GitHub or Reviewable to read comments?
+[20:08] <markus> karol_szczepanski: Both... I'm probably used to read GitHub
+[20:09] <markus> PROPOSAL: Use reviewable.io for code reviews going forward
+[20:09] <markus> +1
+[20:09] <karol_szczepanski> +0.5
+[20:09] <tpluskiewicz> +1
+[20:09] <elf-pavlik> +1
+[20:09] <RubenVerborgh> +1
+[20:09] <markus> RESOLVED: Use reviewable.io for code reviews going forward
+[20:10] <markus> The second action item was "Markus to rename issue #126 to not suggest a solution"
+[20:10] <markus> https://github.com/HydraCG/Specifications/issues/126
+[20:10] <karol_szczepanski> markus: #126 is about linking to collections of specific type
+[20:10] <markus> Renamed it to "Simplify discovery of collections that contain resources of a certain type"
+[20:10] <markus> The third action item was "Pavlik to drive discussion regarding #126 after the issue has been renamed"
+[20:11] <elf-pavlik> can we wait 5 more min so i can join voice?
+[20:11] <markus> Yes, we I just said we will wait for you on that
+[20:11] <markus> Topic: License of reference client (issue #4)
+[20:11] <elf-pavlik> w could do license on Heracles.ts first
+[20:11] <markus> https://github.com/HydraCG/Heracles.ts/issues/4
+[20:12] <karol_szczepanski> markus: Suggestion is to use MIT
+[20:12] <karol_szczepanski> ...  Karol has some experience with BSD3, but MIT is OK
+[20:12] <markus> PROPOSAL: Use MIT license for Heracles.ts (issue #4)
+[20:12] <RubenVerborgh> +1
+[20:12] <karol_szczepanski> +1
+[20:12] <markus> +1
+[20:12] <tpluskiewicz> +
+[20:12] <tpluskiewicz> +1
+[20:13] <elf-pavlik> +1
+[20:13] <markus> RESOLVED: Use MIT license for Heracles.ts (issue #4)
+[20:13] <markus> Topic: Status update on architectural diagram
+[20:14] <karol_szczepanski> RubenVerborgh: Architecture diagram was discussed already during first or second call
+[20:14] <karol_szczepanski> ... There is already a PR ready for the diagram so it can be merged
+[20:14] <karol_szczepanski> markus: Markus raised a question on how we can use it
+[20:15] <karol_szczepanski> RubenVerborgh: Diagram is still a proposal as it doesn't reflect a consensus
+[20:16] <RubenVerborgh> https://github.com/RubenVerborgh/Hydra-Architecture-Diagram
+[20:16] <karol_szczepanski> RubenVerborgh: Diagram could an organizational tool to move forward
+[20:16] <karol_szczepanski> ...  As it divides what can be included as a Hydra core and what would be outside
+[20:16] -!- elf-pavlik_ [~elf-pavlik@public.cloak] has joined #hydra
+[20:16]  * elf-pavlik_ joining uberconf...
+[20:17] <karol_szczepanski> ...  There are several points of interest thus diagram could help with arranging those various requirements
+[20:17] <karol_szczepanski> ...  Also it addresses dependencies between components
+[20:18] <markus> PROPOSAL: Merge Ruben's "Hydra architectural diagram" PR #128 (will be used to organize our work)
+[20:19] <elf-pavlik_> +1
+[20:19] <markus> +1
+[20:19] <RubenVerborgh> +1
+[20:19] <karol_szczepanski> +1
+[20:19] <tpluskiewicz> +1
+[20:19] <markus> RESOLVED: Merge Ruben's "Hydra architectural diagram" PR #128 (will be used to organize our work)
+[20:19] <karol_szczepanski> markus: What would be the immediate next step regarding the diagram
+[20:19] <RubenVerborgh> https://github.com/RubenVerborgh/Hydra-Architecture-Diagram/issues
+[20:20] -!- elf-pavlik [~elf-pavlik@public.cloak] has quit [Ping timeout: 180 seconds]
+[20:20] <karol_szczepanski> RubenVerborgh: There are couple of issues: critical review of what is missing
+[20:20] -!- elf-pavlik_ is now known as elf-pavlik
+[20:20] <elf-pavlik> present+
+[20:20] <karol_szczepanski> ... Another would be: Divide what needs to be done between attendees
+[20:21] <markus> Topic: Simplify discovery of collections that contain resources of a certain type (#126)
+[20:21] <markus> https://github.com/HydraCG/Specifications/issues/126
+[20:22] <karol_szczepanski> Elf-pavlik: have impression that until we are sure whether to use something existing or define it on our own is a subject for further discussion
+[20:23] <karol_szczepanski> ... Question is whether to do it in the same issue or create another one
+[20:23] <karol_szczepanski> ... Some people hesitated with reusing other vocabularies
+[20:24] <tpluskiewicz> q+
+[20:24]  * Zakim sees tpluskiewicz on the speaker queue
+[20:24] <karol_szczepanski> RubenVerborgh: it is easy to create something different, but reusing should be our default approach
+[20:24] <karol_szczepanski> ... We should then have a process rooted with reusing something
+[20:24] <markus> zakim, ack tpluskiewicz
+[20:24] <Zakim> I see no one on the speaker queue
+[20:25] <karol_szczepanski> tpluskiewicz: reusing may lead to unexpected behavior, but still we shall start with a process reusing something existing
+[20:26] <elf-pavlik> q+
+[20:26]  * Zakim sees elf-pavlik on the speaker queue
+[20:26] <karol_szczepanski> markus: We should reuse but not single properties or classes but some chunks of existing vocabularies
+[20:27] <tpluskiewicz> +1 on using more then single properties. good rules of thumb
+[20:27] <karol_szczepanski> markus: Unless we reuse a big chunk we may need to create something independent
+[20:27] <markus> zakim, ack elf-pavlik
+[20:27] <Zakim> I see no one on the speaker queue
+[20:27] <karol_szczepanski> elf-pavlik: LDF uses void thus it could be natural to reuse it
+[20:28] <karol_szczepanski> elf-pavlik: a possibility of having something temporary which could be replaced in future by something more suitable
+[20:29] <karol_szczepanski> markus: agree with that approach
+[20:29] <karol_szczepanski> RubenVerborgh: we could make an issue out of it as an action point
+[20:30] <karol_szczepanski> TPluskiewicz: we could create a place with guidelines
+[20:30] <tpluskiewicz> https://github.com/blog/1184-contributing-guidelines
+[20:31] <markus> PROPOSAL: As a guiding principle, we will start designing/defining new concepts in Hydra instead of trying to reuse bits and pieces of various vocabularies from the get-go.  If we later discover that there's a considerable overlap with an existing vocabulary we may decide to use it instead of our own solution.
+[20:31] <RubenVerborgh> +1
+[20:31] <elf-pavlik> +1
+[20:31] <tpluskiewicz> +1
+[20:31] <karol_szczepanski> +1
+[20:31] <markus> +1
+[20:31] <karol_szczepanski> +q
+[20:31]  * Zakim sees karol_szczepanski on the speaker queue
+[20:31] <markus> RESOLVED: As a guiding principle, we will start designing/defining new concepts in Hydra instead of trying to reuse bits and pieces of various vocabularies from the get-go.  If we later discover that there's a considerable overlap with an existing vocabulary we may decide to use it instead of our own solution.
+[20:32] <RubenVerborgh> (have to move locations, will try to get back online after that)
+[20:32] -!- RubenVerborgh [~rubenverborgh@public.cloak] has quit ["Leaving."]
+[20:33] <elf-pavlik> +q
+[20:33]  * Zakim sees karol_szczepanski, elf-pavlik on the speaker queue
+[20:34] <markus> zakim, ack karol_szczepanski
+[20:34] <Zakim> I see elf-pavlik on the speaker queue
+[20:34] <karol_szczepanski> Karol_Szczepanski: we should have some real use cases for those possibly new features
+[20:34] <markus> zakim, ack elf-pavlik
+[20:34] <Zakim> I see no one on the speaker queue
+[20:34] <karol_szczepanski> +q
+[20:34]  * Zakim sees karol_szczepanski on the speaker queue
+[20:35] <markus> elf-pavlik: this actually was triggered by a use case (the #events property)
+[20:35] <markus> zakim, ack karol_szczepanski
+[20:35] <Zakim> I see no one on the speaker queue
+[20:36] <karol_szczepanski> elf-pavlik: use case came from events - question was how we can create a new event
+[20:39] <karol_szczepanski> elf-pavlik: could prepare a PR for the use case related to strongly typed collections and their discoverability
+[20:39] <markus> ACTION: Pavlik, to expand use cases to make it clear why we need a solution to issue #126
+[20:39]  * RRSAgent records action 1
+[20:40] <markus> Topic: Decide on "hypermedia removal"
+[20:40] <markus> https://github.com/HydraCG/Heracles.ts/issues/7
+[20:40] <tpluskiewicz> q+
+[20:40]  * Zakim sees tpluskiewicz on the speaker queue
+[20:40] <karol_szczepanski> markus: currently Heracles.ts tries to separate hypermedia from the raw data
+[20:41] <karol_szczepanski> ... Question is: do we want that behavior inside or should it be on top of the client
+[20:41] <markus> zakim, ack tpluskiewicz
+[20:41] <Zakim> I see no one on the speaker queue
+[20:41] <karol_szczepanski> tpluskiewicz: agreed on separation from the data
+[20:42] <elf-pavlik> i have to leave :( will read the minutes later today...
+[20:42] <karol_szczepanski> tpluskiewicz: hypermedia controls from various sources i.e. api documentation and the current resource
+[20:43] <karol_szczepanski> markus: Issue is about whether to provide an original resource untouched or shall it be cleaned of the hypermedia controls
+[20:44] <karol_szczepanski> markus: should there be a method getData that could provide a raw data without hypermedia controls
+[20:45] <karol_szczepanski> tpluskiewicz: JSON-LD framing to strip of unneeded content with custom context
+[20:45] <karol_szczepanski> markus: it wouldn't do that
+[20:46] <karol_szczepanski> tpluskiewicz: I wouldn't use the raw triples but reframe the data to use a dot notation
+[20:46] <karol_szczepanski> tpluskiewicz: so the data are more accessible
+[20:47] <markus> karol_szczepanski: If I understood you correctly, you wouldn't strip the data but reframe it
+[20:47] <markus> ... the client doesn't know what is using it
+[20:47] <markus> ... so it would need to be something on top of it
+[20:48] <markus> tpluskiewicz: Right
+[20:48] <markus> ... what I did was to objectify it
+[20:48] <markus> ... so you get a graph of objects
+[20:48] <markus> ... and not a JSON tree
+[20:49] -!- elf-pavlik [~elf-pavlik@public.cloak] has quit [Ping timeout: 180 seconds]
+[20:49] <markus> karol_szczepanski: You can make framing embed the data
+[20:50] <markus> https://json-ld.org/spec/latest/json-ld-framing/#object-embed-flag
+[20:53] <karol_szczepanski> tpluskiewicz: Karol should describe on what's currently implemented
+[20:54] <karol_szczepanski> markus: Heracles.ts shouldn't modify the payload
+[20:54] <markus> Topic: How should Heracle's internal data model look like?
+[20:54] <markus> https://github.com/HydraCG/Heracles.ts/issues/8
+[20:54] <karol_szczepanski> +q
+[20:54]  * Zakim sees karol_szczepanski on the speaker queue
+[20:55] <tpluskiewicz> q+
+[20:55]  * Zakim sees karol_szczepanski, tpluskiewicz on the speaker queue
+[20:55] <markus> zakim, ack karol_szczepanski
+[20:55] <Zakim> I see tpluskiewicz on the speaker queue
+[20:56] <markus> Markus: I think we will quickly hit the limits if we work with a framed JSON-LD doc internally
+[20:56] <markus> ... we could use flattened JSON-LD
+[20:56] <markus> ... or probably even better triples as they are most flexible
+[20:57] <markus> karol_szczepanski: Agree, triples are the most flexible but definitely not the easiest option
+[20:57] <markus> ... I had, for instance, issues when working with subclassing
+[20:57] <markus> ... it lead to manz if/else statements
+[20:59] <markus> ... with framing we will hit the wall pretty soon though
+[20:59] <markus> ... I used custom object hierarchies in another project
+[21:00] <markus> ... but I'm not sure what we should use here
+[21:00] <karol_szczepanski> +q
+[21:00]  * Zakim sees tpluskiewicz, karol_szczepanski on the speaker queue
+[21:01] <markus> karol_szczepanski: The most important thing is to not leak the RDF details through the interface
+[21:01] <karol_szczepanski> tpluskiewicz: we shall give JS objects in the public API
+[21:01] <markus> karol_szczepanski: ... even if we use triples internally
+[21:02] <markus> markus: completely agree
+[21:02] <karol_szczepanski> tpluskiewicz: got some experience with RDFext but it was very heavy
+[21:03] <karol_szczepanski> ... it was quite difficult to work with thus plain RDF under the hood may require good tooling
+[21:04] <karol_szczepanski> markus: we may store triples in an array but let's push the limits with framing
+[21:04] <karol_szczepanski> ... no more topics in the agenda
+[21:04] <karol_szczepanski> the conference has ended
+[21:05] <markus> what I said was that we could start with a simple array of triples that we filter etc. as I don't expect us to have millions of triples in a single response and see how far that brings us before we hit performance issues
+[21:06] <markus> I didn't suggest to push the limits of framing... if we want to go that route, I would suggest to use flattened JSON-LD internally instead
+[21:06] <markus> zakim, list attendees
+[21:06] <Zakim> As of this point the attendees have been RubenVerborgh, elf-pavlik
+[21:07] <markus> zakim, present +karol_szczepanski
+[21:07] <Zakim> I don't understand 'present +karol_szczepanski', markus
+[21:07] <markus> present+ karol_szczepanski
+[21:07] <markus> present+ tpluskiewicz
+[21:08] <markus> zakim, list attendees
+[21:08] <Zakim> As of this point the attendees have been RubenVerborgh, elf-pavlik, karol_szczepanski, tpluskiewicz

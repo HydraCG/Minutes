@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2017-07-10 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2017-07-10</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls">https://www.w3.org/community/hydra/wiki/Conference_Calls</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Follow-up on action items</a>
+                         <li><a href="#topic-2">License of reference client (issue #4)</a>
+                         <li><a href="#topic-3">Status update on architectural diagram</a>
+                         <li><a href="#topic-4">Simplify discovery of collections that contain resources of a certain type (#126)</a>
+                         <li><a href="#topic-5">Decide on "hypermedia removal"</a>
+                         <li><a href="#topic-6">How should Heracle's internal data model look like?</a>
+                      </ol></dd>
+                      <dt>Resolutions</dt>
+                      <dd><ol>
+                         <li><a href="#resolution-1">Use reviewable.io for code reviews going forward</a>
+                         <li><a href="#resolution-2">Use MIT license for Heracles.ts (issue #4)</a>
+                         <li><a href="#resolution-3">Merge Ruben's "Hydra architectural diagram" PR #128 (will be used to organize our work)</a>
+                         <li><a href="#resolution-4">As a guiding principle, we will start designing/defining new concepts in Hydra instead of trying to reuse bits and pieces of various vocabularies from the get-go.  If we later discover that there's a considerable overlap with an existing vocabulary we may decide to use it instead of our own solution.</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Pavlik, to expand use cases to make it clear why we need a solution to issue #126</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Scribe</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Present</dt>
+                      <dd>Markus Lanthaler, Karol Szczepański, Ruben Verborgh, elf Pavlik, Tomasz Pluskiewicz</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="information">Karol Szczepański is scribing.</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>: present+</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: elf-pavlik, should we wait for you?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: no, please start i will follow on IRC and should have possibility to join audio in about 15min</div>
+
+              <h1 id="topic-1" class="topic">Topic: Follow-up on action items</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: The first action item was "Markus will try to find a tool which will help us with PR reviews; it's currently difficult to keep track what has been addressed and what hasn't"</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  reviewed code review tools</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://reviewable.io/">https://reviewable.io/</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://reviewable.io/reviews/hydracg/heracles.ts/3">https://reviewable.io/reviews/hydracg/heracles.ts/3</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Reviwable was found and used in the last R</div>
+              <div class="comment-continuation">... in the last PR</div>
+              <div class="comment-continuation">...  Markus is pleased with how it works</div>
+              <div class="comment-continuation">...  Suggestion is to use it unless better tools are found</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  From my perspective there are 2 concerns [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: ... one was security: Reviewable required quite some permissions on GitHub</div>
+              <div class="comment-continuation">... the other thing is that it creates quite some long, ugly comments in GitHub</div>
+              <div class="comment-continuation">... they are difficult to review in GitHub</div>
+              <div class="comment-continuation">... other than that it was quite useful.. may need some time to get used to it</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  did you use GitHub or Reviewable to read comments? [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Both... I'm probably used to read GitHub [scribe assist by Markus Lanthaler]</div>
+              <div class="proposal"><strong>PROPOSAL:</strong> Use reviewable.io for code reviews going forward</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: +1</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +0.5</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +1</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>: +1</div>
+              <div id="resolution-1" class="resolution"><strong>RESOLUTION:</strong> Use reviewable.io for code reviews going forward</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: The second action item was "Markus to rename issue #126 to not suggest a solution"</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/HydraCG/Specifications/issues/126">https://github.com/HydraCG/Specifications/issues/126</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  #126 is about linking to collections of specific type</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: Renamed it to "Simplify discovery of collections that contain resources of a certain type"</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: The third action item was "Pavlik to drive discussion regarding #126 after the issue has been renamed"</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: can we wait 5 more min so i can join voice?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: Yes, we I just said we will wait for you on that</div>
+
+              <h1 id="topic-2" class="topic">Topic: License of reference client (issue #4)</h1>
+              <div class="comment"><span class="name">elf Pavlik</span>: w could do license on Heracles.ts first</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/HydraCG/Heracles.ts/issues/4">https://github.com/HydraCG/Heracles.ts/issues/4</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Suggestion is to use MIT</div>
+              <div class="comment-continuation">...  Karol has some experience with BSD3, but MIT is OK</div>
+              <div class="proposal"><strong>PROPOSAL:</strong> Use MIT license for Heracles.ts (issue #4)</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>: +1</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +1</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: +1</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +1</div>
+              <div id="resolution-2" class="resolution"><strong>RESOLUTION:</strong> Use MIT license for Heracles.ts (issue #4)</div>
+
+              <h1 id="topic-3" class="topic">Topic: Status update on architectural diagram</h1>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  Architecture diagram was discussed already during first or second call</div>
+              <div class="comment-continuation">... There is already a PR ready for the diagram so it can be merged</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Markus raised a question on how we can use it</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  Diagram is still a proposal as it doesn't reflect a consensus</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>: <a href="https://github.com/RubenVerborgh/Hydra-Architecture-Diagram">https://github.com/RubenVerborgh/Hydra-Architecture-Diagram</a></div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  Diagram could an organizational tool to move forward</div>
+              <div class="comment-continuation">...  As it divides what can be included as a Hydra core and what would be outside</div>
+              <div class="comment-continuation">...  There are several points of interest thus diagram could help with arranging those various requirements</div>
+              <div class="comment-continuation">...  Also it addresses dependencies between components</div>
+              <div class="proposal"><strong>PROPOSAL:</strong> Merge Ruben's "Hydra architectural diagram" PR #128 (will be used to organize our work)</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +1</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: +1</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>: +1</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +1</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1</div>
+              <div id="resolution-3" class="resolution"><strong>RESOLUTION:</strong> Merge Ruben's "Hydra architectural diagram" PR #128 (will be used to organize our work)</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  What would be the immediate next step regarding the diagram</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>: <a href="https://github.com/RubenVerborgh/Hydra-Architecture-Diagram/issues">https://github.com/RubenVerborgh/Hydra-Architecture-Diagram/issues</a></div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  There are couple of issues: critical review of what is missing</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: present+</div>
+              <div class="comment-continuation">... Another would be: Divide what needs to be done between attendees</div>
+
+              <h1 id="topic-4" class="topic">Topic: Simplify discovery of collections that contain resources of a certain type (#126)</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/HydraCG/Specifications/issues/126">https://github.com/HydraCG/Specifications/issues/126</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  have impression that until we are sure whether to use something existing or define it on our own is a subject for further discussion</div>
+              <div class="comment-continuation">... Question is whether to do it in the same issue or create another one</div>
+              <div class="comment-continuation">... Some people hesitated with reusing other vocabularies</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  it is easy to create something different, but reusing should be our default approach</div>
+              <div class="comment-continuation">... We should then have a process rooted with reusing something</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  reusing may lead to unexpected behavior, but still we shall start with a process reusing something existing</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  We should reuse but not single properties or classes but some chunks of existing vocabularies</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1 on using more then single properties. good rules of thumb</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Unless we reuse a big chunk we may need to create something independent</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  LDF uses void thus it could be natural to reuse it</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  a possibility of having something temporary which could be replaced in future by something more suitable</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  agree with that approach</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  we could make an issue out of it as an action point</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we could create a place with guidelines</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: <a href="https://github.com/blog/1184-contributing-guidelines">https://github.com/blog/1184-contributing-guidelines</a></div>
+              <div class="proposal"><strong>PROPOSAL:</strong> As a guiding principle, we will start designing/defining new concepts in Hydra instead of trying to reuse bits and pieces of various vocabularies from the get-go.  If we later discover that there's a considerable overlap with an existing vocabulary we may decide to use it instead of our own solution.</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>: +1</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +1</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +1</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: +1</div>
+              <div id="resolution-4" class="resolution"><strong>RESOLUTION:</strong> As a guiding principle, we will start designing/defining new concepts in Hydra instead of trying to reuse bits and pieces of various vocabularies from the get-go.  If we later discover that there's a considerable overlap with an existing vocabulary we may decide to use it instead of our own solution.</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>: (have to move locations, will try to get back online after that)</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we should have some real use cases for those possibly new features</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  this actually was triggered by a use case (the #events property) [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  use case came from events - question was how we can create a new event</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  could prepare a PR for the use case related to strongly typed collections and their discoverability</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Pavlik, to expand use cases to make it clear why we need a solution to issue #126</div>
+
+              <h1 id="topic-5" class="topic">Topic: Decide on "hypermedia removal"</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/HydraCG/Heracles.ts/issues/7">https://github.com/HydraCG/Heracles.ts/issues/7</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  currently Heracles.ts tries to separate hypermedia from the raw data</div>
+              <div class="comment-continuation">... Question is: do we want that behavior inside or should it be on top of the client</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  agreed on separation from the data</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: i have to leave :( will read the minutes later today...</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  hypermedia controls from various sources i.e. api documentation and the current resource</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Issue is about whether to provide an original resource untouched or shall it be cleaned of the hypermedia controls</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  should there be a method getData that could provide a raw data without hypermedia controls</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  JSON-LD framing to strip of unneeded content with custom context</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  it wouldn't do that</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I wouldn't use the raw triples but reframe the data to use a dot notation</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  so the data are more accessible</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  If I understood you correctly, you wouldn't strip the data but reframe it [scribe assist by Markus Lanthaler]</div>
+              <div class="comment-continuation">... the client doesn't know what is using it</div>
+              <div class="comment-continuation">... so it would need to be something on top of it</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Right [scribe assist by Markus Lanthaler]</div>
+              <div class="comment-continuation">... what I did was to objectify it</div>
+              <div class="comment-continuation">... so you get a graph of objects</div>
+              <div class="comment-continuation">... and not a JSON tree</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  You can make framing embed the data [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://json-ld.org/spec/latest/json-ld-framing/#object-embed-flag">https://json-ld.org/spec/latest/json-ld-framing/#object-embed-flag</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Karol should describe on what's currently implemented</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Heracles.ts shouldn't modify the payload</div>
+
+              <h1 id="topic-6" class="topic">Topic: How should Heracle's internal data model look like?</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/HydraCG/Heracles.ts/issues/8">https://github.com/HydraCG/Heracles.ts/issues/8</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I think we will quickly hit the limits if we work with a framed JSON-LD doc internally [scribe assist by Markus Lanthaler]</div>
+              <div class="comment-continuation">... we could use flattened JSON-LD</div>
+              <div class="comment-continuation">... or probably even better triples as they are most flexible</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Agree, triples are the most flexible but definitely not the easiest option [scribe assist by Markus Lanthaler]</div>
+              <div class="comment-continuation">... I had, for instance, issues when working with subclassing</div>
+              <div class="comment-continuation">... it lead to manz if/else statements</div>
+              <div class="comment-continuation">... with framing we will hit the wall pretty soon though</div>
+              <div class="comment-continuation">... I used custom object hierarchies in another project</div>
+              <div class="comment-continuation">... but I'm not sure what we should use here</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  The most important thing is to not leak the RDF details through the interface [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we shall give JS objects in the public API</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  ... even if we use triples internally [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  completely agree [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  got some experience with RDFext but it was very heavy</div>
+              <div class="comment-continuation">... it was quite difficult to work with thus plain RDF under the hood may require good tooling</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  we may store triples in an array but let's push the limits with framing</div>
+              <div class="comment-continuation">... no more topics in the agenda</div>
+              <div class="information">the conference has ended</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: what I said was that we could start with a simple array of triples that we filter etc. as I don't expect us to have millions of triples in a single response and see how far that brings us before we hit performance issues</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: I didn't suggest to push the limits of framing... if we want to go that route, I would suggest to use flattened JSON-LD internally instead</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
