@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2017-08-21 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2017-08-21</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls">https://www.w3.org/community/hydra/wiki/Conference_Calls</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Heracles.ts PR#11: Implementation necessary to achieve use case 3 - obtaining events</a>
+                         <li><a href="#topic-2">Use cases PR#132: use manages block to advertise type of collection members</a>
+                      </ol></dd>
+                      <dt>Resolutions</dt>
+                      <dd><ol>
+                         <li><a href="#resolution-1">Merge PR #132 that uses the manages block to advertise type of collection members</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Pavlik to add some more use cases that illustrate the manages feature introduced in PR #132</a>
+                         <li><a href="#action-2">Pavlik to create a use case for issue #134 (adding existing resources to collections)</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Scribe</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Present</dt>
+                      <dd>Markus Lanthaler, Karol Szczepański, elf Pavlik</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="information">Markus Lanthaler is scribing.</div>
+
+              <h1 id="topic-1" class="topic">Topic: Heracles.ts PR#11: Implementation necessary to achieve use case 3 - obtaining events</h1>
+              <div class="information"><a href="https://github.com/HydraCG/Heracles.ts/pull/11">https://github.com/HydraCG/Heracles.ts/pull/11</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  interface more low-level than i expected [scribe assist by elf Pavlik]</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  indeed, interface is low-level</div>
+              <div class="comment-continuation">... was thinking about creating something on top of it</div>
+              <div class="comment-continuation">... but would like to get some more feedback as this will affect the further work</div>
+              <div class="comment-continuation">... I'll try to implement something more sophisticated in the coming days</div>
+              <div class="comment-continuation">... but I'd really love to get some more feedback as this is the interface we will stick with</div>
+              <div class="comment-continuation">... so it's a crucial decision</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  completely agree</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I think we should keep the client implementation as close as possible to the pseudo-code in the use cases</div>
+              <div class="comment-continuation">... that pseudo-code was written before we started working on the client</div>
+              <div class="comment-continuation">... we can then replace the pseudo-code with real code</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  good point</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  karol, would you like to merge this one first or should we iterate on this one till we are happy</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  let's keep it open and iterate till we are happy</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  ok, I don't think we need a formal resolution for this. let's just continue working on it</div>
+              <div class="comment-continuation">... anything else we should discuss about this?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  not at this point, I'd just like to stress that we should get more feedback on the API</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  at some point I think Karol made a comment somewhere saying that he wouldn't like many abstractions on top of the JSON provided by the server</div>
+              <div class="comment-continuation">... could you please clarify this Karol?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we agreed to not touch the original response</div>
+              <div class="comment-continuation">... I only added a "hypermedia" field to it</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  does this also apply to the EntryPoint?</div>
+              <div class="comment-continuation">... It would be a good candidate to add more abstractions to make it easier to work with the data</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  for the EntryPoint my approach is the same</div>
+              <div class="comment-continuation">... I just add a hypermedia field which collects links, operations etc. in a single place</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I think Pavlik is more alluding to the interface as in methods the client exposes not so much how the internal data model looks like</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I thought about adding methods to simplify working with the hypermedia field</div>
+              <div class="comment-continuation">... but still expose it</div>
+              <div class="comment-continuation">... this object should help a client to get an overview what a resource is about</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  Given that Karol didn't have the chance yet to reply to all comments I think we should move on</div>
+              <div class="comment-continuation">... that being said, I don't see it as being dangerous to attach more information to responses</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I agree</div>
+
+              <h1 id="topic-2" class="topic">Topic: Use cases PR#132: use manages block to advertise type of collection members</h1>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/pull/132">https://github.com/HydraCG/Specifications/pull/132</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  This is about describing to a client what it can expect in a collection</div>
+              <div class="comment-continuation">... there was some feedback that this is too much "RDF in your face"</div>
+              <div class="comment-continuation">... I share that concern but would like to proceed for it now</div>
+              <div class="comment-continuation">... as it solves the issue at hand and we can tweak it later</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I share the criticism</div>
+              <div class="comment-continuation">... it looks a lot like reification</div>
+              <div class="information">would be enough</div>
+              <div class="comment-continuation">... I think this is about filtering, right?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  not exactly, this is about being able to tell a client which collection to choose if there are multiple candidates without having to mint custom properties to do so</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I think specifying the class should be enough</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: q</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  how would you express that this is a collection about female people?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  fair enough, but that goes into filtering I think</div>
+              <div class="comment-continuation">... that question is what we want to achieve</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I wanted to clarify that we considered to introduce something like memberType which solves exactly this issue - which I think is what Karol describes</div>
+              <div class="comment-continuation">... but we discovered that we already have the manages block so we can re-use something that we already agreed on</div>
+              <div class="comment-continuation">... if we don't like to go with this, we should re-open that discussion</div>
+              <div class="comment-continuation">... it's just a special case of an already existing feature</div>
+              <div class="comment-continuation">... if we want to have something more specific or general we can start from here and re-open the discussion</div>
+              <div class="comment-continuation">... the biggest benefit of this approach is that we don't need to require users to invent new terms like myvocab:event</div>
+              <div class="comment-continuation">... we can allow them to re-use existing terms from schema.org etc.</div>
+              <div class="comment-continuation">... so I'd like to to continue with this and take it from there</div>
+              <div class="comment-continuation">... we should then add more use cases that use the power this approach gives as (people attending an event e.g.)</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  yeah, I completely agree</div>
+              <div class="comment-continuation">... karol, would that work for you?</div>
+              <div class="comment-continuation">... more concretely: merge this and then see if we can come up with something better later if we are unhappy with it</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  yes, that works for me</div>
+              <div class="proposal"><strong>PROPOSAL:</strong> Merge PR #132 that uses the manages block to advertise type of collection members</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: +1</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: +1</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +1</div>
+              <div id="resolution-1" class="resolution"><strong>RESOLUTION:</strong> Merge PR #132 that uses the manages block to advertise type of collection members</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I'll merge it after the meeting and then we can take it from there</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  is there anything else you would like to discuss today?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  yes, I'd like to add some use cases</div>
+              <div class="comment-continuation">... which I hope will help to convey this feature better</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Pavlik, can you volunteer for this or would you like to discuss it first?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  If Karol is fine with it I can go ahead and add some use cases</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  do you want to replace events with people or do you want to add people?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  the latter, I'd like to add people without touching events</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  good idea. the more use cases the better</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Pavlik to add some more use cases that illustrate the manages feature introduced in PR #132</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  anything else for today?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: <a href="https://github.com/HydraCG/Specifications/issues/134">https://github.com/HydraCG/Specifications/issues/134</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I'd like to invite people to look at issue #134</div>
+              <div class="comment-continuation">... it's about how to add existing resources to a collection</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I think there's an action item on Tomasz to see what APIs in the wild do about this</div>
+              <div class="comment-continuation">... which should help us to design this</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  perhaps in the meantime we should add a use case for it</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  as Karol said before, the more use cases the better</div>
+              <div class="comment-continuation">... so I'm all for it</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  even if it's as early stage</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  absolutely. use cases don't need to describe a solution</div>
+              <div class="comment-continuation">... just the problem. we can then work on a solution separately</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  OK, I'll first work on my other action item and then create a use case for this too</div>
+              <div id="action-2" class="action"><strong>ACTION</strong>: Pavlik to create a use case for issue #134 (adding existing resources to collections)</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: present+</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

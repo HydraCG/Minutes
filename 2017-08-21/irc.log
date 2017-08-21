@@ -1,0 +1,113 @@
+[20:03] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:06] <markus> Scribe: markus
+[20:07] <markus> Topic: Heracles.ts PR#11: Implementation necessary to achieve use case 3 - obtaining events
+[20:07] <markus> https://github.com/HydraCG/Heracles.ts/pull/11
+[20:08] <elf-pavlik> markus: interface more low-level than i expected
+[20:08] <karol_szczepanski> +q
+[20:08]  * Zakim sees karol_szczepanski on the speaker queue
+[20:08]  * elf-pavlik i'll help with scribing when you speak
+[20:08] <markus> karol_szczepanski: indeed, interface is low-level
+[20:08] <markus> ... was thinking about creating something on top of it
+[20:08] <markus> ... but would like to get some more feedback as this will affect the further work
+[20:09] <markus> ... I'll try to implement something more sophisticated in the coming days
+[20:09] <markus> ... but I'd really love to get some more feedback as this is the interface we will stick with
+[20:09] <markus> ... so it's a crucial decision
+[20:09] <markus> markus: completely agree
+[20:10] <markus> elf-pavlik: I think we should keep the client implementation as close as possible to the pseudo-code in the use cases
+[20:10] <markus> ... that pseudo-code was written before we started working on the client
+[20:10] <markus> ... we can then replace the pseudo-code with real code
+[20:10] <markus> markus: good point
+[20:11] <markus> markus: karol, would you like to merge this one first or should we iterate on this one till we are happy
+[20:11] <markus>  karol_szczepanski: let's keep it open and iterate till we are happy
+[20:12] <markus> markus: ok, I don't think we need a formal resolution for this. let's just continue working on it
+[20:12] <markus> ... anything else we should discuss about this?
+[20:12] <elf-pavlik> q+
+[20:12]  * Zakim sees karol_szczepanski, elf-pavlik on the speaker queue
+[20:12] <markus> karol_szczepanski: not at this point, I'd just like to stress that we should get more feedback on the API
+[20:13] <markus> elf-pavlik: at some point I think Karol made a comment somewhere saying that he wouldn't like many abstractions on top of the JSON provided by the server
+[20:13] <markus> ... could you please clarify this Karol?
+[20:14] <markus> karol_szczepanski: we agreed to not touch the original response
+[20:14] <markus> ... I only added a "hypermedia" field to it
+[20:14] <markus> elf-pavlik: does this also apply to the EntryPoint?
+[20:14] <markus> ... It would be a good candidate to add more abstractions to make it easier to work with the data
+[20:15] <markus> karol_szczepanski: for the EntryPoint my approach is the same
+[20:15] <markus> ... I just add a hypermedia field which collects links, operations etc. in a single place
+[20:16]  * elf-pavlik looking at the review ...
+[20:16] <markus> markus: I think Pavlik is more alluding to the interface as in methods the client exposes not so much how the internal data model looks like
+[20:17] <markus> karol_szczepanski: I thought about adding methods to simplify working with the hypermedia field
+[20:17] <markus> ... but still expose it
+[20:17] <markus> ... this object should help a client to get an overview what a resource is about
+[20:18] <markus> elf-pavlik: Given that Karol didn't have the chance yet to reply to all comments I think we should move on
+[20:19] <markus> ... that being said, I don't see it as being dangerous to attach more information to responses
+[20:19] <markus> karol_szczepanski: I agree
+[20:19] <markus> Topic: Use cases PR#132: use manages block to advertise type of collection members
+[20:19] <markus> https://github.com/HydraCG/Specifications/pull/132
+[20:20] <karol_szczepanski> +q
+[20:20]  * Zakim sees karol_szczepanski, elf-pavlik on the speaker queue
+[20:20] <markus> markus: This is about describing to a client what it can expect in a collection
+[20:20] <markus> ... there was some feedback that this is too much "RDF in your face"
+[20:21] <markus> ... I share that concern but would like to proceed for it now
+[20:21] <elf-pavlik> +q
+[20:21]  * Zakim sees karol_szczepanski, elf-pavlik on the speaker queue
+[20:21] <markus> ... as it solves the issue at hand and we can tweak it later
+[20:21] <markus> karol_szczepanski: I share the criticism
+[20:21] <markus> ... it looks a lot like reification
+[20:21] <markus> ... I think something like manages: <Class> would be enough
+[20:22] <markus> ... I think this is about filtering, right?
+[20:22] <markus> markus: not exactly, this is about being able to tell a client which collection to choose if there are multiple candidates without having to mint custom properties to do so
+[20:24] <markus> karol_szczepanski: I think specifying the class should be enough
+[20:24] <elf-pavlik> q
+[20:24] <markus> markus: how would you express that this is a collection about female people?
+[20:24] <markus> karol_szczepanski: fair enough, but that goes into filtering I think
+[20:25] <markus> ... that question is what we want to achieve
+[20:25] <markus> elf-pavlik: I wanted to clarify that we considered to introduce something like memberType which solves exactly this issue - which I think is what Karol describes
+[20:26] <markus> ... but we discovered that we already have the manages block so we can re-use something that we already agreed on
+[20:26] <markus> ... if we don't like to go with this, we should re-open that discussion
+[20:26] <markus> ... it's just a special case of an already existing feature
+[20:27] <markus> ... if we want to have something more specific or general we can start from here and re-open the discussion
+[20:27] <markus> ... the biggest benefit of this approach is that we don't need to require users to invent new terms like myvocab:event
+[20:27] <markus> ... we can allow them to re-use existing terms from schema.org etc.
+[20:28] <markus> ... so I'd like to to continue with this and take it from there
+[20:28] <markus> ... we should then add more use cases that use the power this approach gives as (people attending an event e.g.)
+[20:28] <markus> markus: yeah, I completely agree
+[20:29] <markus> ... karol, would that work for you?
+[20:29] <markus> ... more concretely: merge this and then see if we can come up with something better later if we are unhappy with it
+[20:29] <markus> karol_szczepanski: yes, that works for me
+[20:30] <markus> PROPOSAL: Merge PR #132 that uses the manages block to advertise type of collection members
+[20:30] <markus> +1
+[20:30] <elf-pavlik> +1
+[20:30] <karol_szczepanski> +1
+[20:30] <markus> RESOLVED: Merge PR #132 that uses the manages block to advertise type of collection members
+[20:31] <markus> markus: I'll merge it after the meeting and then we can take it from there
+[20:31] <markus> markus: is there anything else you would like to discuss today?
+[20:31] <markus> elf-pavlik: yes, I'd like to add some use cases
+[20:32] <markus> ... which I hope will help to convey this feature better
+[20:32] <markus> markus: Pavlik, can you volunteer for this or would you like to discuss it first?
+[20:33] <markus> elf-pavlik: If Karol is fine with it I can go ahead and add some use cases
+[20:33] <markus> karol_szczepanski: do you want to replace events with people or do you want to add people?
+[20:33] <markus> elf-pavlik: the latter, I'd like to add people without touching events
+[20:33] <markus> karol_szczepanski: good idea. the more use cases the better
+[20:34] <markus> ACTION: Pavlik to add some more use cases that illustrate the manages feature introduced in PR #132
+[20:34]  * RRSAgent records action 1
+[20:34] <markus> markus: anything else for today?
+[20:34] <elf-pavlik> https://github.com/HydraCG/Specifications/issues/134
+[20:35] <markus> elf-pavlik: I'd like to invite people to look at issue #134
+[20:35] <markus> ... it's about how to add existing resources to a collection
+[20:35] <markus> markus: I think there's an action item on Tomasz to see what APIs in the wild do about this
+[20:36] <markus> ... which should help us to design this
+[20:36] <markus> elf-pavlik: perhaps in the meantime we should add a use case for it
+[20:36] <markus> markus: as Karol said before, the more use cases the better
+[20:36] <markus> ... so I'm all for it
+[20:37] <markus> elf-pavlik: even if it's as early stage
+[20:37] <markus> markus: absolutely. use cases don't need to describe a solution
+[20:37] <markus> ... just the problem. we can then work on a solution separately
+[20:38] <markus> elf-pavlik: OK, I'll first work on my other action item and then create a use case for this too
+[20:38] <markus> ACTION: Pavlik to create a use case for issue #134 (adding existing resources to collections)
+[20:38]  * RRSAgent records action 2
+[20:39] <markus> zakim, list attendees
+[20:39] <Zakim> As of this point the attendees have been (no one)
+[20:40] <elf-pavlik> present+
+[20:40] <elf-pavlik> present+ karol_szczepanski
+[20:40] <elf-pavlik> present+ markus
+[20:40] <markus> zakim, list attendees
+[20:40] <Zakim> As of this point the attendees have been elf-pavlik, karol_szczepanski, markus
