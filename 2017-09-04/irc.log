@@ -1,0 +1,80 @@
+[20:01] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:02] -!- Lorenzo [~Lorenzo@public.cloak] has joined #hydra
+[20:04] <elf-pavlik> present+ elf-pavlik
+[20:04] <elf-pavlik> present+ markus
+[20:04] -!- chrizandr [~chrizandr@public.cloak] has joined #hydra
+[20:04] <elf-pavlik> present+ xadahiya
+[20:04] <elf-pavlik> present+ chrizandr
+[20:04] <elf-pavlik> zakim, list attendees
+[20:04] <Zakim> As of this point the attendees have been elf-pavlik, markus, xadahiya, chrizandr
+[20:05] <elf-pavlik> present+ Lorenzo
+[20:05] <chrizandr> Here is the presentation I will be using in the call today https://docs.google.com/presentation/d/1NLbRM4M5boVY1d0aTMP9uXomIamClN0k5l9X4pInRIU/edit?usp=sharing
+[20:05] <elf-pavlik> Hello, Lorenzo will you also join the voice call ?
+[20:05] <markus> Lorenzo, will you be able to dial in?
+[20:06]  * elf-pavlik i can scribe
+[20:06] <markus> Scribe: elf-pavlik
+[20:07] <markus> Topic: Hydra Python Google Summer of Code
+[20:08] <elf-pavlik> chrizandr: I will screenshare slidedeck linked above
+[20:09] <markus> https://docs.google.com/presentation/d/1NLbRM4M5boVY1d0aTMP9uXomIamClN0k5l9X4pInRIU/edit?usp=sharing
+[20:10]  * elf-pavlik sorry got disconnected for a moment :(
+[20:11] <elf-pavlik> chrizandr: Hydrus uses HTTP Authorization header
+[20:11] <elf-pavlik> ... we use triples but we modified them a bit
+[20:13] <elf-pavlik> ... instance predicates ans abstract predicates
+[20:14] <elf-pavlik> chrizandr: I'll show you how to setup server using Hydrus
+[20:15] <elf-pavlik> ... first we setup connection to the database (sqlalchemy)
+[20:16] <elf-pavlik> ... now we need to create all the models hydrus needs
+[20:19] <elf-pavlik> ... then we use hydrus doc_maker to create api documentation
+[20:22] <elf-pavlik> ... hydrus app factory returns flask object with routes
+[20:24] <elf-pavlik> ... remember that we basically get flask application
+[20:27] <elf-pavlik> markus: does this server also supports CRUD operations ?
+[20:27] <elf-pavlik> chrizandr: you have to specify those operations in api documentation
+[20:28] <elf-pavlik> markus: so POST will also resolve in new item?
+[20:28] <elf-pavlik> ... I see you use schema.org action types
+[20:28] <elf-pavlik> chrizandr: you can specify whatever type you want over there
+[20:29] <xadahiya> https://docs.google.com/presentation/d/1GlN7URXyVFl8UufjBf3SUyG8PVSKTHHljg4n4LiWETw/edit?usp=sharing
+[20:30] <elf-pavlik> xadahiya: we wanted to demonstrate it in some interesting way
+[20:30] <elf-pavlik> ... we created simulation of drones which detect fires in some geo area
+[20:31] <elf-pavlik> ... central controler - hydrus instance, all drones send their data to it
+[20:41] <elf-pavlik> ... demo of the GUI of Hydra Flock Demo
+[20:43] <xadahiya> http://104.197.234.187:5000/
+[20:47] <elf-pavlik> markus: how often do the drones check api documentation
+[20:47] <elf-pavlik> ... if during operation it changes would they figure it out?
+[20:47] <elf-pavlik> xadahiya: i don't think you can change it during operation they get it during initialization
+[20:48] <elf-pavlik> q+
+[20:48]  * Zakim sees elf-pavlik on the speaker queue
+[20:48] <elf-pavlik> markus: do you plan to write a blog post about it?
+[20:48] <chrizandr> https://gsocchrizandr.wordpress.com/the-book-of-hydrus/
+[20:48] <xadahiya> xadahiya.github.io
+[20:49] <markus> elf-pavlik: Thanks for the demo
+[20:49] <markus> ... do you consider to have a live public demo so that people from the CG can go and play with it
+[20:49] <markus> ... without having to set up anything
+[20:50] <markus> chrizandr: We actually set up a AWS server but it needs some config
+[20:50] <markus> elf-pavlik: Right, that's what I meant. Set it up with this demo
+[20:50] <markus> chrizandr: Yeah, we could do that
+[20:51] <markus> elf-pavlik: Are the properties in the EntryPoint instances of hydra:Link?
+[20:52] <markus> xadahiya: So you are asking how the client discovers the various endpoints?
+[20:52] <markus> elf-pavlik: yes
+[20:54] <markus> elf-pavlik: How do you link from the entry point to the anomaly collection?
+[20:55] <markus> xadahiya: Here you see the properties, they are instances of hydra:Link
+[20:55] <markus> Lorenzo: Is this the correct way to do it?
+[20:55] <markus> elf-pavlik: yes
+[20:56] <markus> Lorenzo: great job, well done. I'm really proud
+[20:56] <elf-pavlik> markus: I agree, please share it more broadly
+[20:56] <elf-pavlik> ... i'll tweet about it
+[20:56] <elf-pavlik> xadahiya: we use sqlite but i plan to change it to postgresql
+[20:57] <elf-pavlik> ... this will support larger quantities of loads
+[20:57] <elf-pavlik> markus: i hope we can have public demo running somewhere
+[20:57] <markus> Topic: Follow-up on action items
+[20:58] <markus> markus: Pavlik, do you have an update?
+[20:58] <elf-pavlik> https://github.com/HydraCG/Specifications/pull/136
+[20:58] <xadahiya> http://xadahiya.github.io/
+[20:59] <markus> elf-pavlik: I created a first PR.. waiting for feedback
+[20:59] <markus> markus: sorry, slipped under my radar
+[21:00] <elf-pavlik> markus: anything else for today? any questions comments...
+[21:00] <elf-pavlik> chrizandr: for authorization / authentication we used Authorization header
+[21:00] <elf-pavlik> ... does any other ways to support auth in APIs ?
+[21:01] <elf-pavlik> markus: currently hydra doesn't have anything specific to authorization
+[21:01] <elf-pavlik> chrizandr: what we currently do not secure unless we use TLS
+[21:01] <elf-pavlik> ... HTTP Authorization header
+[21:02] <elf-pavlik> markus: thanks a lot again for the awesome demo!
+[21:02] <Lorenzo> Thanks guys. See you next time!
