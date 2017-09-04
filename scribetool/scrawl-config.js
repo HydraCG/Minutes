@@ -22,6 +22,9 @@
     "elf Pavlik": { "alias": ["elf-pavlik", "elf-pavlik_"] },
     "Tomasz Pluskiewicz": { "alias": ["tpluskiewicz"] },
     "Karol Szczepański": { "alias": ["karol_szczepanski", "karol-szczepanski"] },
+    "Chris Andrew": { "alias": ["chrizandr"] },
+    "Lorenzo Moriondo": { "alias": ["Lorenzo"] },
+    "Akshay Dahiya": { "alias": ["xadahiya"] },
   };
   scrawl.htmlHeader = `<!doctype html>
 <html lang="en">
