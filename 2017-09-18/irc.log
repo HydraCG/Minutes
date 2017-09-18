@@ -1,0 +1,144 @@
+[20:00] <markus> Chair: Markus Lanthaler
+[20:00] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:01] <markus> present+ tpluskiewicz
+[20:01] <markus> present+ elf-pavlik
+[20:01] <markus> present+ karol_szczepanski
+[20:04] <markus> tpluskiewicz, can you hear us? I hear some noise coming from you but you don't seem to hear us
+[20:04] <tpluskiewicz> yea, I'm back
+[20:05] <markus> Scribe: tpluskiewicz
+[20:06] <markus> Topic: Heracles.ts PR-11 (retrieving events)
+[20:06] <markus> https://github.com/HydraCG/Heracles.ts/pull/11
+[20:07] <tpluskiewicz> Markus: there's room for improvement but we should merge. Karol, Pavik, do you have opinions?
+[20:07] -!- elf-pavlik [~elf-pavlik@public.cloak] has quit [Ping timeout: 180 seconds]
+[20:07] <tpluskiewicz> Karol: nothing to add. not a big PR
+[20:07] <tpluskiewicz> ...next use cases will benefit
+[20:08] <tpluskiewicz> Markus: the interface is contentious. we discussed to use more specialized methods
+[20:08] <tpluskiewicz> Karol: the API will evolve with the use cases
+[20:08] <tpluskiewicz> Markus: Should we vote?
+[20:08] <markus> PROPOSAL: Merge Heracles.ts PR-11
+[20:08] <markus> +1
+[20:08] <karol_szczepanski> +1
+[20:09] <tpluskiewicz> +1
+[20:09] <markus> pavlik +1
+[20:09] <markus> RESOLVED: Merge Heracles.ts PR-11
+[20:09] -!- elf-pavlik [~elf-pavlik@public.cloak] has joined #hydra
+[20:09] <markus> Topic: Follow-up on action items
+[20:09] <markus> 1) Tomasz to research how a handful of popular/well-known APIs solve (https://github.com/HydraCG/Specifications/issues/134#issuecomment-322575730)
+[20:10] <elf-pavlik> +1 on merge PR proposal (needed to reconnect)
+[20:11] <markus> tpluskiewicz: I didn't really find anything that would be interesting for this
+[20:11] <markus> ... but I discussed it with colleagues
+[20:11] <markus> ... there's a proposal to use the LINK method
+[20:11] <markus> ... or linkset
+[20:12] <markus> ... the problem is that it's quite the opposite of the initial action item
+[20:12] <markus> ... so I found options on how to implement it but didn't find any usages in the wild
+[20:13] <markus> ... we are missing some pieces in Hydra; we can specify the LINK method but we can't, e.g., define custom media types for the request
+[20:14] <elf-pavlik> q+
+[20:14]  * Zakim sees elf-pavlik on the speaker queue
+[20:14] <markus> markus: so none of GitHub's, Facebook's or Google's APIs for instance have methods to add already existing entities to collections of some sort?
+[20:14] <tpluskiewicz> https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue
+[20:15] <markus> tpluskiewicz: I just pasted an example from GitHub.. it just has a list of usernames. Not sure how useful that is
+[20:16] <markus> markus: I think it is useful in the sense that it will show us examples people are already familiar with
+[20:16] <markus> tpluskiewicz: right, but it somehow misses the formality that JSON-LD/Hydra requires. They are mostly ad-hoc designs
+[20:17] <markus> markus: how would you suggest to move on? Should we acknowledge that there are no well-known patterns and we should just come up with something or should we try to find more examples?
+[20:18] <tpluskiewicz> https://tools.ietf.org/html/draft-wilde-linkset-01
+[20:18] <markus> tpluskiewicz: maybe we should look beyond JSON-LD and allow other media types etc.
+[20:18] <markus> zakim, ack elf-pavlik
+[20:18] <Zakim> I see no one on the speaker queue
+[20:19] <markus> elf-pavlik: maybe we should distribute the effort and investigate further
+[20:19] <markus> markus: so you think it would be valuable to do some research?
+[20:20] <elf-pavlik> I can take a look meetup.com and maybe one other API
+[20:20] <markus> elf-pavlik: I think so yeah. And it wouldn't be so much work for people if we would split the effort
+[20:20] <karol_szczepanski> +1
+[20:20] <karol_szczepanski> +q
+[20:20]  * Zakim sees karol_szczepanski on the speaker queue
+[20:20] <markus> zakim, ack karol_szczepanski
+[20:20] <Zakim> I see no one on the speaker queue
+[20:21] <tpluskiewicz> Karol: is it worth to check Jira/Confluence APIs? Not exactly hypermedia but have similar functions
+[20:21] <tpluskiewicz> Markus: good idea
+[20:21] <tpluskiewicz> ... should we create action items?
+[20:21] <tpluskiewicz> Karol: yes, let's distribute the workload
+[20:22] <markus> ACTION: Karol to analyse Jiira/Confluence APIs
+[20:22]  * RRSAgent records action 1
+[20:22] <tpluskiewicz> Markus: Karol will analyze Atlassian (Jira, Confluence)
+[20:22] <tpluskiewicz> Markus: Pavlik will look at Meetup?
+[20:22] <markus> ACTION:  Pavlik to analyse meetup.com and look for another one
+[20:22]  * RRSAgent records action 2
+[20:22] <tpluskiewicz> Pavlik: I will look for more examples
+[20:23] <markus> ACTION: Markus will analyze some Google APIs
+[20:23]  * RRSAgent records action 3
+[20:23] <tpluskiewicz> Markus: I can look at... Facebook? And some Google APIs
+[20:23] <markus> ACTION: Tomasz will analyze Huddle & Foxycart
+[20:23]  * RRSAgent records action 4
+[20:24] <tpluskiewicz> Markus: anything else?
+[20:24] <markus> The second action item was on Pavlik to add some more use cases that illustrate the manages feature introduced in PR-132 (http://www.hydra-cg.com/minutes/2017-08-21/#action-1)
+[20:24] <markus> Two PRs: PR-136 (already merged) & PR-140 (pending, https://github.com/HydraCG/Specifications/pull/140)
+[20:25] <tpluskiewicz> Pavlik: I added two more "main" collections. people and venues
+[20:25] <tpluskiewicz> ... they are discoverable from entrypoint using manages block
+[20:26] <tpluskiewicz> ... I also added attendees and a collections which represent attendance
+[20:26] <markus> PROPOSAL: Merge PR-140 (https://github.com/HydraCG/Specifications/pull/140)
+[20:27] <tpluskiewicz> Markus: tomasz reviewed and this PR looks good to merge
+[20:27] <tpluskiewicz> Pavlik: this PR uses LINK/UNLINK method and it's a proposal. related issue is linked to it
+[20:28] <markus> +1
+[20:28] <elf-pavlik> +1
+[20:28] <tpluskiewicz> +1
+[20:28] <karol_szczepanski> +1
+[20:28] <markus> RESOLVED: Merge PR-140 (https://github.com/HydraCG/Specifications/pull/140)
+[20:29] <markus> The third action item was on Pavlik too to create a use case for adding existing resources to collections (https://github.com/HydraCG/Specifications/issues/134)
+[20:29] <markus> Topic: Updates on the status of other open PRs
+[20:30] <markus> https://github.com/HydraCG/Heracles.ts/pulls
+[20:30] <markus> https://github.com/HydraCG/Specifications/pulls
+[20:30] <tpluskiewicz> Markus: I'll try to polish and combine my PRs (#10 and #12)
+[20:31] <markus> ACTION: Markus to combine PR-10 & PR-12 and send them out for review later this week
+[20:31]  * RRSAgent records action 5
+[20:32] <tpluskiewicz> Markus: one is from 2015, let's skip
+[20:32] <tpluskiewicz> MArkus: the other one is from Tomasz
+[20:32] <tpluskiewicz> Tomasz: let's reject it
+[20:32] <tpluskiewicz> Markus: yes, we should first polish the spec and Heracles
+[20:32] <elf-pavlik> https://github.com/HydraCG/Heracles.ts/issues/14
+[20:33] <tpluskiewicz> ... the last one is by Pavlik and ready to merge
+[20:33]  * elf-pavlik needs to reconnect to audio conf
+[20:35] <karol_szczepanski> +q
+[20:35]  * Zakim sees karol_szczepanski on the speaker queue
+[20:35] <tpluskiewicz> Markus: we should not assume anything about the payload @context
+[20:35] <tpluskiewicz> Karol: what if the payload is any other RDF serialization?
+[20:35] <markus> zakim, ack karol_szczepanski
+[20:35] <Zakim> I see no one on the speaker queue
+[20:35] <tpluskiewicz> Payload: then it's even more appropriate not to rely on the @context
+[20:36] <tpluskiewicz> ... if you get Turtle you can still provide your own context
+[20:36] <tpluskiewicz> Karol: not sure I understand
+[20:36] <tpluskiewicz> ... is it up to the client to take care of compaction?
+[20:37] <tpluskiewicz> ...the client should use untouched form. the current impl is using the framing and the context used to process affordances
+[20:37] <tpluskiewicz> ... existing payload is untouched
+[20:38] <tpluskiewicz> Markus: I think that a method like getProperty should get complete URL
+[20:38] <tpluskiewicz> ... and not rely on what server uses for compaction. the user of heracles shouldn't know that
+[20:39] <tpluskiewicz> Pavlik: yes, that's what I had in mind.
+[20:39] <tpluskiewicz> ... part of the PR used full URLs not to used prefixes
+[20:39] <tpluskiewicz> Markus: if I understand Karol, the client just pipes the payload
+[20:39] <tpluskiewicz> ... which makes it a non-issue
+[20:40] <tpluskiewicz> Karol: it's better because it uses the payload as BLOB
+[20:40] <tpluskiewicz> ... heracles processes JSON-LD to try to extract hypermedia
+[20:41] <tpluskiewicz> ... if it was Turtle, it would be left alone
+[20:41] <elf-pavlik> https://github.com/HydraCG/Heracles.ts/blob/master/src/DataModel/JsonLd/JsonLdHypermediaProcessor.ts
+[20:41] <tpluskiewicz> ... again, this internal processing is transformed to be as generic and repacked into Hydra-context to have nice JS structure
+[20:41] <tpluskiewicz> Markus: what if we added a method like 'getPropertyValue'?
+[20:41] <tpluskiewicz> Karol: property of resource?
+[20:42] <tpluskiewicz> Markus: yes
+[20:42] <tpluskiewicz> Karol: and if resource is an image and hypermedia is in headers?
+[20:43] <tpluskiewicz> Markus: if I retrieve schema:Person I would want to know the age, for example?
+[20:43] <tpluskiewicz> Karol: is this hydra clients responsibility? or JSON-LD client's?
+[20:43] <tpluskiewicz> Markus: maybe we need additional issue?
+[20:43] <tpluskiewicz> Karol: my impression was for Heracles to be low-level
+[20:44] <tpluskiewicz> Markus: this warrants more discussions. Pavlik, please open a new issue
+[20:44] <tpluskiewicz> Pavlik: ok. I will take a look at current issues and propose something
+[20:44] <tpluskiewicz> ... but I understand that we don't rely on server's context
+[20:45] <elf-pavlik> https://github.com/HydraCG/Heracles.ts/blob/master/src/DataModel/JsonLd/context.json
+[20:45] <tpluskiewicz> ... before I jump into this I'll propose to align the current context
+[20:46] <elf-pavlik> https://github.com/HydraCG/Heracles.ts/blob/master/src/namespaces.ts
+[20:46] <markus> https://github.com/HydraCG/Heracles.ts/issues/15
+[20:47] <tpluskiewicz> Pavlik: maybe we should drop the hydra prefix and use the  namespace helper
+[20:47] <tpluskiewicz> Markus: that's about right
+[20:47] <tpluskiewicz> ... maybe we should merge Karol's PR and you can send another one to improve
+[20:48] <tpluskiewicz> Pavlik: I will and maybe we could move quickly
+[20:48] <tpluskiewicz> ... I will close the one issue and follow up on the second one
+[20:48] <tpluskiewicz> Markus: anything else to discuss today?
+[20:49] <tpluskiewicz> ... thank you everyone. see you in 2 weeks
