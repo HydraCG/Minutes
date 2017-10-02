@@ -413,17 +413,6 @@
                   </dl>
               </div>\n`;
     } else {
-      rval += `Thanks ${scribe.replace(/\s.*/, '')} for scribing. The minutes from this week's telecon are
-now available at
-
-   http://www.hydra-cg.com/minutes/${date}/
-
-The full text of the discussion is below, including a link to the audio
-transcript.
-
-
--------------------------------------------------------------------
-`
       rval += group + " Telecon ";
       rval += "Minutes for " + date + "\n\n";
       rval += "Agenda:\n  " + agenda + "\n";
@@ -475,7 +464,7 @@ transcript.
     doc.getElementById("html-output").innerHTML = minutes;
   };
 
-  scrawl.generateMinutes = function (textMode) {
+  scrawl.generateMinutes = function (textMode, mailHeader) {
     var rval = "";
     var minutes = "";
     var summary = "";
@@ -503,8 +492,22 @@ transcript.
       minutes += line
     }
 
+    if (textMode == "text" && mailHeader) {
+      summary += `Thanks ${context.scribe.replace(/\s.*/, '')} for scribing. The minutes from this week's telecon are
+now available at
+
+   http://www.hydra-cg.com/minutes/${context.date}/
+
+The full text of the discussion is below, including a link to the audio
+transcript.
+
+
+-------------------------------------------------------------------
+`;
+    }
+
     // generate the meeting summary
-    summary = scrawl.generateSummary(context, textMode);
+    summary += scrawl.generateSummary(context, textMode);
 
     // create the final log output
     rval = summary + minutes;
