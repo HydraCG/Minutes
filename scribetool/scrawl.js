@@ -413,6 +413,17 @@
                   </dl>
               </div>\n`;
     } else {
+      rval += `Thanks ${scribe.replace(/\s.*/, '')} for scribing. The minutes from this week's telecon are
+now available at
+
+   http://www.hydra-cg.com/minutes/${date}/
+
+The full text of the discussion is below, including a link to the audio
+transcript.
+
+
+-------------------------------------------------------------------
+`
       rval += group + " Telecon ";
       rval += "Minutes for " + date + "\n\n";
       rval += "Agenda:\n  " + agenda + "\n";
@@ -527,7 +538,7 @@
    doc.getElementById(id).style.display = '';
   };
 
-  scrawl.showMarkup = function (type)
+  scrawl.showMarkup = function (type, mailHeader)
   {
     // Display the appropriate markup text area based on the 'type'
     if (type == "html") {
@@ -541,7 +552,7 @@
       doc.getElementById("html-markup").value = html;
       scrawl.show("html-markup");
     } else if (type == "text") {
-      var text = scrawl.generateMinutes(type)
+      var text = scrawl.generateMinutes(type, mailHeader)
 
       scrawl.hide("html-markup");
       scrawl.hide("irc-log");
