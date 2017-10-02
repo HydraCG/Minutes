@@ -1,0 +1,126 @@
+[19:52] <markus> Meeting: Hydra W3C Community Group Conference Call
+[19:52] <markus> Chair: Markus Lanthaler
+[19:52] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2017-10-02
+[19:54] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has joined #hydra
+[19:54] <elf-pavlik> present+
+[19:54] <elf-pavlik> present+ markus
+[19:54] <elf-pavlik> present+ Karol_Szczepanski
+[19:54] <elf-pavlik> Zakim, list attendees
+[19:54] <Zakim> As of this point the attendees have been elf-pavlik, markus, Karol_Szczepanski
+[19:59] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[19:59] <elf-pavlik> present+ tpluskiewicz
+[19:59] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has quit ["Page closed"]
+[20:00] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:01] <markus> Scribe: Karol_Szczepanski
+[20:01] <markus> Topic: ISSUE-134: Adding already existing resources as collection members
+[20:02] <markus> https://github.com/HydraCG/Specifications/issues/134
+[20:02] <Karol_Szczepanski> Agenda: Issue #134
+[20:02] <markus> The action items were
+[20:02] <markus> 1) Karol to analyse Jiira/Confluence APIs
+[20:02] <markus> 2) Pavlik to analyse meetup.com and look for another one
+[20:02] <markus> 3) Markus to analyze some Google APIs
+[20:02] <markus> 4) Tomasz to analyze Huddle & Foxycart
+[20:04] <markus> Karol_Szczepanski: Confluence's APIs is consistent within itself and uses collections as containers, i.e., you can POST entities to a collection
+[20:04] <markus> Karol_Szczepanski: Jiira's API isn't consistent and uses different mechanisms
+[20:04] <markus> Karol_Szczepanski: when I say a container I mean a LDP container
+[20:05] <markus> Karol_Szczepanski: so when adding a resource, it will get it's own URL
+[20:05] <markus> Karol_Szczepanski: and the container itself has a URL as well and can be updated with a PUT e.g.
+[20:06] <markus> So, with a playlist, e.g., video entries would be represented as separate playlistitem resources, right
+[20:06] <markus> Karol_Szczepanski: yes
+[20:06] <markus> Did you see any use HTTP LINK or UNLINK?
+[20:06] <markus> Karol_Szczepanski: no, I haven't
+[20:07] <Karol_Szczepanski> elf-pavlik: I posted my findings on GitHub
+[20:07] <Karol_Szczepanski> ... Veimo case: like relationship or subscription relationship
+[20:07] <Karol_Szczepanski> ... requires understanding URI patterns
+[20:07] <Karol_Szczepanski> ... URI patterns are not provided, thus client needs to have that knowledge
+[20:08] <Karol_Szczepanski> elf-pavlik: putting or deleting a relationship ammends both collections
+[20:10] <Karol_Szczepanski> elf-pavlik: in vimeo puts or deletis single resources rather than PATCH a collection
+[20:11] <Karol_Szczepanski> tpluskiewicz: nothings can stop server from modifying other collections/resources
+[20:11] <Karol_Szczepanski> markus: if the client wan'ts to update both collections, does it needs to know whether to do it manualty or it can know that server will do that
+[20:12] <Karol_Szczepanski> tpluskiewicz: it would be ackward to take care of all possible side effects or lack of those
+[20:13] <Karol_Szczepanski> markus: client probably is not aware of the all resources it is going to affect
+[20:14] <Karol_Szczepanski> markus: expressing side effects opens brand new can of worms
+[20:15] <Karol_Szczepanski> elf-pavlik: modifying dataset or interacting with an interface are two possible approaches
+[20:16] <Karol_Szczepanski> +q
+[20:16]  * Zakim sees Karol_Szczepanski on the speaker queue
+[20:17] <markus> zakim, ack Karol_Szczepanski
+[20:17] <Zakim> I see no one on the speaker queue
+[20:17] <markus> Karol_Szczepanski: I think it is not up to Hydra to decide
+[20:17] <markus> ... the client should get told what it can do and not care whether it interacts with a dataset or service
+[20:18] <markus> ... it will be a service in either case
+[20:18] <markus> ... and we shouldn't leak the underlying implementation
+[20:19] <Karol_Szczepanski> elf-pavlik: difference is on how to provide the information of the posible operation i.e. to like something
+[20:19] <Karol_Szczepanski> elf-pavlik: either with a Like action or something different
+[20:20] <Karol_Szczepanski> +q
+[20:20]  * Zakim sees Karol_Szczepanski on the speaker queue
+[20:20] <markus> zakim, ack Karol_Szczepanski
+[20:20] <Zakim> I see no one on the speaker queue
+[20:20] <markus> Karol_Szczepanski: adding semantic actions such as LikeActions should be optional and be on top of PUT, POST etc.
+[20:21] <markus> ... the client may not understand those higher level actions LikeActions
+[20:21] <markus> So, what is a POST?
+[20:22] <markus> If the server only advertises a POST, how would the client know what it effects are?
+[20:22] <markus> Karol_Szczepanski: It wouldn't and it shouldn't execute it.. only GET is a safe operation
+[20:24] -!- elf-pavlik_ [~elf-pavlik@public.cloak] has joined #hydra
+[20:24] -!- elf-pavlik [~elf-pavlik@public.cloak] has quit [Client closed connection]
+[20:25]  * elf-pavlik_ sorry laptop have shut down, but i could follow the voice
+[20:25] -!- elf-pavlik_ is now known as elf-pavlik
+[20:25] <Karol_Szczepanski> I've lost you guys
+[20:26]  * elf-pavlik markus ?
+[20:26]  * elf-pavlik still with us?
+[20:28] <elf-pavlik> Karol_Szczepanski: i worry that if we take actions from schema.org Like etc. we may end up with somethign SOAPish
+[20:28] <elf-pavlik> tpluskiewicz: I don't see issue with the verbs itself, but we don't get RPC because of that
+[20:28] <elf-pavlik> tpluskiewicz: RPC tries to pretend that remote calls are local calls
+[20:29] -!- markus_ [~markus@public.cloak] has joined #hydra
+[20:29] -!- markus [~markus@public.cloak] has quit [Ping timeout: 180 seconds]
+[20:30] <elf-pavlik> Karol_Szczepanski: the clients know the protocol, the common verbs, errors etc. now you would need to understand more, like those verbs from the vocab
+[20:30] <markus_> sorry, my connection dropped
+[20:30] <markus_> back now
+[20:30] <elf-pavlik> tpluskiewicz: you always need some kind of vocab besides minimal HTTP semantics
+[20:30] -!- markus_ is now known as markus
+[20:31] <elf-pavlik> q+
+[20:31]  * Zakim sees elf-pavlik on the speaker queue
+[20:31] <tpluskiewicz> q-
+[20:31]  * Zakim sees elf-pavlik on the speaker queue
+[20:31] <tpluskiewicz> -q
+[20:31]  * Zakim sees elf-pavlik on the speaker queue
+[20:32] <Karol_Szczepanski> elf-pavlik: do we wan't to support different choices i.e. one server uses PUT and another to POST or PATH or other verb for same operation
+[20:33] <elf-pavlik> Karol_Szczepanski: IMO user of the API doesn't need to know a vocabulary to perform some actions
+[20:34] <Karol_Szczepanski> markus: if there is a developer that implements an HTTP requests as document the server cannot change that implementation
+[20:34] <Karol_Szczepanski> markus: other approach is that client can be written so server can change that behavior
+[20:38] -!- elf-pavlik [~elf-pavlik@public.cloak] has quit [Client closed connection]
+[20:40] <markus> zakim, queue?
+[20:40] <Zakim> I see elf-pavlik on the speaker queue
+[20:41] <markus> zakim, ack elf-pavlik
+[20:41] <Zakim> I see no one on the speaker queue
+[20:41] <Karol_Szczepanski> elf-pavlik: various services might need to make some choices on the custom actions
+[20:42] <Karol_Szczepanski> elf-pavlik: having notion of an action is more extensible
+[20:42] <Karol_Szczepanski> +q
+[20:42]  * Zakim sees Karol_Szczepanski on the speaker queue
+[20:42] <markus> zakim, ack Karol_Szczepanski
+[20:42] <Zakim> I see no one on the speaker queue
+[20:43] <markus> elf-pavlik: I like the idea of trying to describe the APIs we researched with Hydra
+[20:43] <markus> Karol_Szczepanski: I like the idea of implementing something
+[20:43] <markus> I agree
+[20:44] -!- elf-pavlik [~elf-pavlik@public.cloak] has joined #hydra
+[20:44] <markus> So, should we continue with implementing the use cases, add new use cases if some are missing etc.
+[20:44] <markus> Or would you like to investigate something else
+[20:44] <markus> Karol_Szczepanski: Let's continue to implement the existing use cases
+[20:44] <markus> ... we can always extend them if necessarz
+[20:45] <Karol_Szczepanski> elf-pavlik: shall we try to add something to the heracles from the use cases?
+[20:45] <markus> Karol_Szczepanski: yes, absolutely
+[20:45] <markus> ... you should contribute, it's our code not mine
+[20:46] <markus> Topic: Heracles PR-10 (Action item Markus to combine PR-10 & PR-12)
+[20:46] <markus> https://github.com/HydraCG/Heracles.ts/pull/10
+[20:48] <Karol_Szczepanski> tpluskiewicz: go ahead, we can always tweak details
+[20:49] <markus> PROPOSAL: Merge Heracles PR-10
+[20:49] <markus> +1
+[20:49] <Karol_Szczepanski> markus: arrange order of the members so public static goes first, the public, protected and private
+[20:49] <elf-pavlik> +1
+[20:49] <Karol_Szczepanski> +1
+[20:49] <tpluskiewicz> +1
+[20:49] <markus> RESOLVED: Merge Heracles PR-10
+[20:49] <elf-pavlik> https://github.com/HydraCG/Heracles.ts/issues/13
+[20:50] <Karol_Szczepanski> elf-pavlik: pick an issues and let's implement in the heracles
+[20:51] <Karol_Szczepanski> +q
+[20:51]  * Zakim sees Karol_Szczepanski on the speaker queue
+[20:51] <markus> Karol_Szczepanski: we have the use cases, just pick one, implement it and send a PR
