@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2017-10-16 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2017-10-16</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls">https://www.w3.org/community/hydra/wiki/Conference_Calls</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">CreateAction with HTTP PUT</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Tomasz to extend use case 5 to include all issues discussed today</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Scribe</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Present</dt>
+                      <dd>Markus Lanthaler, elf Pavlik, Tomasz Pluskiewicz, Karol Szczepański</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="information">Markus Lanthaler is scribing.</div>
+              <div class="information">Is there anything we should add to the agenda apart from the issues Pavlik sent out?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  Karol's PR</div>
+
+              <h1 id="topic-1" class="topic">Topic: CreateAction with HTTP PUT</h1>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/141">https://github.com/HydraCG/Specifications/issues/141</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  we approached this from two difficult use cases</div>
+              <div class="comment-continuation">... adding members to collections</div>
+              <div class="comment-continuation">... and creating resources</div>
+              <div class="comment-continuation">... it seems either way we will need IriTemplates</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: <a href="https://github.com/HydraCG/Specifications/issues/141#issuecomment-336670989">https://github.com/HydraCG/Specifications/issues/141#issuecomment-336670989</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  if we use CreateAction it could be both POST or PUT</div>
+              <div class="comment-continuation">... it would look pretty much the same if we would have a way to attach a "target template"</div>
+              <div class="comment-continuation">... telling the client how to construct the URL</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we already have a similar functionality with templates and links</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: comment trying to follow hydra:search approach <a href="https://github.com/HydraCG/Specifications/issues/3#issuecomment-336635276">https://github.com/HydraCG/Specifications/issues/3#issuecomment-336635276</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  indeed my latest PR is quite similar to Pavlik's snippet</div>
+              <div class="comment-continuation">... I think hydra:search is a link. It is not clear to me if we can use this pattern for this as well</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  we could also change hydra:search to SearchAction and have that operation point to a IRI template</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: { "create_user": { "@type": "IriTemplate", "operation": { "expects": "NewUser" } } }</div>
+              <div class="information">when I designed Hydra the intent was to have IriTemplate work pretty much work like a "abstract" hydra:Resource</div>
+              <div class="information">once the variables in the template are replaced, it would work the same</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  does this mean we need to describe things differently based on their HTTP method</div>
+              <div class="information">{ "@type": "IriTemplate", "template": "whatever?{var}", "mappings": [..], "operation": { "@type": "CreateAction", "expects": "NewUser", ... } } }</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: I'm experiencing connection issues :(</div>
+              <div class="information"><a href="http://schema.org/Action">http://schema.org/Action</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  right, so if I would like to describe how to add something to a collection with a PUT, how would I point to the IRI template?</div>
+              <div class="information">that's indeed undefined at the moment</div>
+              <div class="information">Schema.org has things like instrument, agent, object etc. to describe some of these relationships</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I used action to describe this on GitHub</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: <a href="https://github.com/HydraCG/Specifications/issues/141#issuecomment-336670989">https://github.com/HydraCG/Specifications/issues/141#issuecomment-336670989</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think we are overthinking this</div>
+              <div class="comment-continuation">... we could leverage the follow your nose principle and let the user decide</div>
+              <div class="comment-continuation">... how we could tell a client the consequence of an operation beforehand is an open problem though</div>
+              <div class="comment-continuation">... maybe not as important though unless we want to target machine to machine communication</div>
+              <div class="comment-continuation">... in general though I agree that an extension on collections would be nice</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  if we would like to describe an HTTP request for a resource directly, we would use hydra:operation or its inverse hydra:target</div>
+              <div class="comment-continuation">... if the client needs to send the HTTP request to a different resource to affect the current one, we could use hydra:action as proposed in <a href="https://github.com/HydraCG/Specifications/issues/141#issuecomment-336670989">https://github.com/HydraCG/Specifications/issues/141#issuecomment-336670989</a></div>
+              <div class="information">So, what you propose is to introduce an additional property "hydra:action" whose semantics are "there's an operation that affects *this* resource but needs to be send to a *different* URL (specified with hydra:operation or hydra:target)"</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  could we make the method determine which resource the request should go to?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  if you look at Pavlik's example they are uniform</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: actually, I meant the snippets in IRC. above</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  am I correct that you are making a distinction between an action and an operation?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  kind of, action is just a connection to a different resource</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  so PUT would go to action, POST would go to operation</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I'd actually think the other way round</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  ok, right, so the other way round</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: o_0</div>
+              <div class="information">Let's take this back to GitHub</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: q?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Pavlik, your snippet has targetTemplate. Is this something you created?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  yeah, they are just proposals</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: "action": { "@type": ["hydra:Operation", "schema:CreateAction", "hydra:IriTemplate"],</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  what would it mean if action is simultanously an operation and an IRI template?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  we shouldn't conflate operations and resources</div>
+              <div class="comment-continuation">... and the way Markus described IriTemplates as "abstract resources" think describes well that we shouldn't conflate them</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I wouldn't like to see them conflated either</div>
+              <div class="comment-continuation">... I'll rewrite Pavlik's snippet to how Markus described it</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  there's the third option which is how it is in the PR</div>
+              <div class="comment-continuation">... let the HTTP method decide</div>
+              <div class="information">I think that would be too restrictive.. a POST could need to go to a different URL as well, not just a PUT</div>
+              <div class="information">Let's spend a few more cycles on GitHub and discuss it again next time</div>
+              <div class="information">The next topic would be "Adding already existing resources as collection members", as it's highly related I'd propose to table that as it is highly related unless someone disagrees</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I touched on that in my PR but I had to use workaround as we miss IRI templates</div>
+              <div class="information"><a href="https://github.com/HydraCG/Heracles.ts/pull/18">https://github.com/HydraCG/Heracles.ts/pull/18</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  don't hesitate to comment on the PR, it was created for that exact purpose</div>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/118">https://github.com/HydraCG/Specifications/issues/118</a></div>
+              <div class="information">The next topic is also highly related "Specifying operations on TemplatedLink objects", PR 118</div>
+              <div class="information">The last topic "Should we introduce a property to associate operations and their target directly to an entity?" is also about the same thing</div>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/3">https://github.com/HydraCG/Specifications/issues/3</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  do we have a volunteer to create use cases for these?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  do you think we need use cases? Creating events with POST and PUT should already address them</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  maybe I can extend use case 5</div>
+              <div class="comment-continuation">... maybe we conflate to connected but different matters</div>
+              <div class="comment-continuation">... one is operations on IriTemplates</div>
+              <div class="comment-continuation">... the other one is a PUT (which is a specialization of the other)</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Tomasz to extend use case 5 to include all issues discussed today</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I have a question about Prettier</div>
+              <div class="comment-continuation">... how is it configured</div>
+              <div class="comment-continuation">... writing a for loop in three lines instead of one breaks my heart</div>
+              <div class="information">Is it because the line is getting too long?</div>
+              <div class="information"><a href="https://github.com/prettier/prettier#configuration-file">https://github.com/prettier/prettier#configuration-file</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  it's pretty opinionated so not highly configurable</div>
+              <div class="comment-continuation">... please file an issue to discuss some specific examples</div>
+              <div class="comment-continuation">... it shouldn't get in the way of getting work done</div>
+              <div class="comment"><span class="name">elf Pavlik</span>: markus comment re action vs. operation <a href="https://github.com/HydraCG/Specifications/issues/3#issuecomment-268809248">https://github.com/HydraCG/Specifications/issues/3#issuecomment-268809248</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I'd like to raise my concern about using action and operation</div>
+              <div class="comment-continuation">... it's confusing to use these two very similar terms</div>
+              <div class="comment-continuation">... and it will be hard to know when to use which</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

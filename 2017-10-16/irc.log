@@ -1,0 +1,138 @@
+[19:59] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[19:59] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has joined #hydra
+[20:00] <markus> present+ markus
+[20:01] <markus> present+ Karol_Szczepanski
+[20:01] <markus> present+ elf-pavlik
+[20:03] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:03] <elf-pavlik> present+ tpluskiewicz
+[20:03] <markus> Scribe: markus
+[20:04] <markus> Is there anything we should add to the agenda apart from the issues Pavlik sent out?
+[20:05] <markus> elf-pavlik: Karol's PR
+[20:05] <markus> Topic: CreateAction with HTTP PUT
+[20:05] <markus> https://github.com/HydraCG/Specifications/issues/141
+[20:05] <markus> elf-pavlik: we approached this from two difficult use cases
+[20:05] <markus> ... adding members to collections
+[20:06] <markus> ... and creating resources
+[20:06] <markus> ... it seems either way we will need IriTemplates
+[20:06] <tpluskiewicz> +q
+[20:06]  * Zakim sees tpluskiewicz on the speaker queue
+[20:06] <elf-pavlik> https://github.com/HydraCG/Specifications/issues/141#issuecomment-336670989
+[20:07] <markus> elf-pavlik: if we use CreateAction it could be both POST or PUT
+[20:07] <Karol_Szczepanski> +q
+[20:07]  * Zakim sees tpluskiewicz, Karol_Szczepanski on the speaker queue
+[20:07] <markus> ... it would look pretty much the same if we would have a way to attach a "target template"
+[20:08] <markus> ... telling the client how to construct the URL
+[20:08] <markus> tpluskiewicz: we already have a similar functionality with templates and links
+[20:08] <markus> zakim, ack tpluskiewicz
+[20:08] <Zakim> I see Karol_Szczepanski on the speaker queue
+[20:09] <markus> zakim, ack Karol_Szczepanski
+[20:09] <Zakim> I see no one on the speaker queue
+[20:09] <elf-pavlik> comment trying to follow hydra:search approach https://github.com/HydraCG/Specifications/issues/3#issuecomment-336635276
+[20:09] <markus> Karol_Szczepanski: indeed my latest PR is quite similar to Pavlik's snippet
+[20:09] <elf-pavlik> q+
+[20:09]  * Zakim sees elf-pavlik on the speaker queue
+[20:09] <markus> ... I think hydra:search is a link. It is not clear to me if we can use this pattern for this as well
+[20:10] <markus> zakim, ack elf-pavlik
+[20:10] <Zakim> I see no one on the speaker queue
+[20:10] <tpluskiewicz> +q
+[20:10]  * Zakim sees tpluskiewicz on the speaker queue
+[20:10] <markus> elf-pavlik: we could also change hydra:search to SearchAction and have that operation point to a IRI template
+[20:12] <Karol_Szczepanski> +q
+[20:12]  * Zakim sees tpluskiewicz, Karol_Szczepanski on the speaker queue
+[20:12] <tpluskiewicz> { "create_user": { "@type": "IriTemplate", "operation": { "expects": "NewUser" } } }
+[20:13] <markus> when I designed Hydra the intent was to have IriTemplate work pretty much work like a "abstract" hydra:Resource
+[20:14] <markus> once the variables in the template are replaced, it would work the same
+[20:14] <elf-pavlik> q+
+[20:14]  * Zakim sees tpluskiewicz, Karol_Szczepanski, elf-pavlik on the speaker queue
+[20:15] <markus> zakim, ack
+[20:15] <Zakim> I don't understand 'ack', markus
+[20:15] <markus> zakim, ack tpluskiewicz
+[20:15] <Zakim> I see Karol_Szczepanski, elf-pavlik on the speaker queue
+[20:15] <markus> zakim, ack elf-pavlik
+[20:15] <Zakim> I see Karol_Szczepanski on the speaker queue
+[20:16] <tpluskiewicz> +q
+[20:16]  * Zakim sees Karol_Szczepanski, tpluskiewicz on the speaker queue
+[20:16] <markus> elf-pavlik: does this mean we need to describe things differently based on their HTTP method
+[20:17] <markus> { "@type": "IriTemplate", "template": "whatever?{var}", "mappings": [..], "operation": { "@type": "CreateAction", "expects": "NewUser", ... } } }
+[20:17] <Karol_Szczepanski> I'm experiencing connection issues :(
+[20:20] <markus> http://schema.org/Action
+[20:21] <markus> elf-pavlik: right, so if I would like to describe how to add something to a collection with a PUT, how would I point to the IRI template?
+[20:21] <markus> that's indeed undefined at the moment
+[20:21] <markus> Schema.org has things like instrument, agent, object etc. to describe some of these relationships
+[20:22] <markus> elf-pavlik: I used action to describe this on GitHub
+[20:22] <elf-pavlik> https://github.com/HydraCG/Specifications/issues/141#issuecomment-336670989
+[20:22] <markus> tpluskiewicz: I think we are overthinking this
+[20:22] <markus> ... we could leverage the follow your nose principle and let the user decide
+[20:23] <markus> ... how we could tell a client the consequence of an operation beforehand is an open problem though
+[20:23] <markus> ... maybe not as important though unless we want to target machine to machine communication
+[20:23] <markus> ... in general though I agree that an extension on collections would be nice
+[20:24] <markus> elf-pavlik: if we would like to describe an HTTP request for a resource directly, we would use hydra:operation or its inverse hydra:target
+[20:25] <Karol_Szczepanski> +q
+[20:25]  * Zakim sees Karol_Szczepanski, tpluskiewicz on the speaker queue
+[20:25] <markus> ... if the client needs to send the HTTP request to a different resource to affect the current one, we could use hydra:action as proposed in https://github.com/HydraCG/Specifications/issues/141#issuecomment-336670989
+[20:27] <markus> So, what you propose is to introduce an additional property "hydra:action" whose semantics are "there's an operation that affects *this* resource but needs to be send to a *different* URL (specified with hydra:operation or hydra:target)"
+[20:28] <markus> Karol_Szczepanski: could we make the method determine which resource the request should go to?
+[20:29] <markus> tpluskiewicz: if you look at Pavlik's example they are uniform
+[20:30] <tpluskiewicz> actually, I meant the snippets in IRC. above
+[20:31] <markus> Karol_Szczepanski: am I correct that you are making a distinction between an action and an operation?
+[20:32] <markus> elf-pavlik: kind of, action is just a connection to a different resource
+[20:32] <markus> Karol_Szczepanski: so PUT would go to action, POST would go to operation
+[20:32] <markus> elf-pavlik: I'd actually think the other way round
+[20:32] <markus> Karol_Szczepanski: ok, right, so the other way round
+[20:33] <tpluskiewicz> o_0
+[20:34] <tpluskiewicz> +q
+[20:34]  * Zakim sees Karol_Szczepanski, tpluskiewicz on the speaker queue
+[20:34] <markus> Let's take this back to GitHub
+[20:35] <elf-pavlik> q?
+[20:35]  * Zakim sees Karol_Szczepanski, tpluskiewicz on the speaker queue
+[20:35] <markus> zakim, ack Karol_Szczepanski
+[20:35] <Zakim> I see tpluskiewicz on the speaker queue
+[20:35] <markus> Karol_Szczepanski: Pavlik, your snippet has targetTemplate. Is this something you created?
+[20:35] <markus> elf-pavlik: yeah, they are just proposals
+[20:36] <Karol_Szczepanski>  "action": { "@type": ["hydra:Operation", "schema:CreateAction", "hydra:IriTemplate"],
+[20:37] <markus> Karol_Szczepanski: what would it mean if action is simultanously an operation and an IRI template?
+[20:37] <markus> elf-pavlik: we shouldn't conflate operations and resources
+[20:38] <markus> ... and the way Markus described IriTemplates as "abstract resources" think describes well that we shouldn't conflate them
+[20:38] <markus> tpluskiewicz: I wouldn't like to see them conflated either
+[20:39] <markus> ... I'll rewrite Pavlik's snippet to how Markus described it
+[20:40] <markus> elf-pavlik: there's the third option which is how it is in the PR
+[20:40] <markus> ... let the HTTP method decide
+[20:40] <markus> I think that would be too restrictive.. a POST could need to go to a different URL as well, not just a PUT
+[20:41] <markus> Let's spend a few more cycles on GitHub and discuss it again next time
+[20:42] <markus> The next topic would be "Adding already existing resources as collection members", as it's highly related I'd propose to table that as it is highly related unless someone disagrees
+[20:43] <markus> Karol_Szczepanski: I touched on that in my PR but I had to use workaround as we miss IRI templates
+[20:43] <markus> https://github.com/HydraCG/Heracles.ts/pull/18
+[20:45] <markus> Karol_Szczepanski: don't hesitate to comment on the PR, it was created for that exact purpose
+[20:46] <markus> https://github.com/HydraCG/Specifications/issues/118
+[20:47] <markus> The next topic is also highly related "Specifying operations on TemplatedLink objects", PR 118
+[20:48] <markus> The last topic "Should we introduce a property to associate operations and their target directly to an entity?" is also about the same thing
+[20:48] <markus> https://github.com/HydraCG/Specifications/issues/3
+[20:48] <markus> tpluskiewicz: do we have a volunteer to create use cases for these?
+[20:49] <markus> elf-pavlik: do you think we need use cases? Creating events with POST and PUT should already address them
+[20:49] <markus> tpluskiewicz: maybe I can extend use case 5
+[20:49] <markus> ... maybe we conflate to connected but different matters
+[20:49] <markus> ... one is operations on IriTemplates
+[20:50] <markus> ... the other one is a PUT (which is a specialization of the other)
+[20:50]  * elf-pavlik reconnecting to call
+[20:50] <markus> ACTION: Tomasz to extend use case 5 to include all issues discussed today
+[20:50]  * RRSAgent records action 1
+[20:50] <tpluskiewicz> +q
+[20:50]  * Zakim sees tpluskiewicz on the speaker queue
+[20:51] <markus> Karol_Szczepanski: I have a question about Prettier
+[20:51] <markus> ... how is it configured
+[20:51] <markus> ... writing a for loop in three lines instead of one breaks my heart
+[20:52] <markus> Is it because the line is getting too long?
+[20:53] <markus> https://github.com/prettier/prettier#configuration-file
+[20:54] <markus> markus: it's pretty opinionated so not highly configurable
+[20:54] <markus> ... please file an issue to discuss some specific examples
+[20:55] <markus> ... it shouldn't get in the way of getting work done
+[20:55] <elf-pavlik> markus comment re action vs. operation https://github.com/HydraCG/Specifications/issues/3#issuecomment-268809248
+[20:56] <markus> tpluskiewicz: I'd like to raise my concern about using action and operation
+[20:56] <markus> ... it's confusing to use these two very similar terms
+[20:56] <markus> ... and it will be hard to know when to use which
+[20:57] <markus> zakim, queue?
+[20:57] <Zakim> I see tpluskiewicz on the speaker queue
+[20:57] <markus> zakim, ack tpluskiewicz
+[20:57] <Zakim> I see no one on the speaker queue
+[21:01] <markus> zakim, list attendees
+[21:01] <Zakim> As of this point the attendees have been markus, Karol_Szczepanski, elf-pavlik, tpluskiewicz
