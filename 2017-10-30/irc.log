@@ -1,0 +1,112 @@
+[19:52] <markus> Meeting: Hydra W3C Community Group Conference Call
+[19:52] <markus> Chair: Markus Lanthaler
+[19:52] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2017-10-30
+[19:52] <markus> present+
+[19:57] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has joined #hydra
+[19:58] <markus> present+ Karol_Szczepanski
+[20:00] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:00] <markus> present+ tpluskiewicz
+[20:01] <elf-pavlik> present+
+[20:02] <markus> Scribe: elf-pavlik
+[20:02] <elf-pavlik> scribe: elf-pavlik
+[20:03] <markus> Topic: Add use case creating events with PUT (PR-143)
+[20:03] <markus> https://github.com/HydraCG/Specifications/pull/143
+[20:03] <elf-pavlik> markus: it already received reviews from Karol, Pavlik and me
+[20:04] <elf-pavlik> ... Tomasz can you explain the current state of this PR?
+[20:05] <elf-pavlik> tpluskiewicz: recent comment from Pavlik regarding advertising a regular IRI which will handle adding new members
+[20:08] <elf-pavlik> markus: you would need to communicate to client that it has to re-fetch the collection to get IRI for adding another resource
+[20:08] <Karol_Szczepanski> +q
+[20:08]  * Zakim sees Karol_Szczepanski on the speaker queue
+[20:08] <elf-pavlik> q+
+[20:08]  * Zakim sees Karol_Szczepanski, elf-pavlik on the speaker queue
+[20:09] <elf-pavlik> markus: i would include a nonce in the request, a token that can get used once instead of messing with the IRI - currently we have no way to do that in hydra
+[20:09] <elf-pavlik> ... other option would POST to the resource to get IRI which later one can PUT to
+[20:10] <Karol_Szczepanski> -q
+[20:10]  * Zakim sees elf-pavlik on the speaker queue
+[20:11] <elf-pavlik> tpluskiewicz: in previous comment you have 1-to-1 relation with another resource, eg. private profile of a user
+[20:11] <elf-pavlik> ... it doesn't have the added complexity that you can't reuse the same IRI
+[20:11] <elf-pavlik> markus: do you think something blocks this PR?
+[20:12] <elf-pavlik> tpluskiewicz: i see 2 more comments which need addressing
+[20:12] <elf-pavlik> ... 1 to use `If-Match` to tell difference between create and replace
+[20:12] <Karol_Szczepanski> +q
+[20:12]  * Zakim sees elf-pavlik, Karol_Szczepanski on the speaker queue
+[20:14] <elf-pavlik> markus: so you want to avoid that if resource already exists, that server will overwrite it when client attempts to create new resoruce using the same IRI
+[20:15] <elf-pavlik> elf-pavlik: AFAIK conditional PUT works based on Etag
+[20:15] <elf-pavlik> markus: i think you would need to do PUT with `If_match: *`
+[20:15] <markus> PUT with If-Match: *
+[20:16] <markus> Server would reply with 412 Precondition Failed if it already exists
+[20:16] <elf-pavlik> tpluskiewicz: we still have issue that hydra doesn't provide a way to require etags
+[20:16] <elf-pavlik> markus: would be nice to have a way to instruct client to do conditional request
+[20:17] <elf-pavlik> markus: we could make it Use Case on its own and remove it from this PR
+[20:17] <elf-pavlik> tpluskiewicz: initially we said that this would extend UC5 but i decided to create a new file for it
+[20:18] <elf-pavlik> markus: i don't have strong opinion about that, feel free to do as it fits you
+[20:19] <elf-pavlik> tpluskiewicz: we also have this other comment about HTTP spec from you markus
+[20:19] <elf-pavlik> markus: it basically says that PUT practically replays that payload
+[20:21] <elf-pavlik> markus: we should address this 'indirectly' terminology
+[20:21] <elf-pavlik> ... instead have: "creating with know URL" or something like that
+[20:22] <Karol_Szczepanski> -q
+[20:22]  * Zakim sees elf-pavlik on the speaker queue
+[20:22] <elf-pavlik> ... we also had an example that we had unclear relationship to the collection
+[20:23] <Karol_Szczepanski> +q
+[20:23]  * Zakim sees elf-pavlik, Karol_Szczepanski on the speaker queue
+[20:24] <elf-pavlik> markus: you invented those new properties http://example.com/vocab/createEvent i suggested that we may have something like hydra:memberTemplate
+[20:24] <elf-pavlik> tpluskiewicz: if we can stretch it to also work with concrete IRIs
+[20:26] <elf-pavlik> elf-pavlik: i don't think we can define semantics of a property that will hold either with template or with concrete resource
+[20:29] <elf-pavlik> ... i propose to for now go with hydra:memberTemplate and then try to solve the non-template use case
+[20:29] <elf-pavlik> tpluskiewicz: we also have this recursive traversal issue
+[20:30] <elf-pavlik> Karol_Szczepanski: i remember that we had some discussions on mailing list about which definition takes precedence over others
+[20:31] <elf-pavlik> ... so i think more loose way of getting hypermedia was always an option
+[20:31] <elf-pavlik> ... i believe that client should always be able to be more 'greedy' with lookups of hypermedias
+[20:31] <elf-pavlik> markus: what did you have in mind when you called it recursive
+[20:31] <elf-pavlik> ... did you mean following properties to other resources and fetching those resources
+[20:31] <elf-pavlik> tpluskiewicz: yes
+[20:32] <elf-pavlik> ... recursive means follow any link and look for operations in those linked resources
+[20:32] <elf-pavlik> ... it could have cycles actually
+[20:32] <elf-pavlik> markus: i don't see cycles a problem
+[20:33] <elf-pavlik> ... i think you can end up with some unintended operation with such traversal
+[20:33] <elf-pavlik> tpluskiewicz: if we go with `hydra:memberTemplate` we can just follow that link and avoid recursive this way
+[20:33] <elf-pavlik> markus: if we just follow that link and do NOT recurse i see it fine
+[20:36] <elf-pavlik> elf-pavlik: I understand we settled on following `hydra:memberTemplate` and NOT using recursive
+[20:37] <elf-pavlik> Karol_Szczepanski: one more question regarding this PR, I still don't get it this very use case
+[20:37] <elf-pavlik> ... in PR i try to separate the creation from adding it
+[20:38] <elf-pavlik> ... in this UC we combine creation with adding member
+[20:38] <elf-pavlik> Karol_Szczepanski: how the client will know that create will add to collection
+[20:38] <elf-pavlik> ... maybe we should add `schema:AddAction` together with `schema:CreateAction`
+[20:39] <elf-pavlik> tpluskiewicz: I think `hydra:memberTemplate` implies that a resource will become member
+[20:39] <elf-pavlik> Karol_Szczepanski: I'd like to have only one way to define it
+[20:42] <elf-pavlik> elf-pavlik: in one of the issues i commented that we seem to have 'create' on template but 'add' on collection
+[20:42] <elf-pavlik> markus: for now we can just use `schema:AddAction` only if we have operation directly on collection
+[20:42] <elf-pavlik> ... but not if we use template
+[20:43] <elf-pavlik> tpluskiewicz: i think we still miss some pieces here
+[20:43] <elf-pavlik> ... for example like the adding existing members with PUT as in vimeo case
+[20:44] <elf-pavlik> markus: i would suggest focus on this one to make progress
+[20:44] <elf-pavlik> elf-pavlik: let's don't see it as final design decision but as a step in iterating on the issue
+[20:45] <markus> Topic: Heracles.ts PR-18 "Use cases/5.creating new event"
+[20:45] <markus> https://github.com/HydraCG/Heracles.ts/pull/18
+[20:45] <elf-pavlik> Karol_Szczepanski: I would wait with it and merge the other PR for use case first
+[20:46] <elf-pavlik> ... since they address the same UC
+[20:49] <elf-pavlik> markus: i would consider allowing Heracles users to create some layer on top of it
+[20:49] <elf-pavlik> Karol_Szczepanski: we should at the same time not expect users to do to much before the use client
+[20:50] <elf-pavlik> markus: do you see anything as blocking or what you see need for more input from the group
+[20:50] <elf-pavlik> Karol_Szczepanski: i see discussions ton tpluskiewicz's PR helpful and sufficient
+[20:51] <elf-pavlik> markus: let's iterate on github and reviewable and we don't have to wait for next telecon
+[20:52] <elf-pavlik> tpluskiewicz: we have some inconsistent way of using prefixes in our snippets
+[20:53] <Karol_Szczepanski> +q
+[20:53]  * Zakim sees elf-pavlik, Karol_Szczepanski on the speaker queue
+[20:53] <elf-pavlik> q-
+[20:53]  * Zakim sees Karol_Szczepanski on the speaker queue
+[20:53] <elf-pavlik> markus: i would prefer not to use prefix for `hydra:` and only for everything else
+[20:54] <elf-pavlik> elf-pavlik: should we remove existing prefixes for some `schema:` terms ?
+[20:54] <elf-pavlik> markus: it may help people to see what hydra provides and what not
+[20:55] <elf-pavlik> Karol_Szczepanski: i would prefer to have no prefixes, especially for common predicates
+[20:55] <elf-pavlik> markus: also fine with that
+[20:56] <elf-pavlik> elf-pavlik: maybe someone can just do PR and propose changes?
+[20:56] <elf-pavlik> tpluskiewicz: maybe let's make issue first and make PR after agreeing on something
+[20:56] <elf-pavlik> markus: or we can start PR with just one file
+[20:56] <elf-pavlik> ... to make it more concrete
+[20:58] <markus> ACTION: Pavlik to create a PR to harmonize the usage of prefixes in our use case documents
+[20:58]  * RRSAgent records action 1
+[20:58] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has quit ["Page closed"]
+[20:58] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has quit ["Page closed"]
+[20:59] <markus> zakim, list attendees
+[20:59] <Zakim> As of this point the attendees have been markus, Karol_Szczepanski, tpluskiewicz, elf-pavlik
