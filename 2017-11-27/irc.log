@@ -1,0 +1,18 @@
+[20:08] <markus> Chair: Markus Lanthaler
+[20:08] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:08] <markus> Scribe: Karol_Szczepanski
+[20:08] <markus> sorry folks, I'm having issues with my connection
+[20:08] <markus> I'll try to join via my mobile
+[20:18] <Karol_Szczepanski> tpluskiewicz: what would be a procedure to expand specification with new features
+[20:18] <Karol_Szczepanski> markus: PR would be a good starting point
+[20:19] <Karol_Szczepanski> tpluskiewicz: shall we create an issue first and then a PR?
+[20:21] <Karol_Szczepanski> markus: keeping use cases, reference client and spec in sync with few contributors may be quite difficult
+[20:23] <Karol_Szczepanski> markus: ideal spec would be both specification and documentation altogether
+[20:24] <Karol_Szczepanski> markus: as pure spec would be to formal, plain documentation would not have all the formalities required to make it work
+[20:26] <Karol_Szczepanski> tpluskiewicz: maybe we shall publish the use cases as i.e. a website and then interlink it with the spec to provide examples, etc.
+[20:28] <Karol_Szczepanski> tpluskiewicz: I just bounce between the spec and my attempts to use hydra and end up with not knowing on how to use i.e. templates or paging, etc.
+[20:32] <Karol_Szczepanski> ACTION: Markus to render the use case documents on the Hydra homepage
+[20:33] <Karol_Szczepanski> ACTION: Tomasz to come up with a rough structure of how the documentation should look like
+[20:52] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has quit ["Page closed"]
+[20:52] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has quit ["Page closed"]
+[21:03] -!- markus [~markus@public.cloak] has left #hydra []
