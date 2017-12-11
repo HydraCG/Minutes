@@ -1,0 +1,166 @@
+[19:59] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2017-12-11
+[20:00] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:00] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has joined #hydra
+[20:00] <markus> present+ tpluskiewicz
+[20:00] <markus> present+ Karol_Szczepanski
+[20:01] <markus> present+ elf-pavlik
+[20:01]  * elf-pavlik hi all, i can hear you but will respond only via IRC
+[20:02]  * elf-pavlik bergi - https://github.com/bergos
+[20:03] <markus> present+ bergi
+[20:03] -!- bergi [~bergi@public.cloak] has joined #hydra
+[20:03]  * elf-pavlik o/
+[20:04] <markus> Scribe: elf-pavlik
+[20:04] <markus> Topic: Holiday break - when should we have our next call?
+[20:05] <elf-pavlik> markus: next one on Dec 25th, after that we have Jan 8th
+[20:05] <elf-pavlik> elf-pavlik: for me anything from Jan 8th works
+[20:06] <tpluskiewicz> +1
+[20:06] <Karol_Szczepanski> +1
+[20:06] <bergi> +1
+[20:07] <markus> PROPOSAL: Pause telecons over the holidays, next telecon will be on January 8th
+[20:07] <markus> +1
+[20:07] <elf-pavlik> +1
+[20:07] <Karol_Szczepanski> +1
+[20:07] <tpluskiewicz> +1
+[20:07] <bergi> +1
+[20:07] <markus> RESOLVED: Pause telecons over the holidays, next telecon will be on January 8th
+[20:07] <markus> Topic: Follow-up on action items
+[20:07] <markus> 1. Markus to render the use case documents on the Hydra homepage (hydra-cg.com/11)
+[20:08] <markus> http://www.hydra-cg.com/drafts/use-cases/2.api-documentation.md
+[20:08] <elf-pavlik> markus: I replied to agenda email with an example of rendered use case ^
+[20:08] <elf-pavlik> ... I appreciate feedback
+[20:08] <elf-pavlik> ... we miss links between those files and Table of Contents
+[20:08] <Karol_Szczepanski> +q
+[20:08]  * Zakim sees Karol_Szczepanski on the speaker queue
+[20:08] <elf-pavlik> ... this ties to next action item
+[20:09] <elf-pavlik> tpluskiewicz: I agree, we should push something visible (linked)
+[20:10] <elf-pavlik> ... event if we don't have the documentation perfect yet
+[20:10] <markus> 2nd action was on Tomasz to come up with a rough structure of how the documentation should look like (hydra-cg.com/12)
+[20:10] <elf-pavlik> s/event/even/
+[20:10] <elf-pavlik> tpluskiewicz: probably best to look at some other good examples
+[20:10] <elf-pavlik> ... for example Swagger documentation
+[20:11] <tpluskiewicz> https://swagger.io/docs/specification/describing-parameters/
+[20:11] <elf-pavlik> ... I would start with ToC on the left
+[20:12] <elf-pavlik> ... I currently implement templates so we could get an article about templates
+[20:13] <elf-pavlik> Karol_Szczepanski: I find Swagger documentation overwhelming
+[20:14] <elf-pavlik> ... but more or less I agree about the direction, possible restructuring it a bit
+[20:14] <elf-pavlik> tpluskiewicz: we wouldn't start with documentation that overwhelming, swagger has grown that documentation over long time
+[20:15] <elf-pavlik> Karol_Szczepanski: agreed
+[20:16] <elf-pavlik> Karol_Szczepanski: How updating the markdown on github will reflect on the page?
+[20:16] <elf-pavlik> markus: it will update automatically
+[20:16] -!- markus_ [~markus@public.cloak] has joined #hydra
+[20:17] -!- markus [~markus@public.cloak] has quit [Ping timeout: 180 seconds]
+[20:17]  * elf-pavlik markus_ do you want to change your irc nick to markus ?
+[20:18] <elf-pavlik> markus: process wise will you create PR for that?
+[20:18] -!- markus_ is now known as markus
+[20:18] <elf-pavlik> tpluskiewicz: yes, I'll start with something in use-cases directory
+[20:18] <elf-pavlik> markus: anything else on those two action items ?
+[20:19] <elf-pavlik> bergi: we currently work on HTML interfaces to API description
+[20:19] <elf-pavlik> ... and want to have example data
+[20:19] <elf-pavlik> ... we want to describe it in triples and have access to them
+[20:20] <elf-pavlik> markus: i see it as combination of what you said
+[20:20] <elf-pavlik> ... most of the information stays in github issues, mailing list conversations and sometimes even our heads
+[20:20] <elf-pavlik> ... we should improve it by having more discipline with adding documentation which includes examples
+[20:21] <elf-pavlik> ... in parallel we have amazing work by Karol_Szczepanski with reference client implementation (Herakles.ts)
+[20:21] <elf-pavlik> ... we should also be able to write snippets showing how one can interact with API using that reference client
+[20:22] <elf-pavlik> markus: mostly we want to document the decisions we make and drive with it implementation of reference client
+[20:22] <elf-pavlik> bergi: do you want to convert that documentation to RDF data ?
+[20:22] <elf-pavlik> markus: could you clarify what do you mean by that
+[20:23] <elf-pavlik> markus: tpluskiewicz referenced swagger just as an example
+[20:23] <bergi> http://www.hydra-cg.com/drafts/use-cases/2.api-documentation.md
+[20:24] <elf-pavlik> bergi: will that information from those example snippets get converted to RDF triples?
+[20:24] <elf-pavlik> ... example about request and matching response
+[20:25] <elf-pavlik> bergi: maybe we will do something and we could convert it for Hydra doc, please get in touch with me
+[20:25] <elf-pavlik> markus: do you have something we could take a look at?
+[20:25] <elf-pavlik> bergi: I could show some stuff we currently work on
+[20:25] <elf-pavlik> markus: we already finished with our agenda, I see no problem to go into that
+[20:26] <elf-pavlik> tpluskiewicz: one more note about rendering, I would prefer to have the .md removed from URLs
+[20:26] <elf-pavlik> markus: why would you like to have it gone?
+[20:26] <elf-pavlik> tpluskiewicz: looks like leaking implementation details
+[20:27] <elf-pavlik> markus: this way I can do very easily Apache rewrite
+[20:27] <Karol_Szczepanski> +q
+[20:27]  * Zakim sees Karol_Szczepanski on the speaker queue
+[20:27] <elf-pavlik> tpluskiewicz: not a big deal for me
+[20:27] <markus> zakim, ack Karol_Szczepanski
+[20:27] <Zakim> I see no one on the speaker queue
+[20:28] <elf-pavlik> Karol_Szczepanski: the latest Herakles.ts PR stays outside of Hydra spec boundries
+[20:28] <elf-pavlik> it uses 'hypothetical' `hydra:memberTemplate`
+[20:28] <elf-pavlik> markus: would you like it added to the vocab or spec?
+[20:29] <elf-pavlik> Karol_Szczepanski: I leave it up to you, I would prefer to have client that complies to spec and uses official vocab
+[20:29] <elf-pavlik> markus: we could at least update the vocab, I wouldn't worry about the spec to much and accept it getting little 'outdated'
+[20:29] <elf-pavlik> Karol_Szczepanski: I'll make PR
+[20:29]  * elf-pavlik ACTION ?
+[20:30] <elf-pavlik> Karol_Szczepanski: good enough for me to just update the vocab
+[20:30] <markus> ACTION: Karol to create a pull request documenting stuff like hydra:memberTemplate in the spec as the reference client already uses them
+[20:30]  * RRSAgent records action 1
+[20:31] <elf-pavlik> markus: anything else to discuss before we talk about bergi's work ?
+[20:31] <elf-pavlik> markus: let's give bergi's the floor
+[20:31] <bergi> https://github.com/zazuko/hydra-view
+[20:31] <markus> Topic: Update from Bergi about his work
+[20:32] <elf-pavlik> bergi: we use it for pagination, will rename to hydra-box
+[20:32] <bergi> https://github.com/zazuko/wikidata.zazuko.com/tree/master/api
+[20:32] <elf-pavlik> ... besides hydra description itself we also point to the code
+[20:32] <bergi> http://wikidata.zazuko.com/api
+[20:33] <elf-pavlik> ... you can see HTML rendering of triples, we really want to have nice interfaces
+[20:33] <bergi> https://github.com/zazuko/wikidata.zazuko.com/blob/master/api/api.json
+[20:34] <elf-pavlik> ... we also accept SPARQL query and we use ES6 string templates for them
+[20:35] <elf-pavlik> markus: can you explain the overall concept of what you build?
+[20:35] <elf-pavlik> bergi: open data, statistics data - something that many people will want to consume the data
+[20:35] <elf-pavlik> ... we want to make it generic and reusable
+[20:35] <bergi> http://wikidata.zazuko.com/api/spaceprobes/?from=2010
+[20:36] <elf-pavlik> bergi: we upgraded my hydra client
+[20:36] <bergi> https://github.com/zazuko/hydra-fetch/tree/develop
+[20:37] <elf-pavlik> ... the live example doesn't fully follow Hydra spec, but the github code already fully follows it
+[20:37] <bergi> https://github.com/zazuko/wikidata.zazuko.com/blob/master/api/api.json#L39
+[20:37] <elf-pavlik> here we map variables from triples to variables
+[20:37] <elf-pavlik> ... we also define return frame for JSON-LD
+[20:38] <elf-pavlik> ... we don't want to force developers to think about Linked Data
+[20:38] <elf-pavlik> bergi: we also have something similar for CSV on The Web
+[20:39] <elf-pavlik> ... we would like to get together with other people interested
+[20:40] <elf-pavlik> markus: i miss the link between what we talked about our documentation (Hydra CG)
+[20:40] <elf-pavlik> ... you mentioned 'executable documentation'
+[20:40] <elf-pavlik> bergi: if you would define triples we would use them
+[20:40] <elf-pavlik> ... we really want to have interactive documentation
+[20:41] <elf-pavlik> markus: very cool work!
+[20:41] <elf-pavlik> markus: do you see anything missing in Hydra or causing problems?
+[20:41] <elf-pavlik> ... implementations of templates we found little difficult
+[20:41] <elf-pavlik> ... also the variables mapping
+[20:41] <elf-pavlik> ... where we use ES6 templates
+[20:42] <elf-pavlik> ... we thought about have IRI templates for variables
+[20:42] <elf-pavlik> ... to create NamedNodes
+[20:42] <elf-pavlik> ... we still don't see best way for resolving templates
+[20:43] <elf-pavlik> markus: IriTemplates we discussed during last telecon and may tackle it next
+[20:43] <elf-pavlik> ... currently still underspecified
+[20:43] <elf-pavlik> bergi: I will join more telecons in a future and again participate more
+[20:44] <elf-pavlik> ... I can show little more of the prototype once we document it better
+[20:44] <elf-pavlik> markus: thank you for sharing your work!
+[20:45] <elf-pavlik> bergi: i plan to use Hydra not only on HTTP
+[20:45] <elf-pavlik> ... to have microservices and use hydra operations even for human tasks in workflows
+[20:45] <elf-pavlik> ... input and output of examples could maybe event get described with tripples
+[20:45] <elf-pavlik> s/tripples/triples/
+[20:47] <elf-pavlik> bergi: we have 'protofetch' where you can register different handlers for different protocols
+[20:47] <elf-pavlik> markus: we had conversations about abstracting the protocol away, but want to figure out HTTP first
+[20:47] <elf-pavlik> elf-pavlik: not relying on HTTP verbs sounds like a good approach here
+[20:48] <elf-pavlik> markus: anyone wants to comment or discuss something else?
+[20:48] <elf-pavlik> tpluskiewicz: how does the link of your variables relates to IriTemplates
+[20:48] <bergi> https://github.com/zazuko/wikidata.zazuko.com/blob/master/api/spaceprobes.sparql
+[20:48] <elf-pavlik> bergi: in the same folder you can find SPARQL template, where we use again those variables
+[20:49] <elf-pavlik> ... we convert subject to a blank notes, use all properties as predicates and use values as subject
+[20:49] <elf-pavlik> s/as subject/as objects/
+[20:50] <elf-pavlik> bergi: maybe we should make it a part of the code itself
+[20:51] <elf-pavlik> markus: bergi have you looked at Herakles.ts
+[20:51] <elf-pavlik> bergi: myself not a big fan of TypeScript, we also have very simple client
+[20:51] <elf-pavlik> ... we also want to have 'in memory' protocol and it seems difficult to add to Herakles.ts
+[20:52] <elf-pavlik> ... we continue with hydra-fetch client
+[20:52] <elf-pavlik> markus: I mostly wondered if you have some feedback on Herakles.ts based on your hydra-fetch implementation
+[20:53] <elf-pavlik> Karol_Szczepanski: any specific plans for upcoming bigger break
+[20:53] <elf-pavlik> ... I would grab next use case, maybe the 'search'
+[20:53] <elf-pavlik> markus: great if we can make progress on Herakles
+[20:54] <elf-pavlik> q+
+[20:54]  * Zakim sees elf-pavlik on the speaker queue
+[20:54] <elf-pavlik> elf-pavlik: I may look at replacing `hydra:search` property with `schema:SearchAction` type
+[20:54] <elf-pavlik> q-
+[20:54]  * Zakim sees no one on the speaker queue
+[20:54] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has quit ["Page closed"]
+[20:54]  * elf-pavlik bye all!
+[20:54] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has quit ["Page closed"]
+[20:55] <markus> Noted Pavlik. Thanks!
