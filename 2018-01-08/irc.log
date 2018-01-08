@@ -1,0 +1,77 @@
+[20:00] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2018-01-08
+[20:00] <markus> scribe: markus
+[20:03] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has joined #hydra
+[20:04] <elf-pavlik> present+ markus
+[20:04] <elf-pavlik> present+ Karol_Szczepanski
+[20:06] <markus> Topic: Use cases/7.searching events (Heracles/PR-23)
+[20:06] <markus> https://github.com/HydraCG/Heracles.ts/pull/23
+[20:07] <markus> elf-pavlik: I didn't have time to properly
+[20:08] <markus> .. review it but if you guys say it's ready I trust you
+[20:08] <markus> Karol_Szczepanski: I'll address the comments as soon as I find some time
+[20:08] <markus> ... I still need to clear my mind about hydra:memberTemplate etc.
+[20:09] <markus> ... regarding this PR specifically I'm not blocked and will address the outstanding issues shortly
+[20:09] <markus> markus: Anything else we should discuss related to this PR?
+[20:09] <markus> elf-pavlik: No, I need to review it
+[20:09] <markus> Topic: Actions with explicit target (PR-154)
+[20:10] <markus> https://github.com/HydraCG/Specifications/pull/154
+[20:10] <markus> elf-pavlik: Karol, did you have time to have a look?
+[20:10] <markus> Karol_Szczepanski: I had a glance at it but didn't think enough about it yet
+[20:11] <markus> ... I need to think it through to be able to properly comment on it
+[20:11] <markus> elf-pavlik: I took 2 use cases. The one with PUT and the search one
+[20:11] <markus> ... I replace the templates with two actions using schema:potentialAction
+[20:12] <markus> ... I'm using schema:target to make the target explicit
+[20:12] <markus> ... I just realized that I could also have used the reverse of hydra:operation instead of schema:target
+[20:12] <markus> ... I find it nice to have all the affordances about a resource in a single place
+[20:12] <markus> ... which is why I proposed this design
+[20:13] <markus> markus: What's your take on the overlap of operations and actions as commented on the PR?
+[20:14] <markus> elf-pavlik: In principle I agree but in this particular case I don't a see big difference between the two
+[20:15] <Karol_Szczepanski> +q
+[20:17] <markus> markus: I didn't mean to differentiate between information and non-information resources
+[20:17] <markus> ... I was concerned about separation of the semantics of the request (perform a search) and a description of the HTTP details (make a POST, perform a GET)
+[20:18] <markus> elf-pavlik: I see. So you are talking something like a handler of a the action
+[20:18] <markus> markus: exactly
+[20:19] <markus> Karol_Szczepanski: I fail to see why a client would need to understand schema:potentialAction, isn't it like any arbitrary vocabulary
+[20:20] <markus> markus: would the design make sense to you if potentialAction was part of Hydra?
+[20:21] <markus> Karol_Szczepanski: kinda, I still struggle to see the connection between these resource and the relation to hydra:memberTemplate
+[20:21] <markus> ... I don't see the purpose of this as hydra:memberTemplate already solves the problem
+[20:21] <markus> ... or what's the benefit?
+[20:21] <markus> ... the JavaScript code actually looks exactly the same
+[20:22] <markus> elf-pavlik: the advantage of this approach would be that we wouldn't need to introduce lots of other properties such as hydra:memberTemplate for other use cases like search etc.
+[20:22] <markus> ... we could handle all of this in a uniform manner by leveraging actions/operations
+[20:24] <markus> ... this connects the action directly to the resource it affects, instead of attaching indirectly through a template as with hydra:memberTemplate
+[20:27] <markus> markus: I see the benefit of Pavlik's design as it directly ties the action to the resource
+[20:28] <markus> ... with the hydra:memberTemplate design a user would need to introduce both the property and an action type
+[20:29] <markus> ... if we wouldn't have it directly in Hydra, a client wouldn't couldn't figure out how to add an item to the collection as it wouldn't know it's relationship to the collection
+[20:30] <markus> Karol_Szczepanski: how would a client understand with potentialAction that it adds an item if the template would differ?
+[20:31] <markus> elf-pavlik: by the action, such as AddAction.. the IRI and thus the template should be opaque
+[20:31] <markus> ... if I remember correctly we actually saw an example in the Vimeo API where the target (i.e., the template) differs from the resource itself
+[20:32] <markus> Karol_Szczepanski: it sounds interesting but would be quite a change
+[20:32] <markus> markus: yep
+[20:33] <markus> Karol_Szczepanski: are we concerned about breaking existing implementations
+[20:33] <markus> ... like Ruben's Linked Data Fragments
+[20:34] <markus> markus: I wouldn't worry too much about that
+[20:34] <markus> ... but we should look for ways to make it the least disruptive possible
+[20:37] <markus> ... one way I could think of is keeping operation and adding something like hydra:performsAction to the operation that describes the semantics of the operation
+[20:39] <markus> ... and then add another property which could be used to point from a resource to a action if it isn't possible to point to the operation directly as the target differs
+[20:39] <markus> ... http://schema.org/Action
+[20:41] <markus> elf-pavlik: What is missing from schema.org is a way to describe that an action introduces a relationship such as in a LikeAction
+[20:42] <markus> ... which direction do we want to point? From Action to Operation or vice-versa?
+[20:42] <markus> markus: I think we'll need to point both ways
+[20:42] <markus> ... anything else we should discuss in regard to this PR?
+[20:43] <markus> Karol_Szczepanski: should introduce a new use instead of changing use case 5.1?
+[20:43] <markus> ... same use case but different approach
+[20:44] <markus> markus: I see. Would you like to keep both approaches eventually or just one?
+[20:45] <markus> Karol_Szczepanski: I don't know yet.. I see many uses for Pavlik's approach
+[20:45] <markus> ... but the current approach is compelling as well in a few cases as it is so simple
+[20:45] <markus> ... so I see benefits in both of them
+[20:45] <markus> markus: I don't have a strong opinion. I think we should just try it out
+[20:47] <markus> elf-pavlik: I completely agree. We need to explore this more
+[20:47] <markus> ... I'm happy to change it to introduce alternatives instead of overwriting it
+[20:47] <markus> Karol_Szczepanski: I think we would benefit from trying to describe more complex things with both approaches
+[20:48] <markus> ... like having multiple search actions on a collection
+[20:48] <markus> ... I see link/unlink as very good examples for this as they are tricky to express
+[20:49] <markus> markus: I think the most efficient way forward is to discuss this directly on the PR
+[20:50] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has quit ["Page closed"]
+[20:50] <markus> ... I'll leave a snippet of what I had in mind there
+[20:51] <markus> ... Karol, if you have some time, please have another look at the PR and leave some comments too
+[20:51] <markus> Karol_Szczepanski: will do in the next couple of days

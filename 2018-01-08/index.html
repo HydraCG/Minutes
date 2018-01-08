@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2018-01-08 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2018-01-08</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2018-01-08">https://www.w3.org/community/hydra/wiki/Conference_Calls#2018-01-08</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Use cases/7.searching events (Heracles/PR-23)</a>
+                         <li><a href="#topic-2">Actions with explicit target (PR-154)</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Scribe</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Present</dt>
+                      <dd>Markus Lanthaler, elf Pavlik, Karol Szczepański</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="information">Markus Lanthaler is scribing.</div>
+
+              <h1 id="topic-1" class="topic">Topic: Use cases/7.searching events (Heracles/PR-23)</h1>
+              <div class="information"><a href="https://github.com/HydraCG/Heracles.ts/pull/23">https://github.com/HydraCG/Heracles.ts/pull/23</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I didn't have time to properly</div>
+              <div class="information">.. review it but if you guys say it's ready I trust you</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'll address the comments as soon as I find some time</div>
+              <div class="comment-continuation">... I still need to clear my mind about hydra:memberTemplate etc.</div>
+              <div class="comment-continuation">... regarding this PR specifically I'm not blocked and will address the outstanding issues shortly</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Anything else we should discuss related to this PR?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  No, I need to review it</div>
+
+              <h1 id="topic-2" class="topic">Topic: Actions with explicit target (PR-154)</h1>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/pull/154">https://github.com/HydraCG/Specifications/pull/154</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  Karol, did you have time to have a look?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I had a glance at it but didn't think enough about it yet</div>
+              <div class="comment-continuation">... I need to think it through to be able to properly comment on it</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I took 2 use cases. The one with PUT and the search one</div>
+              <div class="comment-continuation">... I replace the templates with two actions using schema:potentialAction</div>
+              <div class="comment-continuation">... I'm using schema:target to make the target explicit</div>
+              <div class="comment-continuation">... I just realized that I could also have used the reverse of hydra:operation instead of schema:target</div>
+              <div class="comment-continuation">... I find it nice to have all the affordances about a resource in a single place</div>
+              <div class="comment-continuation">... which is why I proposed this design</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  What's your take on the overlap of operations and actions as commented on the PR?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  In principle I agree but in this particular case I don't a see big difference between the two</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I didn't mean to differentiate between information and non-information resources</div>
+              <div class="comment-continuation">... I was concerned about separation of the semantics of the request (perform a search) and a description of the HTTP details (make a POST, perform a GET)</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I see. So you are talking something like a handler of a the action</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  exactly</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I fail to see why a client would need to understand schema:potentialAction, isn't it like any arbitrary vocabulary</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  would the design make sense to you if potentialAction was part of Hydra?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  kinda, I still struggle to see the connection between these resource and the relation to hydra:memberTemplate</div>
+              <div class="comment-continuation">... I don't see the purpose of this as hydra:memberTemplate already solves the problem</div>
+              <div class="comment-continuation">... or what's the benefit?</div>
+              <div class="comment-continuation">... the JavaScript code actually looks exactly the same</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  the advantage of this approach would be that we wouldn't need to introduce lots of other properties such as hydra:memberTemplate for other use cases like search etc.</div>
+              <div class="comment-continuation">... we could handle all of this in a uniform manner by leveraging actions/operations</div>
+              <div class="comment-continuation">... this connects the action directly to the resource it affects, instead of attaching indirectly through a template as with hydra:memberTemplate</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I see the benefit of Pavlik's design as it directly ties the action to the resource</div>
+              <div class="comment-continuation">... with the hydra:memberTemplate design a user would need to introduce both the property and an action type</div>
+              <div class="comment-continuation">... if we wouldn't have it directly in Hydra, a client wouldn't couldn't figure out how to add an item to the collection as it wouldn't know it's relationship to the collection</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  how would a client understand with potentialAction that it adds an item if the template would differ?</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  by the action, such as AddAction.. the IRI and thus the template should be opaque</div>
+              <div class="comment-continuation">... if I remember correctly we actually saw an example in the Vimeo API where the target (i.e., the template) differs from the resource itself</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  it sounds interesting but would be quite a change</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  yep</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  are we concerned about breaking existing implementations</div>
+              <div class="comment-continuation">... like Ruben's Linked Data Fragments</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I wouldn't worry too much about that</div>
+              <div class="comment-continuation">... but we should look for ways to make it the least disruptive possible</div>
+              <div class="comment-continuation">... one way I could think of is keeping operation and adding something like hydra:performsAction to the operation that describes the semantics of the operation</div>
+              <div class="comment-continuation">... and then add another property which could be used to point from a resource to a action if it isn't possible to point to the operation directly as the target differs</div>
+              <div class="comment-continuation">... <a href="http://schema.org/Action">http://schema.org/Action</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  What is missing from schema.org is a way to describe that an action introduces a relationship such as in a LikeAction</div>
+              <div class="comment-continuation">... which direction do we want to point? From Action to Operation or vice-versa?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I think we'll need to point both ways</div>
+              <div class="comment-continuation">... anything else we should discuss in regard to this PR?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  should introduce a new use instead of changing use case 5.1?</div>
+              <div class="comment-continuation">... same use case but different approach</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I see. Would you like to keep both approaches eventually or just one?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I don't know yet.. I see many uses for Pavlik's approach</div>
+              <div class="comment-continuation">... but the current approach is compelling as well in a few cases as it is so simple</div>
+              <div class="comment-continuation">... so I see benefits in both of them</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I don't have a strong opinion. I think we should just try it out</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I completely agree. We need to explore this more</div>
+              <div class="comment-continuation">... I'm happy to change it to introduce alternatives instead of overwriting it</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I think we would benefit from trying to describe more complex things with both approaches</div>
+              <div class="comment-continuation">... like having multiple search actions on a collection</div>
+              <div class="comment-continuation">... I see link/unlink as very good examples for this as they are tricky to express</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I think the most efficient way forward is to discuss this directly on the PR</div>
+              <div class="comment-continuation">... I'll leave a snippet of what I had in mind there</div>
+              <div class="comment-continuation">... Karol, if you have some time, please have another look at the PR and leave some comments too</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  will do in the next couple of days</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
