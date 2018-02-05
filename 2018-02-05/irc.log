@@ -1,0 +1,92 @@
+[19:58] <markus> Chair: Markus Lanthaler
+[19:59] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2018-02-05
+[20:00] <markus> present+ markus
+[20:01] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has joined #hydra
+[20:02] -!- bergi [~bergi@public.cloak] has joined #hydra
+[20:03] <elf-pavlik> present+ elf-pavlik
+[20:03] <elf-pavlik> present+ Karol_Szczepanski
+[20:03] <elf-pavlik> present+ bergi
+[20:05] <markus> Scribe: bergi
+[20:05] <markus> Topic: Current state of the specification and vocabulary
+[20:06] <bergi> Karol_Szczepanski: some stuff needed to be implemented, which was not in the spec
+[20:06] <elf-pavlik> q+
+[20:06]  * Zakim sees elf-pavlik on the speaker queue
+[20:06] <bergi> Karol_Szczepanski: e.g. collection property
+[20:07] <bergi> elf-pavlik: it was discussed in one of the last calls if this will be added to the namespace
+[20:09] <bergi> Karol_Szczepanski: it should be started by added the missing properties of vocab in github
+[20:09] <elf-pavlik> https://www.w3.org/community/hydra/wiki/Main_Page#Ongoing_Work_.2F_Drafts_.2F_Proposals
+[20:11] <bergi> markus: there should be issues for the missing properties with the label solved, but not closed yet
+[20:11] <markus> https://github.com/HydraCG/Specifications/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Aresolved
+[20:12] <bergi> markus: besides these issues the vocab should be up to date
+[20:13] <markus> ACTION: Karol to send a pull request to update the vocabulary to include everything we decided so far
+[20:13]  * RRSAgent records action 1
+[20:13] <markus> Topic: Actions with explicit target (Use cases / PR-154)
+[20:13] <markus> https://github.com/HydraCG/Specifications/pull/154
+[20:17] <elf-pavlik> https://github.com/HydraCG/Specifications/issues/149
+[20:18] <bergi> elf-pavlik: referencing once from the action and once from the operation could be to messy
+[20:20] <bergi> markus: not so happy with any of the solutions. maybe the meaning of operation could be changed.
+[20:21] <bergi> markus: would be helpful if elf-pavlik could make some examples
+[20:22] <markus> ACTION: Pavlik to write down a few proposals for PR-154 and send a notice to the mailing list announcing the potential breaking change
+[20:22]  * RRSAgent records action 2
+[20:22] <bergi> elf-pavlik: would break linked data fragments, so other changes should be made the same time.
+[20:22] <elf-pavlik> bergi: I've made a new issue https://github.com/HydraCG/Specifications/issues/156
+[20:23] <elf-pavlik> ... not related to this issue we just discussed
+[20:23] <elf-pavlik> markus: we can discuss it now
+[20:23] <markus> Topic: Operation linked to class and property (PR-156)
+[20:23] <markus> https://github.com/HydraCG/Specifications/issues/156
+[20:23] <elf-pavlik> bergi: the use case was a datacube
+[20:24] <elf-pavlik> ... i wanted to make slices using hydra
+[20:24] <elf-pavlik> ... i encountered a problem that they expect different input for each dataset
+[20:25] <elf-pavlik> ... i noticed that current structure in hydra property has IRI of the property and only allows to define supported properties 'globally'
+[20:25] <elf-pavlik> ... to have a different operation with different input i have to define different property, but then client has difficulty to understand it
+[20:26] <elf-pavlik> bergi: is it by design that property has globally supported operation or is possible to have supported operations for specific class?
+[20:26] <elf-pavlik> markus: i don't know if should be like that, but currently we have global properties
+[20:26] <elf-pavlik> ... no matter which type of resource uses it
+[20:26] <elf-pavlik> q+
+[20:26]  * Zakim sees elf-pavlik on the speaker queue
+[20:28] <markus> elf-pavlik: in RDF, properties are global
+[20:28] <markus> ... I don't think we should change this to what is typically done in OOP languages
+[20:32] <elf-pavlik> markus: I don't yet fully understand this use case, that's why i need to poke it around to get better idea
+[20:35] <markus> elf-pavlik: Why do you have an expects on a GET operation?
+[20:36] <markus> bergi: not sure.. I basically wanted to express something like a search interface with a SPARQL payload
+[20:37] <markus> elf-pavlik: could you please try to come up with a simpler example... I'm not familiar with the DataCube vocab
+[20:37] <Karol_Szczepanski> I'm bac
+[20:37] <Karol_Szczepanski> back
+[20:37] <markus> Topic: Implementation of the use case 8.filtering-events (Heracles/PR-29)
+[20:37] <markus> https://github.com/HydraCG/Heracles.ts/pull/29
+[20:40]  * elf-pavlik we hear you well now
+[20:41] <markus> we can hear you
+[20:41] <Karol_Szczepanski> but I cant :(
+[20:41]  * elf-pavlik you can't hear us but we hear you well now
+[20:41] <Karol_Szczepanski> something's weird hapenning
+[20:41] <markus> did you change your audio output?
+[20:42] <Karol_Szczepanski> yes
+[20:43] <elf-pavlik> UC - https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/8.filtering-events.md
+[20:44] <elf-pavlik> markus: client in your implementation would not understand exactly that it does filter
+[20:45] <elf-pavlik> Karol_Szczepanski: it seems that I introduced a bespoke filtering approach instead of using hydra search
+[20:45] <elf-pavlik> markus: I would just continue with you PR and just change description
+[20:45] <elf-pavlik> markus: the work Pavlik does now may render hydra:search not needed
+[20:46] <elf-pavlik> Karol_Szczepanski: I think actions change semantics and make operations work different
+[20:46] <elf-pavlik> markus: I'll try to tell you what we discuss on that topic while you were offline
+[20:47] <bergi> markus: action describes semantics, operation the http request
+[20:48] <elf-pavlik> q+
+[20:48]  * Zakim sees elf-pavlik on the speaker queue
+[20:48] <bergi> markus: elf-pavlik is working on an issue which should make it much easier to understand
+[20:49] <bergi> markus: elf-pavliks proposal will remove the search and replace it with an action
+[20:49] <elf-pavlik> q?
+[20:49]  * Zakim sees elf-pavlik on the speaker queue
+[20:50] <markus> zakim, ack elf-pavlik
+[20:50] <Zakim> I see no one on the speaker queue
+[20:51] <bergi> elf-pavlik: what was the intention
+[20:51] <bergi> Karol_Szczepanski: the use case should cover a custom property
+[20:53] <bergi> Karol_Szczepanski: we should wait for the actions PR
+[20:53] <markus> Topic: Follow-up on action items on Tomasz to come up with a rough structure of how the documentation should look like (hydra-cg.com/12)
+[20:54] <bergi> Karol_Szczepanski: will contact tomasz
+[20:56] <bergi> Karol_Szczepanski: what effect will the action proposal have?
+[20:58] <bergi> Karol_Szczepanski: looks like it will be a breaking change
+[20:58] <bergi> markus: doesn't need to be a breaking change, can be an additional property
+[20:59] <bergi> elf-pavlik: from now on the client should search for action, which is pointing to an operation
+[21:00] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has left #hydra []
+[21:01] -!- elf-pavlik [~elf-pavlik@public.cloak] has quit [Client closed connection]
+[21:01] <markus> zakim, list attendees
+[21:01] <Zakim> As of this point the attendees have been markus, elf-pavlik, Karol_Szczepanski, bergi
