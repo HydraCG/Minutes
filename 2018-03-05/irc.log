@@ -1,0 +1,144 @@
+[20:03] <markus> Chair: Markus Lanthaler
+[20:04] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2018-03-05
+[20:05] <markus> Scribe: tpluskiewicz
+[20:07] <markus> Topic: Operation linked to class and property (ISSUE-156)
+[20:07] <tpluskiewicz> bergi: I commented on issue #156
+[20:07] <tpluskiewicz> ... I changed the example to be easier to understand
+[20:07] <tpluskiewicz> ... both can be POSTed and both go with a Comment
+[20:08] <tpluskiewicz> ... I hope it's now easier
+[20:08] <tpluskiewicz> ... you can use type to distinguish but because property is generated with, it generates two triples
+[20:08] <tpluskiewicz> Markus: so, 2 operations associated to same property
+[20:08] <tpluskiewicz> ... but only appropriate on a single instance?
+[20:09] <tpluskiewicz> bergi: maybe people would like to have operation which description is only valid for a single class
+[20:09] <tpluskiewicz> ... sometime you could control where you don't control the ontology
+[20:10] <Karol_Szczepanski> +q
+[20:10]  * Zakim sees Karol_Szczepanski on the speaker queue
+[20:10] <tpluskiewicz> markus: we'd need to introduce a way to specify operation both based on property and class
+[20:10] <tpluskiewicz> https://github.com/HydraCG/Specifications/issues/156
+[20:10] <tpluskiewicz> markus: you wouldn't want to create sub property?
+[20:10] <tpluskiewicz> bergi: you could use OWL
+[20:11] <tpluskiewicz> ... in general, when reusing ontology, you'd have that problem
+[20:11] <tpluskiewicz> markus: do you think it should be supported?
+[20:12] <tpluskiewicz> bergi: yes, because people may expect that it should work based on examples
+[20:12] <tpluskiewicz> ... maybe there are some reason not to use it this way or a better
+[20:12] <tpluskiewicz> ... but it should be covered somehow
+[20:12] <tpluskiewicz> markus: so main concern is confusion?
+[20:13] <tpluskiewicz> bergi: one is resue and second is JSON-LD making int possible
+[20:13] <tpluskiewicz> markus: we should restrucutre to keep definition on class and restrict somehow
+[20:14] <tpluskiewicz> bergi: it may be a breaking change but I thought now is time to discuss
+[20:14] <tpluskiewicz> markus: I quite like it
+[20:15] <tpluskiewicz> ... so, you'd have the same operation on all classes
+[20:15] <tpluskiewicz> ... we change operations quite a bit anyway. anyone disagrees?
+[20:17] <tpluskiewicz> karol: I thing it's a wider topic
+[20:17] <tpluskiewicz> ... related to inheritance or overriding or forbidding/enforcing constructs
+[20:18] <tpluskiewicz> ... maybe we need to be careful and not come up with quick solution
+[20:19] <tpluskiewicz> ... we will need a way to define what is allowed and what is not
+[20:19] <markus> tpluskiewicz: I was thinking of putting it on its head and use multiple classes instead of attaching the operation to the property
+[20:20] <tpluskiewicz> markus: it's just selective
+[20:20] <markus> ... Markus, in the past you were strongly against forbidding and overriding operations?
+[20:21] <markus> markus: yes, I still am. I don't want to allow to override stuff
+[20:21] <markus> ... this here is not allowing it in the first place
+[20:22] -!- bergi [~bergi@public.cloak] has joined #hydra
+[20:22] <tpluskiewicz> tomasz: it's either inclusive or decalred multiple times
+[20:22] <tpluskiewicz> markus: i'd prefer declaring multiple times
+[20:23] <tpluskiewicz> bergi: I could provide more examples
+[20:23] <tpluskiewicz> markus: are you aware of past discussions
+[20:23] <tpluskiewicz> bergi: no, I need more hints to research those discussions
+[20:23] <tpluskiewicz> markus: in the past we discussed how you can delete entities
+[20:23] <tpluskiewicz> ... but sometimes you can't
+[20:24] <tpluskiewicz> ... one way is to invalidate that (forbidding)
+[20:24] <tpluskiewicz> ... the overriding is to override the `expects` in a child class
+[20:24] <tpluskiewicz> ... I'm still against because it's not like RDF works
+[20:24] <tpluskiewicz> ... your proposal is slightly different
+[20:25] <tpluskiewicz> bergi: other stuff could be implemented with SHACL?
+[20:25] <tpluskiewicz> markus: maybe. problem is that you can have multiple documents
+[20:27] <tpluskiewicz> bergi: with SHACL you can make constrain is operation is allowed
+[20:27] <tpluskiewicz> ... just came to my mind
+[20:27] <tpluskiewicz> karol: can we come up with a use case like before
+[20:27] <tpluskiewicz> markus: isn't that what Thomas did?
+[20:28] <tpluskiewicz> karol: yes, but with use case we could have some more request/response with more detail
+[20:28] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/3.obtaining-events.md
+[20:28] <tpluskiewicz> markus: we can move this to a UC document. would you be able Thomas?
+[20:29] <tpluskiewicz> markus: nothing fancy. markdown with some example
+[20:29] <tpluskiewicz> bergi: I can do that. I have to go now
+[20:29] <markus> ACTION: Thomas to convert ISSUE-156 into a use case document
+[20:29]  * RRSAgent records action 1
+[20:30] <tpluskiewicz> markus: we have 3 open PRs
+[20:30] <tpluskiewicz> ... PR-157 doesn't need much discussion
+[20:31] <tpluskiewicz> karol: it was quite silent.
+[20:31] <tpluskiewicz> ... I just added some changes to @context. just adding stuff marked as resolved
+[20:31] <markus> Topic: Added new vocabulary elements (PR-157)
+[20:32] <tpluskiewicz> karol: memberTemplate maybe is not ready to be merged?
+[20:33] <tpluskiewicz> tpluskiewicz: this property looks redundant when we decide on action/operation changes
+[20:33] <tpluskiewicz> markus: it might
+[20:33] <tpluskiewicz> karol: I'm not sure
+[20:33] <tpluskiewicz> ... I don't see special benefit of actions. the target is still tied to operation
+[20:33] <tpluskiewicz> ... the benefit is only the type
+[20:34] <tpluskiewicz> markus: the diff is that you would associate action with resource
+[20:34] <tpluskiewicz> ... currently the operation always applies to the subject
+[20:35] <tpluskiewicz> karol: the action itself doesn't add much
+[20:35] <tpluskiewicz> tomasz: action may improve discoverabiliy
+[20:35] <tpluskiewicz> karol: actions still doesn't resolve template
+[20:35] <tpluskiewicz> tomasz: what issue with template?
+[20:37] <tpluskiewicz> karol: how the client knows that a template is used to retrieve collection member?
+[20:37] <tpluskiewicz> markus: the action would tell you that
+[20:37] <tpluskiewicz> karol: is that included in schema.org?
+[20:37] <tpluskiewicz> ... I'd rather use something from hydra rather then external concept
+[20:38] <tpluskiewicz> ... and we still lack the connection between the collection and the member
+[20:38] <tpluskiewicz> ... I think we still need some direct semantic
+[20:39] <tpluskiewicz> ... for the time being I will retract memberTemplate from #157
+[20:39] <tpluskiewicz> markus: yes, we should split the PR in two
+[20:39] <markus> Topic: Introduced a collections helper property on IHypermediaContainer (Heracles/PR-27)
+[20:40] <markus> https://github.com/HydraCG/Heracles.ts/pull/27
+[20:40] <tpluskiewicz> markus: could you give an overview, Karol?
+[20:40] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/issues/155
+[20:41] <tpluskiewicz> karol: this issue discussed the `collection` predicate
+[20:41] <tpluskiewicz> ... I implemented a helper which allows accessing collection from any resource
+[20:42] <tpluskiewicz> markus: there are some question
+[20:42] <tpluskiewicz> karol: yes, I haven't had the time yet to reply
+[20:43] <tpluskiewicz> tomasz: do we really want collection on every resource?
+[20:43] <tpluskiewicz> markus: usually would be empty
+[20:44] <tpluskiewicz> karol: the vocabulary doesn't define any domain
+[20:44] <tpluskiewicz> ... like other terms within the vocabulary
+[20:47] <tpluskiewicz> tomasz: would I check `collection`  every time?
+[20:47] <tpluskiewicz> markus: if you wanted to crawl everything, maybe yes
+[20:47] <tpluskiewicz> ... but usually you would have a goal and won't have to
+[20:48] <tpluskiewicz> karol: my driver is that hydra:Resource currently have the operation predicate
+[20:48] <tpluskiewicz> ... and it was natural that if I have operations and link, I would have collections
+[20:49] <tpluskiewicz> ... let's move this to github
+[20:49] <tpluskiewicz> markus: yes, otherwise it's rather uncontroversial. we can merge later
+[20:50] <tpluskiewicz> karol: I was thinking about a roadmap
+[20:50] <tpluskiewicz> ... the development seems slower than expected
+[20:50] <markus> Topic: Velocity
+[20:51] <tpluskiewicz> ... there are only two use cases and pretty simple
+[20:51] <tpluskiewicz> ... we could come up with improvement to the client
+[20:52] <tpluskiewicz> ... we could add some ability to inject header, etc. like with fetch
+[20:52] <tpluskiewicz> markus: so it's roadmap for heracles or vocabulary?
+[20:52] <tpluskiewicz> karol: both. they cannot be developed in disconnect
+[20:53] <tpluskiewicz> ... I would create a backlog of ideas for implementation
+[20:53] <tpluskiewicz> markus: the client can currently work with templated links, operations, collections?
+[20:55] <tpluskiewicz> ... what else is still missing?
+[20:55] <tpluskiewicz> karol: documentation part
+[20:55] <tpluskiewicz> markus: what do you mean. ApiDocumentation is ignored?
+[20:55] <tpluskiewicz> karol: we do have it but it's not implemented well
+[20:55] <tpluskiewicz> ... the specs seem incomplete
+[20:56] <tpluskiewicz> markus: this would be a good item
+[20:56] <tpluskiewicz> ... do you want us to write it down?
+[20:57] <tpluskiewicz> karol: we could try more use cases
+[20:57] <tpluskiewicz> tomasz: we need to battle test heracles
+[20:58] <tpluskiewicz> karol: do we have a real project?
+[20:58] <tpluskiewicz> markus: there is the issue tracker
+[20:59] <tpluskiewicz> tomasz: I have the client I was building: http://hydra-polymer.herokuapp.com
+[20:59] <tpluskiewicz> ... it's using the other library
+[21:01] <tpluskiewicz> ... we could try to replace it with heracles.ts
+[21:02] <tpluskiewicz> markus: it is a good idea and we could include snippets for people to explore
+[21:02] <tpluskiewicz> ... does this answer you question?
+[21:03] <tpluskiewicz> karol: I'll try to come up with some use cases first
+[21:03] <tpluskiewicz> ... supported operations/properties are coming from Api Documentation, right?
+[21:03] <tpluskiewicz> ... that would be what I'd work on
+[21:04] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has quit ["Page closed"]
+[21:04] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has quit ["Page closed"]
+[21:06] <markus> zakim, list attendees
+[21:06] <Zakim> As of this point the attendees have been (no one)
+[21:07] <markus> zakim, list attendees
+[21:07] <Zakim> As of this point the attendees have been markus, bergi, tpluskiewicz, Karol_Szczepanski

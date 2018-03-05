@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2018-03-05 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2018-03-05</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2018-03-05">https://www.w3.org/community/hydra/wiki/Conference_Calls#2018-03-05</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Operation linked to class and property (ISSUE-156)</a>
+                         <li><a href="#topic-2">Added new vocabulary elements (PR-157)</a>
+                         <li><a href="#topic-3">Introduced a collections helper property on IHypermediaContainer (Heracles/PR-27)</a>
+                         <li><a href="#topic-4">Velocity</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Thomas to convert ISSUE-156 into a use case document</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Scribe</dt>
+                      <dd>Tomasz Pluskiewicz</dd>
+                      <dt>Present</dt>
+                      <dd>Markus Lanthaler, Tomasz Pluskiewicz, Thomas Bergwinkl, Karol Szczepański</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="information">Tomasz Pluskiewicz is scribing.</div>
+
+              <h1 id="topic-1" class="topic">Topic: Operation linked to class and property (ISSUE-156)</h1>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  I commented on issue #156</div>
+              <div class="comment-continuation">... I changed the example to be easier to understand</div>
+              <div class="comment-continuation">... both can be POSTed and both go with a Comment</div>
+              <div class="comment-continuation">... I hope it's now easier</div>
+              <div class="comment-continuation">... you can use type to distinguish but because property is generated with, it generates two triples</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  so, 2 operations associated to same property</div>
+              <div class="comment-continuation">... but only appropriate on a single instance?</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  maybe people would like to have operation which description is only valid for a single class</div>
+              <div class="comment-continuation">... sometime you could control where you don't control the ontology</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  we'd need to introduce a way to specify operation both based on property and class</div>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/156">https://github.com/HydraCG/Specifications/issues/156</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  you wouldn't want to create sub property?</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  you could use OWL</div>
+              <div class="comment-continuation">... in general, when reusing ontology, you'd have that problem</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  do you think it should be supported?</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  yes, because people may expect that it should work based on examples</div>
+              <div class="comment-continuation">... maybe there are some reason not to use it this way or a better</div>
+              <div class="comment-continuation">... but it should be covered somehow</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  so main concern is confusion?</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  one is resue and second is JSON-LD making int possible</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  we should restrucutre to keep definition on class and restrict somehow</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  it may be a breaking change but I thought now is time to discuss</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I quite like it</div>
+              <div class="comment-continuation">... so, you'd have the same operation on all classes</div>
+              <div class="comment-continuation">... we change operations quite a bit anyway. anyone disagrees?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I thing it's a wider topic</div>
+              <div class="comment-continuation">... related to inheritance or overriding or forbidding/enforcing constructs</div>
+              <div class="comment-continuation">... maybe we need to be careful and not come up with quick solution</div>
+              <div class="comment-continuation">... we will need a way to define what is allowed and what is not</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I was thinking of putting it on its head and use multiple classes instead of attaching the operation to the property [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  it's just selective</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: ... Markus, in the past you were strongly against forbidding and overriding operations?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  yes, I still am. I don't want to allow to override stuff [scribe assist by Markus Lanthaler]</div>
+              <div class="comment-continuation">... this here is not allowing it in the first place</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  it's either inclusive or decalred multiple times</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  i'd prefer declaring multiple times</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  I could provide more examples</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  are you aware of past discussions</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  no, I need more hints to research those discussions</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  in the past we discussed how you can delete entities</div>
+              <div class="comment-continuation">... but sometimes you can't</div>
+              <div class="comment-continuation">... one way is to invalidate that (forbidding)</div>
+              <div class="comment-continuation">... the overriding is to override the `expects` in a child class</div>
+              <div class="comment-continuation">... I'm still against because it's not like RDF works</div>
+              <div class="comment-continuation">... your proposal is slightly different</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  other stuff could be implemented with SHACL?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  maybe. problem is that you can have multiple documents</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  with SHACL you can make constrain is operation is allowed</div>
+              <div class="comment-continuation">... just came to my mind</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  can we come up with a use case like before</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  isn't that what Thomas did?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  yes, but with use case we could have some more request/response with more detail</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/3.obtaining-events.md">https://github.com/HydraCG/Specifications/blob/master/drafts/use-cases/3.obtaining-events.md</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  we can move this to a UC document. would you be able Thomas?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  nothing fancy. markdown with some example</div>
+              <div class="comment"><span class="name">Thomas Bergwinkl</span>:  I can do that. I have to go now</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Thomas to convert ISSUE-156 into a use case document</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  we have 3 open PRs</div>
+              <div class="comment-continuation">... PR-157 doesn't need much discussion</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  it was quite silent.</div>
+              <div class="comment-continuation">... I just added some changes to @context. just adding stuff marked as resolved</div>
+
+              <h1 id="topic-2" class="topic">Topic: Added new vocabulary elements (PR-157)</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  memberTemplate maybe is not ready to be merged?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  this property looks redundant when we decide on action/operation changes</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  it might</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'm not sure</div>
+              <div class="comment-continuation">... I don't see special benefit of actions. the target is still tied to operation</div>
+              <div class="comment-continuation">... the benefit is only the type</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  the diff is that you would associate action with resource</div>
+              <div class="comment-continuation">... currently the operation always applies to the subject</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  the action itself doesn't add much</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  action may improve discoverabiliy</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  actions still doesn't resolve template</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  what issue with template?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  how the client knows that a template is used to retrieve collection member?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  the action would tell you that</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  is that included in schema.org?</div>
+              <div class="comment-continuation">... I'd rather use something from hydra rather then external concept</div>
+              <div class="comment-continuation">... and we still lack the connection between the collection and the member</div>
+              <div class="comment-continuation">... I think we still need some direct semantic</div>
+              <div class="comment-continuation">... for the time being I will retract memberTemplate from #157</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  yes, we should split the PR in two</div>
+
+              <h1 id="topic-3" class="topic">Topic: Introduced a collections helper property on IHypermediaContainer (Heracles/PR-27)</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/HydraCG/Heracles.ts/pull/27">https://github.com/HydraCG/Heracles.ts/pull/27</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  could you give an overview, Karol?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/Specifications/issues/155">https://github.com/HydraCG/Specifications/issues/155</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  this issue discussed the `collection` predicate</div>
+              <div class="comment-continuation">... I implemented a helper which allows accessing collection from any resource</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  there are some question</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  yes, I haven't had the time yet to reply</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  do we really want collection on every resource?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  usually would be empty</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  the vocabulary doesn't define any domain</div>
+              <div class="comment-continuation">... like other terms within the vocabulary</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  would I check `collection`  every time?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  if you wanted to crawl everything, maybe yes</div>
+              <div class="comment-continuation">... but usually you would have a goal and won't have to</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  my driver is that hydra:Resource currently have the operation predicate</div>
+              <div class="comment-continuation">... and it was natural that if I have operations and link, I would have collections</div>
+              <div class="comment-continuation">... let's move this to github</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  yes, otherwise it's rather uncontroversial. we can merge later</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I was thinking about a roadmap</div>
+              <div class="comment-continuation">... the development seems slower than expected</div>
+
+              <h1 id="topic-4" class="topic">Topic: Velocity</h1>
+              <div class="comment-continuation">... there are only two use cases and pretty simple</div>
+              <div class="comment-continuation">... we could come up with improvement to the client</div>
+              <div class="comment-continuation">... we could add some ability to inject header, etc. like with fetch</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  so it's roadmap for heracles or vocabulary?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  both. they cannot be developed in disconnect</div>
+              <div class="comment-continuation">... I would create a backlog of ideas for implementation</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  the client can currently work with templated links, operations, collections?</div>
+              <div class="comment-continuation">... what else is still missing?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  documentation part</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  what do you mean. ApiDocumentation is ignored?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we do have it but it's not implemented well</div>
+              <div class="comment-continuation">... the specs seem incomplete</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  this would be a good item</div>
+              <div class="comment-continuation">... do you want us to write it down?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we could try more use cases</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we need to battle test heracles</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  do we have a real project?</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  there is the issue tracker</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I have the client I was building: <a href="http://hydra-polymer.herokuapp.com">http://hydra-polymer.herokuapp.com</a></div>
+              <div class="comment-continuation">... it's using the other library</div>
+              <div class="comment-continuation">... we could try to replace it with heracles.ts</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  it is a good idea and we could include snippets for people to explore</div>
+              <div class="comment-continuation">... does this answer you question?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'll try to come up with some use cases first</div>
+              <div class="comment-continuation">... supported operations/properties are coming from Api Documentation, right?</div>
+              <div class="comment-continuation">... that would be what I'd work on</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
