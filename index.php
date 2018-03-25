@@ -19,6 +19,13 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/minute-styles.css">
   <!--<![endif]-->
+  <style>
+    code {
+      display: block;
+      background-color: #eee;
+      padding: 0.5em 0.5em;
+    }
+  </style>
 </head>
 <body>
   <div class="header">
@@ -38,8 +45,9 @@
           <div class="l-box pure-u-1">
               <h1>Hydra W3C Community Group Teleconference Minutes</h1>
               <p>The public Hydra W3C CG teleconferences and all of the decisions made in those
-                 meetings are listed below. Click on each link to take you to the full text and,
-                 if available, audio log of the meeting:</p>
+                 meetings are listed below. Each link takes you to the full text and,
+                 if available, the audio recording of the meeting. There's a separate
+                 <a href="how-to.html">page describing how to attend or run a conference call</a>.</p>
               <ul>
 <?php
 
