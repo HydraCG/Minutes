@@ -55,13 +55,19 @@ foreach ($allMinutes as $minutes)
       $irclogfilename = $minutes . "/irc.log";
       $irclog = file($irclogfilename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
       $resolution = 1;
+      $action = 1;
 
       foreach ($irclog as $line_num => $line)
       {
-         if (preg_match("/.*RESOLVED: (.*)/", $line, $matches))
+         if (preg_match("/.*(RESOLVED: .*)/", $line, $matches))
          {
             echo "                      <li>" . htmlspecialchars($matches[1]) . " [<a href=\"$minutes/#resolution-$resolution\">permalink</a>]</li>\n";
             $resolution += 1;
+         }
+         else if (preg_match("/.*(ACTION: .*)/", $line, $matches))
+         {
+            echo "                      <li>" . htmlspecialchars($matches[1]) . " [<a href=\"$minutes/#action-$action\">permalink</a>]</li>\n";
+            $action += 1;
          }
       }
       echo "                  </ul>\n";
