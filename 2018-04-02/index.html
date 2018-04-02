@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2018-04-02 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2018-04-02</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#Agenda">https://www.w3.org/community/hydra/wiki/Conference_Calls#Agenda</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Actions with explicit target (#154)</a>
+                         <li><a href="#topic-2">Usage of Hydra vocabulary in Heracles.ts</a>
+                         <li><a href="#topic-3">Usage of actions in ApiDocumentation</a>
+                         <li><a href="#topic-4">Subject URL in POSTs</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Markus to write down a proposal on how a expects "request shape" could look like</a>
+                         <li><a href="#action-2">Karol, to extend use cases to include ApiDocumentation examples</a>
+                         <li><a href="#action-3">Pavlik, to create issue regarding subject in POSTs etc.</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Scribe</dt>
+                      <dd>elf Pavlik</dd>
+                      <dt>Present</dt>
+                      <dd>Markus Lanthaler, elf Pavlik, Karol Szczepański</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="information">elf Pavlik is scribing.</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  we don't have an agenda, what would you like to discuss?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I don't know the state of the 154 (actions) PR</div>
+
+              <h1 id="topic-1" class="topic">Topic: Actions with explicit target (#154)</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="https://github.com/HydraCG/Specifications/pull/154">https://github.com/HydraCG/Specifications/pull/154</a></div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I made a very small commit based on what we discussed previously [scribe assist by Markus Lanthaler]</div>
+              <div class="comment-continuation">... as I pointed out before, use cases 5 and 5.1 has more differences than necessarz</div>
+              <div class="comment-continuation">... this PR makes both use a UUID</div>
+              <div class="comment-continuation">... once the server creates the UUID, once the client</div>
+              <div class="comment-continuation">... both of them use the same pseudo-code now</div>
+              <div class="comment-continuation">... (like the one Markus posted on GitHub)</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I implemented that feature for Herakles.ts, it has component for filing up iri template</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I see issue with specification not explaining how to get values for variables in a template based on properties in the mapping</div>
+              <div class="information">my approach takes 2 resources, first goes into payload and second gets used for values in IRI template variables</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  at some point we need to define how IRI templates relate to request</div>
+              <div class="comment-continuation">... have you thought more about that give your implementation xp in heracls?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  in case where you have iri template and the payload, the template can have variables which values will not come from the payload</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I think we miss some use cases [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: ... so far we have only two: one using UUID, one using slugs</div>
+              <div class="comment-continuation">... maybe we should create a few more use cases</div>
+              <div class="comment-continuation">... the UUID, e.g., appears only in the URL but not in the payload</div>
+              <div class="comment-continuation">... Linked Data Fragments use subject, predicate and object in their URL templates</div>
+              <div class="comment-continuation">... it uses them as kind of reified statements.. not properties of the resources</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  yeah, that's a good point [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we may miss something in the spec explaining how to 'craft' the whole request</div>
+              <div class="comment-continuation">... we have details on how to 'craft' body</div>
+              <div class="comment-continuation">... but not enough clarity on IRI templates, or request headers</div>
+              <div class="comment-continuation">... HTTP request can have headers but spec doesn't account for that</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  i thought that we should make 'expect' some data shape which would instruct what goes in the payload etc.</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I recall Tomasz suggesting something in this direction</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  we could for example use SHACL</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Markus to write down a proposal on how a expects "request shape" could look like</div>
+              <div class="information">Sorry, but no Tracker is associated with this channel.</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  maybe we could build around UC5 and UC5.1 in two versions 1 - could use UUID like in my last commit to PR 154 and the other one could use *slug* for both 5 &amp; 5.1 as attempted in previous version of UC5.1</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  I would like to see more use cases that require actions with an explicit target [scribe assist by Markus Lanthaler]</div>
+              <div class="comment-continuation">... currently it seems most of them could be handled with memberTemplate</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  something related to IRI templates in issue about 'filtering enumerations'</div>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/161">https://github.com/HydraCG/Specifications/issues/161</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I have question related to PR on Herakles.ts</div>
+
+              <h1 id="topic-2" class="topic">Topic: Usage of Hydra vocabulary in Heracles.ts</h1>
+              <div class="comment-continuation">... you suggested something about using official Hydra JSON-LD context</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  namespace IRI responds with JSON-LD context</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>: <a href="http://www.w3.org/ns/hydra/context.jsonld">http://www.w3.org/ns/hydra/context.jsonld</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Markus, we can't hear you</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I will embed this context statically for now and make issue to load it dynamically</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  In general it takes a while go get through those PRs, do you have suggestions on how to improve it</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'll try to continue with having multiple PRs open at the same time and let them land as it progresses</div>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/160">https://github.com/HydraCG/Specifications/issues/160</a></div>
+
+              <h1 id="topic-3" class="topic">Topic: Usage of actions in ApiDocumentation</h1>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  for ApiDocumentation one would need to create dedicated property for that</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we could try to make ApiDocumentation for existing use cases</div>
+              <div class="comment"><span class="name">elf Pavlik</span>:  we should also decide whether ApiDocumentation is supposed to support everything that can be done inline [scribe assist by Markus Lanthaler]</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  I would find it nice if they both have the same scope but we may not find it possible</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  let's try with our existing use cases first and see how it looks</div>
+              <div id="action-2" class="action"><strong>ACTION</strong>: Karol, to extend use cases to include ApiDocumentation examples</div>
+              <div class="information">Sorry, but no Tracker is associated with this channel.</div>
+
+              <h1 id="topic-4" class="topic">Topic: Subject URL in POSTs</h1>
+              <div class="comment"><span class="name">elf Pavlik</span>:  when POSTing something, the client doesn't provide a URL (@id in JSON-LD) [scribe assist by Markus Lanthaler]</div>
+              <div class="comment-continuation">... is the server supposed to return the subject URL in the response</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  POST should provide IRI in Location header</div>
+              <div class="comment-continuation">... quote from RFC</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we discussed possibility of including `@id` or not based if you create or update</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  if you send POST with multiple addresses server could split it into multiple resources</div>
+              <div id="action-3" class="action"><strong>ACTION</strong>: Pavlik, to create issue regarding subject in POSTs etc.</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

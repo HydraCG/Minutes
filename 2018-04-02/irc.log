@@ -1,0 +1,73 @@
+[20:03] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#Agenda
+[20:03] <markus> present+ markus
+[20:04] <elf-pavlik> present+ elf-pavlik
+[20:04] <elf-pavlik> present+ Karol_Szczepanski
+[20:06] <markus> scribe: elf-pavlik
+[20:07] <elf-pavlik> markus: we don't have an agenda, what would you like to discuss?
+[20:07] <elf-pavlik> Karol_Szczepanski: I don't know the state of the 154 (actions) PR
+[20:07] <markus> Topic: Actions with explicit target (#154)
+[20:08] <markus> https://github.com/HydraCG/Specifications/pull/154
+[20:08] <markus> elf-pavlik: I made a very small commit based on what we discussed previously
+[20:08] <markus> ... as I pointed out before, use cases 5 and 5.1 has more differences than necessarz
+[20:09] <markus> ... this PR makes both use a UUID
+[20:09] <markus> ... once the server creates the UUID, once the client
+[20:09] <markus> ... both of them use the same pseudo-code now
+[20:10] <markus> ... (like the one Markus posted on GitHub)
+[20:10] <elf-pavlik> Karol_Szczepanski: I implemented that feature for Herakles.ts, it has component for filing up iri template
+[20:12] <elf-pavlik> Karol_Szczepanski: I see issue with specification not explaining how to get values for variables in a template based on properties in the mapping
+[20:12] <elf-pavlik> my approach takes 2 resources, first goes into payload and second gets used for values in IRI template variables
+[20:12] <elf-pavlik> markus: at some point we need to define how IRI templates relate to request
+[20:13] <elf-pavlik> ... have you thought more about that give your implementation xp in heracls?
+[20:13] <elf-pavlik> Karol_Szczepanski: in case where you have iri template and the payload, the template can have variables which values will not come from the payload
+[20:14] <markus> elf-pavlik: I think we miss some use cases
+[20:14] <markus> ... so far we have only two: one using UUID, one using slugs
+[20:14] <markus> ... maybe we should create a few more use cases
+[20:15] <markus> ... the UUID, e.g., appears only in the URL but not in the payload
+[20:15] <markus> ... Linked Data Fragments use subject, predicate and object in their URL templates
+[20:16] <markus> ... it uses them as kind of reified statements.. not properties of the resources
+[20:16] <markus> markus: yeah, that's a good point
+[20:16] <elf-pavlik> Karol_Szczepanski: we may miss something in the spec explaining how to 'craft' the whole request
+[20:17] <elf-pavlik> ... we have details on how to 'craft' body
+[20:17] <elf-pavlik> ... but not enough clarity on IRI templates, or request headers
+[20:17] <elf-pavlik> ... HTTP request can have headers but spec doesn't account for that
+[20:18] <elf-pavlik> markus: i thought that we should make 'expect' some data shape which would instruct what goes in the payload etc.
+[20:19] <elf-pavlik> Karol_Szczepanski: I recall Tomasz suggesting something in this direction
+[20:19] <elf-pavlik> markus: we could for example use SHACL
+[20:21] <markus> ACTION: Markus to write down a proposal on how a expects "request shape" could look like
+[20:21] <trackbot> Sorry, but no Tracker is associated with this channel.
+[20:21]  * RRSAgent records action 1
+[20:22] <elf-pavlik> elf-pavlik: maybe we could build around UC5 and UC5.1 in two versions 1 - could use UUID like in my last commit to PR 154 and the other one could use *slug* for both 5 & 5.1 as attempted in previous version of UC5.1
+[20:23] <markus> elf-pavlik: I would like to see more use cases that require actions with an explicit target
+[20:24] <markus> ... currently it seems most of them could be handled with memberTemplate
+[20:25] <elf-pavlik> markus: something related to IRI templates in issue about 'filtering enumerations'
+[20:27] <elf-pavlik> https://github.com/HydraCG/Specifications/issues/161
+[20:28] <elf-pavlik> Karol_Szczepanski: I have question related to PR on Herakles.ts
+[20:28] <markus> Topic: Usage of Hydra vocabulary in Heracles.ts
+[20:28] <elf-pavlik> ... you suggested something about using official Hydra JSON-LD context
+[20:29] <elf-pavlik> markus: namespace IRI responds with JSON-LD context
+[20:30] <markus> http://www.w3.org/ns/hydra/context.jsonld
+[20:32] <Karol_Szczepanski> Markus, we can't hear you
+[20:33] -!- markus_ [~markus@public.cloak] has joined #hydra
+[20:35] <elf-pavlik> Karol_Szczepanski: I will embed this context statically for now and make issue to load it dynamically
+[20:36] <elf-pavlik> markus: In general it takes a while go get through those PRs, do you have suggestions on how to improve it
+[20:36] <elf-pavlik> Karol_Szczepanski: I'll try to continue with having multiple PRs open at the same time and let them land as it progresses
+[20:37] -!- markus [~markus@public.cloak] has quit [Ping timeout: 180 seconds]
+[20:37] <elf-pavlik> https://github.com/HydraCG/Specifications/issues/160
+[20:37] -!- markus_ is now known as markus
+[20:38] <markus> Topic: Usage of actions in ApiDocumentation
+[20:41] <elf-pavlik> markus: for ApiDocumentation one would need to create dedicated property for that
+[20:41] <elf-pavlik> Karol_Szczepanski: we could try to make ApiDocumentation for existing use cases
+[20:43] <markus> elf-pavlik: we should also decide whether ApiDocumentation is supposed to support everything that can be done inline
+[20:44] <elf-pavlik> markus: I would find it nice if they both have the same scope but we may not find it possible
+[20:45] <elf-pavlik> Karol_Szczepanski: let's try with our existing use cases first and see how it looks
+[20:45] <markus> Action: Karol, to extend use cases to include ApiDocumentation examples
+[20:45] <trackbot> Sorry, but no Tracker is associated with this channel.
+[20:45]  * RRSAgent records action 2
+[20:48] <markus> Topic: Subject URL in POSTs
+[20:48] <markus> elf-pavlik: when POSTing something, the client doesn't provide a URL (@id in JSON-LD)
+[20:48] <markus> ... is the server supposed to return the subject URL in the response
+[20:49] <elf-pavlik> Karol_Szczepanski: POST should provide IRI in Location header
+[20:50] <elf-pavlik> ... quote from RFC
+[20:52] <elf-pavlik> Karol_Szczepanski: we discussed possibility of including `@id` or not based if you create or update
+[20:54] <elf-pavlik> markus: if you send POST with multiple addresses server could split it into multiple resources
+[20:56] <markus> Action: Pavlik, to create issue regarding subject in POSTs etc.
