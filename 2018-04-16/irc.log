@@ -1,0 +1,139 @@
+[19:55] <markus> Chair: Markus Lanthaler
+[19:56] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2018-04-16
+[19:56] <markus> present+ markus
+[19:56] <elf-pavlik> present+ elf-pavlik
+[19:59] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has joined #hydra
+[20:00] <elf-pavlik> present+ Karol_Szczepanski
+[20:00] -!- tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:00] <elf-pavlik> present+ tpluskiewicz
+[20:03] <markus> Scribe: markus
+[20:03] <markus> Topic: Follow-up on ACTION items
+[20:03] <markus> markus: the first AI was: Markus to write down a proposal on how a expects "request shape" could look like
+[20:04] <markus> markus: didn't have time to get this done, will send it out the next couple of days
+[20:04] <markus> markus: the second AI was: Karol, to extend use cases to include ApiDocumentation examples
+[20:04] <markus> Karol_Szczepanski: same here
+[20:04] <markus> ... was busy with PRs
+[20:04] <markus> markus: the third AI was: Pavlik, to create issue regarding subject in POSTs etc. - Issue-162: managing @id and/or @base for newly created resources / named graphs
+[20:05] <elf-pavlik> https://github.com/HydraCG/Specifications/issues/162
+[20:05] <markus> elf-pavlik: I created ISSUE-162
+[20:05] <markus> ... I probably tried to capture too many things in there
+[20:06] <markus> ... I describe in there how a server can accept a POST with a blank node
+[20:06] <markus> ... and decide which node to pick
+[20:07] <markus> ... with multiple nodes it isn't so obvious for the server which resource to pick and assign IDs
+[20:07] <markus> markus: did anyone have a chance to read ISSUE-162 already?
+[20:07] <markus> Karol_Szczepanski: me and Tomasz already replied
+[20:08] <markus> ... if the server expects a single resource is it allowed to pass a graph?
+[20:09] <markus> tpluskiewicz: I think it's just a serialization detail
+[20:09] <markus> ... but there might be differences between PUT and POST
+[20:10] <markus> elf-pavlik: yeah, in a PUT the client knows what happens and can use full IRIs instead of blank nodes
+[20:10] <markus> ... can a relative IRI be used in a POST?
+[20:10] <markus> Karol_Szczepanski: we discussed that before.. but I don't remember the outcome
+[20:11] <markus> tpluskiewicz: if you request something and get back relative URLs
+[20:11] <markus> ... the base is taken from the request URL
+[20:11] <markus> elf-pavlik: yeah, unless it is overridden in the context
+[20:11] <markus> tpluskiewicz: I think that still holds for a POST
+[20:12] <markus> Karol_Szczepanski: the IRI you are POSTing to might be completely unrelated to what you are posting
+[20:13] <markus> tpluskiewicz: in that case, the server should ignore the @id the client provides
+[20:13] <markus> elf-pavlik: when you say @id, you only mean the single, top-level node, right?
+[20:14] <markus> ... the client could send a graph with multiple resources
+[20:14] <markus> tpluskiewicz: you make a good point
+[20:15] <markus> ... looking at it as triples it is not obvious what the "root" is
+[20:15] <markus> ... might be worth checking what the Linked Data Platform did
+[20:16] <markus> elf-pavlik: I'll change my pull request to only cover the case with a single blank node which would be the root node
+[20:16] <markus> tpluskiewicz: I think assigning the ID is just a subset of the problem
+[20:17] <markus> ... the general question is what's the root resource within the client-supplied graph
+[20:17] <markus> elf-pavlik: for use case 5 with POST a single resource with a blank node
+[20:18] <markus> ... don't you think it would be worthwhile clarifying that use case
+[20:18] <markus> tpluskiewicz: adding a note is fine
+[20:18] <markus> ... but I wouldn't go into too much detail just yet
+[20:19] <markus> Karol_Szczepanski: Pavlik, you could send a POST with a concrete @id
+[20:19] <markus> elf-pavlik: it may re-assign a different IRI then
+[20:20] <markus> tpluskiewicz: maybe... or perhaps it would incorporate it as a separate resource into the graph
+[20:20] <markus> ... or replace the IRI
+[20:20] <markus> ... there are other options as well
+[20:21] <markus> elf-pavlik: I think this would be easier to discuss on GitHub
+[20:21] <markus> tpluskiewicz: yeah, let's do that
+[20:21] <markus> elf-pavlik: I have another use case where I PUT a triple but don't want to create a new resource
+[20:22] <markus> Karol_Szczepanski: the PUT already defines the IRI
+[20:22] <markus> ... regardless of what you put in the payload
+[20:22] <markus> ... PUT tells the server to makes a resource out of the payload
+[20:23] <markus> tpluskiewicz: are you actually talking about a PATCH?
+[20:23] <markus> ... with a PUT you want to tell the server to replace the resource
+[20:24] <markus> ... but the client can't make too many assumptions about what exactly the server does
+[20:24] <markus> ... further, you are just doing a POST
+[20:24] <markus> ... which doesn't have any semantics
+[20:25] <markus> ... just POSTing a triple isn't enough to derive the semantics
+[20:25] <markus> Karol_Szczepanski: it would be nice to see real-world use cases for these scenarios
+[20:26] <markus> elf-pavlik: a use case might be to allow an attendee to be attached to an event directly, i.e., without creating an intermediary collection resource
+[20:26] <markus> ... that could be expressed with a single triple </event> schema:attendee </attendee>
+[20:27] <markus> Karol_Szczepanski: fair enough.. but it is a implementation detail on the server
+[20:28] <markus> elf-pavlik: think of it as a named graph
+[20:29] <elf-pavlik> https://github.com/HydraCG/Specifications/pull/154/commits/33ab45ae4bfbea89e30c8c4f8df8043720d87f4b
+[20:30] <markus> elf-pavlik: the commit I just referenced shows how this might work
+[20:31] <markus> markus: isn't this more of a PATCH?
+[20:32] <markus> ... like patching the event resource to add a new attendee?
+[20:33] <markus> elf-pavlik: not really, the relationships here have their own URLs as you see described with the IRI template
+[20:33] <markus> tpluskiewicz: this looks very complex while at the same time being very abstract
+[20:33] <markus> ... you are adding triple patterns, adding subjects and predicates etc.
+[20:34] <markus> ... the average Hydra consumer doesn't want to deal with this
+[20:34] <markus> elf-pavlik: how would it work otherwise?
+[20:35] <markus> ... it could think of a RPC-style POST
+[20:35] <markus> ... I'm open to alternatives
+[20:35] <markus> Karol_Szczepanski: quick idea.. the event could provide a collection for attendees
+[20:36] <markus> elf-pavlik: right, but then you would POST a resource with a known IRI which would then create a new resource which just points to the person attending the event
+[20:36] <markus> ... I would like to have something which doesn't need this extra complexity
+[20:36] <markus> ... maybe as extension for people who are more interested in the linked data
+[20:37] <markus> markus: an alternative might be to use the LINK method
+[20:37] <markus> elf-pavlik: wasn't it deprecated in HTTP/1.1?
+[20:37] <markus> ... we should look it up
+[20:38] <markus> Karol_Szczepanski: also, there's currently no way to describe the necessary HTTP headers with Hydra
+[20:39] <markus> markus: is there anything else we want to discuss in regard to PR-154 (Actions with explicit target)
+[20:39] <markus> Karol_Szczepanski: what are the next steps
+[20:40] <markus> markus: if no one has a more concrete idea I think we need to iterate on it further
+[20:40] <markus> ... GitHub is probably the better place to do so
+[20:40] <markus> Topic: Implementation of two new API documentation use cases 2.1 and 2.2 (PR-30)
+[20:40] <markus> https://github.com/HydraCG/Heracles.ts/pull/30
+[20:41] <markus> Karol_Szczepanski: I think the only remaining question is whether to expose the getHypermediaProcessor() method
+[20:41]  * elf-pavlik sorry guys but i will need to go in 2min, I'll read the minutes tomorrow!
+[20:41] <markus> ... I think it will be useful
+[20:42] <markus> markus: I don't think that's a blocker
+[20:42] <markus> ... let's proceed with the PR
+[20:42] -!- elf-pavlik [~elf-pavlik@public.cloak] has quit ["Leaving"]
+[20:42] <markus> Karol_Szczepanski: I addressed all other feedback
+[20:42] <markus> markus: cool. I'll merge it right after the call
+[20:42] <markus> Topic: Obtaining all collection members fixing issue 33 (PR-34)
+[20:43] <markus> https://github.com/HydraCG/Heracles.ts/pull/34
+[20:43] <markus> markus: it looks like no one had a chance to review it yet
+[20:43] <markus> Karol_Szczepanski: this PR updates the implementation with the correct PartialCollectionView
+[20:43] <markus> ... so this makes the client spec conformant
+[20:44] <markus> ... in terms of features there's a new method to get all members
+[20:44] <markus> tpluskiewicz: quick question, why's there no Reviewable button?
+[20:45] <markus> markus: might be because I haven't set it up
+[20:45] <markus> ... I'll check
+[20:45] <markus> tpluskiewicz: I think this shouldn't eagerly load the whole collection
+[20:45] <markus> ... but do so lazily
+[20:45] <markus> ... would be nice for things like infinite scrolling etc.
+[20:46] <markus> Karol_Szczepanski: how would the API look like?
+[20:46] <markus> tpluskiewicz: it would also be nice to make it extensible
+[20:46] <markus> ... there are different strategies on how to traverse pages
+[20:47] <markus> Karol_Szczepanski: ok, I made a note
+[20:47] <markus> ... and will think about it
+[20:47] <markus> ... but please let me know if you have any ideas
+[20:47] <markus> tpluskiewicz: please add my comment to the PR so that we don't forget about it
+[20:47] <markus> ... and please add a snippet on how the current feature works
+[20:48] <markus> markus: I guess there's a test that could act as snippet
+[20:48] <markus> tpluskiewicz: that's perhaps a bit too hidden. I would appreciate something in the PR description
+[20:48] <markus> Karol_Szczepanski: ok
+[20:49] <markus> markus: anything else in regard to this PR or in general?
+[20:49] <markus> Karol_Szczepanski: I just went through the HTTP specs
+[20:49] <markus> ... in the first version LINK was described
+[20:50] <markus> ... later it just says they weren't frequently used
+[20:50] <markus> ... but doesn't say they were deprecated
+[20:50] <markus> markus: the HTTP methods were moved to a IANA registry
+[20:50] <markus> https://www.iana.org/assignments/http-methods/http-methods.xhtml
+[20:51] <markus> markus: LINK is there, referencing the first HTTP spec: https://tools.ietf.org/html/rfc2068
+[20:52] <markus> ... but as you mentioned, those methods aren't widely used
+[20:52] <markus> ... so there might be compatibility issues in practice
+[20:53] -!- Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has quit ["Page closed"]
+[20:56] <markus> zakim, list attendees
+[20:56] <Zakim> As of this point the attendees have been markus, elf-pavlik, Karol_Szczepanski, tpluskiewicz
