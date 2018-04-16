@@ -499,7 +499,7 @@ now available at
    http://www.hydra-cg.com/minutes/${context.date}/
 
 The full text of the discussion is below, including a link to the audio
-transcript.
+recording.
 
 
 -------------------------------------------------------------------
