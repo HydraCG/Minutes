@@ -1,0 +1,38 @@
+[19:59] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[19:59] <markus> Scribe: markus
+[20:00] <markus> present+ markus
+[20:00] <markus> present+ Karol_Szczepanski
+[20:08] == xadahiya [~2be518bb@public.cloak] has joined #hydra
+[20:11] == sandeep [~sandeep@public.cloak] has joined #hydra
+[20:12] <sandeep> hello everyone!
+[20:13] <markus> markus: Hi
+[20:13] <markus> markus: Please join the call at https://www.uberconference.com/hydra-cg
+[20:19] <markus> markus: sandeep, your microphone is making a lot of noise
+[20:19] <markus> ... sounds like a motorcycle.. unfortunately we can barely hear your voice
+[20:19] <xadahiya> can't hear anything
+[20:23] <markus> Topic: Google Summer of Code
+[20:23] <xadahiya> https://github.com/HTTP-APIs/hydrus/blob/master/hydrus/parser/openapi_parser.py
+[20:24] <xadahiya> sandeep check your microphone
+[20:26] <sandeep> So, Can I use screenshare for presenting the demo of work?
+[20:26] <xadahiya> yes you can but your microphone is making a lot of noice
+[20:26] <xadahiya> noise*
+[20:27] <markus> markus: Sandeep, we decided to postpone the demo to the next telecon
+[20:27] <markus> ... as we can't hear you at all
+[20:27] <markus> Topic: Next goals
+[20:27] <markus> Karol: update spec
+[20:27] <sandeep> yeah I will try my best next time.
+[20:28] <sandeep> I don't know why is this noise.
+[20:28] <markus> Karol: try to reach feature parity with other API description formats
+[20:28] <markus> ... some stuff is already possible but spec and examples are often vague
+[20:29] <markus> ... we should also update the client and stop using stuff that's not in the spec
+[20:29] <markus> markus: how would you structure this work?
+[20:29] <markus> karol: don't know
+[20:29] <markus> ... the major thing that's missing IMO is request shape we discussed earlier this year
+[20:30] <markus> markus: right. the other thing we should finish is the work Pavlik started around actions
+[20:31] <markus> ... if I understand you correctly your highest priority would be to update the spec, right? Not updating Heracles etc.
+[20:32] <markus> Karol: yes, I think we reached a point where we need to work on the spec itself
+[20:33] <markus> markus: how should we approach that best?
+[20:33] <markus> Karol: I'll focus on the Angular Hydra console for now
+[20:34] <markus> ... I would like to have a complete example
+[20:35] <markus> ... we've got a client I think now we should extend that to a full demo that shows what Hydra can do
+[20:35] <markus> ... this might then also help us to recruit more people

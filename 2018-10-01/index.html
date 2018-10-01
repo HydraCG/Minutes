@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2018-10-01 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2018-10-01</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls">https://www.w3.org/community/hydra/wiki/Conference_Calls</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Google Summer of Code</a>
+                         <li><a href="#topic-2">Next goals</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Scribe</dt>
+                      <dd>Markus Lanthaler</dd>
+                      <dt>Present</dt>
+                      <dd>Markus Lanthaler, Sandeep Chauhan, Akshay Dahiya, Karol Szczepański</dd>
+                  </dl>
+              </div>
+              <div class="information">Markus Lanthaler is scribing.</div>
+              <div class="comment"><span class="name">Sandeep Chauhan</span>: hello everyone!</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Hi</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Please join the call at <a href="https://www.uberconference.com/hydra-cg">https://www.uberconference.com/hydra-cg</a></div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  sandeep, your microphone is making a lot of noise</div>
+              <div class="comment-continuation">... sounds like a motorcycle.. unfortunately we can barely hear your voice</div>
+              <div class="comment"><span class="name">Akshay Dahiya</span>: can't hear anything</div>
+
+              <h1 id="topic-1" class="topic">Topic: Google Summer of Code</h1>
+              <div class="comment"><span class="name">Akshay Dahiya</span>: <a href="https://github.com/HTTP-APIs/hydrus/blob/master/hydrus/parser/openapi_parser.py">https://github.com/HTTP-APIs/hydrus/blob/master/hydrus/parser/openapi_parser.py</a></div>
+              <div class="comment"><span class="name">Akshay Dahiya</span>: sandeep check your microphone</div>
+              <div class="comment"><span class="name">Sandeep Chauhan</span>: So, Can I use screenshare for presenting the demo of work?</div>
+              <div class="comment"><span class="name">Akshay Dahiya</span>: yes you can but your microphone is making a lot of noice</div>
+              <div class="comment"><span class="name">Akshay Dahiya</span>: noise*</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  Sandeep, we decided to postpone the demo to the next telecon</div>
+              <div class="comment-continuation">... as we can't hear you at all</div>
+
+              <h1 id="topic-2" class="topic">Topic: Next goals</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  update spec</div>
+              <div class="comment"><span class="name">Sandeep Chauhan</span>: yeah I will try my best next time.</div>
+              <div class="comment"><span class="name">Sandeep Chauhan</span>: I don't know why is this noise.</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  try to reach feature parity with other API description formats</div>
+              <div class="comment-continuation">... some stuff is already possible but spec and examples are often vague</div>
+              <div class="comment-continuation">... we should also update the client and stop using stuff that's not in the spec</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  how would you structure this work?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  don't know</div>
+              <div class="comment-continuation">... the major thing that's missing IMO is request shape we discussed earlier this year</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  right. the other thing we should finish is the work Pavlik started around actions</div>
+              <div class="comment-continuation">... if I understand you correctly your highest priority would be to update the spec, right? Not updating Heracles etc.</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  yes, I think we reached a point where we need to work on the spec itself</div>
+              <div class="comment"><span class="name">Markus Lanthaler</span>:  how should we approach that best?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'll focus on the Angular Hydra console for now</div>
+              <div class="comment-continuation">... I would like to have a complete example</div>
+              <div class="comment-continuation">... we've got a client I think now we should extend that to a full demo that shows what Hydra can do</div>
+              <div class="comment-continuation">... this might then also help us to recruit more people</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
