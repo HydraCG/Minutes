@@ -25,6 +25,7 @@
     "Chris Andrew": { "alias": ["chrizandr"] },
     "Lorenzo Moriondo": { "alias": ["Lorenzo"] },
     "Akshay Dahiya": { "alias": ["xadahiya"] },
+    "Sandeep Chauhan": { "alias": ["sandeep"]}
   };
   scrawl.htmlHeader = `<!doctype html>
 <html lang="en">
