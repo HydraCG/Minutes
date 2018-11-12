@@ -1,0 +1,53 @@
+[19:57] <markus> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2018-11-12
+[20:00] == Akshay [~Akshay@public.cloak] has quit ["Page closed"]
+[20:00] == Akshay [~Akshay@public.cloak] has joined #hydra
+[20:01] <markus> Scribe: Karol_Szczepanski
+[20:02] == sandeep [~sandeep@public.cloak] has joined #hydra
+[20:02] == vaibhavchellani [~vaibhavchellani@public.cloak] has joined #hydra
+[20:02] == tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:02] == Chris [~Chris@public.cloak] has joined #hydra
+[20:02] <sandeep> Hey all!
+[20:02] <markus> Topic: Presentation of Sandeep's & Vaibhav's GSoC work
+[20:03] <sandeep> there are some slides regarding my presentation
+[20:03] <sandeep> https://slides.com/sandeepsajan0/g/
+[20:03] <Karol_Szczepanski> design of a parser of Open API to Hydra
+[20:04] <Karol_Szczepanski> Open API seems to be more descriptive than Hydra
+[20:07] <Karol_Szczepanski> "on-screen live presentation is performed"
+[20:08] <markus> Am I the only one who doesn't hear anything anymore?
+[20:17] <vaibhavchellani> Multiple Parameters at different locations : Data can be received at various locations in the form of parameters , for example “header”,”body”,”path”,”query” . At times we may receive some data from header and some from body in the same request . We get only one key ie “expects” to represent the parameters . The two questions here are   How to represent the location of input data(parameter)?   How to represent multiple[CUT]
+[20:18] <Karol_Szczepanski> I've asked for a briefe list of features that were available in the OpenAPI and were not in the Hydra or were difficult to implement
+[20:18] <vaibhavchellani> ill share a more comprehensive list in a while
+[20:24] <vaibhavchellani> 1. Representing endpoints like ‘A/{id}/B/C’
+[20:26] <vaibhavchellani> 2. Specifying location of input data for eg: request, body ,path,query etc along with the actual expected request type(hydraClass)
+[20:31] <vaibhavchellani> 3. Supporting array in supported_prop : There are various instances where we need to represent that the supported property (object in supportedProperty ) is a list when we have the semantic reference of an item of the list , the question here is "how can I represent a property that is supposed to be a list where each item follows a particular schema”
+[20:38] <vaibhavchellani> we also had some issues with creating unique identifiers on server side for the agent to identify easily , right now we are using uuid but the id should be verifiable on client side as well as server side hence we were toying with the idea of checksum as well.
+[20:49] <markus> Topic: Talk about further plans with GSoC
+[20:51] <Karol_Szczepanski> In order to attract more developers we should start with basics
+[20:52] <markus> Topic: GSoC going forward
+[20:56] <Akshay> http://35.224.198.158:5000/
+[20:57] <Akshay> The Simulation demo Gui
+[20:57] <Akshay> http://35.224.198.158:8080/api
+[20:57] <Akshay> http://35.224.198.158:8081/api
+[20:57] <Akshay> http://35.224.198.158:8082/api
+[20:57] <Akshay> http://35.224.198.158:8083/api
+[20:58] <Akshay> http://35.224.198.158:8084/api
+[20:58] <Akshay> Links to all the serves (drones and central controller for the simulation)
+[20:58] <Akshay> P.S - Everything can be accessed from the Gui link
+[20:59] == tpluskiewicz [~tpluskiewicz@public.cloak] has quit ["Page closed"]
+[20:59] == Karol_Szczepanski [~Karol_Szczepanski@public.cloak] has quit ["Page closed"]
+[20:59] == vaibhavchellani [~vaibhavchellani@public.cloak] has quit ["Page closed"]
+[20:59] == Chris [~Chris@public.cloak] has quit ["Page closed"]
+[21:01] == Akshay [~Akshay@public.cloak] has quit ["Page closed"]
+[21:02] <markus> zakim, list attendees
+[21:02] <Zakim> As of this point the attendees have been (no one)
+[21:02] <markus> present+ markus
+[21:02] <markus> present+ Karol_Szczepanski
+[21:02] <markus> present+ sandeep
+[21:02] <markus> present+ vaibhavchellani
+[21:02] <markus> present+ Akshay
+[21:02] <markus> present+ tpluskiewicz
+[21:03] <markus> present+ chrizandr
+[21:03] <markus> present+ lorenzo
+[21:03] <markus> present+ kristian
+[21:04] <markus> zakim, list attendees
+[21:04] <Zakim> As of this point the attendees have been markus, Karol_Szczepanski, sandeep, vaibhavchellani, Akshay, tpluskiewicz, chrizandr, lorenzo, kristian
