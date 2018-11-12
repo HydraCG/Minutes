@@ -25,7 +25,9 @@
     "Chris Andrew": { "alias": ["chrizandr"] },
     "Lorenzo Moriondo": { "alias": ["Lorenzo"] },
     "Akshay Dahiya": { "alias": ["xadahiya"] },
-    "Sandeep Chauhan": { "alias": ["sandeep"]}
+    "Sandeep Chauhan": { "alias": ["sandeep"]},
+    "Vaibhav Chellani": { "alias": ["vaibhavchellani"]},
+    'Kristian Koci': { "alias": ["kristian"]},
   };
   scrawl.htmlHeader = `<!doctype html>
 <html lang="en">
