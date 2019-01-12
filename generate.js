@@ -19,5 +19,22 @@ reader.on('line', line => {
 reader.on('close', () => {
     const generated = scrawl.generateMinutes(logLines, 'html');
 
-    fs.writeFileSync(outFile, scrawl.htmlHeader + generated + scrawl.htmlFooter);
+    fs.writeFileSync(outFile, `---
+layout: default
+title: Telecon Minutes for ${scrawl.date} | Hydra W3C Community Group
+date: ${scrawl.date}
+${frontMatterCollection('actions', generated.actions)}
+${frontMatterCollection('resolutions', generated.resolutions)}
+---
+
+${generated.content}`);
 });
+
+function frontMatterCollection(name, array) {
+    if(array.length === 0) {
+        return ''
+    }
+
+    return `${name}:
+${array.map(a => `- ${a}`).join('\n')}`
+}

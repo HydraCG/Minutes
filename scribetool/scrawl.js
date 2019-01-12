@@ -84,7 +84,7 @@
   scrawl.action = function (msg, id, textMode) {
     var rval = "";
     if (textMode == "html") {
-      rval = "<div id=\"action-" + id + "\" class=\"action\"><strong>ACTION</strong>: " +
+      rval = "<a class=\"anchor\" id=\"action-" + id + "\"></a><div class=\"action\"><strong>ACTION</strong>: " +
        scrawl.htmlencode(msg) + "</div>\n";
     } else {
       rval = "\nACTION: " + msg + "\n\n";
@@ -121,7 +121,7 @@
   scrawl.resolution = function (msg, id, textMode) {
     var rval = "";
     if (textMode == "html") {
-      rval = "<div id=\"resolution-" + id + "\" class=\"resolution\">" +
+      rval = "<a class=\"anchor\" id=\"resolution-" + id + "\"></a><div class=\"resolution\">" +
         "<strong>RESOLUTION:</strong> " +
         scrawl.htmlencode(msg) + "</div>\n";
     } else {
@@ -499,7 +499,7 @@
     // create the final log output
     rval = summary + minutes;
 
-    return rval;
+    return { content: rval, ...context };
   }
 
   scrawl.updateMinutes = function (event) {
