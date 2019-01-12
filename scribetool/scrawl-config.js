@@ -15,8 +15,7 @@ module.exports = function(scrawl) {
     "Vaibhav Chellani": { "alias": ["vaibhavchellani"]},
     'Kristian Koci': { "alias": ["kristian"]},
   };
-  scrawl.htmlHeader = `
----
+  scrawl.htmlHeader = `---
 layout: default
 title: Telecon Minutes for ${scrawl.date} | Hydra W3C Community Group
 ---
