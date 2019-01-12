@@ -1,11 +1,9 @@
-/**
- * Scrawl is a tool that is useful for taking minutes via IRC and cleaning them
- * up for public consumption. It takes an IRC log as input and generates a
- * nice, stand-alone HTML page from the input.
- */
-(function (doc) {
-  window.scrawl = window.scrawl || {};
-  var scrawl = window.scrawl;
+  /**
+   * Scrawl is a tool that is useful for taking minutes via IRC and cleaning them
+   * up for public consumption. It takes an IRC log as input and generates a
+   * nice, stand-alone HTML page from the input.
+   */
+  const scrawl = {};
 
   /* The update counter and the timeout is used to delay the update of the
     HTML output by a few seconds so that reformatting the page doesn't
@@ -68,11 +66,7 @@
   };
 
   scrawl.htmlencode = function (text) {
-    var modified = document.createElement('div');
-    modified.textContent = text;
-    modified = modified.innerHTML.replace(urlRx, "<a href=\"$1\">$1</a>");
-
-    return modified;
+    return text.replace(urlRx, "<a href=\"$1\">$1</a>");
   };
 
   scrawl.topic = function (msg, id, textMode) {
@@ -458,17 +452,10 @@
     return rval;
   };
 
-  scrawl.displayMinutes = function () {
-    minutes = scrawl.generateMinutes("html");
-
-    doc.getElementById("html-output").innerHTML = minutes;
-  };
-
-  scrawl.generateMinutes = function (textMode, mailHeader) {
+  scrawl.generateMinutes = function (ircLines, textMode, mailHeader) {
     var rval = "";
     var minutes = "";
     var summary = "";
-    var ircLines = doc.getElementById("irc-log").value.split("\n");
     var aliases = scrawl.generateAliases();
 
     // initialize the IRC log scanning context
@@ -494,16 +481,16 @@
 
     if (textMode == "text" && mailHeader) {
       summary += `Thanks ${context.scribe.replace(/\s.*/, '')} for scribing. The minutes from this week's telecon are
-now available at
-
+  now available at
+  
    http://www.hydra-cg.com/minutes/${context.date}/
-
-The full text of the discussion is below, including a link to the audio
-recording.
-
-
--------------------------------------------------------------------
-`;
+  
+  The full text of the discussion is below, including a link to the audio
+  recording.
+  
+  
+  -------------------------------------------------------------------
+  `;
     }
 
     // generate the meeting summary
@@ -533,39 +520,4 @@ recording.
     }
   };
 
-  scrawl.hide = function (id) {
-   doc.getElementById(id).style.display = 'none';
-  };
-
-  scrawl.show = function (id) {
-   doc.getElementById(id).style.display = '';
-  };
-
-  scrawl.showMarkup = function (type, mailHeader)
-  {
-    // Display the appropriate markup text area based on the 'type'
-    if (type == "html") {
-      var html = scrawl.htmlHeader
-        + scrawl.generateMinutes("html")
-        + scrawl.htmlFooter;
-
-      scrawl.hide("irc-log");
-      scrawl.hide("text-markup");
-
-      doc.getElementById("html-markup").value = html;
-      scrawl.show("html-markup");
-    } else if (type == "text") {
-      var text = scrawl.generateMinutes(type, mailHeader)
-
-      scrawl.hide("html-markup");
-      scrawl.hide("irc-log");
-
-      doc.getElementById("text-markup").value = text;
-      scrawl.show("text-markup");
-    } else {
-      scrawl.hide("text-markup");
-      scrawl.hide("html-markup");
-      scrawl.show("irc-log");
-    }
-  }
-})(document);
+  module.exports = scrawl;
