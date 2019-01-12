@@ -329,7 +329,7 @@
      return rval;
   };
 
-  scrawl.generateSummary = function (context, textMode) {
+  scrawl.generateSummary = function (context, textMode, includeAudio) {
     var rval = "";
     var date = context.date;
     var group = context.group;
@@ -389,13 +389,7 @@
                       `;
       }
 
-      rval += `<dt>Chair</dt>
-                      <dd>${chair}</dd>
-                      <dt>Scribe</dt>
-                      <dd>${scribe}</dd>
-                      <dt>Present</dt>
-                      <dd>${present.join(", ")}</dd>
-                      <dt>Audio Log</dt>
+      const audioTag = `<dt>Audio Log</dt>
                       <dd>
                         <audio controls="controls" preload="none">
                             <source src="${audio}" type="audio/mpeg" />
@@ -403,7 +397,15 @@
                             please upgrade.<br>
                             <a href="${audio}">${audio}</a>
                         </audio>
-                      </dd>
+                      </dd>`;
+
+      rval += `<dt>Chair</dt>
+                      <dd>${chair}</dd>
+                      <dt>Scribe</dt>
+                      <dd>${scribe}</dd>
+                      <dt>Present</dt>
+                      <dd>${present.join(", ")}</dd>
+                      ${includeAudio ? audioTag : ''}
                   </dl>
               </div>\n`;
     } else {
@@ -452,7 +454,7 @@
     return rval;
   };
 
-  scrawl.generateMinutes = function (ircLines, textMode, mailHeader) {
+  scrawl.generateMinutes = function ({ ircLines, textMode, mailHeader, includeAudio }) {
     var rval = "";
     var minutes = "";
     var summary = "";
@@ -494,7 +496,7 @@
     }
 
     // generate the meeting summary
-    summary += scrawl.generateSummary(context, textMode);
+    summary += scrawl.generateSummary(context, textMode, includeAudio);
 
     // create the final log output
     rval = summary + minutes;

@@ -6,18 +6,19 @@ const logFile = path.join(__dirname, process.argv[2]);
 const outFile = path.join(path.dirname(logFile), 'index.html');
 const logStream = fs.createReadStream(logFile);
 const reader = readline.createInterface(logStream);
+const audioExists = fs.existsSync(path.join(path.dirname(logFile), 'audio.mp3'));
 
 const scrawl = require('./scribetool/scrawl');
 scrawl.date = path.dirname(logFile).split(path.sep).pop();
 require('./scribetool/scrawl-config')(scrawl);
 
-let logLines = [];
+let ircLines = [];
 reader.on('line', line => {
-    return logLines.push(line);
+    return ircLines.push(line);
 });
 
 reader.on('close', () => {
-    const generated = scrawl.generateMinutes(logLines, 'html');
+    const generated = scrawl.generateMinutes({ ircLines, textMode: 'html', includeAudio: audioExists });
 
     fs.writeFileSync(outFile, `---
 layout: default
