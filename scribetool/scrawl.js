@@ -482,7 +482,11 @@
     }
 
     if (textMode == "text" && mailHeader) {
-      summary += `Thanks ${context.scribe.replace(/\s.*/, '')} for scribing. The minutes from this week's telecon are
+      let scribeThanks = '';
+      if (context.scribe) {
+        scribeThanks = `Thanks ${context.scribe.replace(/\\s.*/, '')} for scribing. `;
+      }
+      summary += `${scribeThanks}The minutes from this week's telecon are
   now available at
   
    http://www.hydra-cg.com/minutes/${context.date}/

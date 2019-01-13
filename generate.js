@@ -4,6 +4,7 @@ const readline = require('readline');
 
 const logFile = path.join(__dirname, process.argv[2]);
 const outFile = path.join(path.dirname(logFile), 'index.html');
+const mailFile = path.join(path.dirname(logFile), 'mail.html');
 const logStream = fs.createReadStream(logFile);
 const reader = readline.createInterface(logStream);
 const audioExists = fs.existsSync(path.join(path.dirname(logFile), 'audio.mp3'));
@@ -18,6 +19,11 @@ reader.on('line', line => {
 });
 
 reader.on('close', () => {
+    generateHtml();
+    generateEmail();
+});
+
+function generateHtml() {
     const generated = scrawl.generateMinutes({ ircLines, textMode: 'html', includeAudio: audioExists });
 
     fs.writeFileSync(outFile, `---
@@ -29,7 +35,13 @@ ${frontMatterCollection('resolutions', generated.resolutions)}
 ---
 
 ${generated.content}`);
-});
+}
+
+function generateEmail() {
+    const generated = scrawl.generateMinutes({ ircLines, textMode: 'text', mailHeader: true });
+
+    fs.writeFileSync(mailFile, generated.content)
+}
 
 function frontMatterCollection(name, array) {
     if(array.length === 0) {

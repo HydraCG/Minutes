@@ -98,10 +98,11 @@ title: How do I Attend a Call? How Do I Run a Call and Scribe? | Hydra W3C Commu
 <ul>
     <li>Create a new folder using the date of the conference call in the format <i>yyyy-mm-dd</i>.</li>
     <li>Create a file <i>irc.log</i> containing the IRC log of the conference call.</li>
-    <li>Open <a href="http://www.hydra-cg.com/minutes/scribetool/">scribetool</a> and paste the
-        IRC log in to the text field at the bottom of the screen.
+    <li>Create a pull request to add the folder containing the two files to
+        <a href="https://github.com/HydraCG/Minutes">HydraCG/Minutes on GitHub</a> and give owners
+        permissions to add files to your pull request (this will be used to add the audio recording).
     </li>
-    <li>Spend two minutes to check the nicely formatted minutes.
+    <li>Spend two minutes to check the nicely formatted minutes (automatically published to Netlify).
         <ul>
             <li> Are all the fields at the top such as the agenda, the scribe and the participants
                 populated correctly?
@@ -112,14 +113,7 @@ title: How do I Attend a Call? How Do I Run a Call and Scribe? | Hydra W3C Commu
             <li>Are all action items, proposals and resolutions marked up correctly?</li>
         </ul>
     </li>
-    <li>Switch to HTML mode by clicking the "Show HTML" button on the right and copy the result
-        into a file called <i>index.html</i>. <strong>Please do not manually edit the HTML code in any way
-            as it might break automated processing of those files!</strong></li>
-    <li>Create a pull request to add the folder containing the two files to
-        <a href="https://github.com/HydraCG/Minutes">HydraCG/Minutes on GitHub</a> and give owners
-        permissions to add files to your pull request (this will be used to add the audio recording).
-    </li>
 </ul>
 <p>Finally, please <a href="https://www.w3.org/community/hydra/wiki/Scribes">record attendance in our wiki</a>
     and send the meeting minutes to <a href="mailto:public-hydra@w3.org">public-hydra@w3.org</a>.
-    You can use scribetool's text output.</p>
+    The meeting notes in email form will be generated as <code>/date/mail.html</code> resource.</p>
