@@ -3,117 +3,117 @@ layout: default
 title: How do I Attend a Call? How Do I Run a Call and Scribe?
 ---
 
-<h1>Telephone Conferences</h1>
-<h2 id="attend">How Do I Attend a Call?</h2>
-<p>We use UberConference and IRC for our conference calls. You can dial in by browsing to
-    <a href="https://www.uberconference.com/hydra-cg">https://www.uberconference.com/hydra-cg</a>.
-    Please also connect your IRC client to <a href="irc://irc.w3.org:6665/#hydra">irc://irc.w3.org:6665/#hydra</a>
-    or use <a href="http://irc.w3.org/?channels=hydra">W3C's web IRC</a>. IRC is used to manage the
-    speaker queue, scribe, share links etc.</p>
-<p>The dates and times of the calls as well as the agenda can be found on the
-    <a href="https://www.w3.org/community/hydra/wiki/Conference_Calls">conference calls page in our wiki</a>.
-    Feel free to add items to the agenda that you'd like to discuss.</p>
-<p>After you connected and the call started ask Zakim, our IRC meeting bot, to put you on the speaker
-    queue:</p>
-<code>
-    zakim, queue+
-</code>
-<p>You can see who's on the queue with</p>
-<code>
-    zakim, queue?
-</code>
-<p>If you want to remove yourself from the queue again, just write</p>
-<code>
-    zakim, queue-
-</code>
-<p>&nbsp;</p>
+              <h1>Telephone Conferences</h1>
+              <h2 id="attend">How Do I Attend a Call?</h2>
+              <p>We use UberConference and IRC for our conference calls. You can dial in by browsing to
+                <a href="https://www.uberconference.com/hydra-cg">https://www.uberconference.com/hydra-cg</a>.
+                Please also connect your IRC client to <a href="irc://irc.w3.org:6665/#hydra">irc://irc.w3.org:6665/#hydra</a>
+                or use <a href="http://irc.w3.org/?channels=hydra">W3C's web IRC</a>. IRC is used to manage the
+                speaker queue, scribe, share links etc.</p>
+              <p>The dates and times of the calls as well as the agenda can be found on the
+                <a href="https://www.w3.org/community/hydra/wiki/Conference_Calls">conference calls page in our wiki</a>.
+                Feel free to add items to the agenda that you'd like to discuss.</p>
+              <p>After you connected and the call started ask Zakim, our IRC meeting bot, to put you on the speaker
+                queue:</p>
+              <code>
+                zakim, queue+
+              </code>
+              <p>You can see who's on the queue with</p>
+              <code>
+                zakim, queue?
+              </code>
+              <p>If you want to remove yourself from the queue again, just write</p>
+              <code>
+                zakim, queue-
+              </code>
+              <p>&nbsp;</p>
 
-<h2 id="scribe">How Do I Run a Call and Scribe?</h2>
-<p>We use a few bots to run our conference calls. Please invite them before the conference
-    call starts by issuing the following commands in IRC:</p>
-<code>
-    /invite RRSAgent #hydra<br>
-    /invite Zakim #hydra
-</code>
-<p>After the bots joined the IRC channel, you start the meeting and tell the bots what it is about<br>
-    (plus points for deep linking the
-    <a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#Agenda">right agenda</a>):</p>
-<code>
-    trackbot, start meeting<br>
-    <br>
-    Zakim, this is https://www.uberconference.com/hydra-cg<br>
-    <br>
-    Meeting: Hydra W3C Community Group Conference Call<br>
-    Chair: Markus Lanthaler<br>
-    Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#<i>Agenda</i>
-</code>
-<p>As people join the call, they should mark their presence (you can also do it on their behalf) using
-    the following command &mdash; inserting their user name and removing the angle brackets:</p>
-<code>
-    present+ <i>&lt;IRC user name&gt;</i>
-</code>
-<p>The last thing before starting the call is to elect a scribe (either a volunteer or by picking
-    <a href="https://www.w3.org/community/hydra/wiki/Scribes">the person that hasn't scribed the longest</a>)
-    and document who it is with the following command:</p>
-<code>
-    Scribe: <i>&lt;IRC user name&gt;</i>
-</code>
-<p>After this, the chair moderates the call. He will signal the start of a new topic on IRC with</p>
-<code>
-    Topic: <i>&lt;Title of the topic that is being discussed&gt;</i>
-</code>
-<p>The scribe then transcribes what has been said by typing the user name of the person speaking
-    followed by a colon and the statement such as in the example below:</p>
-<code>
-    markus: I like this approach
-</code>
-<p>Literal transcription is not necessary but usually simpler than trying to summarize someone else's
-    thoughts on the fly. A statement can be split into multiple lines. Please proceed continuations with
-    three dots such as in</p>
-<code>
-    markus: I like this approach<br>
-    ... it is much clearer than the previous ones<br>
-    ... and solves the problem completely
-</code>
-<p>If the scribe speaks, someone else can &mdash; and should &mdash; take over and
-    scribe the statement in exactly the same way.</p>
-<p>Action items, proposals and resolutions can be recorded as follows:</p>
-<code>
-    ACTION: <i>&lt;Markus to clean up meeting notes&gt;</i><br>
-    PROPOSAL: <i>&lt;Make Hydra more generic by introducing...&gt;</i><br>
-    RESOLVED: <i>&lt;Make Hydra more generic by introducing...&gt;</i>
-</code>
-<p>At the end of the meeting you can request RRSAgent to publish the meeting notes (this is for W3C;
-    we store them on <a href="https://github.com/HydraCG/Minutes">GitHub</a>) and ask RRSAgent and Zakim
-    to leave the channel:</p>
-<code>
-    rrsagent, please publish the minutes<br>
-    rrsagent, please make these logs world-visible<br>
-    <br>
-    rrsagent, bye<br>
-    zakim, bye
-</code>
-<p>After the call, please spend a few minutes to clean up the minutes, convert them to HTML and
-    create a pull request to upload them to GitHub:</p>
-<ul>
-    <li>Create a new folder using the date of the conference call in the format <i>yyyy-mm-dd</i>.</li>
-    <li>Create a file <i>irc.log</i> containing the IRC log of the conference call. (has to be UTF-8)</li>
-    <li>Create a pull request to add the folder containing the two files to
-        <a href="https://github.com/HydraCG/Minutes">HydraCG/Minutes on GitHub</a> and give owners
-        permissions to add files to your pull request (this will be used to add the audio recording).
-    </li>
-    <li>Spend two minutes to check the nicely formatted minutes (automatically published to Netlify).
-        <ul>
-            <li> Are all the fields at the top such as the agenda, the scribe and the participants
-                populated correctly?
-            </li>
-            <li>Is every statement attributed to the right person (it sometimes happens that you forget
-                the three dots for a continuation)?
-            </li>
-            <li>Are all action items, proposals and resolutions marked up correctly?</li>
-        </ul>
-    </li>
-</ul>
-<p>Finally, please <a href="https://www.w3.org/community/hydra/wiki/Scribes">record attendance in our wiki</a>
-    and send the meeting minutes to <a href="mailto:public-hydra@w3.org">public-hydra@w3.org</a>.
-    The meeting notes in email form will be generated as <code>/date/mail.html</code> resource.</p>
+              <h2 id="scribe">How Do I Run a Call and Scribe?</h2>
+              <p>We use a few bots to run our conference calls. Please invite them before the conference
+                call starts by issuing the following commands in IRC:</p>
+              <code>
+                /invite RRSAgent #hydra<br>
+                /invite Zakim #hydra
+              </code>
+              <p>After the bots joined the IRC channel, you start the meeting and tell the bots what it is about<br>
+                (plus points for deep linking the
+                <a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#Agenda">right agenda</a>):</p>
+              <code>
+                trackbot, start meeting<br>
+                <br>
+                Zakim, this is https://www.uberconference.com/hydra-cg<br>
+                <br>
+                Meeting: Hydra W3C Community Group Conference Call<br>
+                Chair: Markus Lanthaler<br>
+                Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#<i>Agenda</i>
+              </code>
+              <p>As people join the call, they should mark their presence (you can also do it on their behalf) using
+                the following command &mdash; inserting their user name and removing the angle brackets:</p>
+              <code>
+                present+ <i>&lt;IRC user name&gt;</i>
+              </code>
+              <p>The last thing before starting the call is to elect a scribe (either a volunteer or by picking
+                <a href="https://www.w3.org/community/hydra/wiki/Scribes">the person that hasn't scribed the longest</a>)
+                and document who it is with the following command:</p>
+              <code>
+                Scribe: <i>&lt;IRC user name&gt;</i>
+              </code>
+              <p>After this, the chair moderates the call. He will signal the start of a new topic on IRC with</p>
+              <code>
+                Topic: <i>&lt;Title of the topic that is being discussed&gt;</i>
+              </code>
+              <p>The scribe then transcribes what has been said by typing the user name of the person speaking
+                followed by a colon and the statement such as in the example below:</p>
+              <code>
+                markus: I like this approach
+              </code>
+              <p>Literal transcription is not necessary but usually simpler than trying to summarize someone else's
+                thoughts on the fly. A statement can be split into multiple lines. Please proceed continuations with
+                three dots such as in</p>
+              <code>
+                markus: I like this approach<br>
+                ... it is much clearer than the previous ones<br>
+                ... and solves the problem completely
+              </code>
+              <p>If the scribe speaks, someone else can &mdash; and should &mdash; take over and
+                scribe the statement in exactly the same way.</p>
+              <p>Action items, proposals and resolutions can be recorded as follows:</p>
+              <code>
+                ACTION: <i>&lt;Markus to clean up meeting notes&gt;</i><br>
+                PROPOSAL: <i>&lt;Make Hydra more generic by introducing...&gt;</i><br>
+                RESOLVED: <i>&lt;Make Hydra more generic by introducing...&gt;</i>
+              </code>
+              <p>At the end of the meeting you can request RRSAgent  to publish the meeting notes (this is for W3C;
+                we store them on <a href="https://github.com/HydraCG/Minutes">GitHub</a>) and ask RRSAgent and Zakim
+                to leave the channel:</p>
+              <code>
+                rrsagent, please publish the minutes<br>
+                rrsagent, please make these logs world-visible<br>
+                <br>
+                rrsagent, bye<br>
+                zakim, bye
+              </code>
+              <p>After the call, please spend a few minutes to clean up the minutes, convert them to HTML and
+                create a pull request to upload them to GitHub:</p>
+              <ul>
+                <li>Create a new folder using the date of the conference call in the format <i>yyyy-mm-dd</i>.</li>
+                <li>Create a file <i>irc.log</i> containing the IRC log of the conference call. (has to be UTF-8)</li>
+                <li>Create a pull request to add the folder containing the two files to
+                    <a href="https://github.com/HydraCG/Minutes">HydraCG/Minutes on GitHub</a> and give owners
+                    permissions to add files to your pull request (this will be used to add the audio recording).
+                </li>
+                <li>Spend two minutes to check the nicely formatted minutes (automatically published to Netlify).
+                    <ul>
+                        <li> Are all the fields at the top such as the agenda, the scribe and the participants
+                            populated correctly?
+                        </li>
+                        <li>Is every statement attributed to the right person (it sometimes happens that you forget
+                            the three dots for a continuation)?
+                        </li>
+                        <li>Are all action items, proposals and resolutions marked up correctly?</li>
+                    </ul>
+                </li>
+              </ul>
+              <p>Finally, please <a href="https://www.w3.org/community/hydra/wiki/Scribes">record attendance in our wiki</a>
+                and send the meeting minutes to <a href="mailto:public-hydra@w3.org">public-hydra@w3.org</a>.
+                The meeting notes in email form will be generated as <code>/yyyy-mm-dd/mail.html</code> resource.</p>
