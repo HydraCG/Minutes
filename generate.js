@@ -28,7 +28,7 @@ function generateHtml() {
 
     fs.writeFileSync(outFile, `---
 layout: default
-title: Telecon Minutes for ${scrawl.date} | Hydra W3C Community Group
+title: Telecon Minutes for ${scrawl.date}
 date: ${scrawl.date}
 ${frontMatterCollection('actions', generated.actions)}
 ${frontMatterCollection('resolutions', generated.resolutions)}

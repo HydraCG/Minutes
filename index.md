@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Teleconference Minutes | Hydra W3C Community Group
+title: Teleconference Minutes
 ---
 
 <h1>Hydra W3C Community Group Teleconference Minutes</h1>
