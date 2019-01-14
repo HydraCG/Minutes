@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-01-14 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-01-14</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-01-14">https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-01-14</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Talk about the possibility of writing a statement of mission (Statute) for a possible OS organisation.</a>
+                         <li><a href="#topic-2">Discuss relation between Hydra Core and TPF/LDF</a>
+                         <li><a href="#topic-3">Discuss open Pull Requests</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">lorenzo-tuned will prepare a brief of advantages or disadvantages of starting an organization, i.e. responsibilities or benefits or legal requirements known to him</a>
+                         <li><a href="#action-2">rubenverborgh will provide a brief agenta of that discussion</a>
+                         <li><a href="#action-3">migration of the TPF repos to separate one within HydraCG</a>
+                         <li><a href="#action-4">tpluskiewicz: describe on how to proceed with PR's</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Tomasz Pluskiewicz, Ruben Verborgh</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="information">Karol Szczepański is scribing.</div>
+              
+              <h1 id="topic-1" class="topic">Topic: Talk about the possibility of writing a statement of mission (Statute) for a possible OS organisation.</h1>
+              <div class="information">lorenzo-tuned: beside activity of the development group, we may actually try to create an open source organization as a direct fcreation of the community group</div>
+              <div class="information">lorenzo-tuned: to communicate to the public what is hydra etc.</div>
+              <div class="information">lorenzo-tuned: list objectives would be a standard approach to start with</div>
+              <div class="information">lorenzo-tuned: in context of Google Summer of Code, peapole are asking on how they can know more about hydra and the community</div>
+              <div class="information">lorenzo-tuned: we would like to be more organized in a transparent manner</div>
+              <div class="information">lorenzo-tuned: so we can interact with other actors in the field, like companies interested using the draft or contributors</div>
+              <div class="information">lorenzo-tuned: the draft is linked on the agenda page</div>
+              <div class="information"><a href="https://github.com/HTTP-APIs/hydra-cg-statute/blob/master/DRAFT.md">https://github.com/HTTP-APIs/hydra-cg-statute/blob/master/DRAFT.md</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I don't have anything to complain</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I'm a bit sceptical about some of the points of the draft</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I don't undestand the implications of going legal</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we're community group under W3C</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  this should ha ve a meaning</div>
+              <div class="information">lorenzo-tuned: that's why I've asked for collaboration</div>
+              <div class="information">lorenzo-tuned: one of the reason, was we were asked by i.e. students or organizations</div>
+              <div class="information">lorenzo-tuned: we could receive donations, i.e. from Google</div>
+              <div class="information">lorenzo-tuned: based on the number of projects or students</div>
+              <div class="information">lorenzo-tuned: Python-Hydra was entitled a donation from an organization</div>
+              <div class="information">lorenzo-tuned: collecting these donations could contribute substantially to our activity</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  you say about student expenses or your expenses</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  related to hydra-ecosystem</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  if we receive any money, it would be put on hydra community group shoulders</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  currently, HydraCG runs on either free infrastructure or those maintained by Markus</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I don't feel any need to go that way</div>
+              <div class="information">lorenzo-tuned: students asks me to present this position to the chair - why we can't use the money we could obtain</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we don't know possible responsibilities of such a OS organization</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  when money are on the table, it's another story</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we didn't start organization to obtain money for my another activyt due to huge effort and legal implications</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I'd try asking Open API initiative for assistance or something</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: lorenzo-tuned will prepare a brief of advantages or disadvantages of starting an organization, i.e. responsibilities or benefits or legal requirements known to him</div>
+              <div class="information"><a href="https://www.gov.uk/unincorporated-associations">https://www.gov.uk/unincorporated-associations</a></div>
+              
+              <h1 id="topic-2" class="topic">Topic: Discuss relation between Hydra Core and TPF/LDF</h1>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  a brief of the history</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  we've ben doing hypermedia driven apis for some time</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  we wan't a client smart enough to query another apis</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  it was Markus explaining I'd rather to have you within hydra to make it stronger</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  we've been publishing TPF specs under hydra since then</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  question: is there any point in having TPF under a hydra community group</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  we're interested in having extensions to hydra rather than to influence hydra with our specs</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  maybe we should discuss in person the future of the hypermedia</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  there was no intention in dropping other specs from hydracg</div>
+              <div class="information">mielvds: not sure on how many people are there</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  my suggestion is in force - to move TPF and other specs to separate github repos - this way the specs still can be under HydraCG with self-maintaining caopabilities of each team</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  this was an initial intention</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  it's a good start</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  as for the issues, a few were closed due to inactivity</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  as for the issues, a few were closed due to inactivity'</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  some of the issues may require hydra spec changes, but that's Ok, once we come to agreement on the details</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  I've been quite active at the beginning, later I've lost track due to various reasons</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  we would like to extend an open invitation to have all the people to have a disussion (in person or virtual) on the future of hypermedia</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I'd be happy to visit Ghent :)</div>
+              <div id="action-2" class="action"><strong>ACTION</strong>: rubenverborgh will provide a brief agenta of that discussion</div>
+              <div id="action-3" class="action"><strong>ACTION</strong>: migration of the TPF repos to separate one within HydraCG</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  16 issues closed, 1 is already reopened, there is an attempt to close 12 issues with minor specchanges, there are ongoing PRs</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  as for the automation to generate minutes, there is a PR with possible changes to be made to the process</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: <a href="https://github.com/HydraCG/Minutes/pull/2">https://github.com/HydraCG/Minutes/pull/2</a></div>
+              
+              <h1 id="topic-3" class="topic">Topic: Discuss open Pull Requests</h1>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  reviews where never formalized</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  it was mostly Markus' show within the spec</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I'd make it more strict to have more people reviewing</div>
+              <div class="comment"><span class="name">Ruben Verborgh</span>:  you can always assign me reviews</div>
+              <div class="information">mielvds: same here</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  how was it in the past when it was driven by mailing list and not a github</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  was there always a call for agreement in the past?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  call for consensus</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we could send via mailing list a call for consensus pointing to PR's</div>
+              <div id="action-4" class="action"><strong>ACTION</strong>: tpluskiewicz: describe on how to proceed with PR's</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
