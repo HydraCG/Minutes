@@ -1,0 +1,83 @@
+[20:01] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:01] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:02] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-01-14
+[20:02] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:02] <Karol_Szczepanski> present+ tpluskiewicz
+[20:02] <Karol_Szczepanski> present+ lorenzo-tuned
+[20:04] <Karol_Szczepanski> Scribe: Karol_Szczepanski
+[20:05] <Karol_Szczepanski> Topic: Talk about the possibility of writing a statement of mission (Statute) for a possible OS organisation.
+[20:06] <Karol_Szczepanski> lorenzo-tuned: beside activity of the development group, we may actually try to create an open source organization as a direct fcreation of the community group
+[20:07] <Karol_Szczepanski> lorenzo-tuned: to communicate to the public what is hydra etc.
+[20:07] <Karol_Szczepanski> lorenzo-tuned: list objectives would be a standard approach to start with
+[20:08] <Karol_Szczepanski> lorenzo-tuned: in context of Google Summer of Code, peapole are asking on how they can know more about hydra and the community
+[20:08] <Karol_Szczepanski> lorenzo-tuned: we would like to be more organized in a transparent manner
+[20:09] <Karol_Szczepanski> lorenzo-tuned: so we can interact with other actors in the field, like companies interested using the draft or contributors
+[20:09] <Karol_Szczepanski> lorenzo-tuned: the draft is linked on the agenda page
+[20:09] <Karol_Szczepanski> https://github.com/HTTP-APIs/hydra-cg-statute/blob/master/DRAFT.md
+[20:10] <Karol_Szczepanski> tpluskiewicz: I don't have anything to complain
+[20:10] <Karol_Szczepanski> tpluskiewicz: I'm a bit sceptical about some of the points of the draft
+[20:11] == mielvds [~8d86292a@public.cloak] has joined #hydra
+[20:11] <Karol_Szczepanski> tpluskiewicz: I don't undestand the implications of going legal
+[20:11] <Karol_Szczepanski> tpluskiewicz: we're community group under W3C
+[20:11] <Karol_Szczepanski> tpluskiewicz: this should ha ve a meaning
+[20:11] <Karol_Szczepanski> lorenzo-tuned: that's why I've asked for collaboration
+[20:12] <Karol_Szczepanski> lorenzo-tuned: one of the reason, was we were asked by i.e. students or organizations
+[20:12] <Karol_Szczepanski> lorenzo-tuned: we could receive donations, i.e. from Google
+[20:12] <Karol_Szczepanski> lorenzo-tuned: based on the number of projects or students
+[20:13] <Karol_Szczepanski> lorenzo-tuned: Python-Hydra was entitled a donation from an organization
+[20:13] <Karol_Szczepanski> lorenzo-tuned: collecting these donations could contribute substantially to our activity
+[20:15] <Karol_Szczepanski> tpluskiewicz: you say about student expenses or your expenses
+[20:15] <Karol_Szczepanski> tpluskiewicz: related to hydra-ecosystem
+[20:15] == rubenverborgh [~rubenverborgh@public.cloak] has joined #hydra
+[20:16] <Karol_Szczepanski> tpluskiewicz: if we receive any money, it would be put on hydra community group shoulders
+[20:16] <Karol_Szczepanski> tpluskiewicz: currently, HydraCG runs on either free infrastructure or those maintained by Markus
+[20:17] <Karol_Szczepanski> tpluskiewicz: I don't feel any need to go that way
+[20:18] <Karol_Szczepanski> lorenzo-tuned: students asks me to present this position to the chair - why we can't use the money we could obtain
+[20:18] <Karol_Szczepanski> present+ mielvds
+[20:18] <Karol_Szczepanski> present+ rubenverborgh
+[20:22] <Karol_Szczepanski> Karol_Szczepanski: we don't know possible responsibilities of such a OS organization
+[20:23] <Karol_Szczepanski> tpluskiewicz: when money are on the table, it's another story
+[20:23] <Karol_Szczepanski> tpluskiewicz: we didn't start organization to obtain money for my another activyt due to huge effort and legal implications
+[20:24] <Karol_Szczepanski> tpluskiewicz: I'd try asking Open API initiative for assistance or something
+[20:26] <Karol_Szczepanski> ACTION: lorenzo-tuned will prepare a brief of advantages or disadvantages of starting an organization, i.e. responsibilities or benefits or legal requirements known to him
+[20:26] * RRSAgent records action 1
+[20:27] <lorenzo-tuned> https://www.gov.uk/unincorporated-associations
+[20:28] <Karol_Szczepanski> Topic: Discuss relation between Hydra Core and TPF/LDF
+[20:28] <Karol_Szczepanski> rubenverborgh: a brief of the history
+[20:29] <Karol_Szczepanski> rubenverborgh: we've ben doing hypermedia driven apis for some time
+[20:29] <Karol_Szczepanski> rubenverborgh: we wan't a client smart enough to query another apis
+[20:30] <Karol_Szczepanski> rubenverborgh: it was Markus explaining I'd rather to have you within hydra to make it stronger
+[20:30] <Karol_Szczepanski> rubenverborgh: we've been publishing TPF specs under hydra since then
+[20:31] <Karol_Szczepanski> rubenverborgh: question: is there any point in having TPF under a hydra community group
+[20:32] <Karol_Szczepanski> rubenverborgh: we're interested in having extensions to hydra rather than to influence hydra with our specs
+[20:32] <Karol_Szczepanski> rubenverborgh: maybe we should discuss in person the future of the hypermedia
+[20:34] <Karol_Szczepanski> Karol_Szczepanski: there was no intention in dropping other specs from hydracg
+[20:36] <Karol_Szczepanski> mielvds: not sure on how many people are there
+[20:37] <Karol_Szczepanski> tpluskiewicz: my suggestion is in force - to move TPF and other specs to separate github repos - this way the specs still can be under HydraCG with self-maintaining caopabilities of each team
+[20:38] <Karol_Szczepanski> rubenverborgh: this was an initial intention
+[20:38] <Karol_Szczepanski> rubenverborgh: it's a good start
+[20:38] <Karol_Szczepanski> rubenverborgh: as for the issues, a few were closed due to inactivity
+[20:39] <Karol_Szczepanski> tpluskiewicz: as for the issues, a few were closed due to inactivity'
+[20:40] <Karol_Szczepanski> tpluskiewicz: some of the issues may require hydra spec changes, but that's Ok, once we come to agreement on the details
+[20:42] <Karol_Szczepanski> rubenverborgh: I've been quite active at the beginning, later I've lost track due to various reasons
+[20:43] <Karol_Szczepanski> rubenverborgh: we would like to extend an open invitation to have all the people to have a disussion (in person or virtual) on the future of hypermedia
+[20:43] <Karol_Szczepanski> tpluskiewicz: I'd be happy to visit Ghent :)
+[20:44] <Karol_Szczepanski> ACTION: rubenverborgh will provide a brief agenta of that discussion
+[20:44] * RRSAgent records action 2
+[20:46] <Karol_Szczepanski> ACTION: migration of the TPF repos to separate one within HydraCG
+[20:46] * RRSAgent records action 3
+[20:49] <Karol_Szczepanski> Karol_Szczepanski: 16 issues closed, 1 is already reopened, there is an attempt to close 12 issues with minor specchanges, there are ongoing PRs
+[20:49] <Karol_Szczepanski> tpluskiewicz: as for the automation to generate minutes, there is a PR with possible changes to be made to the process
+[20:50] <tpluskiewicz> https://github.com/HydraCG/Minutes/pull/2
+[20:50] <Karol_Szczepanski> Topic: Discuss open Pull Requests
+[20:52] <Karol_Szczepanski> tpluskiewicz: reviews where never formalized
+[20:53] <Karol_Szczepanski> tpluskiewicz: it was mostly Markus' show within the spec
+[20:53] <Karol_Szczepanski> tpluskiewicz: I'd make it more strict to have more people reviewing
+[20:53] <Karol_Szczepanski> rubenverborgh: you can always assign me reviews
+[20:54] <Karol_Szczepanski> mielvds: same here
+[20:55] <Karol_Szczepanski> tpluskiewicz: how was it in the past when it was driven by mailing list and not a github
+[20:55] <Karol_Szczepanski> tpluskiewicz: was there always a call for agreement in the past?
+[20:55] <Karol_Szczepanski> tpluskiewicz: call for consensus
+[20:56] <Karol_Szczepanski> tpluskiewicz: we could send via mailing list a call for consensus pointing to PR's
+[20:58] <Karol_Szczepanski> ACTION: tpluskiewicz: describe on how to proceed with PR's
+[20:58] * RRSAgent records action 4
