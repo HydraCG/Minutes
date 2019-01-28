@@ -1,0 +1,51 @@
+[19:59] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[19:59] <Karol_Szczepanski> Chair: Karol Szczepański
+[19:59] == tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:00] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-01-28
+[20:00] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:00] <Karol_Szczepanski> present+ brechtvdv
+[20:00] <Karol_Szczepanski> present+ tpluskiewicz
+[20:05] <Karol_Szczepanski> Scribe: Karol_Szczepanski
+[20:05] <Karol_Szczepanski> Topic: Brief update on actions from last call
+[20:06] <Karol_Szczepanski> first thing was assigned to Lorenzo of finding adventages and disadventages of going with OS organization
+[20:07] <Karol_Szczepanski> there was a discussion on slack
+[20:07] <Karol_Szczepanski> maybe an alternative was to organize within GSOC team rather than hydra one
+[20:08] <Karol_Szczepanski> Karol: without any knowledge of implications and requirements I'm fine with status quo
+[20:08] <Karol_Szczepanski> Tomasz: topic should be postponed then
+[20:09] <Karol_Szczepanski> second item was assigned to Rube
+[20:10] <Karol_Szczepanski> about a brief agenda of the meeting about the future of hydra and hypermedia
+[20:11] <Karol_Szczepanski> Karol: for me the brief is quite poor, lacks some details on possible take-aways
+[20:13] <Karol_Szczepanski> Brecht: maybe we should raise an issue in GH to put ideas for the meeting's agenda
+[20:15] <Karol_Szczepanski> third item was assigned to Karol, migration of the TPF repos to separate one within HydraCG
+[20:15] <Karol_Szczepanski> Karol: I've failed to do anything due to inproper access levels to GH
+[20:16] <Karol_Szczepanski> Karol: we're stuck with Markus not providing elevated priviledges
+[20:17] <Karol_Szczepanski> fourth item was assigned to Tomasz, describe on how to proceed with PR's
+[20:18] <Karol_Szczepanski> Tomasz: I didn't setup any proposal for now
+[20:20] <Karol_Szczepanski> Tomasz: we'd like to move call for consensus to GH so more people will leave feedback in more formal way
+[20:21] <Karol_Szczepanski> Karol: there are several PRs waiting so I called people on the mailing list to leave any feedback
+[20:21] <Karol_Szczepanski> Karol: we'll merge those this week
+[20:21] <Karol_Szczepanski> Tomasz: People voted for changes on mailing list, but these were not reflected on the GH
+[20:22] <Karol_Szczepanski> Topic: Discuss open Pull Requests
+[20:24] <Karol_Szczepanski> Topic: Hydra logo licensing
+[20:26] <Karol_Szczepanski> Logo is under Markus' ownership
+[20:26] <Karol_Szczepanski> There are two ways: Markus agrees to give the logo for more permitive licence
+[20:26] <Karol_Szczepanski> or we're going with new logo
+[20:27] <Karol_Szczepanski> Brech: we could go with new one
+[20:27] <Karol_Szczepanski> Tomasz: there are plenty of pepole oht there, maybe someone could create one for free for us
+[20:28] <Karol_Szczepanski> Karol: is the name licencsed as well
+[20:28] <Karol_Szczepanski> Tomasz: we could rename issue in GH to more generic, related to hydra trademark
+[20:30] <Karol_Szczepanski> Tomasz: the licence says only that hydra mark and logo are owned by Markus
+[20:31] <Karol_Szczepanski> Tomasz: it's to vauge
+[20:33] <Karol_Szczepanski> Topic: Extending vocabulary with explicit actions
+[20:36] <Karol_Szczepanski> Karol: there are some areas that hydra needs extenions and I was working on my vision of these extensions
+[20:36] <Karol_Szczepanski> Karol: i.e. strongly typed collections, API documentations, non-RDF payloads
+[20:37] <Karol_Szczepanski> Tomasz: examples talks, we shall have request-response pairs illustrating attempts of doing stuff with hydra
+[20:39] <Karol_Szczepanski> Tomasz:without any tooling it won't work as well
+[20:43] <Karol_Szczepanski> Tomasz: are there any hydra-enabled software you're developing in Ghent?
+[20:43] <brechtvdv> Comunica
+[20:43] <Karol_Szczepanski> Brecht: there is the Comunica
+[20:44] <Karol_Szczepanski> Tomasz: there is implementation in PHP
+[20:44] <Karol_Szczepanski> Tomasz: i've asked creators for feedback
+[20:45] <Karol_Szczepanski> Tomasz: API-Platform.com
+[20:45] <tpluskiewicz> https://api-platform.com
+[20:47] <Karol_Szczepanski> Tomasz: could Comunica come with any feedback?
