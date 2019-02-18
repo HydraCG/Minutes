@@ -1,0 +1,78 @@
+[20:01] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:01] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:01] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-02-18
+[20:01] <Karol_Szczepanski> present+ tpluskiewicz
+[20:01] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:02] <Karol_Szczepanski> present+ aveltens
+[20:02] <Karol_Szczepanski> Scribe: tpluskiewicz
+[20:03] <Karol_Szczepanski> Topic: Brief update on actions from last calls
+[20:06] <tpluskiewicz> Karol_Szczepanski: Brecht was looking into logo alternative
+[20:06] <Karol_Szczepanski> Topic: API documentation limitations - PR#183
+[20:06] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/pull/183
+[20:07] <tpluskiewicz> Karol_Szczepanski: this tries to resolve the issue, to express strongly typed collections
+[20:07] <tpluskiewicz> ... and explicit targets
+[20:08] <tpluskiewicz> tpluskiewicz: the issue is vague
+[20:09] <tpluskiewicz> Karol_Szczepanski: if look into the issue, there are linked issues/PRs (in heracles) which explain
+[20:09] <tpluskiewicz> ... Angel had a nice idea with `hydra:Specifies`
+[20:09] <tpluskiewicz> aveltens: I'd like to see some use case
+[20:10] <tpluskiewicz> .. to find the usages and see if it fits the purpose
+[20:11] <tpluskiewicz> tpluskiewicz: I propose same, to discuss on concrete examples
+[20:12] <tpluskiewicz> Karol_Szczepanski: those are tricky and I wouldn't want to spend too much time on details
+[20:12] <tpluskiewicz> ... I also proivded example implementation to check
+[20:12] <tpluskiewicz> ... I wanted them to spark discussion
+[20:12] <tpluskiewicz> ... I want to avoid endless discussion
+[20:14] <tpluskiewicz> tpluskiewicz: we've fallen the same trap
+[20:14] <tpluskiewicz> .. the PRs are too narrow
+[20:15] <tpluskiewicz> Karol_Szczepanski: I'd try to spend more time on these features
+[20:15] <tpluskiewicz> ... as we can agree that those are in general good direction
+[20:17] <tpluskiewicz> tpluskiewicz: I think angelo's examples are great in porposiing a generic solution
+[20:18] <tpluskiewicz> aventens: I can come up with SHACL examples of descriptions
+[20:18] <tpluskiewicz> ... I haven't tried yet
+[20:18] <tpluskiewicz> Karol_Szczepanski: it will work. good think about SHACL is not OWL so that makes is simple
+[20:19] <tpluskiewicz> aveltes: yes, Solid probably will also adopt shacl
+[20:19] <tpluskiewicz> Karol_Szczepanski: I want to think about heracles.ts
+[20:19] <tpluskiewicz> tpluskiewicz: maybe we should heracles to a later stage in specifying
+[20:20] <aveltens> https://www.w3.org/community/hydra/wiki/Integration_with_SHACL
+[20:21] <tpluskiewicz> aveltens: shacl has already been worked on
+[20:21] <tpluskiewicz> tpluskiewicz: it should be easy to fit shacl in place of Hydra
+[20:21] <tpluskiewicz> Karol_Szczepanski: yes, SHACL is not different from hydra:Class
+[20:22] <tpluskiewicz> .. next step to try fit SHACL to this
+[20:23] <Karol_Szczepanski> Topic: Allow returns/expects to be expressed in terms of a media type PR#186
+[20:23] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/pull/186
+[20:23] <tpluskiewicz> Karol_Szczepanski: similar, to define returns/expects instead of SHACL
+[20:24] <tpluskiewicz> aveltens: yes, if we explore #183 we will come to a joint conclusion
+[20:24] <tpluskiewicz> Karol_Szczepanski: so, this one is concuded
+[20:24] <Karol_Szczepanski> Topic: Define client-initiated pagination PR#184
+[20:24] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/pull/184
+[20:24] <tpluskiewicz> Karol_Szczepanski: i proposed skip/take
+[20:25] <tpluskiewicz> ... there was discussion about also supporting pageReference, etc
+[20:25] <tpluskiewicz> ... for me, it's less understandable to the client
+[20:28] <tpluskiewicz> tpluskiewicz: I would accept as-is and then work on IriTemplate itself
+[20:29] <tpluskiewicz> aveltens: what would make sense if the client know how to get to the next page
+[20:31] <tpluskiewicz> Karol_Szczepanski: the hard part is defining the meaning. for example, would the page ever not be a number?
+[20:32] <tpluskiewicz> tpluskiewicz: I only say it should not be too constrained
+[20:32] <tpluskiewicz> Karol_Szczepanski: maye we could add a pageIndex, defined to take a numeric value
+[20:33] <tpluskiewicz> tpluskiewicz: I don't think these should be properties
+[20:34] <tpluskiewicz> Karol_Szczepanski: the for will be an object
+[20:34] <tpluskiewicz> tpluskiewicz: I say we finalize this and the work on template and actual usage
+[20:34] <Karol_Szczepanski> Topic: Add support for describing headers PR#185
+[20:35] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/pull/185
+[20:35] <tpluskiewicz> Karol_Szczepanski: proposes letting the client know about HTTP headers
+[20:37] <tpluskiewicz> tpluskiewicz: I lack the practical example and don't agree with the use of template
+[20:37] <Karol_Szczepanski> Prefer: key=value
+[20:38] <tpluskiewicz> tpluskiewicz: maybe this is too generic
+[20:39] <tpluskiewicz> Karol_Szczepanski: so you would you retract the template?
+[20:40] <tpluskiewicz> aveltens: I propose to just define hearder which the server expects
+[20:40] <tpluskiewicz> tpluskiewicz: this is something we will expand and improve in the future
+[20:41] <Karol_Szczepanski> Topic: Gitbook branding #2
+[20:42] <Karol_Szczepanski> https://github.com/HydraCG/gitbook/issues/2
+[20:42] <tpluskiewicz> tpluskiewicz: two points: 1. using the official domain; 2. subdomain name
+[20:43] <tpluskiewicz> ... I think we agreed on cookbook.hydra-cg.com
+[20:43] <Karol_Szczepanski> Topic: Discuss to increase the use of Gitbook for drafting features
+[20:44] <tpluskiewicz> https://github.com/HydraCG/gitbook/pull/1
+[20:46] <Karol_Szczepanski> ACTION: tpluskiewicz comes with a code of conduct regarding vocabulary modifications/extensions
+[20:46] * RRSAgent records action 1
+[20:46] <tpluskiewicz> tpluskiewicz: I think we need to return to using the book
+[20:46] <tpluskiewicz> aveltens: I agree that it will help us focus on the actual use cases
+[20:50] <tpluskiewicz> Karol_Szczepanski: I would like to provide more use cases
+[20:50] <tpluskiewicz> ... of course I'd like to make it more up to date with reference client

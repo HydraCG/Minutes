@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-02-18 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-02-18</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-02-18">https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-02-18</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Brief update on actions from last calls</a>
+                         <li><a href="#topic-2">API documentation limitations - PR#183</a>
+                         <li><a href="#topic-3">Allow returns/expects to be expressed in terms of a media type PR#186</a>
+                         <li><a href="#topic-4">Define client-initiated pagination PR#184</a>
+                         <li><a href="#topic-5">Add support for describing headers PR#185</a>
+                         <li><a href="#topic-6">Gitbook branding #2</a>
+                         <li><a href="#topic-7">Discuss to increase the use of Gitbook for drafting features</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">tpluskiewicz comes with a code of conduct regarding vocabulary modifications/extensions</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Tomasz Pluskiewicz</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Tomasz Pluskiewicz, Angelo Veltens</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="information">Tomasz Pluskiewicz is scribing.</div>
+              
+              <h1 id="topic-1" class="topic">Topic: Brief update on actions from last calls</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Brecht was looking into logo alternative</div>
+              
+              <h1 id="topic-2" class="topic">Topic: API documentation limitations - PR#183</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/Specifications/pull/183">https://github.com/HydraCG/Specifications/pull/183</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  this tries to resolve the issue, to express strongly typed collections</div>
+              <div class="comment-continuation">... and explicit targets</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  the issue is vague</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  if look into the issue, there are linked issues/PRs (in heracles) which explain</div>
+              <div class="comment-continuation">... Angel had a nice idea with `hydra:Specifies`</div>
+              <div class="information">aveltens: I'd like to see some use case</div>
+              <div class="information">.. to find the usages and see if it fits the purpose</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I propose same, to discuss on concrete examples</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  those are tricky and I wouldn't want to spend too much time on details</div>
+              <div class="comment-continuation">... I also proivded example implementation to check</div>
+              <div class="comment-continuation">... I wanted them to spark discussion</div>
+              <div class="comment-continuation">... I want to avoid endless discussion</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we've fallen the same trap</div>
+              <div class="information">.. the PRs are too narrow</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'd try to spend more time on these features</div>
+              <div class="comment-continuation">... as we can agree that those are in general good direction</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think angelo's examples are great in porposiing a generic solution</div>
+              <div class="information">aventens: I can come up with SHACL examples of descriptions</div>
+              <div class="comment-continuation">... I haven't tried yet</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  it will work. good think about SHACL is not OWL so that makes is simple</div>
+              <div class="information">aveltes: yes, Solid probably will also adopt shacl</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I want to think about heracles.ts</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  maybe we should heracles to a later stage in specifying</div>
+              <div class="information"><a href="https://www.w3.org/community/hydra/wiki/Integration_with_SHACL">https://www.w3.org/community/hydra/wiki/Integration_with_SHACL</a></div>
+              <div class="information">aveltens: shacl has already been worked on</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  it should be easy to fit shacl in place of Hydra</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  yes, SHACL is not different from hydra:Class</div>
+              <div class="information">.. next step to try fit SHACL to this</div>
+              
+              <h1 id="topic-3" class="topic">Topic: Allow returns/expects to be expressed in terms of a media type PR#186</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/Specifications/pull/186">https://github.com/HydraCG/Specifications/pull/186</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  similar, to define returns/expects instead of SHACL</div>
+              <div class="information">aveltens: yes, if we explore #183 we will come to a joint conclusion</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  so, this one is concuded</div>
+              
+              <h1 id="topic-4" class="topic">Topic: Define client-initiated pagination PR#184</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/Specifications/pull/184">https://github.com/HydraCG/Specifications/pull/184</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  i proposed skip/take</div>
+              <div class="comment-continuation">... there was discussion about also supporting pageReference, etc</div>
+              <div class="comment-continuation">... for me, it's less understandable to the client</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I would accept as-is and then work on IriTemplate itself</div>
+              <div class="information">aveltens: what would make sense if the client know how to get to the next page</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  the hard part is defining the meaning. for example, would the page ever not be a number?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I only say it should not be too constrained</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  maye we could add a pageIndex, defined to take a numeric value</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I don't think these should be properties</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  the for will be an object</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I say we finalize this and the work on template and actual usage</div>
+              
+              <h1 id="topic-5" class="topic">Topic: Add support for describing headers PR#185</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/Specifications/pull/185">https://github.com/HydraCG/Specifications/pull/185</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  proposes letting the client know about HTTP headers</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I lack the practical example and don't agree with the use of template</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Prefer: key=value</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  maybe this is too generic</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  so you would you retract the template?</div>
+              <div class="information">aveltens: I propose to just define hearder which the server expects</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  this is something we will expand and improve in the future</div>
+              
+              <h1 id="topic-6" class="topic">Topic: Gitbook branding #2</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/gitbook/issues/2">https://github.com/HydraCG/gitbook/issues/2</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  two points: 1. using the official domain; 2. subdomain name</div>
+              <div class="comment-continuation">... I think we agreed on cookbook.hydra-cg.com</div>
+              
+              <h1 id="topic-7" class="topic">Topic: Discuss to increase the use of Gitbook for drafting features</h1>
+              <div class="information"><a href="https://github.com/HydraCG/gitbook/pull/1">https://github.com/HydraCG/gitbook/pull/1</a></div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: tpluskiewicz comes with a code of conduct regarding vocabulary modifications/extensions</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think we need to return to using the book</div>
+              <div class="information">aveltens: I agree that it will help us focus on the actual use cases</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I would like to provide more use cases</div>
+              <div class="comment-continuation">... of course I'd like to make it more up to date with reference client</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
