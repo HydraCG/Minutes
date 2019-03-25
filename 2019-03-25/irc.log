@@ -1,0 +1,76 @@
+[19:57] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[19:57] <Karol_Szczepanski> Chair: Karol Szczepanski
+[19:57] == aveltens [~aveltens@public.cloak] has joined #hydra
+[19:58] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-03-25
+[19:58] <Karol_Szczepanski> present+ aveltens
+[19:58] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:02] == t_pluskiewicz [~t_pluskiewicz@public.cloak] has joined #hydra
+[20:08] <Karol_Szczepanski> Scribe: Karol_Szczepanski
+[20:08] <Karol_Szczepanski> Topic: Discuss open pull requests
+[20:09] <Karol_Szczepanski> Collaboration templates PR188 https://github.com/HydraCG/Specifications/pull/188
+[20:10] <Karol_Szczepanski> Karol_Szczepanski: this one looks fine for me
+[20:11] <Karol_Szczepanski> present+ t_pluskiewicz
+[20:12] <Karol_Szczepanski> t_pluskiewicz: there are no unresolved issues
+[20:12] <Karol_Szczepanski> Karol_Szczepanski: So I'll merge it ASAP
+[20:12] <Karol_Szczepanski> Add support for describing headers #185 https://github.com/HydraCG/Specifications/pull/185
+[20:16] <Karol_Szczepanski> Karol_Szczepanski: I've retracted template based features and now there are only simple expected/returned header names
+[20:17] <Karol_Szczepanski> aveltens: seems GH screwed the diff view
+[20:17] <aveltens>    "returnsHeader": { "@id": "hydra:returnsHeader", "@type": "xsd:string" },     "expectsHeader": { "@id": "hydra:expectsHeader", "@type": "xsd:string" },
+[20:17] <aveltens>  {       "@id": "hydra:returnsHeader",       "@type": "rdf:Property",       "label": "returns header",       "comment": "Name of the header returned by the operation.",       "domain": "hydra:Operation",       "range": "xsd:string",       "vs:term_status": "testing"     },     {       "@id": "hydra:expectsHeader",       "@type": "rdf:Property",       "label": "expects header",       "comment": "Specification of the header expected by the operation.",  [CUT]
+[20:18] <aveltens> ```
+[20:18] <Karol_Szczepanski> aveltens: seems like broken line endings
+[20:19] <Karol_Szczepanski> t_pluskiewicz: when you looks at GH you can change display options
+[20:19] <Karol_Szczepanski> Karol_Szczepanski: I'll take a look at those line endings
+[20:19] <Karol_Szczepanski> Karol_Szczepanski: not sure what went wrong as I don't recall chaning anything by hand
+[20:19] * Zakim Karol_Szczepanski, you typed too many words without commas; I suspect you forgot to start with 'to ...'
+[20:20] <Karol_Szczepanski> Detailed specification for expects/returns and strongly typed collections #187 https://github.com/HydraCG/Specifications/pull/187
+[20:21] <Karol_Szczepanski> Karol_Szczepanski: I did oppose using SHACL to express constraints
+[20:22] <Karol_Szczepanski> aveltens: I understand you don't wanto commit hydra to specific solution
+[20:22] <Karol_Szczepanski> aveltens: but using self crafted elements might introduce more confusion
+[20:23] <Karol_Szczepanski> t_pluskiewicz: SHACL shouldn't be a core vocab
+[20:23] <Karol_Szczepanski> t_pluskiewicz: we should target a framework for extensions
+[20:25] <Karol_Szczepanski> t_pluskiewicz: we could have some basic constructs and an extension for SHACL
+[20:25] <Karol_Szczepanski> aveltens: I've rediscovered - another way of using hydra:expects
+[20:25] <aveltens> ```"hydra:expects": {                      "@type": "Product",                      "hydra:supportedProperty": [                        {                          "hydra:property": "name",                          "hydra:required": true,                          "defaultValue": "shot",                          "readOnlyValue": true                        }                      ]                    }
+[20:26] <aveltens> https://www.w3.org/community/hydra/wiki/Restbucks_with_Hydra
+[20:26] <Karol_Szczepanski> t_pluskiewicz: which section in the document would it be?
+[20:27] <aveltens> https://www.w3.org/community/hydra/wiki/Restbucks_with_Hydra#Add-Ons_for_my_Coffee
+[20:29] <Karol_Szczepanski> Karol_Szczepanski: I didn't introduce anything really new
+[20:30] <Karol_Szczepanski> Karol_Szczepanski: hydra:manages is subPropertyOf hydra:specifies and all the other constructs are the same
+[20:30] <Karol_Szczepanski> Karol_Szczepanski: this was due to fact that hydra:manages is bound to collection
+[20:32] <Karol_Szczepanski> aveltens: how client would benefit from this PR now
+[20:32] <Karol_Szczepanski> Karol_Szczepanski: the biggest value would be in expressing non-RDF resources via media type constraint
+[20:33] <Karol_Szczepanski> aveltens: I don't like the recursion for collection item types
+[20:34] <Karol_Szczepanski> aveltens: for media types I'd go with different solution and for constraints I'd go with cookbook and examples
+[20:34] <Karol_Szczepanski> t_pluskiewicz: It's not tha academic as Angelo said
+[20:34] <Karol_Szczepanski> aveltens: we shall discuss it better, with examples and different approaches
+[20:36] <Karol_Szczepanski> Allow returns/expects to be expressed in terms of a media type #186 https://github.com/HydraCG/Specifications/pull/186/files
+[20:37] <Karol_Szczepanski> ACTION: Karol_Szczepanski to create a cookbook example and documentation changes for #186
+[20:37] * RRSAgent records action 1
+[20:39] <Karol_Szczepanski> aveltens: maybe we should introduce expectsMediaType (as with expects or expectsHeader)
+[20:39] <Karol_Szczepanski> Karol_Szczepanski: what if there are both predicates for non-rdf resource
+[20:40] <Karol_Szczepanski> Karol_Szczepanski: i.e. expectsMediaType: image/jpeg and expects: schema:Image
+[20:40] == tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:41] == t_pluskiewicz [~t_pluskiewicz@public.cloak] has quit [Ping timeout: 180 seconds]
+[20:43] <Karol_Szczepanski> t_pluskiewicz: we shoulnd't mix returns and expects
+[20:43] <Karol_Szczepanski> t_pluskiewicz: but it is a content negotiation
+[20:45] <Karol_Szczepanski> t_pluskiewicz: it's not for hydra to decide whether the image as jpg and rdf is conceptually the same
+[20:46] <Karol_Szczepanski> t_pluskiewicz: if the client encounteres a description with different representation they should be know on how to handle such a payload
+[20:47] <Karol_Szczepanski> Karol_Szczepanski: what would be meaning of this construct with both media type and RDF class expectation
+[20:48] <Karol_Szczepanski> Karol_Szczepanski: image and it's meta-data document are diferent resources
+[20:50] <Karol_Szczepanski> aveltens: for person you could have a schema:Person as a return/expect a resource describing it, either as HTML or RDF data
+[20:51] <Karol_Szczepanski> ACTION: Karol_Szczepanski close PR 186 and open a cookbook story with expectsMediaType/expects (and returns equiavelents)
+[20:51] * RRSAgent records action 2
+[20:52] <Karol_Szczepanski> Topic: Monitoring and handling of the @HydraCG Twitter account
+[20:53] <Karol_Szczepanski> t_pluskiewicz: I can tweet and reply to messages
+[20:53] <Karol_Szczepanski> t_pluskiewicz: for now I'm fine taking care of it alone
+[20:56] <Karol_Szczepanski> t_pluskiewicz: we've created a zapier account for HydraCG
+[20:58] <Karol_Szczepanski> ACTION: tpluskiewicz is to hookup slack with tweeter
+[20:58] * RRSAgent records action 3
+[20:58] <Karol_Szczepanski> Topic: Development of example API and client application
+[21:02] <Karol_Szczepanski> Karol_Szczepanski: I'm working on a hydr console angular app
+[21:03] <Karol_Szczepanski> Karol_Szczepanski: I've i.e. stumbled on an issue on which links to display
+[21:04] <Karol_Szczepanski> aveltens: we lack examples of server side payloads (without any specific underlying technology)
+[21:04] <aveltens> https://screening-events.herokuapp.com
+[21:05] <aveltens> http://cc-cinema.herokuapp.com/#/
+[21:10] <Karol_Szczepanski> Karol_Szczepanski: I think we shall have a call in two weeks but I'm fine with next one
