@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-03-25 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-03-25</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-03-25">https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-03-25</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Discuss open pull requests</a>
+                         <li><a href="#topic-2">Monitoring and handling of the @HydraCG Twitter account</a>
+                         <li><a href="#topic-3">Development of example API and client application</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Karol_Szczepanski to create a cookbook example and documentation changes for #186</a>
+                         <li><a href="#action-2">Karol_Szczepanski close PR 186 and open a cookbook story with expectsMediaType/expects (and returns equiavelents)</a>
+                         <li><a href="#action-3">tpluskiewicz is to hookup slack with tweeter</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Angelo Veltens, Tomasz Pluskiewicz</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="information">Karol Szczepański is scribing.</div>
+              
+              <h1 id="topic-1" class="topic">Topic: Discuss open pull requests</h1>
+              <div class="information">Collaboration templates PR188 <a href="https://github.com/HydraCG/Specifications/pull/188">https://github.com/HydraCG/Specifications/pull/188</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  this one looks fine for me</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: there are no unresolved issues</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  So I'll merge it ASAP</div>
+              <div class="information">Add support for describing headers #185 <a href="https://github.com/HydraCG/Specifications/pull/185">https://github.com/HydraCG/Specifications/pull/185</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I've retracted template based features and now there are only simple expected/returned header names</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: seems GH screwed the diff view</div>
+              <div class="information">"returnsHeader": { "@id": "hydra:returnsHeader", "@type": "xsd:string" },     "expectsHeader": { "@id": "hydra:expectsHeader", "@type": "xsd:string" },</div>
+              <div class="information">{       "@id": "hydra:returnsHeader",       "@type": "rdf:Property",       "label": "returns header",       "comment": "Name of the header returned by the operation.",       "domain": "hydra:Operation",       "range": "xsd:string",       "vs:term_status": "testing"     },     {       "@id": "hydra:expectsHeader",       "@type": "rdf:Property",       "label": "expects header",       "comment": "Specification of the header expected by the operation.",  [CUT]</div>
+              <div class="information">```</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: seems like broken line endings</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: when you looks at GH you can change display options</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'll take a look at those line endings</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  not sure what went wrong as I don't recall chaning anything by hand</div>
+              <div class="information">Detailed specification for expects/returns and strongly typed collections #187 <a href="https://github.com/HydraCG/Specifications/pull/187">https://github.com/HydraCG/Specifications/pull/187</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I did oppose using SHACL to express constraints</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I understand you don't wanto commit hydra to specific solution</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: but using self crafted elements might introduce more confusion</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: SHACL shouldn't be a core vocab</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: we should target a framework for extensions</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: we could have some basic constructs and an extension for SHACL</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I've rediscovered - another way of using hydra:expects</div>
+              <div class="information">```"hydra:expects": {                      "@type": "Product",                      "hydra:supportedProperty": [                        {                          "hydra:property": "name",                          "hydra:required": true,                          "defaultValue": "shot",                          "readOnlyValue": true                        }                      ]                    }</div>
+              <div class="information"><a href="https://www.w3.org/community/hydra/wiki/Restbucks_with_Hydra">https://www.w3.org/community/hydra/wiki/Restbucks_with_Hydra</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: which section in the document would it be?</div>
+              <div class="information"><a href="https://www.w3.org/community/hydra/wiki/Restbucks_with_Hydra#Add-Ons_for_my_Coffee">https://www.w3.org/community/hydra/wiki/Restbucks_with_Hydra#Add-Ons_for_my_Coffee</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I didn't introduce anything really new</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  hydra:manages is subPropertyOf hydra:specifies and all the other constructs are the same</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  this was due to fact that hydra:manages is bound to collection</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: how client would benefit from this PR now</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  the biggest value would be in expressing non-RDF resources via media type constraint</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I don't like the recursion for collection item types</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: for media types I'd go with different solution and for constraints I'd go with cookbook and examples</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: It's not tha academic as Angelo said</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: we shall discuss it better, with examples and different approaches</div>
+              <div class="information">Allow returns/expects to be expressed in terms of a media type #186 <a href="https://github.com/HydraCG/Specifications/pull/186/files">https://github.com/HydraCG/Specifications/pull/186/files</a></div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Karol_Szczepanski to create a cookbook example and documentation changes for #186</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: maybe we should introduce expectsMediaType (as with expects or expectsHeader)</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  what if there are both predicates for non-rdf resource</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  i.e. expectsMediaType: image/jpeg and expects: schema:Image</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: we shoulnd't mix returns and expects</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: but it is a content negotiation</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: it's not for hydra to decide whether the image as jpg and rdf is conceptually the same</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: if the client encounteres a description with different representation they should be know on how to handle such a payload</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  what would be meaning of this construct with both media type and RDF class expectation</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  image and it's meta-data document are diferent resources</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: for person you could have a schema:Person as a return/expect a resource describing it, either as HTML or RDF data</div>
+              <div id="action-2" class="action"><strong>ACTION</strong>: Karol_Szczepanski close PR 186 and open a cookbook story with expectsMediaType/expects (and returns equiavelents)</div>
+              
+              <h1 id="topic-2" class="topic">Topic: Monitoring and handling of the @HydraCG Twitter account</h1>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: I can tweet and reply to messages</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: for now I'm fine taking care of it alone</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: we've created a zapier account for HydraCG</div>
+              <div id="action-3" class="action"><strong>ACTION</strong>: tpluskiewicz is to hookup slack with tweeter</div>
+              
+              <h1 id="topic-3" class="topic">Topic: Development of example API and client application</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'm working on a hydr console angular app</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I've i.e. stumbled on an issue on which links to display</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: we lack examples of server side payloads (without any specific underlying technology)</div>
+              <div class="information"><a href="https://screening-events.herokuapp.com">https://screening-events.herokuapp.com</a></div>
+              <div class="information"><a href="http://cc-cinema.herokuapp.com/#/">http://cc-cinema.herokuapp.com/#/</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I think we shall have a call in two weeks but I'm fine with next one</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
