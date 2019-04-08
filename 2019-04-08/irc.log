@@ -1,0 +1,81 @@
+[20:11] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:11] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:11] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-04-08
+[20:11] <Karol_Szczepanski> present+ tpluskiewicz
+[20:11] <Karol_Szczepanski> present+ aveltens
+[20:11] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:13] <Karol_Szczepanski> Scribe: aveltens
+[20:13] <Karol_Szczepanski> Topic: Last call actions
+[20:14] <aveltens> Karol: First topic ist "Last call action points"
+[20:15] <aveltens> Could not provide cookbook examples for PR-186 yet
+[20:15] <aveltens> ... focused on hydra console development
+[20:16] <aveltens> Live Demo of the console
+[20:16] <aveltens> Karol: Angelo your API endpoint did not work, because no ApiDoc
+[20:16] <aveltens> Angelo: I did not expose the Link header, but that is fixed meanwhile
+[20:17] <aveltens> Karol: Want to get the features of the old Hydra console
+[20:18] <aveltens> Tomasz: I set up a hook to trigger hydra-notification channel
+[20:18] <aveltens> ... it includes issues, PRs from github and twitter
+[20:18] <Karol_Szczepanski> Topic: Development of example API and client application
+[20:19] <aveltens> Karol: There where some ideas on Slack
+[20:19] <tpluskiewicz> https://github.com/gothinkster/realworld
+[20:19] <Karol_Szczepanski> - public transport ticket service
+[20:19] <Karol_Szczepanski> - PSD2 compliant bank account service
+[20:20] <Karol_Szczepanski> - bug trucker
+[20:20] <Karol_Szczepanski> - cinema ticket ordering
+[20:20] <Karol_Szczepanski> - restaurant / cofee shop ordering
+[20:20] <Karol_Szczepanski> - eCommerce
+[20:21] <aveltens> Tomasz: What we do could be the basis for an acceptence test suite. Given this entrypoint, when you do x, then ....
+[20:22] <aveltens> ... one repostitory for general JSON-LD API design and several other repos that implement it  using different technologies
+[20:22] <tpluskiewicz> https://github.com/HTTP-APIs/hydrus-real-world-app/blob/master/RealWorldApiDoc.jsonld
+[20:22] <aveltens> ... Lorenzo already created a repo in HTTP-APIs org
+[20:23] <aveltens> ... he replicated the realworld API with hydra
+[20:24] <aveltens> ... might not be a bad idea to take the realworld API as is to be able to focus on hydra
+[20:25] <aveltens> ... instead of discussion about domion
+[20:26] <aveltens> Angelo: Can we implement every feature we want to support with hydra in such an API?
+[20:26] <tpluskiewicz> https://github.com/gothinkster/realworld/tree/master/api
+[20:27] <aveltens> Tomasz: It's not hypermedia driven, but at least a big enough starting point
+[20:28] <aveltens> Angelo: We could still have a second API if we see that this API will not cover everything
+[20:29] <aveltens> Tomasz: Let's first set up a repo with static files. JSON-LD written by hand
+[20:29] * Zakim aveltens, you typed too many words without commas; I suspect you forgot to start with 'to ...'
+[20:30] <aveltens> Karol: this is similar to the tests in the reference client
+[20:31] <aveltens> Tomasz: Turn realworld stuff into JSON-LDs, serve them with express
+[20:32] <aveltens> Karol:  This way we have some comparision with other approaches
+[20:32] <aveltens> Tomasz: on the other hand there is client implementation
+[20:32] <aveltens> ... once we have the server, even with static files, we could start implementing the UI
+[20:33] <aveltens> ... Angelo you where  also interested in building a client
+[20:34] <aveltens> Angelo: You could have a domain-specific client that is generic  regarding the JSON structure / needed API requests
+[20:36] <aveltens> Karol: How do we want to proceed?
+[20:37] <aveltens> ... we are working on different but similar things
+[20:37] <aveltens> Angelo: What is the different between the Hydra Console and the generic client
+[20:38] <aveltens> Karol: Hydra console is focussing on the ApiDoc, generic client more about browsing the data
+[20:41] <aveltens> ... I like the cinema domain you are working on, Angelo, I would prefer it over realworld
+[20:42] <aveltens> Tomasz: You would have to take the "lead" about the cinema domain
+[20:44] <Karol_Szczepanski> let's vote
+[20:44] <aveltens> Angelo: What I like about the domain is that we could start with simple CRUD for movies, and advance to more complex hypermedia processes for ticketing
+[20:44] <Karol_Szczepanski> realworld example:
+[20:44] <tpluskiewicz> +1/2
+[20:45] <Karol_Szczepanski> cinematic example
+[20:45] <tpluskiewicz> +1
+[20:45] <aveltens> +1
+[20:45] <Karol_Szczepanski> +1
+[20:46] <Karol_Szczepanski> cinemapi, is that correct?
+[20:47] <aveltens> Karol: Shall we create a new repo for it
+[20:48] <aveltens> Angelo: I wonder if we want to have several APIs: movies, events, tickets, and interlink them
+[20:48] <aveltens> Tomasz: We should use a monorepo
+[20:49] <aveltens> Tomasz: Just create the repo, we could rename it
+[20:49] <Karol_Szczepanski> Action: create repo named api-examples
+[20:49] * RRSAgent records action 1
+[20:50] <aveltens> Tomasz: we need more control over the CG from Markus
+[20:50] <aveltens> Angelo: Could someone add me to the group
+[20:50] <aveltens> Tomasz: That's the point, we cannot
+[20:50] <aveltens> Karol: I will ask markus
+[20:51] <aveltens> Tomasz: First Action item for you Angelo would be to start with an entrypoint and API doc
+[20:51] <aveltens> Karol: Feel free to use nodejs
+[20:53] <aveltens> Tomasz: I create a bitwarden for passwords
+[20:53] <aveltens> ... there is zapier and netlify in it
+[20:55] <Karol_Szczepanski> Action: aveltens to create a heroku account for free tier for Hydra CG
+[20:55] * RRSAgent records action 2
+[20:59] <tpluskiewicz> [ a SupportedProperty;  collection [  a IriTemplate ] ]
+[21:00] <tpluskiewicz> [ a SupportedProperty;  collection [  a Collection ] ]
+[21:04] <Karol_Szczepanski> Action: tpluskiewicz will create a cookbook for a way to provide a set of values for a property
+[21:04] * RRSAgent records action 3

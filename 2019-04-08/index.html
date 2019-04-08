@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-04-08 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-04-08</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-04-08">https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-04-08</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Last call actions</a>
+                         <li><a href="#topic-2">Development of example API and client application</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Karol Szczpepanski will create repo named api-examples</a>
+                         <li><a href="#action-2">Angelo Veltens to create a heroku account for free tier for Hydra CG</a>
+                         <li><a href="#action-3">Tomasz Pluskiewicz will create a cookbook for a way to provide a set of values for a property</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Angelo Veltens</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Tomasz Pluskiewicz, Angelo Veltens</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              
+              <h1 id="topic-1" class="topic">Topic: Last call actions</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  First topic ist "Last call action points"</div>
+              <div class="information">Could not provide cookbook examples for PR-186 yet</div>
+              <div class="information">... focused on hydra console development</div>
+              <div class="information">Live Demo of the console</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Angelo your API endpoint did not work, because no ApiDoc</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: Angelo: I did not expose the Link header, but that is fixed meanwhile</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Want to get the features of the old Hydra console</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I set up a hook to trigger hydra-notification channel</div>
+              <div class="comment-continuation">... it includes issues, PRs from github and twitter</div>
+              
+              <h1 id="topic-2" class="topic">Topic: Development of example API and client application</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  There where some ideas on Slack</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: <a href="https://github.com/gothinkster/realworld">https://github.com/gothinkster/realworld</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: - public transport ticket service</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: - PSD2 compliant bank account service</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: - bug trucker</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: - cinema ticket ordering</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: - restaurant / cofee shop ordering</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: - eCommerce</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  What we do could be the basis for an acceptence test suite. Given this entrypoint, when you do x, then ....</div>
+              <div class="comment-continuation">... one repostitory for general JSON-LD API design and several other repos that implement it  using different technologies</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: <a href="https://github.com/HTTP-APIs/hydrus-real-world-app/blob/master/RealWorldApiDoc.jsonld">https://github.com/HTTP-APIs/hydrus-real-world-app/blob/master/RealWorldApiDoc.jsonld</a></div>
+              <div class="comment-continuation">... Lorenzo already created a repo in HTTP-APIs org</div>
+              <div class="comment-continuation">... he replicated the realworld API with hydra</div>
+              <div class="comment-continuation">... might not be a bad idea to take the realworld API as is to be able to focus on hydra</div>
+              <div class="comment-continuation">... instead of discussion about domion</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: Angelo: Can we implement every feature we want to support with hydra in such an API?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: <a href="https://github.com/gothinkster/realworld/tree/master/api">https://github.com/gothinkster/realworld/tree/master/api</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  It's not hypermedia driven, but at least a big enough starting point</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: Angelo: We could still have a second API if we see that this API will not cover everything</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Let's first set up a repo with static files. JSON-LD written by hand</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  this is similar to the tests in the reference client</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Turn realworld stuff into JSON-LDs, serve them with express</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:   This way we have some comparision with other approaches</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  on the other hand there is client implementation</div>
+              <div class="comment-continuation">... once we have the server, even with static files, we could start implementing the UI</div>
+              <div class="comment-continuation">... Angelo you where  also interested in building a client</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: Angelo: You could have a domain-specific client that is generic  regarding the JSON structure / needed API requests</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  How do we want to proceed?</div>
+              <div class="comment-continuation">... we are working on different but similar things</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: Angelo: What is the different between the Hydra Console and the generic client</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Hydra console is focussing on the ApiDoc, generic client more about browsing the data</div>
+              <div class="comment-continuation">... I like the cinema domain you are working on, Angelo, I would prefer it over realworld</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  You would have to take the "lead" about the cinema domain</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: let's vote</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: Angelo: What I like about the domain is that we could start with simple CRUD for movies, and advance to more complex hypermedia processes for ticketing</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: realworld example:</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1/2</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: cinematic example</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: +1</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: +1</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: cinemapi, is that correct?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Shall we create a new repo for it</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: Angelo: I wonder if we want to have several APIs: movies, events, tickets, and interlink them</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  We should use a monorepo</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Just create the repo, we could rename it</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: create repo named api-examples</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we need more control over the CG from Markus</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: Angelo: Could someone add me to the group</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  That's the point, we cannot</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I will ask markus</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  First Action item for you Angelo would be to start with an entrypoint and API doc</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Feel free to use nodejs</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I create a bitwarden for passwords</div>
+              <div class="comment-continuation">... there is zapier and netlify in it</div>
+              <div id="action-2" class="action"><strong>ACTION</strong>: aveltens to create a heroku account for free tier for Hydra CG</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: [ a SupportedProperty;  collection [  a IriTemplate ] ]</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: [ a SupportedProperty;  collection [  a Collection ] ]</div>
+              <div id="action-3" class="action"><strong>ACTION</strong>: tpluskiewicz will create a cookbook for a way to provide a set of values for a property</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
