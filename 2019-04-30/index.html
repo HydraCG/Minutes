@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-04-30 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-04-30</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-04-30">https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-04-30</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Advance the API examples and plan future actions</a>
+                         <li><a href="#topic-2">Publishing Heracles.ts to NPM (organization scope or user)</a>
+                         <li><a href="#topic-3">Next steps with Hydra Console prototype</a>
+                         <li><a href="#topic-4">EntryPoint type in the resource</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Tomasz Pluskiewicz</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Tomasz Pluskiewicz, Angelo Valtens</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="information">Tomasz Pluskiewicz is scribing.</div>              
+              <h1 id="topic-1" class="topic">Topic: Advance the API examples and plan future actions</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Tomasz, you proposed</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I propose that we maybe with every PR shall add a simple MD document with requirements or documentation [scribe assist by Karol Szczepański]</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: aveltens: I like the idea, I'd introduce it with next changes</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I had this in mind. was thinking to add with next PR</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: aveltens: next it wuld be to have some sort of a collection supporting operation to create and remove movies</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  it sound similar to the cookbook</div>
+              <div class="comment-continuation">... I think it's redundant</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: we could refer to the cookbook</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Karol_szczepansk: shall we have a cookbok documented using examples from the api-examples repo?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  OK - lets have a cookbok document api-examples [scribe assist by Karol Szczepański]</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: there are multiple ways to approach that</div>
+              <div class="comment-continuation">... we would have to mint custom class for collection, subclass of hydra:Collection</div>
+              <div class="comment-continuation">... the way I did it was to use only hydra identifiers and operation inline</div>
+              <div class="comment-continuation">... should be prefer one or another approach</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we want the APIs to present different goals</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I think Angelo's problems is no direct way</div>
+              <div class="comment-continuation">... I think it's related to one of the spec issues PR #186, I think</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/Specifications/pull/186">https://github.com/HydraCG/Specifications/pull/186</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we should have these discussion on the repo</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  on the cookbook?</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I don't think it's a spec issue</div>
+              <div class="comment-continuation">.. what should I put in the cookbook</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  the cookbook first</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think we should go with the api first. and cookbook one we're happy with the resukt</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  do we know?</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: spec change would require cookbook first.</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  but how will raw payload help understand the required spec change?</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: what should the api example show?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  all possible solutions</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  in the example of subclassing collection, I would not recommend.</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I would not recommend it either. I did not use subclass because I want the client simple</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  you don't need subclassing. you can have multiple types.</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  without a description it's not useful</div>
+              <div class="comment-continuation">... maybe we should do multiple PR, in both cookbook and examples</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I will prepare a PR in both repositories</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I will experiment with those approaches in the client and console</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: the problem is client code. I tried Tomasz's client but there is a bug I opened</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: I remember</div>
+              <div class="comment-continuation">... we should keep the solutions complete. test the API in real apps</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I see the new console shows some better result</div>
+              <div class="comment-continuation">... the old hydra console didn't work at all</div>
+              <div class="comment-continuation">... what I missed in the old client is showing some error messages</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  yes, the new console doesn't have much error handling yet</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: new comers will not use hydra if they don't have feed for errors</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I was thinking about a verification tool</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  yes, I think we made a list of possible tools already when Ruben proposed a meeting</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we should go with more simple features</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I think collections are core</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  hydra:Link is a more primitive building block</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: what is it good for?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I think you should follow you current needs</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: the order does not have to be the same as it's written down in the cookbook</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think these examples should be implemented in a way which could server a brand new server implementation</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think we should try not to leak hydra abstractions in the descriptions</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I could try with Link but I need a use case</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  right. let's go with collections but focus on the functionality</div>
+              
+              <h1 id="topic-2" class="topic">Topic: Publishing Heracles.ts to NPM (organization scope or user)</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I want to publish the client to npm</div>
+              <div class="comment-continuation">... I created an organization but I don't know if it's possible to publish unde org</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think it depends on the name</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  should it be scoped?</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I like the scope</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  scoped makes sense</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  should it be hydra or hydracg?</div>
+              
+              <h1 id="topic-3" class="topic">Topic: Next steps with Hydra Console prototype</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  it's quite early. I tested it with some APIs</div>
+              <div class="comment-continuation">... it doesn't look awesome but clean</div>
+              <div class="comment-continuation">... I'd like a better UI</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  it is an SPA?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Markus mentioned it should be possible to push to hydra-cg.com</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  how should proceed?</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: we should move it to hydra repositories if it's meant to be the official console</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  the previous was on Markus' personal account</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  in the end it doesn't really matter</div>
+              
+              <h1 id="topic-4" class="topic">Topic: EntryPoint type in the resource</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  what I found was angelo's movies and also old example api</div>
+              <div class="comment-continuation">... both of you provide a type for entrypoint and it resolves to non-hydra URL</div>
+              <div class="comment-continuation">... and neither api provides an entrypoint in the doc</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: yes, I did not notice that</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: entrypoint indeed, could be anything</div>
+              <div class="comment-continuation">... but what would be an entrypoint</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think it can be anything, a collection of links</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

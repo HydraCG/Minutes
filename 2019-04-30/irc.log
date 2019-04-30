@@ -1,0 +1,91 @@
+[20:01] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:01] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:01] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-04-30
+[20:01] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:01] <aveltens> present+
+[20:01] <Karol_Szczepanski> present+ aveltens
+[20:02] <Karol_Szczepanski> present+ tpluskiewicz
+[20:03] <Karol_Szczepanski> Scribe: tpluskiewicz
+[20:04] <Karol_Szczepanski> Topic: Advance the API examples and plan future actions
+[20:04] <tpluskiewicz> Karol_Szczepanski: Tomasz, you proposed
+[20:06] <Karol_Szczepanski> tpluskiewicz: I propose that we maybe with every PR shall add a simple MD document with requirements or documentation
+[20:06] <Karol_Szczepanski> aveltens: I like the idea, I'd introduce it with next changes
+[20:06] <tpluskiewicz> aveltens: I had this in mind. was thinking to add with next PR
+[20:06] <Karol_Szczepanski> aveltens: next it wuld be to have some sort of a collection supporting operation to create and remove movies
+[20:07] <tpluskiewicz> Karol_Szczepanski: it sound similar to the cookbook
+[20:07] <tpluskiewicz> ... I think it's redundant
+[20:08] <tpluskiewicz> aveltens: we could refer to the cookbook
+[20:08] <Karol_Szczepanski> Karol_szczepansk: shall we have a cookbok documented using examples from the api-examples repo?
+[20:08] <Karol_Szczepanski> tpluskiewicz: OK - lets have a cookbok document api-examples
+[20:09] <tpluskiewicz> aveltens: there are multiple ways to approach that
+[20:10] <tpluskiewicz> ... we would have to mint custom class for collection, subclass of hydra:Collection
+[20:10] <tpluskiewicz> ... the way I did it was to use only hydra identifiers and operation inline
+[20:11] <tpluskiewicz> ... should be prefer one or another approach
+[20:11] <tpluskiewicz> tpluskiewicz: we want the APIs to present different goals
+[20:11] <tpluskiewicz> Karol_Szczepanski: I think Angelo's problems is no direct way
+[20:12] <tpluskiewicz> ... I think it's related to one of the spec issues PR #186, I think
+[20:12] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/pull/186
+[20:13] <tpluskiewicz> tpluskiewicz: we should have these discussion on the repo
+[20:13] <tpluskiewicz> Karol_Szczepanski: on the cookbook?
+[20:13] <tpluskiewicz> aveltens: I don't think it's a spec issue
+[20:14] <tpluskiewicz> .. what should I put in the cookbook
+[20:14] <tpluskiewicz> Karol_Szczepanski: the cookbook first
+[20:15] <tpluskiewicz> tpluskiewicz: I think we should go with the api first. and cookbook one we're happy with the resukt
+[20:15] <tpluskiewicz> Karol_Szczepanski: do we know?
+[20:16] <tpluskiewicz> aveltens: spec change would require cookbook first.
+[20:17] <tpluskiewicz> Karol_Szczepanski: but how will raw payload help understand the required spec change?
+[20:17] <tpluskiewicz> aveltens: what should the api example show?
+[20:17] <tpluskiewicz> tpluskiewicz: all possible solutions
+[20:18] <tpluskiewicz> Karol_Szczepanski: in the example of subclassing collection, I would not recommend.
+[20:18] <tpluskiewicz> aveltens: I would not recommend it either. I did not use subclass because I want the client simple
+[20:19] <tpluskiewicz> tpluskiewicz: you don't need subclassing. you can have multiple types.
+[20:20] <tpluskiewicz> Karol_Szczepanski: without a description it's not useful
+[20:20] <tpluskiewicz> ... maybe we should do multiple PR, in both cookbook and examples
+[20:20] <tpluskiewicz> aveltens: I will prepare a PR in both repositories
+[20:21] <tpluskiewicz> Karol_Szczepanski: I will experiment with those approaches in the client and console
+[20:22] <tpluskiewicz> aveltens: the problem is client code. I tried Tomasz's client but there is a bug I opened
+[20:22] <tpluskiewicz> tplsukiewicz: I remember
+[20:24] <tpluskiewicz> ... we should keep the solutions complete. test the API in real apps
+[20:24] <tpluskiewicz> aveltens: I see the new console shows some better result
+[20:25] <tpluskiewicz> ... the old hydra console didn't work at all
+[20:25] <tpluskiewicz> ... what I missed in the old client is showing some error messages
+[20:26] <tpluskiewicz> Karol_Szczepanski: yes, the new console doesn't have much error handling yet
+[20:26] <tpluskiewicz> aveltens: new comers will not use hydra if they don't have feed for errors
+[20:28] <tpluskiewicz> tpluskiewicz: I was thinking about a verification tool
+[20:28] <tpluskiewicz> Karol_Szczepanski: yes, I think we made a list of possible tools already when Ruben proposed a meeting
+[20:30] <tpluskiewicz> tpluskiewicz: we should go with more simple features
+[20:30] <tpluskiewicz> aveltens: I think collections are core
+[20:31] <tpluskiewicz> tpluskiewicz: hydra:Link is a more primitive building block
+[20:31] <tpluskiewicz> aveltens: what is it good for?
+[20:31] <tpluskiewicz> Karol_Szczepanski: I think you should follow you current needs
+[20:32] <tpluskiewicz> aveltens: the order does not have to be the same as it's written down in the cookbook
+[20:33] <tpluskiewicz> tpluskiewicz: I think these examples should be implemented in a way which could server a brand new server implementation
+[20:35] <tpluskiewicz> tpluskiewicz: I think we should try not to leak hydra abstractions in the descriptions
+[20:36] <tpluskiewicz> aveltens: I could try with Link but I need a use case
+[20:37] <tpluskiewicz> tpluskiewicz: right. let's go with collections but focus on the functionality
+[20:37] <Karol_Szczepanski> Topic: Publishing Heracles.ts to NPM (organization scope or user)
+[20:37] <tpluskiewicz> Karol_Szczepanski: I want to publish the client to npm
+[20:38] <tpluskiewicz> ... I created an organization but I don't know if it's possible to publish unde org
+[20:39] <tpluskiewicz> tpluskiewicz: I think it depends on the name
+[20:39] <tpluskiewicz> Karol_Szczepanski: should it be scoped?
+[20:39] <tpluskiewicz> aveltens: I like the scope
+[20:40] <tpluskiewicz> tpluskiewicz: scoped makes sense
+[20:40] <tpluskiewicz> Karol_Szczepanski: should it be hydra or hydracg?
+[20:40] <Karol_Szczepanski> Topic: Next steps with Hydra Console prototype
+[20:41] <tpluskiewicz> Karol_Szczepanski: it's quite early. I tested it with some APIs
+[20:41] <tpluskiewicz> ... it doesn't look awesome but clean
+[20:41] <tpluskiewicz> ... I'd like a better UI
+[20:42] <tpluskiewicz> tpluskiewicz: it is an SPA?
+[20:42] <tpluskiewicz> Karol_Szczepanski: Markus mentioned it should be possible to push to hydra-cg.com
+[20:43] <tpluskiewicz> Karol_Szczepanski: how should proceed?
+[20:43] <tpluskiewicz> aveltens: we should move it to hydra repositories if it's meant to be the official console
+[20:43] <tpluskiewicz> Karol_Szczepanski: the previous was on Markus' personal account
+[20:44] <tpluskiewicz> tpluskiewicz: in the end it doesn't really matter
+[20:45] <Karol_Szczepanski> Topic: EntryPoint type in the resource
+[20:45] <tpluskiewicz> Karol_Szczepanski: what I found was angelo's movies and also old example api
+[20:46] <tpluskiewicz> ... both of you provide a type for entrypoint and it resolves to non-hydra URL
+[20:46] <tpluskiewicz> ... and neither api provides an entrypoint in the doc
+[20:46] <tpluskiewicz> aveltens: yes, I did not notice that
+[20:51] <tpluskiewicz> aveltens: entrypoint indeed, could be anything
+[20:52] <tpluskiewicz> ... but what would be an entrypoint
+[20:52] <tpluskiewicz> tpluskiewicz: I think it can be anything, a collection of links
