@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-05-14 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-05-14</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-05-14">https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-05-14</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">API Examples</a>
+                         <li><a href="#topic-2">Resolve pull request #185</a>
+                         <li><a href="#topic-3">Discuss rdfs:range issue #192</a>
+                         <li><a href="#topic-4">hydra:manages</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Sebastien would share some API examples of his own</a>
+                         <li><a href="#action-2">Tomasz adds a proper statement in the spec on how to undestand manages block</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Tomasz Pluskiewicz, Sebastien Lambla</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="information">Karol Szczepański is scribing.</div>
+              
+              <h1 id="topic-1" class="topic">Topic: API Examples</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  there are no PRs pending</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I wanted to keep track on the progress</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  wanted to propose implementing stuff on top of the API examples</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  finished stuff on the front end, generic app that I maintain</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Sebastian, did you have a chance to take a peek on the examples?</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: I'm happy to review it</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: working on server implementation with .net server</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  did you have any thoughts on making api examples a repository useful for yourself</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  following a slack chat you'd be best source of feedback</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: we tried to follow the examples with the heracles client</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: there were examples with divergence, that were not compatible with collections, items</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: I'm happy going through the examples to understand whole topic</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  actions are relatively new</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  actions didn't make it trough to the espec</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: we've got a live API that uses operations</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'd love to help you with whatever needs you have related with hydra that your customer needs</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  there is some .net implementation I've made some time ago</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  also I did create a nancy module for hydra</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  there are two clients in JS so we can discover possible ways of using it</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: some implementation workshop would come in handy</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: is it worht of keeping several examples in same repo or to have a separate one?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we've agreed on having multiple API in one example repo</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: there are some broken things in hydra, but entrypoint, documentation and collections I have implemented</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: there are some purchase actions on some collections</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: serialseb would share some API examples of his own</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we shall create some issues to havae a backlog for future API examples</div>
+              
+              <h1 id="topic-2" class="topic">Topic: Resolve pull request #185</h1>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/pull/185">https://github.com/HydraCG/Specifications/pull/185</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'd love to have it merged ASAP as this PR sits there for some time</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  we agreed on not moving toward any more complicated header constructs, thus only xsd:string sits in the terms</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I din't look at this one recently</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  but I agree xsd:string is fine now, there shouldn't be any problem with having more detailed values in future</div>
+              
+              <h1 id="topic-3" class="topic">Topic: Discuss rdfs:range issue #192</h1>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/192">https://github.com/HydraCG/Specifications/issues/192</a></div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: we're implementing rdfs:ranges on our side</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: it's a local vocabulary</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: we've redefined context to have the payload look like a pure JSON</div>
+              <div class="information"><a href="https://my.api.whenfresh.com/catalog/browse/Building/Design">https://my.api.whenfresh.com/catalog/browse/Building/Design</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  maybe Karol's statement on having MAY in first point I proposed is not that bad</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  if taking into account Sebastiens approach</div>
+              <div class="information">I barely here you Tomasz :(</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: we're dynamicaly compiling serializers, we're linking documents</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: this is for pure performance purposes</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: there is no JSON-LD in the backend - we cannot have it at the moment due to performance</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: whole communication is with pure JSON and context linked</div>
+              <div class="information"><a href="http://docs.api.whenfresh.com/docs/guides/http/getting-postal-addresses-for-a-postcode/index.html">http://docs.api.whenfresh.com/docs/guides/http/getting-postal-addresses-for-a-postcode/index.html</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: <a href="https://github.com/HydraCG/Specifications/pull/132">https://github.com/HydraCG/Specifications/pull/132</a></div>
+              
+              <h1 id="topic-4" class="topic">Topic: hydra:manages</h1>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/126">https://github.com/HydraCG/Specifications/issues/126</a></div>
+              <div id="action-2" class="action"><strong>ACTION</strong>: tpluskiewicz adds a proper statement in the spec on how to undestand manages block</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
