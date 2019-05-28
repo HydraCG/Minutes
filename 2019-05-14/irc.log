@@ -1,0 +1,61 @@
+[20:06] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:06] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:07] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-05-14
+[20:07] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:07] <Karol_Szczepanski> present+ tpluskiewicz
+[20:08] == serialseb [~serialseb@public.cloak] has joined #hydra
+[20:08] <Karol_Szczepanski> present+ serialseb
+[20:08] <Karol_Szczepanski> Scribe: Karol_Szczepanski
+[20:08] <Karol_Szczepanski> Topic: API Examples
+[20:10] <Karol_Szczepanski> Karol_Szczepanski: there are no PRs pending
+[20:10] <Karol_Szczepanski> tpluskiewicz: I wanted to keep track on the progress
+[20:10] <Karol_Szczepanski> tpluskiewicz: wanted to propose implementing stuff on top of the API examples
+[20:10] <Karol_Szczepanski> tpluskiewicz: finished stuff on the front end, generic app that I maintain
+[20:11] <Karol_Szczepanski> tpluskiewicz: Sebastian, did you have a chance to take a peek on the examples?
+[20:11] <Karol_Szczepanski> seriaLseb: I'm happy to review it
+[20:11] <Karol_Szczepanski> seriaLseb: working on server implementation with .net server
+[20:12] <Karol_Szczepanski> tpluskiewicz: did you have any thoughts on making api examples a repository useful for yourself
+[20:13] <Karol_Szczepanski> tpluskiewicz: following a slack chat you'd be best source of feedback
+[20:14] <Karol_Szczepanski> serialseb: we tried to follow the examples with the heracles client
+[20:14] <Karol_Szczepanski> serialseb: there were examples with divergence, that were not compatible with collections, items
+[20:14] <Karol_Szczepanski> serialseb: I'm happy going through the examples to understand whole topic
+[20:15] <Karol_Szczepanski> tpluskiewicz: actions are relatively new
+[20:15] <Karol_Szczepanski> Karol_Szczepanski: actions didn't make it trough to the espec
+[20:17] <Karol_Szczepanski> serialseb: we've got a live API that uses operations
+[20:18] <Karol_Szczepanski> Karol_Szczepanski: I'd love to help you with whatever needs you have related with hydra that your customer needs
+[20:20] <Karol_Szczepanski> Karol_Szczepanski: there is some .net implementation I've made some time ago
+[20:20] <Karol_Szczepanski> tpluskiewicz: also I did create a nancy module for hydra
+[20:21] <Karol_Szczepanski> tpluskiewicz: there are two clients in JS so we can discover possible ways of using it
+[20:22] <Karol_Szczepanski> serialseb: some implementation workshop would come in handy
+[20:23] <Karol_Szczepanski> serialseb: is it worht of keeping several examples in same repo or to have a separate one?
+[20:24] <Karol_Szczepanski> Karol_Szczepanski: we've agreed on having multiple API in one example repo
+[20:26] <Karol_Szczepanski> serialseb: there are some broken things in hydra, but entrypoint, documentation and collections I have implemented
+[20:26] <Karol_Szczepanski> serialseb: there are some purchase actions on some collections
+[20:27] <Karol_Szczepanski> ACTION: serialseb would share some API examples of his own
+[20:27] * RRSAgent records action 1
+[20:29] <Karol_Szczepanski> tpluskiewicz: we shall create some issues to havae a backlog for future API examples
+[20:29] <Karol_Szczepanski> Topic: Resolve pull request #185
+[20:30] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/pull/185
+[20:32] <Karol_Szczepanski> Karol_Szczepanski: I'd love to have it merged ASAP as this PR sits there for some time
+[20:35] <Karol_Szczepanski> Karol_Szczepanski: we agreed on not moving toward any more complicated header constructs, thus only xsd:string sits in the terms
+[20:35] <Karol_Szczepanski> tpluskiewicz: I din't look at this one recently
+[20:36] <Karol_Szczepanski> tpluskiewicz: but I agree xsd:string is fine now, there shouldn't be any problem with having more detailed values in future
+[20:37] <Karol_Szczepanski> Topic: Discuss rdfs:range issue #192
+[20:37] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/issues/192
+[20:39] <Karol_Szczepanski> serialseb: we're implementing rdfs:ranges on our side
+[20:39] <Karol_Szczepanski> serialseb: it's a local vocabulary
+[20:40] <Karol_Szczepanski> serialseb: we've redefined context to have the payload look like a pure JSON
+[20:42] <serialseb> https://my.api.whenfresh.com/catalog/browse/Building/Design
+[20:45] <Karol_Szczepanski> tpluskiewicz: maybe Karol's statement on having MAY in first point I proposed is not that bad
+[20:46] <Karol_Szczepanski> tpluskiewicz: if taking into account Sebastiens approach
+[20:47] <Karol_Szczepanski> I barely here you Tomasz :(
+[20:51] <Karol_Szczepanski> serialseb: we're dynamicaly compiling serializers, we're linking documents
+[20:52] <Karol_Szczepanski> serialseb: this is for pure performance purposes
+[20:52] <Karol_Szczepanski> serialseb: there is no JSON-LD in the backend - we cannot have it at the moment due to performance
+[20:52] <Karol_Szczepanski> serialseb: whole communication is with pure JSON and context linked
+[20:55] <serialseb> http://docs.api.whenfresh.com/docs/guides/http/getting-postal-addresses-for-a-postcode/index.html
+[20:55] <tpluskiewicz> https://github.com/HydraCG/Specifications/pull/132
+[20:56] <Karol_Szczepanski> Topic: hydra:manages
+[20:56] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/issues/126
+[21:04] <Karol_Szczepanski> ACTION: tpluskiewicz adds a proper statement in the spec on how to undestand manages block
+[21:04] * RRSAgent records action 2
