@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-05-28 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-05-28</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-05-28">https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-05-28</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Finalize manages block PR</a>
+                         <li><a href="#topic-2">Discuss cookbook PR #9</a>
+                         <li><a href="#topic-3">Revisit property supported operations design - issue #196</a>
+                         <li><a href="#topic-4">Decide on next piece of movies example API</a>
+                         <li><a href="#topic-5">Get a grip on collection ordering issue #172</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1"><serialseb will add a comment to issue and attempt a PR for the documentation></a>
+                         <li><a href="#action-2">aveltens will start working on listing movies, after finishing the cookbook example</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>undefined</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Tomasz Pluskiewicz, Angelo Valtens, Sebastien Lambla</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              
+              <h1 id="topic-1" class="topic">Topic: Finalize manages block PR</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  This was approved by me and angelo</div>
+              <div class="comment-continuation">... merged it</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:   This should close a number of old issues, which might wake some people</div>
+              
+              <h1 id="topic-2" class="topic">Topic: Discuss cookbook PR #9</h1>
+              <div class="information"><a href="https://github.com/HydraCG/cookbook/pull/9">https://github.com/HydraCG/cookbook/pull/9</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I am fine with it as is</div>
+              <div class="comment-continuation">... can live with the duplication</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  The ones we already have are not really drafts anymore</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Should be fine to merge now</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  indeed</div>
+              <div class="information"><a href="https://deploy-preview-9--hydra-cookbook.netlify.com/">https://deploy-preview-9--hydra-cookbook.netlify.com/</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  all checks are ok, merge</div>
+              
+              <h1 id="topic-3" class="topic">Topic: Revisit property supported operations design - issue #196</h1>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/196">https://github.com/HydraCG/Specifications/issues/196</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  It might be more complicated. I am sure most people would already be doing it the same way as in the example</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: <a href="http://www.markus-lanthaler.com/hydra/api-demo/vocab">http://www.markus-lanthaler.com/hydra/api-demo/vocab</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: vocab:EntryPoint/myAccount</div>
+              <div class="information">Discussing the api-demo example</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: conclusions:</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: - spec does allow supportedOperation on both: property and supportedProperty</div>
+              <div class="information">- it might be confusing to have to many possibilities</div>
+              <div class="information">- the cookbook should provide best practices</div>
+              <div class="information">- same origin policy might be applied to trust only statements that came from the api itself</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  how shall we proceed with the issue?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  We will get there with the cookbook eventually</div>
+              <div class="comment-continuation">... supportedOperation of property is missing as an example in the spec, we could add this</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: serialseb:  Let's get feedback from API developers</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: serialseb:  Let's get feedback from API developers</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: &lt;serialseb will add a comment to issue and attempt a PR for the documentation&gt;</div>
+              
+              <h1 id="topic-4" class="topic">Topic: Decide on next piece of movies example API</h1>
+              <div class="comment"><span class="name">Angelo Veltens</span>: aveltens: We should be able to list movies that were added</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Sounds reasonable</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: aveltens: Will finish the "Create  Movie" part of the cookbook before</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: aveltens: I will be able to spend less time on it</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  i would like to deploy some really working code</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: serialseb: I can put some time on it</div>
+              <div class="comment-continuation">... e.g. implementing the example with openrasta</div>
+              <div class="comment-continuation">... perhaps on  saturday</div>
+              <div id="action-2" class="action"><strong>ACTION</strong>: aveltens will start working on listing movies, after finishing the cookbook example</div>
+              
+              <h1 id="topic-5" class="topic">Topic: Get a grip on collection ordering issue #172</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  shall we move on, or postpone?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  The main person regarding that issue is not present</div>
+              <div class="information">present+</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: serialseb: This could be in an additional spec that covers the more complicated stuff</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  We discussed extensions multiple times</div>
+              <div class="comment-continuation">... lets focus on the core</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  We postpone this to the next call</div>
+              <div class="comment-continuation">... maybe peter will join as next time</div>
+              <div class="information">Apologies - did this call start 7 minutes ago or an hour and 7 minutes ago?  The wiki wasn’t very clear</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: unfortunately, it started 1 hour and 7 minutes ago</div>
+              <div class="information">sounds good - I will adjust my calendar notification for next time!</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: excellent - I'm looking forward to hearing you next time!</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
