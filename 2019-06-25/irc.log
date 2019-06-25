@@ -1,0 +1,68 @@
+[20:05] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:05] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:05] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:05] <Karol_Szczepanski> present+ tpluskiewicz
+[20:05] <Karol_Szczepanski> present+ aveltens
+[20:06] <Karol_Szczepanski> Scribe: tpluskiewicz
+[20:07] <tpluskiewicz> Karol_Szczepanski: Pieter isn't here so let's skip the first point on our agenda
+[20:07] <tpluskiewicz> ... moving on to issue #197
+[20:07] <Karol_Szczepanski> Topic: TemplatedLink cannot formally have supportedOperation
+[20:08] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/pull/198
+[20:08] <tpluskiewicz> Karol_Szczepanski: all I did was add a statement to the JSON-LD, subclassing TemplatedLink from Link
+[20:09] <tpluskiewicz> ... this seems least intrusive. it should not break anything.
+[20:09] <tpluskiewicz> ... alternative was to add TemplatedLink to range and domain.
+[20:09] <tpluskiewicz> tpluskiewicz: yes, I just approved
+[20:10] <tpluskiewicz> ... we did discuss this. I think it's the right thing to do
+[20:10] <tpluskiewicz> aveltens: one question
+[20:10] <tpluskiewicz> ... not sure. not sure how to understand hydra:Link
+[20:10] <tpluskiewicz> ... it would be something to dereference?
+[20:10] <tpluskiewicz> Karol_Szczepanski: in general, yes
+[20:10] <tpluskiewicz> ... Hydra adds explicit term to explicitly say "this is a link"
+[20:11] <tpluskiewicz> aveltens: clients might try to dereference the templated link?
+[20:11] <tpluskiewicz> Karol_Szczepanski: you dereference the "right side of this relation"
+[20:12] <tpluskiewicz> ... it allows you to define that the IRI may vary
+[20:12] <tpluskiewicz> tpluskiewicz: the object is a blank node, a TemplatedLink
+[20:13] <tpluskiewicz> aveltens: I expect the object to be dereferencable. here I cannot
+[20:14] <tpluskiewicz> tpluskiewicz: can you elaborate on domain and domainIncludes?
+[20:15] <tpluskiewicz> Karol_Szczepanski: TemplatedLink did not exist in those domains. now it will be able to participate in those relations
+[20:15] <tpluskiewicz> tpluskiewicz: can you give an example?
+[20:15] <tpluskiewicz> Karol_Szczepanski: hydra:title has Link in domainIncludes but not TempaltedLink.
+[20:16] <tpluskiewicz> tpluskiewicz: ok, I understand
+[20:16] <tpluskiewicz> Karol_Szczepanski: I wonder if it's a problem that TempaltedLink is not dereferncable
+[20:18] <tpluskiewicz> tpluskiewicz: if that's a problem than we'd need to change the approach
+[20:18] <tpluskiewicz> Karol_Szczepanski: yes, I will think it over. Angelo's doubts give me pause
+[20:19] <tpluskiewicz> tpluskiewicz: Angelo, could you comment that on the PR?
+[20:20] <tpluskiewicz> Karol_Szczepanski: a one line change turned out to be not a trivial
+[20:20] <tpluskiewicz> ... what other issue you'd like to discuss?
+[20:20] <tpluskiewicz> tpluskiewicz: we have #10 in the cookbook
+[20:21] <Karol_Szczepanski> https://github.com/HydraCG/cookbook/pull/10
+[20:21] <tpluskiewicz> Karol_Szczepanski: angelo, there were change requests on that. any news?
+[20:21] <tpluskiewicz> aveltens: ah, yes. I was busy. I will get back to it in the next week
+[20:23] <tpluskiewicz> Karol_Szczepanski: the cookbook says that client consults API Docs
+[20:24] <tpluskiewicz> ... I would like to give impression that client use out-of-band information
+[20:25] <tpluskiewicz> aveltens: in the example API so far we have just the collection and type of collection
+[20:25] <tpluskiewicz> ... there are no inline operations
+[20:26] <tpluskiewicz> tpluskiewicz: nothing here is out-of-band. Hydra is fully accessible by the client
+[20:33] == tpluskiewicz [~tpluskiewicz@public.cloak] has quit [Ping timeout: 180 seconds]
+[20:33] == tpluskiewicz [~tpluskiewicz@public.cloak] has joined #hydra
+[20:36] <tpluskiewicz> tpluskiewicz: I'm sure that the Api Documentation is mandatory, a design of Hydra
+[20:37] <tpluskiewicz> Karol_Szczepanski: I don't agree. we risk ending up with something like Swagger etc
+[20:37] <tpluskiewicz> aveltens: back to the PR, I will clarify that bit
+[20:37] <tpluskiewicz> Karol_Szczepanski: I'm fine with that
+[20:38] <tpluskiewicz> Karol_Szczepanski: anything else?
+[20:38] <Karol_Szczepanski> https://gist.github.com/tpluscode/2f32c7d488ea434960f2a9b1721bbc82
+[20:39] <tpluskiewicz> tpluskiewicz: I spiked this in hydra analyzer. we start building the DSL
+[20:40] <tpluskiewicz> Karol_Szczepanski: DSL as a Domain Specific Language? I find the example hart to follow
+[20:41] <tpluskiewicz> aventels: it will generate api docs?
+[20:45] <tpluskiewicz> tpluskiewicz: I think that a API testing should resemble a hypermedia client. follow your nose
+[20:46] <tpluskiewicz> tpluskiewicz: I have a blog post in the making. I will share later this week
+[20:46] <tpluskiewicz> aveltens: this will be good to test multiple implementations of the movies API
+[20:47] <tpluskiewicz> Karol_Szczepanski: I think this what Ruben was mentioning for a meeting
+[20:47] <tpluskiewicz> ... I started porting Heracles to .NET, if you find interesting
+[20:48] <tpluskiewicz> aveltens: not .NET here
+[20:48] <tpluskiewicz> Karol_Szczepanski: okay, I will work on this and give more info
+[20:49] <tpluskiewicz> Karol_Szczepanski: I thought to postpone the calls this summer
+[20:49] <tpluskiewicz> tpluskiewicz: unless there is a big topic
+[20:50] <tpluskiewicz> aveltens: we should decide when we continue
+[20:50] <tpluskiewicz> Karol_Szczepanski: September maybe
+[20:51] <tpluskiewicz> tpluskiewicz: +1
