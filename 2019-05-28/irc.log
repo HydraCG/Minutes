@@ -1,0 +1,64 @@
+[20:03] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:03] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:03] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-05-28
+[20:03] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:03] <Karol_Szczepanski> present+ tpluskiewicz
+[20:03] <Karol_Szczepanski> present+ aveltens
+[20:03] <Karol_Szczepanski> Scribe: aveltens
+[20:05] <aveltens> Topic: Finalize manages block PR
+[20:05] <aveltens> Karol_Szczepanski: This was approved by me and angelo
+[20:06] <aveltens> ... merged it
+[20:06] <aveltens> tpluskiewicz:  This should close a number of old issues, which might wake some people
+[20:07] <aveltens> Topic: Discuss cookbook PR #9
+[20:08] <aveltens> present+ serialseb
+[20:08] <aveltens> https://github.com/HydraCG/cookbook/pull/9
+[20:08] <aveltens> Karol_Szczepanski: I am fine with it as is
+[20:08] <aveltens> ... can live with the duplication
+[20:09] <aveltens> tpluskiewicz: The ones we already have are not really drafts anymore
+[20:09] <aveltens> tpluskiewicz: Should be fine to merge now
+[20:09] <aveltens> Karol_Szczepanski: indeed
+[20:11] <aveltens> https://deploy-preview-9--hydra-cookbook.netlify.com/
+[20:12] <aveltens> Karol_Szczepanski: all checks are ok, merge
+[20:13] <aveltens> Topic: Revisit property supported operations design - issue #196
+[20:13] <aveltens> https://github.com/HydraCG/Specifications/issues/196
+[20:13] <aveltens> tpluskiewicz: It might be more complicated. I am sure most people would already be doing it the same way as in the example
+[20:14] <tpluskiewicz> http://www.markus-lanthaler.com/hydra/api-demo/vocab
+[20:14] <tpluskiewicz> vocab:EntryPoint/myAccount
+[20:21] <aveltens> Discussing the api-demo example
+[20:39] <aveltens> conclusions:
+[20:39] <aveltens> - spec does allow supportedOperation on both: property and supportedProperty
+[20:39] <aveltens> - it might be confusing to have to many possibilities
+[20:40] <aveltens> - the cookbook should provide best practices
+[20:40] <aveltens> - same origin policy might be applied to trust only statements that came from the api itself
+[20:42] <aveltens> Karol_Szczepanski: how shall we proceed with the issue?
+[20:42] <aveltens> tpluskiewicz: We will get there with the cookbook eventually
+[20:43] <aveltens> ... supportedOperation of property is missing as an example in the spec, we could add this
+[20:44] <aveltens> serialseb:  Let's get feedback from API developers
+[20:44] <aveltens> serialseb:  Let's get feedback from API developers
+[20:45] <aveltens> ACTION: <serialseb will add a comment to issue and attempt a PR for the documentation>
+[20:45] * RRSAgent records action 1
+[20:46] <aveltens> Topic: Decide on next piece of movies example API
+[20:47] <aveltens> aveltens: We should be able to list movies that were added
+[20:47] <aveltens> tpluskiewicz: Sounds reasonable
+[20:47] <aveltens> aveltens: Will finish the "Create  Movie" part of the cookbook before
+[20:48] <aveltens> aveltens: I will be able to spend less time on it
+[20:48] <aveltens> tpluskiewicz: i would like to deploy some really working code
+[20:49] <aveltens> serialseb: I can put some time on it
+[20:51] <aveltens> ... e.g. implementing the example with openrasta
+[20:52] <aveltens> ... perhaps on  saturday
+[20:53] <aveltens> ACTION:  aveltens will start working on listing movies, after finishing the cookbook example
+[20:53] * RRSAgent records action 2
+[21:01] <aveltens> Topic: Get a grip on collection ordering issue #172
+[21:01] <aveltens> Karol_Szczepanski: shall we move on, or postpone?
+[21:02] <aveltens> tpluskiewicz: The main person regarding that issue is not present
+[21:03] <aveltens> present+ mpigott
+[21:03] <mpigott> present+
+[21:04] <aveltens> serialseb: This could be in an additional spec that covers the more complicated stuff
+[21:05] <aveltens> Karol_Szczepanski: We discussed extensions multiple times
+[21:05] <aveltens> ... lets focus on the core
+[21:05] <aveltens> Karol_Szczepanski: We postpone this to the next call
+[21:06] <aveltens> ... maybe peter will join as next time
+[21:07] <mpigott> Apologies - did this call start 7 minutes ago or an hour and 7 minutes ago?  The wiki wasn’t very clear
+[21:08] <Karol_Szczepanski> unfortunately, it started 1 hour and 7 minutes ago
+[21:08] <mpigott> sounds good - I will adjust my calendar notification for next time!
+[21:09] <Karol_Szczepanski> excellent - I'm looking forward to hearing you next time!
