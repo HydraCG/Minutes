@@ -1,0 +1,38 @@
+[20:06] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:06] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:07] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-09-03
+[20:09] <Karol_Szczepanski> Scribe: Karol_Szczepanski
+[20:10] <Karol_Szczepanski> present+ t_pluskiewicz
+[20:11] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:11] <Karol_Szczepanski> present+ serialseb
+[20:15] <Karol_Szczepanski> Topic: Consider extending Hydra to handle non-RDF payloads
+[20:16] <Karol_Szczepanski> t_pluskiewicz: I had some discussions and the only thing that is needed is the first snipped after the proposed solutions
+[20:16] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/issues/199
+[20:17] <Karol_Szczepanski> t_pluskiewicz: #199 replaces range of the hydra:expect with rangeIncludes
+[20:18] <Karol_Szczepanski> Karol_Szczepanski: will be there any harm in having both range and rangeIncludes?
+[20:20] <Karol_Szczepanski> t_pluskiewicz: whatever will be there, will be considered hydra:Class
+[20:20] <Karol_Szczepanski> Karol_Szczepanski: this is a breaking change
+[20:21] <Karol_Szczepanski> Karol_Szczepanski: I've suggested replacing a hydra:Class with hydra:Resource leaving range predicate
+[20:23] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/issues/199#issuecomment-512552384
+[20:25] <Karol_Szczepanski> t_pluskiewicz: what about having both, range of hydra:Resource and rangeIncludes with more hints
+[20:26] <Karol_Szczepanski> serialseb: I'm thinking about a generic browser console, when browsing, how will it work?
+[20:27] <Karol_Szczepanski> t_pluskiewicz: a completely generic browser is ultimately an excercise gowing towards utopia
+[20:28] <Karol_Szczepanski> t_pluskiewicz: generic client should support at least those of the rangeIncludes values provided in the spec
+[20:30] <Karol_Szczepanski> serialseb: I may accept an event but that specific server will accept it in turtle format
+[20:35] <Karol_Szczepanski> serialseb: I think content negitiation shoulld be a topic for another call/spec modifications
+[20:37] <Karol_Szczepanski> serialseb: I think operation expectation and what can be actually sent may be somehow different
+[20:39] <Karol_Szczepanski> ACTION: Karol_Szczepanski will create a PR with range of the hydra:expect downgrade to hydra:Resource and introduce rangeIncludes with hydra:Class
+[20:39] * RRSAgent records action 1
+[20:46] <Karol_Szczepanski> t_pluskiewicz: we shall start thinking aobut an esxtension which will come with those features missing
+[20:47] <Karol_Szczepanski> Karol_Szczepanski: I'm worried that this will end up with a core vocabulary unusable and several extensions that won't fit to each other
+[20:48] <Karol_Szczepanski> ACTION: serialseb will provide raw use case scenarios of what may be needed regarding non-RDF payloads and content negotiation
+[20:48] * RRSAgent records action 2
+[20:49] <t_pluskiewicz> TemplatedLink cannot formally have supportedOperation
+[20:49] <t_pluskiewicz> https://github.com/HydraCG/Specifications/issues/197
+[20:49] <Karol_Szczepanski> Topic: Return to recently discussed PRs
+[20:50] <Karol_Szczepanski> ACTION: Karol_Szczepanski will take care of #197
+[20:50] * RRSAgent records action 3
+[20:51] <Karol_Szczepanski> Topic: Discuss PRs in Example API repository
+[20:52] <t_pluskiewicz> https://github.com/HydraCG/api-examples/pull/8
+[20:55] <Karol_Szczepanski> t_pluskiewicz: I've sidestepped the issue as type entailing is quite complicated when you go deeper
+[20:56] <Karol_Szczepanski> Karol_Szczepanski: indeed; what Heracles.ts does not is a simple range/domain entailing and possibly I own't go any deeper

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-09-03 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-09-03</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-09-03">https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-09-03</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Consider extending Hydra to handle non-RDF payloads</a>
+                         <li><a href="#topic-2">Return to recently discussed PRs</a>
+                         <li><a href="#topic-3">Discuss PRs in Example API repository</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Karol_Szczepanski will create a PR with range of the hydra:expect downgrade to hydra:Resource and introduce rangeIncludes with hydra:Class</a>
+                         <li><a href="#action-2">serialseb will provide raw use case scenarios of what may be needed regarding non-RDF payloads and content negotiation</a>
+                         <li><a href="#action-3">Karol_Szczepanski will take care of #197</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Present</dt>
+                      <dd>Sebastien Lambla, Tomasz Pluskiewicz, Karol Szczepański</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="information">Karol Szczepański is scribing.</div>
+              
+              <h1 id="topic-1" class="topic">Topic: Consider extending Hydra to handle non-RDF payloads</h1>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: I had some discussions and the only thing that is needed is the first snipped after the proposed solutions</div>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/199">https://github.com/HydraCG/Specifications/issues/199</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: #199 replaces range of the hydra:expect with rangeIncludes</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  will be there any harm in having both range and rangeIncludes?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: whatever will be there, will be considered hydra:Class</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  this is a breaking change</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I've suggested replacing a hydra:Class with hydra:Resource leaving range predicate</div>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/199#issuecomment-512552384">https://github.com/HydraCG/Specifications/issues/199#issuecomment-512552384</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: what about having both, range of hydra:Resource and rangeIncludes with more hints</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: I'm thinking about a generic browser console, when browsing, how will it work?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: a completely generic browser is ultimately an excercise gowing towards utopia</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: generic client should support at least those of the rangeIncludes values provided in the spec</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: I may accept an event but that specific server will accept it in turtle format</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: I think content negotiation shoulld be a topic for another call/spec modifications</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: I think operation expectation and what can be actually sent may be somehow different</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Karol_Szczepanski will create a PR with range of the hydra:expect downgrade to hydra:Resource and introduce rangeIncludes with hydra:Class</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: we shall start thinking aobut an esxtension which will come with those features missing</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'm worried that this will end up with a core vocabulary unusable and several extensions that won't fit to each other</div>
+              <div id="action-2" class="action"><strong>ACTION</strong>: serialseb will provide raw use case scenarios of what may be needed regarding non-RDF payloads and content negotiation</div>
+              <div class="information">TemplatedLink cannot formally have supportedOperation</div>
+              <div class="information"><a href="https://github.com/HydraCG/Specifications/issues/197">https://github.com/HydraCG/Specifications/issues/197</a></div>
+              
+              <h1 id="topic-2" class="topic">Topic: Return to recently discussed PRs</h1>
+              <div id="action-3" class="action"><strong>ACTION</strong>: Karol_Szczepanski will take care of #197</div>
+              
+              <h1 id="topic-3" class="topic">Topic: Discuss PRs in Example API repository</h1>
+              <div class="information"><a href="https://github.com/HydraCG/api-examples/pull/8">https://github.com/HydraCG/api-examples/pull/8</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: I've sidestepped the issue as type entailing is quite complicated when you go deeper</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  indeed; what Heracles.ts does not is a simple range/domain entailing and possibly I own't go any deeper</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
