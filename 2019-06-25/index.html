@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-06-25 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-06-25</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="undefined">undefined</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">TemplatedLink cannot formally have supportedOperation</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Tomasz Pluskiewicz</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Tomasz Pluskiewicz, Angelo Valtens</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="information">Tomasz Pluskiewicz is scribing.</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Pieter isn't here so let's skip the first point on our agenda</div>
+              <div class="comment-continuation">... moving on to issue #197</div>
+              
+              <h1 id="topic-1" class="topic">Topic: TemplatedLink cannot formally have supportedOperation</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/Specifications/pull/198">https://github.com/HydraCG/Specifications/pull/198</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  all I did was add a statement to the JSON-LD, subclassing TemplatedLink from Link</div>
+              <div class="comment-continuation">... this seems least intrusive. it should not break anything.</div>
+              <div class="comment-continuation">... alternative was to add TemplatedLink to range and domain.</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  yes, I just approved</div>
+              <div class="comment-continuation">... we did discuss this. I think it's the right thing to do</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: one question</div>
+              <div class="comment-continuation">... not sure. not sure how to understand hydra:Link</div>
+              <div class="comment-continuation">... it would be something to dereference?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  in general, yes</div>
+              <div class="comment-continuation">... Hydra adds explicit term to explicitly say "this is a link"</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: clients might try to dereference the templated link?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  you dereference the "right side of this relation"</div>
+              <div class="comment-continuation">... it allows you to define that the IRI may vary</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  the object is a blank node, a TemplatedLink</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: I expect the object to be dereferencable. here I cannot</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  can you elaborate on domain and domainIncludes?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  TemplatedLink did not exist in those domains. now it will be able to participate in those relations</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  can you give an example?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  hydra:title has Link in domainIncludes but not TempaltedLink.</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  ok, I understand</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I wonder if it's a problem that TempaltedLink is not dereferncable</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  if that's a problem than we'd need to change the approach</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  yes, I will think it over. Angelo's doubts give me pause</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Angelo, could you comment that on the PR?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  a one line change turned out to be not a trivial</div>
+              <div class="comment-continuation">... what other issue you'd like to discuss?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  we have #10 in the cookbook</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/cookbook/pull/10">https://github.com/HydraCG/cookbook/pull/10</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  angelo, there were change requests on that. any news?</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: ah, yes. I was busy. I will get back to it in the next week</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  the cookbook says that client consults API Docs</div>
+              <div class="comment-continuation">... I would like to give impression that client use out-of-band information</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: in the example API so far we have just the collection and type of collection</div>
+              <div class="comment-continuation">... there are no inline operations</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  nothing here is out-of-band. Hydra is fully accessible by the client</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I'm sure that the Api Documentation is mandatory, a design of Hydra</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I don't agree. we risk ending up with something like Swagger etc</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: back to the PR, I will clarify that bit</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I'm fine with that</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  anything else?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://gist.github.com/tpluscode/2f32c7d488ea434960f2a9b1721bbc82">https://gist.github.com/tpluscode/2f32c7d488ea434960f2a9b1721bbc82</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I spiked this in hydra analyzer. we start building the DSL</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  DSL as a Domain Specific Language? I find the example hart to follow</div>
+              <div class="information">aventels: it will generate api docs?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I think that a API testing should resemble a hypermedia client. follow your nose</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I have a blog post in the making. I will share later this week</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: this will be good to test multiple implementations of the movies API</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I think this what Ruben was mentioning for a meeting</div>
+              <div class="comment-continuation">... I started porting Heracles to .NET, if you find interesting</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: not .NET here</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  okay, I will work on this and give more info</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I thought to postpone the calls this summer</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  unless there is a big topic</div>
+              <div class="comment"><span class="name">Angelo Veltens</span>: we should decide when we continue</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  September maybe</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: tpluskiewicz: +1</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
