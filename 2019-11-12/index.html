@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-11-12 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-11-12</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-09-03">https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-09-03</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Get a grip on collection ordering issue #172</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Karol will provide example for the querying approach</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Angelo Valtens</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Tomasz Pluskiewicz</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              
+              <h1 id="topic-1" class="topic">Topic: Get a grip on collection ordering issue #172</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>: <a href="https://github.com/HydraCG/Specifications/issues/172">https://github.com/HydraCG/Specifications/issues/172</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Ordering touches the querying topic. Not sure if this should be in hydra core, but should at least be extendible</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: <a href="https://prefix.zazuko.com/dtype:orderIndex">https://prefix.zazuko.com/dtype:orderIndex</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  2 possible solutions: Rising hydra:Collection to some kind of SortedCollection, impliying that the members are RDF Lists</div>
+              <div class="comment-continuation">... or leave it as is and provide a description of the ordering</div>
+              <div class="comment-continuation">... would be cautious with adding something to members</div>
+              <div class="comment-continuation">... like indices</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: aveltens: I'm not sure what kind of use case Pieter has on his mind</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  i.e. for UI building, client would need to be sure on how the members are sorted [scribe assist by Karol Szczepański]</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  The client could define an order in the query and expect the API to serve in that order</div>
+              <div class="comment-continuation">... same es an SQL or SPARQL queries</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  The server should be able to indicate the order to the client, even if the client did not ask for a specific order</div>
+              <div class="comment-continuation">... if the response is ordered, the server should return an RDF list</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Pieters proposol is quite complex, introducing many new predicates / classes</div>
+              <div class="comment-continuation">... I prefer having quering for order as a stanard</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  The client nontheless needs to understand what it got. Perhaps it followed only a parameterized link and does not understand what order it requested</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Even if a link is follows / refresh is done, the client will request a specific order based on it's state and knows about the order</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  There are several issues here. What if the server implemention changed meanwhile?</div>
+              <div class="comment"><span class="name">Angelo Valtens</span>: The client would look up the API doc to know how to construct the query?</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  We have to very different concepts. Querying the data vs shaping the data. Which path should we use? What are the benefits of each?</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  What about a resource /people, and the server orders them implicitly by name</div>
+              <div class="comment-continuation">... its not about what the server has to do, but what the server did</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  If client knows what it needs, let it ask for it, unless it should not care</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  let us craft some imaginatory situations in the cookbook</div>
+              <div class="comment-continuation">... lets link those examples / use cases to the issue</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Karol will provide example for the querying approach</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Still, Pieter is asking for the complete opposite, Indicate a partial collection view is ordered</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

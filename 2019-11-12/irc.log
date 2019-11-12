@@ -1,0 +1,37 @@
+[20:06] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:06] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:07] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2019-09-03
+[20:07] <Karol_Szczepanski> Scribe: aveltens
+[20:08] <Karol_Szczepanski> present+ aveltens
+[20:08] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:08] <Karol_Szczepanski> present+ tpluskiewicz
+[20:10] <Karol_Szczepanski> Topic: Get a grip on collection ordering issue #172
+[20:10] <Karol_Szczepanski> https://github.com/HydraCG/Specifications/issues/172
+[20:12] <aveltens> Karol: Ordering touches the querying topic. Not sure if this should be in hydra core, but should at least be extendible
+[20:21] <tpluskiewicz> https://prefix.zazuko.com/dtype:orderIndex
+[20:23] <aveltens> Karol: 2 possible solutions: Rising hydra:Collection to some kind of SortedCollection, impliying that the members are RDF Lists
+[20:23] <aveltens> ... or leave it as is and provide a description of the ordering
+[20:24] <aveltens> ... would be cautious with adding something to members
+[20:24] <aveltens> ... like indices
+[20:25] <Karol_Szczepanski> aveltens: I'm not sure what kind of use case Pieter has on his mind
+[20:26] <Karol_Szczepanski> tpluskiewicz: i.e. for UI building, client would need to be sure on how the members are sorted
+[20:28] <aveltens> Karol: The client could define an order in the query and expect the API to serve in that order
+[20:29] <aveltens> ... same es an SQL or SPARQL queries
+[20:31] <aveltens> Tomasz: The server should be able to indicate the order to the client, even if the client did not ask for a specific order
+[20:32] <aveltens> ... if the response is ordered, the server should return an RDF list
+[20:34] <aveltens> Karol: Pieters proposol is quite complex, introducing many new predicates / classes
+[20:35] <aveltens> ... I prefer having quering for order as a stanard
+[20:35] <aveltens> Tomasz: The client nontheless needs to understand what it got. Perhaps it followed only a parameterized link and does not understand what order it requested
+[20:45] <aveltens> Karol: Even if a link is follows / refresh is done, the client will request a specific order based on it's state and knows about the order
+[20:46] <aveltens> Tomasz: There are several issues here. What if the server implemention changed meanwhile?
+[20:47] <aveltens> Angelo: The client would look up the API doc to know how to construct the query?
+[20:48] <aveltens> Karol: We have to very different concepts. Querying the data vs shaping the data. Which path should we use? What are the benefits of each?
+[20:49] <aveltens> Tomasz: What about a resource /people, and the server orders them implicitly by name
+[20:49] <aveltens> ... its not about what the server has to do, but what the server did
+[20:50] <aveltens> Karol: If client knows what it needs, let it ask for it, unless it should not care
+[20:50] <aveltens> Karol: let us craft some imaginatory situations in the cookbook
+[20:51] <aveltens> ... lets link those examples / use cases to the issue
+[20:53] <aveltens> ACTION: Karol will provide example for the querying approach
+[20:53] * RRSAgent records action 1
+[20:54] <aveltens> Tomasz: Still, Pieter is asking for the complete opposite, Indicate a partial collection view is ordered
+
