@@ -1,0 +1,57 @@
+[20:19] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:19] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:20] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls
+[20:20] <Karol_Szczepanski> present+ tpluskiewicz
+[20:20] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:20] <Karol_Szczepanski> present+ SerialSeb
+[20:21] <Karol_Szczepanski> Scribe: tpluskiewicz
+[20:22] <Karol_Szczepanski> Topic: Ontology discover and multiple API documentations
+[20:23] <tpluskiewicz> Karol_Szczepanski: ok, I understand we have a hypothertical SPA which consumes multiple APIs
+[20:23] <tpluskiewicz> serialseb: let me explain our scenario...
+[20:23] <tpluskiewicz> ... we have a data marketplace, with multiple dataset, where you can purchase
+[20:23] <tpluskiewicz> ... each has various types of data
+[20:24] <tpluskiewicz> ... quite large, ontologies, 100s of types. all in the same API
+[20:24] <tpluskiewicz> ... we have multiple providers behind the scenes
+[20:24] <tpluskiewicz> ... a client would purchase data and get different vairables, specific to that dataset
+[20:25] <tpluskiewicz> ... we will provide a list of context document defining the terms
+[20:25] <tpluskiewicz> ... but the context does not provide all metadata at type level
+[20:25] <tpluskiewicz> ... right now we have an API Documentation, which could be a good point to load the metadata
+[20:26] <tpluskiewicz> ... so that we can discover schemas
+[20:26] <tpluskiewicz> ... we settled on keeping one API Documentation
+[20:27] <tpluskiewicz> ... the difficulty is that spec does not say you can retrieve type informaition on per-request basis
+[20:27] <tpluskiewicz> ... the spec suggests there is one api documentation
+[20:27] <tpluskiewicz> ... and there will be the same
+[20:28] <tpluskiewicz> ... another issue is that there is what happens when there are multiple api documentation links
+[20:29] <tpluskiewicz> ... last issue, if I describe a class in api doc, it becomes a resource the can be identified
+[20:29] <tpluskiewicz> ... so if I use reasoning everything can potentially be dereferenced
+[20:30] <tpluskiewicz> ... so maybe hydra:supportedOperation should have range extended to hydra:Resource
+[20:33] <tpluskiewicz> Karol_Szczepanski: if an API supports certain class, it means that it can manipulate instance thereof
+[20:33] <tpluskiewicz> ... loosening it may be tricky
+[20:34] <tpluskiewicz> serialseb: for example I have a resource which supports a type which is rdfs:Class
+[20:34] <tpluskiewicz> ... I want to be able to discover information about the rdfs:Class
+[20:34] <tpluskiewicz> Karol_Szczepanski: sounds like all you need is just to dereference that class to understand what it is
+[20:35] <tpluskiewicz> serialseb: but I cannot dereference like, 500 classes
+[20:35] <tpluskiewicz> Karol_Szczepanski: so those are no hash URIs?
+[20:35] <tpluskiewicz> serialseb: yes some are, but it's still many ontologies
+[20:36] <tpluskiewicz> Karol_Szczepanski: another idea is to provide these ontologies within the API Documentation. it's still a graph
+[20:37] <tpluskiewicz> serialseb: that would change JSON-LD harder to consume
+[20:37] <tpluskiewicz> Karol_Szczepanski: yes, you might get an array of nodes
+[20:37] <tpluskiewicz> serialseb: yes, but a generic client will not implement it the sme way
+[20:38] <tpluskiewicz> ... so I'm saying that maybe api doc could have something extra, which is plain RDFS
+[20:39] <tpluskiewicz> serialseb: I need a second way of discovery
+[20:39] <tpluskiewicz> ... feels like something is missing
+[20:40] <tpluskiewicz> Karol_Szczepanski: I don't have an answer
+[20:41] <tpluskiewicz> ... supported classes and properties is something different than plain data models
+[20:41] <tpluskiewicz> serialseb: with Open API you can combine all those information
+[20:41] <tpluskiewicz> ... and with hydra I would want one document with all the operations and all data models
+[20:42] <tpluskiewicz> ... if it's not in a generic client, I will struggle making hydra compelling
+[20:46] <Karol_Szczepanski> tpluskiewicz: you could use prefetch links
+[20:46] <Karol_Szczepanski> ... so the ontologies can be hinted so the client can preload them earlier
+[20:49] <tpluskiewicz> serialseb: I could have mutliple top level nodes in the API doc
+[20:49] <tpluskiewicz> ... but from a generic client, I'm concerned about anything we do but is not in the spec
+[20:50] <tpluskiewicz> ... if the in the API doc graph we would allow disconnected graph
+[20:53] <tpluskiewicz> tpluskiewicz: I would love to see a full-blown example
+[20:53] <tpluskiewicz> serialseb: we will have a draft in a few weeks once we launch
+[20:57] <Karol_Szczepanski> tpluskiewicz: I had similar example with multiple API documentations - a books API that links books to reviews, but reviews is handled by another API
+[20:57] <Karol_Szczepanski> tpluskiewicz: solution would be to have always to give two API documentations or just to keep API documentation that you've received and combine it somehow
+[21:12] <Karol_Szczepanski> ACTION: Add an informational paragraph to the specs with hints on how to treat additional data from the API documentation

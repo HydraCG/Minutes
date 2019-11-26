@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2019-11-26 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2019-11-26</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls">https://www.w3.org/community/hydra/wiki/Conference_Calls</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Ontology discover and multiple API documentations</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Add an informational paragraph to the specs with hints on how to treat additional data from the API documentation</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Tomasz Pluskiewicz</dd>
+                      <dt>Present</dt>
+                      <dd>Sebastien Lambla, Tomasz Pluskiewicz, Karol Szczepański</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="information">Tomasz Pluskiewicz is scribing.</div>
+              
+              <h1 id="topic-1" class="topic">Topic: Ontology discover and multiple API documentations</h1>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  ok, I understand we have a hypothertical SPA which consumes multiple APIs</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: let me explain our scenario...</div>
+              <div class="comment-continuation">... we have a data marketplace, with multiple dataset, where you can purchase</div>
+              <div class="comment-continuation">... each has various types of data</div>
+              <div class="comment-continuation">... quite large, ontologies, 100s of types. all in the same API</div>
+              <div class="comment-continuation">... we have multiple providers behind the scenes</div>
+              <div class="comment-continuation">... a client would purchase data and get different vairables, specific to that dataset</div>
+              <div class="comment-continuation">... we will provide a list of context document defining the terms</div>
+              <div class="comment-continuation">... but the context does not provide all metadata at type level</div>
+              <div class="comment-continuation">... right now we have an API Documentation, which could be a good point to load the metadata</div>
+              <div class="comment-continuation">... so that we can discover schemas</div>
+              <div class="comment-continuation">... we settled on keeping one API Documentation</div>
+              <div class="comment-continuation">... the difficulty is that spec does not say you can retrieve type informaition on per-request basis</div>
+              <div class="comment-continuation">... the spec suggests there is one api documentation</div>
+              <div class="comment-continuation">... and there will be the same</div>
+              <div class="comment-continuation">... another issue is that there is what happens when there are multiple api documentation links</div>
+              <div class="comment-continuation">... last issue, if I describe a class in api doc, it becomes a resource the can be identified</div>
+              <div class="comment-continuation">... so if I use reasoning everything can potentially be dereferenced</div>
+              <div class="comment-continuation">... so maybe hydra:supportedOperation should have range extended to hydra:Resource</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  if an API supports certain class, it means that it can manipulate instance thereof</div>
+              <div class="comment-continuation">... loosening it may be tricky</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: for example I have a resource which supports a type which is rdfs:Class</div>
+              <div class="comment-continuation">... I want to be able to discover information about the rdfs:Class</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  sounds like all you need is just to dereference that class to understand what it is</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: but I cannot dereference like, 500 classes</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  so those are no hash URIs?</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: yes some are, but it's still many ontologies</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  another idea is to provide these ontologies within the API Documentation. it's still a graph</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: that would change JSON-LD harder to consume</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  yes, you might get an array of nodes</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: yes, but a generic client will not implement it the sme way</div>
+              <div class="comment-continuation">... so I'm saying that maybe api doc could have something extra, which is plain RDFS</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: I need a second way of discovery</div>
+              <div class="comment-continuation">... feels like something is missing</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  I don't have an answer</div>
+              <div class="comment-continuation">... supported classes and properties is something different than plain data models</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: with Open API you can combine all those information</div>
+              <div class="comment-continuation">... and with hydra I would want one document with all the operations and all data models</div>
+              <div class="comment-continuation">... if it's not in a generic client, I will struggle making hydra compelling</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  you could use prefetch links [scribe assist by Karol Szczepański]</div>
+              <div class="comment-continuation">... so the ontologies can be hinted so the client can preload them earlier</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: I could have mutliple top level nodes in the API doc</div>
+              <div class="comment-continuation">... but from a generic client, I'm concerned about anything we do but is not in the spec</div>
+              <div class="comment-continuation">... if the in the API doc graph we would allow disconnected graph</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I would love to see a full-blown example</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>: we will have a draft in a few weeks once we launch</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I had similar example with multiple API documentations - a books API that links books to reviews, but reviews is handled by another API [scribe assist by Karol Szczepański]</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  solution would be to have always to give two API documentations or just to keep API documentation that you've received and combine it somehow [scribe assist by Karol Szczepański]</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Add an informational paragraph to the specs with hints on how to treat additional data from the API documentation</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
