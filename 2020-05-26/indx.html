@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2020-05-26 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2020-05-26</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="https://www.w3.org/community/hydra/wiki/Conference_Calls#2020-05-26">https://www.w3.org/community/hydra/wiki/Conference_Calls#2020-05-26</a></dd>
+                      <dt>Topics</dt>
+                      <dd><ol>
+                         <li><a href="#topic-1">Discuss Hydra relation to SHACL #214</a>
+                      </ol></dd>
+                      <dt>Action Items</dt>
+                      <dd><ol>
+                         <li><a href="#action-1">Karol_Szczepanski raises an issue and introduce solution on how to resolve forbidden GET operation</a>
+                      </ol></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Present</dt>
+                      <dd>Sebastien Lambla, Tomasz Pluskiewicz, Karol Szczepański</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: presen+ tpluskiewicz</div>
+              <div class="information">Karol Szczepański is scribing.</div>
+              
+              <h1 id="topic-1" class="topic">Topic: Discuss Hydra relation to SHACL #214</h1>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  in terms of expects/returns the issue could be actually closed</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  if we want to be opened as a vocabulary it doesn't make any point of adding any possible external vocabulary representation into those predicate's range</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>I disagree</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>expect/return is still a hydra resource</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>my issue is there is an implicit assumption hydra resource should support GET</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>in JSON-schema or CQRS like approach there is no resultion for the actions sent by the client</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>I'm not sure that the entity body desription should have to be a hydra resource</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>endpoint might support image, which is not resolvable</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  Client is really required to try to dereference a resource</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  it may choose to dereference it, but it is up to the client</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>I have no way of sasying a given ID is not dereferencable</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>SerialSeb: I have same issue with supportedClass is not able to display information about non-hydra resources</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  using RDF means machine readability through HTTP</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  SHACL can describe RDF, so using JSON-schema wouldn't work</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>that's wju I'd love to see rdf:Resource as root for hydra expect/returns and supportedClass</div>
+              <div class="comment"><span class="name">Sebastien Lambla</span>I know that server won't support GET method for some resources and I have no way of documenting that</div>
+              <div class="information"><a href="https://en.wikipedia.org/wiki/HTTPRange-14">https://en.wikipedia.org/wiki/HTTPRange-14</a></div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  downgrading hydra:Resource to rdf:Resource could be a braking change</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  only viable solutio I can see now is to explicitely forbid something</div>
+              <div id="action-1" class="action"><strong>ACTION</strong>: Karol_Szczepanski raises an issue and introduce solution on how to resolve forbidden GET operation</div>
+              <div class="information"><a href="https://www.w3.org/2019/wot/json-schema">https://www.w3.org/2019/wot/json-schema</a></div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  my only issue with opening up to rdf:Resource is client would need to understand potentially non-machine readable resources, which makes the client non-generic anymore</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

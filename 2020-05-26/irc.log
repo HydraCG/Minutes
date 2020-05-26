@@ -1,0 +1,31 @@
+[20:09] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:09] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:09] <Karol_Szczepanski> Agenda: https://www.w3.org/community/hydra/wiki/Conference_Calls#2020-05-26
+[20:10] <Karol_Szczepanski> present+ Karol_Szczepanski
+[20:10] <Karol_Szczepanski> presen+ tpluskiewicz
+[20:10] <Karol_Szczepanski> present+ tpluskiewicz
+[20:10] <Karol_Szczepanski> present+ SerialSeb
+[20:11] <Karol_Szczepanski> Scribe: Karol_Szczepanski
+[20:11] <Karol_Szczepanski> Topic: Discuss Hydra relation to SHACL #214
+[20:15] <Karol_Szczepanski> tpluskiewicz: in terms of expects/returns the issue could be actually closed
+[20:16] <Karol_Szczepanski> tpluskiewicz: if we want to be opened as a vocabulary it doesn't make any point of adding any possible external vocabulary representation into those predicate's range
+[20:16] <Karol_Szczepanski> SerialSeb: I disagree
+[20:16] <Karol_Szczepanski> SerialSeb: expect/return is still a hydra resource
+[20:17] <Karol_Szczepanski> SerialSeb: my issue is there is an implicit assumption hydra resource should support GET
+[20:17] <Karol_Szczepanski> SerialSeb: in JSON-schema or CQRS like approach there is no resultion for the actions sent by the client
+[20:18] <Karol_Szczepanski> SerialSeb: I'm not sure that the entity body desription should have to be a hydra resource
+[20:19] <Karol_Szczepanski> SerialSeb: endpoint might support image, which is not resolvable
+[20:22] <Karol_Szczepanski> tpluskiewicz: Client is really required to try to dereference a resource
+[20:22] <Karol_Szczepanski> tpluskiewicz: it may choose to dereference it, but it is up to the client
+[20:27] <Karol_Szczepanski> SerialSeb: I have no way of sasying a given ID is not dereferencable
+[20:31] <Karol_Szczepanski> SerialSeb: SerialSeb: I have same issue with supportedClass is not able to display information about non-hydra resources
+[20:31] <Karol_Szczepanski> tpluskiewicz: using RDF means machine readability through HTTP
+[20:36] <Karol_Szczepanski> tpluskiewicz: SHACL can describe RDF, so using JSON-schema wouldn't work
+[20:38] <Karol_Szczepanski> SerialSeb: that's wju I'd love to see rdf:Resource as root for hydra expect/returns and supportedClass
+[20:44] <Karol_Szczepanski> SerialSeb: I know that server won't support GET method for some resources and I have no way of documenting that
+[20:48] <SerialSeb> https://en.wikipedia.org/wiki/HTTPRange-14
+[20:50] <Karol_Szczepanski> Karol_Szczepanski: downgrading hydra:Resource to rdf:Resource could be a braking change
+[20:51] <Karol_Szczepanski> Karol_Szczepanski: only viable solutio I can see now is to explicitely forbid something
+[21:09] <Karol_Szczepanski> ACTION: Karol_Szczepanski raises an issue and introduce solution on how to resolve forbidden GET operation
+[21:17] <SerialSeb> https://www.w3.org/2019/wot/json-schema
+[21:19] <Karol_Szczepanski> tpluskiewicz: my only issue with opening up to rdf:Resource is client would need to understand potentially non-machine readable resources, which makes the client non-generic anymore
