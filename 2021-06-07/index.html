@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telecon Minutes for 2021-07-06 | Hydra W3C Community Group</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site:id" content="1524709850">
+  <meta name="twitter:creator:id" content="64360611">
+  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/minute-styles.css">
+  <!--<![endif]-->
+</head>
+<body>
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
+          <ul>
+              <li><a href="/#specifications">Specifications</a></li>
+              <li><a href="/#community">Community</a></li>
+              <li><a href="/#tooling">Tooling</a></li>
+              <li><a href="/minutes/">Minutes</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content">
+      <div class="pure-g">
+          <div class="l-box pure-u-1">
+              <h1>Hydra W3C Community Group Telecon</h1>
+              <h2>Minutes for 2021-07-06</h2>
+              <div class="summary">
+                  <dl>
+                      <dt>Agenda</dt>
+                      <dd><a href="undefined">undefined</a></dd>
+                      <dt>Chair</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Scribe</dt>
+                      <dd>Karol Szczepański</dd>
+                      <dt>Present</dt>
+                      <dd>Karol Szczepański, Tomasz Pluskiewicz, Matthew Radford</dd>
+                      <dt>Audio Log</dt>
+                      <dd>
+                        <audio controls="controls" preload="none">
+                            <source src="audio.mp3" type="audio/mpeg" />
+                            Warning: Your browser does not support the HTML5 audio element,
+                            please upgrade.<br>
+                            <a href="audio.mp3">audio.mp3</a>
+                        </audio>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="comment"><span class="name">Karol Szczepański</span>: Meeting: Hydra W3C Community Group Conference Call</div>
+              <div class="information">Karol Szczepański is scribing.</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Matthew, what would you like to start with?</div>
+              <div class="comment"><span class="name">Matthew Radford</span>: some usage cases, products, tools maybe could be a good starter, but nothing specific</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  you mentioned there is some use case you're considering hydra for</div>
+              <div class="comment"><span class="name">Matthew Radford</span>: authorization, showing page with roles, permissions etc.</div>
+              <div class="comment"><span class="name">Matthew Radford</span>: providing available to current user operations</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  it was discussed multiple times, it has a potential to fine grain available operations</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  gotchas: level of granularity</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  operations on the class level and on a resource level</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  personally I believe high granularity may become too complex</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  I was using ACL vocabulary by T.B.Lee maintained by SOLID currently to describe what can be done by the user</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  hydra does not has a way to retract operations</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  hydra allows to provide both API documentation and payload inlined hypermedia controls</div>
+              <div class="comment"><span class="name">Matthew Radford</span>: other feature we'd love to have would be simultanously having it tested automatically</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Tomas has some experience with RDF and hypermedia tests</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>: httap://testing.hypermedia.app</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  describing his work on his testing approach, i.e. not disconnected requests, but chains of requests following hypermedia</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  checks available operations vs expected operations, etc.</div>
+              <div class="comment"><span class="name">Tomasz Pluskiewicz</span>:  i hope you'll find it useful</div>
+              <div class="comment"><span class="name">Karol Szczepański</span>:  Matthew, feel free to participate, ask questions and contribute</div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

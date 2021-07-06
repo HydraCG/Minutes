@@ -1,0 +1,23 @@
+[20:07] <Karol_Szczepanski> Meeting: Hydra W3C Community Group Conference Call
+[20:07] <Karol_Szczepanski> Chair: Karol Szczepanski
+[20:08] <Karol_Szczepanski> Scribe: Karol_Szczepanski
+[20:09] <Karol_Szczepanski> Karol_Szczepanski: Matthew, what would you like to start with?
+[20:09] <Karol_Szczepanski> Matthew: some usage cases, products, tools maybe could be a good starter, but nothing specific
+[20:10] <Karol_Szczepanski> Karol_Szczepanski: you mentioned there is some use case you're considering hydra for
+[20:10] <Karol_Szczepanski> Matthew: authorization, showing page with roles, permissions etc.
+[20:11] <Karol_Szczepanski> Matthew: providing available to current user operations
+[20:12] <Karol_Szczepanski> tpluskiewicz: it was discussed multiple times, it has a potential to fine grain available operations
+[20:12] <Karol_Szczepanski> tpluskiewicz: gotchas: level of granularity
+[20:13] <Karol_Szczepanski> tpluskiewicz: operations on the class level and on a resource level
+[20:14] <Karol_Szczepanski> tpluskiewicz: personally I believe high granularity may become too complex
+[20:15] <Karol_Szczepanski> tpluskiewicz: I was using ACL vocabulary by T.B.Lee maintained by SOLID currently to describe what can be done by the user
+[20:16] <Karol_Szczepanski> tpluskiewicz: hydra does not has a way to retract operations
+[20:18] <Karol_Szczepanski> Karol_Szczepanski: hydra allows to provide both API documentation and payload inlined hypermedia controls
+[20:18] <Karol_Szczepanski> Matthew: other feature we'd love to have would be simultanously having it tested automatically
+[20:20] == tpluskiewicz [~tpluskiewicz@8604d15a.public.cloak] has joined #hydra
+[20:20] <Karol_Szczepanski> Karol_Szczepanski: Tomas has some experience with RDF and hypermedia tests
+[20:20] <tpluskiewicz> httap://testing.hypermedia.app
+[20:22] <Karol_Szczepanski> tpluskiewicz: describing his work on his testing approach, i.e. not disconnected requests, but chains of requests following hypermedia
+[20:23] <Karol_Szczepanski> tpluskiewicz: checks available operations vs expected operations, etc.
+[20:24] <Karol_Szczepanski> tpluskiewicz: i hope you'll find it useful
+[20:26] <Karol_Szczepanski> Karol_Szczepanski: Matthew, feel free to participate, ask questions and contribute
