@@ -1,11 +1,9 @@
-/**
- * Scrawl is a tool that is useful for taking minutes via IRC and cleaning them
- * up for public consumption. It takes an IRC log as input and generates a
- * nice, stand-alone HTML page from the input.
- */
-(function (doc) {
-  window.scrawl = window.scrawl || {};
-  var scrawl = window.scrawl;
+  /**
+   * Scrawl is a tool that is useful for taking minutes via IRC and cleaning them
+   * up for public consumption. It takes an IRC log as input and generates a
+   * nice, stand-alone HTML page from the input.
+   */
+  const scrawl = {};
 
   /* The update counter and the timeout is used to delay the update of the
     HTML output by a few seconds so that reformatting the page doesn't
@@ -68,11 +66,7 @@
   };
 
   scrawl.htmlencode = function (text) {
-    var modified = document.createElement('div');
-    modified.textContent = text;
-    modified = modified.innerHTML.replace(urlRx, "<a href=\"$1\">$1</a>");
-
-    return modified;
+    return text.replace(urlRx, "<a href=\"$1\">$1</a>");
   };
 
   scrawl.topic = function (msg, id, textMode) {
@@ -90,7 +84,7 @@
   scrawl.action = function (msg, id, textMode) {
     var rval = "";
     if (textMode == "html") {
-      rval = "<div id=\"action-" + id + "\" class=\"action\"><strong>ACTION</strong>: " +
+      rval = "<a class=\"anchor\" id=\"action-" + id + "\"></a><div class=\"action\"><strong>ACTION</strong>: " +
        scrawl.htmlencode(msg) + "</div>\n";
     } else {
       rval = "\nACTION: " + msg + "\n\n";
@@ -127,7 +121,7 @@
   scrawl.resolution = function (msg, id, textMode) {
     var rval = "";
     if (textMode == "html") {
-      rval = "<div id=\"resolution-" + id + "\" class=\"resolution\">" +
+      rval = "<a class=\"anchor\" id=\"resolution-" + id + "\"></a><div class=\"resolution\">" +
         "<strong>RESOLUTION:</strong> " +
         scrawl.htmlencode(msg) + "</div>\n";
     } else {
@@ -335,7 +329,7 @@
      return rval;
   };
 
-  scrawl.generateSummary = function (context, textMode) {
+  scrawl.generateSummary = function (context, textMode, includeAudio) {
     var rval = "";
     var date = context.date;
     var group = context.group;
@@ -395,13 +389,7 @@
                       `;
       }
 
-      rval += `<dt>Chair</dt>
-                      <dd>${chair}</dd>
-                      <dt>Scribe</dt>
-                      <dd>${scribe}</dd>
-                      <dt>Present</dt>
-                      <dd>${present.join(", ")}</dd>
-                      <dt>Audio Log</dt>
+      const audioTag = `<dt>Audio Log</dt>
                       <dd>
                         <audio controls="controls" preload="none">
                             <source src="${audio}" type="audio/mpeg" />
@@ -409,7 +397,15 @@
                             please upgrade.<br>
                             <a href="${audio}">${audio}</a>
                         </audio>
-                      </dd>
+                      </dd>`;
+
+      rval += `<dt>Chair</dt>
+                      <dd>${chair}</dd>
+                      <dt>Scribe</dt>
+                      <dd>${scribe}</dd>
+                      <dt>Present</dt>
+                      <dd>${present.join(", ")}</dd>
+                      ${includeAudio ? audioTag : ''}
                   </dl>
               </div>\n`;
     } else {
@@ -458,17 +454,10 @@
     return rval;
   };
 
-  scrawl.displayMinutes = function () {
-    minutes = scrawl.generateMinutes("html");
-
-    doc.getElementById("html-output").innerHTML = minutes;
-  };
-
-  scrawl.generateMinutes = function (textMode, mailHeader) {
+  scrawl.generateMinutes = function ({ ircLines, textMode, mailHeader, includeAudio }) {
     var rval = "";
     var minutes = "";
     var summary = "";
-    var ircLines = doc.getElementById("irc-log").value.split("\n");
     var aliases = scrawl.generateAliases();
 
     // initialize the IRC log scanning context
@@ -493,26 +482,30 @@
     }
 
     if (textMode == "text" && mailHeader) {
-      summary += `Thanks ${context.scribe.replace(/\s.*/, '')} for scribing. The minutes from this week's telecon are
-now available at
-
+      let scribeThanks = '';
+      if (context.scribe) {
+        scribeThanks = `Thanks ${context.scribe.replace(/\\s.*/, '')} for scribing. `;
+      }
+      summary += `${scribeThanks}The minutes from this week's telecon are
+  now available at
+  
    http://www.hydra-cg.com/minutes/${context.date}/
-
-The full text of the discussion is below, including a link to the audio
-recording.
-
-
--------------------------------------------------------------------
-`;
+  
+  The full text of the discussion is below, including a link to the audio
+  recording.
+  
+  
+  -------------------------------------------------------------------
+  `;
     }
 
     // generate the meeting summary
-    summary += scrawl.generateSummary(context, textMode);
+    summary += scrawl.generateSummary(context, textMode, includeAudio);
 
     // create the final log output
     rval = summary + minutes;
 
-    return rval;
+    return { content: rval, ...context };
   }
 
   scrawl.updateMinutes = function (event) {
@@ -533,39 +526,4 @@ recording.
     }
   };
 
-  scrawl.hide = function (id) {
-   doc.getElementById(id).style.display = 'none';
-  };
-
-  scrawl.show = function (id) {
-   doc.getElementById(id).style.display = '';
-  };
-
-  scrawl.showMarkup = function (type, mailHeader)
-  {
-    // Display the appropriate markup text area based on the 'type'
-    if (type == "html") {
-      var html = scrawl.htmlHeader
-        + scrawl.generateMinutes("html")
-        + scrawl.htmlFooter;
-
-      scrawl.hide("irc-log");
-      scrawl.hide("text-markup");
-
-      doc.getElementById("html-markup").value = html;
-      scrawl.show("html-markup");
-    } else if (type == "text") {
-      var text = scrawl.generateMinutes(type, mailHeader)
-
-      scrawl.hide("html-markup");
-      scrawl.hide("irc-log");
-
-      doc.getElementById("text-markup").value = text;
-      scrawl.show("text-markup");
-    } else {
-      scrawl.hide("text-markup");
-      scrawl.hide("html-markup");
-      scrawl.show("irc-log");
-    }
-  }
-})(document);
+  module.exports = scrawl;

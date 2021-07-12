@@ -1,55 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How do I Attend a Call? How Do I Run a Call and Scribe? | Hydra W3C Community Group</title>
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site:id" content="1524709850">
-  <meta name="twitter:creator:id" content="64360611">
-  <meta name="twitter:description" content="Hydra simplifies the development of interoperable, hypermedia-driven Web APIs">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:400,700">
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-  <!--[if lte IE 8]>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-  <!--<![endif]-->
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/minute-styles.css">
-  <!--<![endif]-->
-  <style>
-    code {
-      display: block;
-      background-color: #eee;
-      padding: 0.5em 0.5em;
-    }
-    [id] {
-      padding-top: 5em;
-      margin-top: -5em;
-    }
-    strong {
-      color: #222;
-    }
-  </style>
-</head>
-<body>
-  <div class="header">
-      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-          <span class="pure-menu-heading"><a href="/"><img src="/img/logo.svg" alt="Hydra"></a></span>
-          <ul>
-              <li><a href="/#specifications">Specifications</a></li>
-              <li><a href="/#community">Community</a></li>
-              <li><a href="/#tooling">Tooling</a></li>
-              <li><a href="/minutes/">Minutes</a></li>
-          </ul>
-      </div>
-  </div>
+---
+layout: default
+title: How do I Attend a Call? How Do I Run a Call and Scribe?
+---
 
-  <div class="content">
-      <div class="pure-g">
-          <div class="l-box pure-u-1">
               <h1>Telephone Conferences</h1>
               <h2 id="attend">How Do I Attend a Call?</h2>
               <p>We use UberConference and IRC for our conference calls. You can dial in by browsing to
@@ -144,30 +97,23 @@
                 create a pull request to upload them to GitHub:</p>
               <ul>
                 <li>Create a new folder using the date of the conference call in the format <i>yyyy-mm-dd</i>.</li>
-                <li>Create a file <i>irc.log</i> containing the IRC log of the conference call.</li>
-                <li>Open <a href="http://www.hydra-cg.com/minutes/scribetool/">scribetool</a> and paste the
-                  IRC log in to the text field at the bottom of the screen.</li>
-                <li>Spend two minutes to check the nicely formatted minutes.
-                  <ul>
-                    <li> Are all the fields at the top such as the agenda, the scribe and the participants
-                      populated correctly?</li>
-                    <li>Is every statement attributed to the right person (it sometimes happens that you forget
-                      the three dots for a continuation)?</li>
-                    <li>Are all action items, proposals and resolutions marked up correctly?</li>
-                  </ul>
-                </li>
-                <li>Switch to HTML mode by clicking the "Show HTML" button on the right and copy the result
-                  into a file called <i>index.html</i>. <strong>Please do not manually edit the HTML code in any way
-                  as it might break automated processing of those files!</strong></li>
+                <li>Create a file <i>irc.log</i> containing the IRC log of the conference call. (has to be UTF-8)</li>
                 <li>Create a pull request to add the folder containing the two files to
-                  <a href="https://github.com/HydraCG/Minutes">HydraCG/Minutes on GitHub</a> and give owners
-                  permissions to add files to your pull request (this will be used to add the audio recording).</li>
+                    <a href="https://github.com/HydraCG/Minutes">HydraCG/Minutes on GitHub</a> and give owners
+                    permissions to add files to your pull request (this will be used to add the audio recording).
+                </li>
+                <li>Spend two minutes to check the nicely formatted minutes (automatically published to Netlify).
+                    <ul>
+                        <li> Are all the fields at the top such as the agenda, the scribe and the participants
+                            populated correctly?
+                        </li>
+                        <li>Is every statement attributed to the right person (it sometimes happens that you forget
+                            the three dots for a continuation)?
+                        </li>
+                        <li>Are all action items, proposals and resolutions marked up correctly?</li>
+                    </ul>
+                </li>
               </ul>
               <p>Finally, please <a href="https://www.w3.org/community/hydra/wiki/Scribes">record attendance in our wiki</a>
                 and send the meeting minutes to <a href="mailto:public-hydra@w3.org">public-hydra@w3.org</a>.
-                You can use scribetool's text output.</p>
-          </div>
-      </div>
-  </div>
-</body>
-</html>
+                The meeting notes in email form will be generated as <code>/yyyy-mm-dd/mail.html</code> resource.</p>
